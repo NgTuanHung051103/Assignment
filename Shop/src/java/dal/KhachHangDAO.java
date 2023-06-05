@@ -11,16 +11,16 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
  *
  * @author NgTua
  */
 public class KhachHangDAO {
+
     private final DBContext conn = new DBContext();
-    
+
     public ArrayList<String> get_Tk_KhachHangs() {
-          ArrayList<String> List_Tk_KhachHangs = new ArrayList<String>();
+        ArrayList<String> List_Tk_KhachHangs = new ArrayList<String>();
         try {
             String sql = "Select tk From KhachHang";
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
@@ -35,8 +35,21 @@ public class KhachHangDAO {
         }
         return List_Tk_KhachHangs;
     }
-  
-    
-    
-    
+
+    public String get_Mk_ByTk(String Tk) {
+        try {
+            String sql = "Select Mk From KhachHang Where Tk = ?";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            statement.setString(1, Tk);
+            ResultSet rs = statement.executeQuery();
+            if(rs.next())
+                return rs.getString("Mk");
+        } catch (SQLException ex) {
+            Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
 }
