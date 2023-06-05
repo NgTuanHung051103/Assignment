@@ -23,8 +23,8 @@ public class list extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          SanPhamDAO db = new SanPhamDAO();
-             ArrayList<SanPham> List_SanPhams = db.getSanPhams();
+          SanPhamDAO SPdb = new SanPhamDAO();
+             ArrayList<SanPham> List_SanPhams = SPdb.getSanPhams();
              System.out.println("1");
              if(List_SanPhams == null)
         {

@@ -28,7 +28,7 @@
     font-size: 20px;
     /* font-weight: bold; */
   
-    width: 70%;
+    width: 85%;
      display: flex;
      justify-content: space-between; 
   }
@@ -40,6 +40,7 @@
   .nav-link{
    text-decoration: none;
    color: #1f2022;
+   /*color: red;*/
   }
   /* Navbar-right */
   .navbar-right{
