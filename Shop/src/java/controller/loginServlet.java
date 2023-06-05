@@ -6,13 +6,11 @@ package controller;
 
 import dal.KhachHangDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
-import model.KhachHang;
 
 /**
  *
@@ -22,15 +20,14 @@ public class loginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         request.getRequestDispatcher("testResult.jsp").forward(request, response);
     }
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String tk = request.getParameter("fullname");
         String mk = request.getParameter("password");
-        
-        KhachHangDAO KHdb = new KhachHangDAO();
+         KhachHangDAO KHdb = new KhachHangDAO();
         ArrayList<String> List_Tk_KhachHangs = KHdb.get_Tk_KhachHangs();
         String result = List_Tk_KhachHangs.get(0);
         request.setAttribute("result", result);

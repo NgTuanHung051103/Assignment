@@ -53,7 +53,7 @@
                 <button class="form-submit">Đăng ký</button>
             </form>
 
-            <form action="loginServlet" method="POST" class="form" id="form-2">
+            <form action="${pageContext.request.contextPath}/loginServlet" method="POST" class="form" id="form-2">
                 <h3 class="heading">Đăng nhập</h3>
                 <p class="desc">Cùng vui nào ❤️</p>
 
