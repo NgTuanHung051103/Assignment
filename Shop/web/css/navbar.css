@@ -1,0 +1,71 @@
+
+#navbar{
+    background-color: white;
+    height: 70px;
+    text-decoration: none;
+  }
+  
+  .logo{
+    height: 100%;
+  }
+  
+  .navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .navbar-left{
+    background-color: white;
+    width: 470px;
+    height: 70px;
+    margin-left: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .navbar-left-products{
+    list-style: none;
+    font-size: 20px;
+    /* font-weight: bold; */
+  
+    width: 70%;
+     display: flex;
+     justify-content: space-between; 
+  }
+  .nav-product{
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-link{
+   text-decoration: none;
+   color: #1f2022;
+  }
+  /* Navbar-right */
+  .navbar-right{
+    justify-content: flex-end;
+    background-color: white;
+        width: 250px;
+        height: 70px;
+        margin-right: 100px;
+  }
+  
+  .navbar-right-ul{
+    list-style: none;
+    font-size: 20px;
+    /* font-weight: bold; */
+     display: flex;
+     height: 70px;
+     justify-content: space-between; 
+     margin: 0px;
+  }
+  
+  .nav-info{
+     display: flex;
+    align-items: center;
+  }
+  
+  .fa-magnifying-glass{
+  
+  }
+  
