@@ -46,8 +46,9 @@
                                 </a>
                             </li>
                             <li class="nav-info">
-                                <a href="" class = "nav-link">
-                                    <i class="fa-regular fa-user"></i>
+                                <a href="${pageContext.request.contextPath}/view/user/homepage/login.jsp" class = "nav-link">
+                                    <i class="fa-regular fa-user">
+                                    </i>
                                 </a>
                             </li>
                             <li class="nav-info">
@@ -57,7 +58,8 @@
                             </li>
                             <li class="nav-info">
                                 <a href="" class = "nav-link">
-                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    <i class="fa-solid fa-cart-shopping">
+                                    </i>
                                 </a>
                             </li>
                         </ul>

@@ -12,7 +12,6 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
         <!-- Bootrap -->
-        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.1/dist/js/bootstrap.bundle.min.js"></script>
 
     </head>
