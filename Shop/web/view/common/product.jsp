@@ -9,26 +9,40 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
-     <!-- Bootrap -->
-         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-        
-    <link href="${pageContext.request.contextPath}/css/common/products.css">
+        <!-- Bootrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+        <link href="${pageContext.request.contextPath}/css/common/products.css">
+        <link href="${pageContext.request.contextPath}/css/common/pagination.css">
         <title>JSP Page</title>
     </head>
     <body>
-        
-       <div class="container">
+
+        <div class="container">
             <div class="row">
-
-                <div class="col-lg-3">
-                    <div class = "hello"></div>
+                
+                
+                <div class="category-nhomSP col-md-2">
+                    <c:set var = "nhomSP_ID" value = "${requestScope.nhomSP_ID}"/>
+                    <c:forEach items = "${requestScope.data}" var ="c">
+                        <a class ="${c.getMaNhom() == nhomSP_ID?"active":""}" href ="list?nhomSP_ID=${c.getMaNhom()}">${c.getTenNhom()}</a>
+                    </c:forEach>
                 </div>
+                    
+                    
+                <c:set var = "pageNow" value = "${requestScope.pageNow}"/>
+                    <div class ="paginationOfProduct">
+                        <c:forEach begin ="${1}" end = "${requestScope.numPage}" var = "i">
+                            <a class = "${i==pageNow?"active":""}"  href="list?pageNow=${i}&nhomSP_ID=${nhomSP_ID}">${i}</a>
+                        </c:forEach>
+                    </div>
 
-                <div class="col-lg-9">
+
+                <div class="product col-md-10">
                     <div class="row">
-                        <c:forEach items="${listP}" var="o">
+                        <c:forEach items="${requestScope.listOfPage}" var="o">
                             <div class="col-lg-4" style="float:left">
                                 <div class="card">
                                     <img class="card-img-top" style="height:300px"src="${pageContext.request.contextPath}/images/Logo.png" alt="Card image cap">
@@ -48,11 +62,15 @@
                             </div>
                         </c:forEach>
                     </div>
+                   
                 </div>
+
 
             </div>
         </div>
-        
-    
+
+
+
+
     </body>
 </html>

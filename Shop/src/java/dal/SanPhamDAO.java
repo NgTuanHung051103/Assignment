@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.SanPham;
@@ -38,4 +39,37 @@ public class SanPhamDAO {
         }
         return List_SanPhams;
     }
+     
+     public ArrayList<SanPham> getListByPage(ArrayList<SanPham> list, int start, int end){
+         ArrayList<SanPham> arr = new ArrayList<>();
+         for( int i = start; i < end; i++ ){
+             arr.add(list.get(i));
+         }
+         return arr;
+     }
+     
+     public ArrayList<SanPham> getListByCategory(int category){
+         ArrayList<SanPham> List_SanPhams = new ArrayList<>();
+        try {
+            String sql = "Select * From SanPham where NhomSP = ?";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            statement.setInt(1, category);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                SanPham s = new SanPham();
+                s.setMaSP(rs.getInt("MaSP"));
+                s.setTenSP(rs.getString("TenSP"));
+                s.setThuongHieu(rs.getString("ThuongHieu"));
+                 s.setImg(rs.getString("Img"));
+                s.setGiaThanh(rs.getInt("GiaThanh"));
+                s.setNhomSP(rs.getInt("NhomSP"));
+                List_SanPhams.add(s);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return List_SanPhams;
+     }
 }
