@@ -26,15 +26,17 @@
                 <a  href ="list?nhomSP_ID=${c.getMaNhom()}">${c.getTenNhom()}</a><br/>
             </c:forEach>
         </div>
-            
         <div class="container" style ="margin-top: 20px;">
+
+
+
             <!--hien thi noi dung san pham-->
             <div class="product">
                 <div class="row">
                     <c:forEach items="${requestScope.listOfPage}" var="o">
-                        <div class="col-lg-3" style="float:left">
+                        <div class="col-lg-4" style="float:left">
                             <div class="card">
-                                <img class="card-img-top" style="height:300px"src="${o.getImg()}" alt="Card image cap">
+                                <img class="card-img-top" style="height:300px"src="${pageContext.request.contextPath}/images/Logo.png" alt="Card image cap">
                                 <div class="card-body">
                                     <h4 class="card-title show_txt"><a href="#" title="View Product">${o.getTenSP()}</a></h4>
                                     <p class="card-text show_txt">${o.getTenSP()}</p>
@@ -60,6 +62,8 @@
                     </c:forEach>
                 </div>
             </div>
+
+
         </div>
     </div>
 

@@ -48,6 +48,7 @@ public class SanPhamDAO {
          return arr;
      }
      
+//     get list san pham theo tung nhom o phan index.jsp
      public ArrayList<SanPham> getListByCategory(int category){
          ArrayList<SanPham> List_SanPhams = new ArrayList<>();
         try {
@@ -72,4 +73,31 @@ public class SanPhamDAO {
         }
         return List_SanPhams;
      }
+     
+//     su dung thanh search o trang index.jsp de search ten
+      public ArrayList<SanPham> getListBySearchName(String txtSearch){
+         ArrayList<SanPham> List_SanPhams = new ArrayList<>();
+        try {
+            String sql = "Select * From SanPham where TenSP LIKE ?";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            statement.setString(1, "%"+txtSearch+"%");
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                SanPham s = new SanPham();
+                s.setMaSP(rs.getInt("MaSP"));
+                s.setTenSP(rs.getString("TenSP"));
+                s.setThuongHieu(rs.getString("ThuongHieu"));
+                 s.setImg(rs.getString("Img"));
+                s.setGiaThanh(rs.getInt("GiaThanh"));
+                s.setNhomSP(rs.getInt("NhomSP"));
+                List_SanPhams.add(s);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return List_SanPhams;
+     }
+     
 }

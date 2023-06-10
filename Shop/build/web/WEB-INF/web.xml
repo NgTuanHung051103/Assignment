@@ -4,20 +4,36 @@
         <servlet-name>list</servlet-name>
         <servlet-class>controller.list</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>search</servlet-name>
+        <servlet-class>controller.search</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>quat</servlet-name>
+        <servlet-class>controller.quat</servlet-class>
+    </servlet>
     
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/list</url-pattern>
     </servlet-mapping>
-    
     <servlet>
         <servlet-name>loginServlet</servlet-name>
         <servlet-class>controller.loginServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>loginServlet</servlet-name>
         <url-pattern>/loginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>search</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>quat</servlet-name>
+        <url-pattern>/quat</url-pattern>
     </servlet-mapping>
     
     <session-config>

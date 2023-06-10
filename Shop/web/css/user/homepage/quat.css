@@ -1,0 +1,16 @@
+.hide {
+    display: none;
+  }
+  
+  .filter-property{
+      display: flex;
+      flex-direction: row;
+      list-style: none
+    
+      background-color: red;
+  }
+  
+  .filter-property-list{
+            margin: 0px 10px;
+  }
+  

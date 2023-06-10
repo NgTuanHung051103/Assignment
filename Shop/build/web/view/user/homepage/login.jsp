@@ -82,7 +82,7 @@
 
         </div>
 
-        <script src="validate.js"></script>
+        <script src="${pageContext.request.contextPath}/javascript/user/homepage/validate.js"></script>
         <script>
 
             document.addEventListener('DOMContentLoaded', function () {

@@ -12,7 +12,7 @@
         <title>JSP Page</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/fonts/fontawesome-free-6.4.0-web/css/all.min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common/navbar.css">  
-        
+
     </head>
     <body>
         <section id="navbar">
@@ -24,7 +24,7 @@
                         </a>
                         <ul class = "navbar-left-products">
                             <li class="nav-product">
-                                <a href="" class = "nav-link" style="color: #1f2022;">Quat</a>
+                                <a href="${pageContext.request.contextPath}/view/user/homepage/quat.jsp" class = "nav-link" style="color: #1f2022;">Quat</a>
                             </li>
                             <li class="nav-product">
                                 <a href="" class = "nav-link" style="color: #1f2022;">Ti vi</a>
@@ -41,9 +41,12 @@
                     <div class="navbar-right">
                         <ul class="navbar-right-ul">
                             <li class="nav-info">
-                                <a href="" class = "nav-link" style="color: #1f2022;">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                </a>
+                                <form action="search" method="GET">
+                                    <input name ="txtSearch"  type="text" placeholder="Looking for?">
+                                    <button type="submit">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </form>
                             </li>
                             <li class="nav-info">
                                 <a href="${pageContext.request.contextPath}/view/user/homepage/login.jsp" class = "nav-link" style="color: #1f2022;">
