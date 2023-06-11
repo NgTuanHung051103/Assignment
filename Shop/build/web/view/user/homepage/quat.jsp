@@ -29,52 +29,51 @@
 
             <div style="margin-top: 40px;"></div>
 
-        <% String s = (String)request.getAttribute("loai-quat");%>
-        <h1> <%=s%> </h1>
-
+        <c:set var ="loat_quat" value = "${requestScope.loai_quat}"/> 
+        <c:set var ="thuong_hieu" value = "${requestScope.thuong_hieu}"/>
+        <c:set var ="so_canh_quat" value = "${requestScope.so_canh_quat}"/>
+        <c:set var ="gia" value = "${requestScope.gia}"/>
 
         <form action ="${pageContext.request.contextPath}/quat" method ="GET">
             <ul class ="filter-property" style="list-style: none;">
                 <li class ="filter-property-list"> 
-                    <select name = "loai-quat" id="filter-color" >
-                        <option value="all" ${ (s.equalsIgnoreCase("") || s.equalsIgnoreCase("all")) ? 'selected' : '' }>Tất cả</option>
-                        <option value="quat-treo-tuong" ${ s.equalsIgnoreCase("quat-treo-tuong") ? 'selected' : '' }>Quạt treo tường</option>
-                        <option value="quat-dung" ${ s.equalsIgnoreCase("quat-dung") ? 'selected' : '' }>Quạt đứng</option>
-                        <option value="quat-tran" ${ s.equalsIgnoreCase("quat-tran") ? 'selected' : '' }>Quạt trần</option>
+                    <select name = "loai_quat" id="filter-color" >
+                        <option value="all"  ${loai_quat.equalsIgnoreCase("all")?'selected':''}>Tất cả</option>
+                        <option value="treo"  ${loai_quat.equalsIgnoreCase("treo")?'selected':''}>Quạt treo tường</option>
+                        <option value= "chan"  ${loai_quat.equalsIgnoreCase("chan")?'selected':''}>Quạt đứng</option>
+                        <option value="tren"  ${loai_quat.equalsIgnoreCase("tren")?'selected':''}>Quạt trần</option>
                     </select>
-                </li>
+                </li> 
                 <li class ="filter-property-list">
-                    <select name = "hang" id="filter-size" value ="S">
-                        <option value="all">Tất cả</option>
-                        <option value="Senko">S</option>
-                        <option value="asia">M</option>
-                        <option value="kdk">L</option>
+                    <select name = "thuong_hieu" id="filter-size" >
+                        <option value="1"  ${thuong_hieu==1?'selected':''}>Tất cả</option>
+                        <option value="2"  ${thuong_hieu==2?'selected':''}>Senko</option>
+                        <option value="3" ${thuong_hieu==3?'selected':''}>Asia</option>
+                        <option value="4"  ${thuong_hieu==4?'selected':''}>KDK</option>
                     </select>
                 </li>
                 <li class ="filter-property-list"> 
-                    <select name ="so-canh-quat" id="filter-gender">
-                        <option value="all">Tất cả</option>
-                        <option value="3">3 canh</option>
-                        <option value="4">bon canh</option>
-                        <option value="5">nam canh</option>e
-                        <option value="6">sau canh</option>
+                    <select name ="so_canh_quat" id="filter-gender">
+                        <option value="1" ${so_canh_quat==1?'selected':''}>Tất cả</option>
+                        <option value="2" ${so_canh_quat==2?'selected':''}>3 cánh</option>
+                        <option value="3" ${so_canh_quat==3?'selected':''}>4 cánh</option>
+                        <option value="4" ${so_canh_quat==4?'selected':''}>5 cánh</option>
+                        <option value="5" ${so_canh_quat==5?'selected':''}>6 cánh</option>
                     </select>
                 </li>
                 <li class ="filter-property-list">
                     <select name ="gia" id="filter-price">
-                        <option value="all">Tất cả</option>
-                        <option value="0-300">Dưới 300k</option>
-                        <option value="300-500">300k-500k</option>
-                        <option value="500-1000">500k-1000k</option>
-                        <option value=">1000">Tren 1000k</option>
+                        <option value="1" ${gia==1?'selected':''}>Tất cả</option>
+                        <option value="2" ${gia==2?'selected':''}>Dưới 300k</option>
+                        <option value="3" ${gia==3?'selected':''}>300k-500k</option>
+                        <option value="4" ${gia==4?'selected':''}>500k-1000k</option>
+                        <option value="5" ${gia==5?'selected':''}>Tren 1000k</option>
                     </select>
                 </li>
             </ul>
-
-            <button class="submit-filter">Tim Kiem</button>
+            <div>
+                <button class="submit-filter">Tim Kiem</button>
         </form>
-
-
 
         <!--Product-->
         <div class="container" style ="margin-top: 20px;">
@@ -103,7 +102,7 @@
                 <div class ="paginationOfProduct">
                     <c:set var = "pageNow" value = "${requestScope.pageNow}"/>
                     <c:forEach begin ="${1}" end = "${requestScope.numPage}" var = "i">
-                        <a class = "${ i == pageNow?"active":""}"  href="quat?pageNow=${i}">${i}</a>
+                        <a class = "${ i == pageNow?"active":""}"  href="quat?pageNow=${i}&loai_quat=${loai_quat}&thuong_hieu=${thuong_hieu}&so_canh_quat=${so_canh_quat}&gia=${gia}">${i}</a>
                     </c:forEach>
                 </div>
             </div>
@@ -118,37 +117,6 @@
 
 
 
-    <script>
-        // Lấy các phần tử select
-        var filterColor = document.getElementById("filter-color");
-        var filterSize = document.getElementById("filter-size");
-        var productList = document.getElementById("product-list");
-
-        // Lắng nghe sự kiện khi thay đổi các select
-        filterColor.addEventListener("change", filterProducts);
-        filterSize.addEventListener("change", filterProducts);
-
-        // Hàm lọc sản phẩm
-        function filterProducts() {
-            var selectedColor = filterColor.value;
-            var selectedSize = filterSize.value;
-
-            // Lặp qua từng sản phẩm để kiểm tra tính chất
-            var products = productList.getElementsByClassName("product");
-            for (var i = 0; i < products.length; i++) {
-                var product = products[i];
-                var color = product.dataset.color;
-                var size = product.dataset.size;
-
-                // Kiểm tra tính chất và ẩn/hiển thị sản phẩm
-                if ((selectedColor !== "" && color !== selectedColor) || (selectedSize !== "" && size !== selectedSize)) {
-                    product.classList.add("hide");
-                } else {
-                    product.classList.remove("hide");
-                }
-            }
-        }
-
-    </script>
+ 
 
 </html>

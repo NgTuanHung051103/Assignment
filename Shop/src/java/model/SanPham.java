@@ -72,6 +72,11 @@ public class SanPham {
         this.Img = Img;
     }
 
+    @Override
+    public String toString() {
+        return "SanPham{" + "MaSP=" + MaSP + ", GiaThanh=" + GiaThanh + ", NhomSP=" + NhomSP + ", TenSP=" + TenSP + ", ThuongHieu=" + ThuongHieu + ", Img=" + Img + '}';
+    }
+
     
     
 }

@@ -24,17 +24,28 @@ public class quat extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+     
+        String loai_quat_str = request.getParameter("loai_quat");
+        String thuong_hieu_str = request.getParameter("thuong_hieu");
+        String so_canh_quat_str = request.getParameter("so_canh_quat");
+        String gia_str = request.getParameter("gia");
+        System.out.println("1");
+//        int loai_quat = Integer.parseInt(loai_quat_str);
+        int thuong_hieu = Integer.parseInt(thuong_hieu_str);
+        int so_canh_quat = Integer.parseInt(so_canh_quat_str);
+        int gia = Integer.parseInt(gia_str);
         
-        String loai_quat = request.getParameter("loai-quat");
-        String hang = request.getParameter("hang");
-        String so_canh_quat = request.getParameter("so-canh-quat");
-        String gia = request.getParameter("gia");
-        
+//        String[] list_loai_quat = {"", "treo",  "đứng", "trần"};
+        String[] list_thuong_hieu = {"", "Senko", "Asia", "KDK"};
+        String[] list_canh_quat = {"", "3", "4", "5", "6"};
+        String[] list_gia = {"", "1", "2", "3", "4"};
+            
 //        Code: xu ly de lay: listOfPage: list trang hien tai
 //                                       pageNow; stt trang hien tai
 //                                       numPage: tong so trang
          SanPhamDAO SPdb = new SanPhamDAO();
-        ArrayList<SanPham> List_SanPhams = SPdb.getListByCategory(1);
+        ArrayList<SanPham> List_SanPhams = 
+        SPdb.getListByFilter(loai_quat_str,thuong_hieu-1,so_canh_quat-1,gia-1);
         
        int pageNow, numPerPage = 8, size = List_SanPhams.size(),
                 numPage = ( size%numPerPage == 0 ? (size / numPerPage ): ( (size/numPerPage) +  1) );
@@ -49,8 +60,13 @@ public class quat extends HttpServlet {
        
         ArrayList<SanPham> listOfPage = SPdb.getListByPage(List_SanPhams, start, end);
         
-//       set cac thong so can thiet;[
-        request.setAttribute("loai-quat",loai_quat);
+//       set cac thong so can thiet;[ 
+
+        request.setAttribute("loai_quat",loai_quat_str);
+        request.setAttribute("thuong_hieu",thuong_hieu);
+         request.setAttribute("so_canh_quat",so_canh_quat);
+        request.setAttribute("gia",gia);
+            
         request.setAttribute("listOfPage", listOfPage);
         request.setAttribute("pageNow", pageNow);
         request.setAttribute("numPage", numPage);
