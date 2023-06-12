@@ -29,7 +29,7 @@ public class search extends HttpServlet {
 //                                       numPage: tong so trang
         String txtSearch = request.getParameter("txtSearch");
         SanPhamDAO SPdb = new SanPhamDAO();
-
+        System.out.println(txtSearch);
         ArrayList<SanPham> List_SanPhams = SPdb.getListBySearchName(txtSearch);
 
         int pageNow, numPerPage = 8, size = List_SanPhams.size(),

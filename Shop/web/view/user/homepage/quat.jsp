@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
     <head>
         <meta charset="UTF-8">
@@ -40,8 +40,8 @@
                     <select name = "loai_quat" id="filter-color" >
                         <option value="all"  ${loai_quat.equalsIgnoreCase("all")?'selected':''}>Tất cả</option>
                         <option value="treo"  ${loai_quat.equalsIgnoreCase("treo")?'selected':''}>Quạt treo tường</option>
-                        <option value= "chan"  ${loai_quat.equalsIgnoreCase("chan")?'selected':''}>Quạt đứng</option>
-                        <option value="tren"  ${loai_quat.equalsIgnoreCase("tren")?'selected':''}>Quạt trần</option>
+                        <option value= "đứng"  ${loai_quat.equalsIgnoreCase("đứng")?'selected':''}>Quạt đứng</option>
+                        <option value="trần"  ${loai_quat.equalsIgnoreCase("trần")?'selected':''}>Quạt trần</option>
                     </select>
                 </li> 
                 <li class ="filter-property-list">

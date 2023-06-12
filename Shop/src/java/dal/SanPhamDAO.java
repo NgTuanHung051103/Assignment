@@ -108,31 +108,58 @@ public class SanPhamDAO {
         String[] list_gia = {"", "1", "2", "3", "4"};
         try {
             String sql = "select s.MaSP,s.ThuongHieu, TenSP, Img, GiaThanh, NhomSP from SanPham s Inner join TSKTQuat t on\n"
-                    + " s.MaSP = t.MaSP where 1=1\n";
-            if(! loai_quat.equalsIgnoreCase("all") ){
-                sql += " and t.LoaiQuat like '%" +loai_quat +"%'";
-            } 
-            if(!list_thuong_hieu[thuong_hieu].equalsIgnoreCase("")){
-                sql += " and s.ThuongHieu like '%" + list_thuong_hieu[thuong_hieu] +"%'";
-            } 
-            if(!list_canh_quat[canh_quat].equalsIgnoreCase("")){
-                sql += " and t.SoCanhQuat like '%" +list_canh_quat[canh_quat] +"%'";
-            } 
-            if(!list_gia[gia].equalsIgnoreCase("")){
-                if( list_gia[gia].equalsIgnoreCase("1"))
-                    sql += " and s.GiaThanh <300000";
-                if(list_gia[gia].equalsIgnoreCase("1"))
-                    sql += " and s.GiaThanh > 300000  and s.GiaThanh <500000";
-                if(list_gia[gia].equalsIgnoreCase("1"))
-                    sql += " and s.GiaThanh > 500000  and s.GiaThanh <1000000";
-                if( list_gia[gia].equalsIgnoreCase("1"))
-                    sql += " and s.GiaThanh >1000000";
-            } 
-            System.out.println(sql);
+                    + " s.MaSP = t.MaSP "
+                    + "where "
+                    + "       t.LoaiQuat LIKE ? "
+                    + "and s.ThuongHieu like  ?  "
+                    + "and t.SoCanhQuat like ? "
+                    + "and  s.GiaThanh > ? and s.GiaThanh < ?\n";
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            if(! loai_quat.equalsIgnoreCase("all") ){
+                statement.setString(1, "%"+loai_quat+"%");
+            }else{
+                statement.setString(1, "%%");
+            }
+            
+            if(!list_thuong_hieu[thuong_hieu].equalsIgnoreCase("") ){
+                statement.setString(2, "%"+list_thuong_hieu[thuong_hieu]+"%");
+            }else{
+                statement.setString(2, "%%");
+            }
+            
+            if(!list_canh_quat[canh_quat].equalsIgnoreCase("") ){
+                statement.setString(3, "%"+list_canh_quat[canh_quat]+"%");
+            }else{
+                statement.setString(3, "%%");
+            }
+            
+             if(!list_gia[gia].equalsIgnoreCase("")){
+                 if( list_gia[gia].equalsIgnoreCase("1")){
+                     statement.setInt(4, 0);
+                     statement.setInt(5, 300000);
+                 }
+                if(list_gia[gia].equalsIgnoreCase("2")){
+                     statement.setInt(4, 300000);
+                     statement.setInt(5, 500000);
+                }
+                if(list_gia[gia].equalsIgnoreCase("3")){
+                     statement.setInt(4, 500000);
+                     statement.setInt(5, 1000000);
+                }
+                if( list_gia[gia].equalsIgnoreCase("4")){
+                     statement.setInt(4, 1000000);
+                     statement.setInt(5, Integer.MAX_VALUE);
+                }
+             } else{
+                statement.setInt(4, 0);
+                statement.setInt(5, Integer.MAX_VALUE);
+            }
+              
+       
+            
+            
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                System.out.println("1");
                 SanPham s = new SanPham();
                 s.setMaSP(rs.getInt("MaSP"));
                 s.setTenSP(rs.getString("TenSP"));
@@ -141,7 +168,6 @@ public class SanPhamDAO {
                 s.setGiaThanh(rs.getInt("GiaThanh"));
                 s.setNhomSP(rs.getInt("NhomSP"));
                 List_SanPhams.add(s);
-                System.out.println(s);
             }
         } catch (SQLException ex) {
             Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);

@@ -44,6 +44,7 @@ public class quat extends HttpServlet {
 //                                       pageNow; stt trang hien tai
 //                                       numPage: tong so trang
          SanPhamDAO SPdb = new SanPhamDAO();
+         
         ArrayList<SanPham> List_SanPhams = 
         SPdb.getListByFilter(loai_quat_str,thuong_hieu-1,so_canh_quat-1,gia-1);
         
