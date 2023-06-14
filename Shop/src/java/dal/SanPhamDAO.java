@@ -75,12 +75,12 @@ public class SanPhamDAO {
         return List_SanPhams;
     }
     //     su dung thanh search o trang index.jsp de search ten
-    public ArrayList<SanPham> getListBySearchName(String txtSearch) {
+    public ArrayList<SanPham> getListBySearchName(String key) {
         ArrayList<SanPham> List_SanPhams = new ArrayList<>();
         try {
             String sql = "Select * From SanPham where TenSP LIKE ?";
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
-            statement.setString(1, "%" + txtSearch + "%");
+            statement.setString(1, "%" + key + "%");
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 SanPham s = new SanPham();
@@ -102,7 +102,6 @@ public class SanPhamDAO {
     
     public ArrayList<SanPham> getListByFilter(String loai_quat, int thuong_hieu, int canh_quat, int gia) {
         ArrayList<SanPham> List_SanPhams = new ArrayList<>();
-//        String[] list_loai_quat = {"", "treo",  "đứng", "trần"};
         String[] list_thuong_hieu = {"", "Senko", "Asia", "KDK"};
         String[] list_canh_quat = {"", "3", "4", "5", "6"};
         String[] list_gia = {"", "1", "2", "3", "4"};
@@ -115,24 +114,29 @@ public class SanPhamDAO {
                     + "and t.SoCanhQuat like ? "
                     + "and  s.GiaThanh > ? and s.GiaThanh < ?\n";
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            
+//           loai quat
             if(! loai_quat.equalsIgnoreCase("all") ){
                 statement.setString(1, "%"+loai_quat+"%");
             }else{
                 statement.setString(1, "%%");
             }
             
+//            thuong hieu
             if(!list_thuong_hieu[thuong_hieu].equalsIgnoreCase("") ){
                 statement.setString(2, "%"+list_thuong_hieu[thuong_hieu]+"%");
             }else{
                 statement.setString(2, "%%");
             }
             
+//            canh quat
             if(!list_canh_quat[canh_quat].equalsIgnoreCase("") ){
                 statement.setString(3, "%"+list_canh_quat[canh_quat]+"%");
             }else{
                 statement.setString(3, "%%");
             }
             
+//            gia tien
              if(!list_gia[gia].equalsIgnoreCase("")){
                  if( list_gia[gia].equalsIgnoreCase("1")){
                      statement.setInt(4, 0);
@@ -154,10 +158,6 @@ public class SanPhamDAO {
                 statement.setInt(4, 0);
                 statement.setInt(5, Integer.MAX_VALUE);
             }
-              
-       
-            
-            
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 SanPham s = new SanPham();

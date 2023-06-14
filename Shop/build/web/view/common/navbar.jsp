@@ -19,7 +19,7 @@
             <div class="container">
                 <nav class="navbar">
                     <div class="navbar-left">
-                        <a href="" class="navbar-logo">
+                        <a href="${pageContext.request.contextPath}/list" class="navbar-logo">
                             <img class="logo" src="${pageContext.request.contextPath}/images/Logo.png" alt="">
                         </a>
                         <ul class = "navbar-left-products">
@@ -38,7 +38,7 @@
                         </ul>
 
                     </div>
-                    <div class="navbar-right">
+                    <div class="navbar-right" >
                         <ul class="navbar-right-ul">
                             <li class="nav-info">
                                 <form action="search" method="GET">

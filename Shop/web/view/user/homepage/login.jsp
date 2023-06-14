@@ -66,14 +66,14 @@
                 </div> -->
 
                 <div class="form-group">
-                    <label for="fullname" class="form-label">Tên dang nhap</label>
-                    <input id="fullname" name="fullname" type="text" placeholder="VD: NgTuanHung" class="form-control">
+                    <label for="fullname_Login" class="form-label">Tên dang nhap</label>
+                    <input id="fullname" name="fullname_Login" type="text" placeholder="VD: NgTuanHung" class="form-control">
                     <span class="form-message"></span>
                 </div>
 
                 <div class="form-group">
-                    <label for="password" class="form-label">Mật khẩu</label>
-                    <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                    <label for="password_Login" class="form-label">Mật khẩu</label>
+                    <input id="password" name="password_Login" type="password" placeholder="Nhập mật khẩu" class="form-control">
                     <span class="form-message"></span>
                 </div>
 
@@ -84,7 +84,7 @@
 
         <script src="${pageContext.request.contextPath}/javascript/user/homepage/validate.js"></script>
         <script>
-
+        
             document.addEventListener('DOMContentLoaded', function () {
                 // Mong muốn của chúng ta
                 Validator({
@@ -100,6 +100,7 @@
                             return document.querySelector('#form-1 #password').value;
                         }, 'Mật khẩu nhập lại không chính xác')
                     ],
+//                    khi dung thi xoa di
                     onSubmit: function (data) {
                         // Call API
                         console.log(data);
@@ -116,10 +117,7 @@
                         Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ của bạn'),
                         Validator.minLength('#password', 6),
                     ],
-                    onSubmit: function (data) {
-                        // Call API
-                        console.log(data);
-                    }
+                    
                 });
             });
 

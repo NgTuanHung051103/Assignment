@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>testResult: ${result}</h1>
+        <h1>Dang nhap thanh cong: ${result}</h1>
     </body>
 </html>

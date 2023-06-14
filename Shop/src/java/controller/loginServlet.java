@@ -4,18 +4,15 @@
  */
 package controller;
 
-import dal.KhachHangDAO;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
+import jakarta.servlet.http.HttpSession;
+import logic.LGlogin;
+import model.User;
 
-/**
- *
- * @author NgTua
- */
 public class loginServlet extends HttpServlet {
 
     @Override
@@ -30,29 +27,31 @@ public class loginServlet extends HttpServlet {
         String Tk = request.getParameter("fullname");
         String Mk = request.getParameter("password");
 
-//        lay danh sach tai khoan
-        KhachHangDAO KHdb = new KhachHangDAO();
-        ArrayList<String> List_Tk_KhachHangs = KHdb.get_Tk_KhachHangs();
-        
-//        Neu list tai khoan rong 
-         if ( List_Tk_KhachHangs.isEmpty() == false ){
-              for (String s : List_Tk_KhachHangs) {
-//                Neu tim duoc tai khoan da dang ky
-                if (Tk.equalsIgnoreCase(s)) {
-//                    Neu tai khoan do co mat khau == mat khau da dang ky
-                    if (Mk.equalsIgnoreCase(KHdb.get_Mk_ByTk(Tk))) {
-                        request.getRequestDispatcher("testResult.jsp").forward(request, response);
-                    } else {
-                        request.setAttribute("mess", "Sai m?t kh?u");
-                        request.getRequestDispatcher("/view/user/homepage/login.jsp").forward(request, response);
-                    }
-                }
-            }
-         } 
-//        tai khoan chua tung duoc dang ky
-             request.setAttribute("mess", "Tài kho?n không t?n t?i");
-            request.getRequestDispatcher("/view/user/homepage/login.jsp").forward(request, response);
-         
+        LGlogin login = new LGlogin();
+        int result = login.checkLogin(Tk, Mk);
+
+        switch (result) {
+            case 0:
+//                 get all info of account
+                User user = login.get_Info_User_Login(Tk);
+                
+//                call session:
+                HttpSession session = request.getSession();
+                session.setAttribute("loginedAccount", user);
+                
+                request.getRequestDispatcher("testResult.jsp").forward(request, response);
+                break;
+            case 1:
+                request.setAttribute("mess", "Tài kho?n không t?n t?i");
+                request.getRequestDispatcher("/view/user/homepage/login.jsp").forward(request, response);
+                break;
+            case 2:
+                request.setAttribute("mess", "Sai m?t kh?u");
+                request.getRequestDispatcher("/view/user/homepage/login.jsp").forward(request, response);
+                break;
+
+        }
+
     }
 
     @Override

@@ -46,9 +46,9 @@
   .navbar-right{
     justify-content: flex-end;
     background-color: white;
-        width: 250px;
+
         height: 70px;
-        margin-right: 100px;
+
   }
   
   .navbar-right-ul{

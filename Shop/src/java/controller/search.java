@@ -24,14 +24,16 @@ public class search extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        //        Code: xu ly de lay: listOfPage: list trang hien tai
+//        get key word from search.jsp
+        String key = request.getParameter("key");
+        
+//        get all product from database by search keyword
+        SanPhamDAO SPdb = new SanPhamDAO();
+        ArrayList<SanPham> List_SanPhams = SPdb.getListBySearchName(key);
+        
+//        Code: xu ly de lay: listOfPage: list trang hien tai
 //                                       pageNow; stt trang hien tai
 //                                       numPage: tong so trang
-        String txtSearch = request.getParameter("txtSearch");
-        SanPhamDAO SPdb = new SanPhamDAO();
-        System.out.println(txtSearch);
-        ArrayList<SanPham> List_SanPhams = SPdb.getListBySearchName(txtSearch);
-
         int pageNow, numPerPage = 8, size = List_SanPhams.size(),
                 numPage = (size % numPerPage == 0 ? (size / numPerPage) : ((size / numPerPage) + 1));
         if (request.getParameter("pageNow") == null) {
@@ -43,10 +45,11 @@ public class search extends HttpServlet {
         start = (pageNow - 1) * numPerPage;
         end = Math.min(pageNow * numPerPage, size);
 
+//        get list product of one page from searched list
         ArrayList<SanPham> listOfPage = SPdb.getListByPage(List_SanPhams, start, end);
 
 //       set cac thong so can thiet;[
-        request.setAttribute("txtSearch", txtSearch);
+        request.setAttribute("key", key);
         request.setAttribute("listOfPage", listOfPage);
         request.setAttribute("pageNow", pageNow);
         request.setAttribute("numPage", numPage);

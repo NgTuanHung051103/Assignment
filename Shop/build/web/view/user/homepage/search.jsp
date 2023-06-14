@@ -23,7 +23,7 @@
         <jsp:include page="../../common/navbar.jsp" ></jsp:include>
 
             <h2>
-                Search for: ${requestScope.txtSearch}
+                Search for: ${requestScope.key}
             </h2>
 
         <!--Products-->
@@ -56,7 +56,7 @@
                 <div class ="paginationOfProduct">
                     <c:set var = "pageNow" value = "${requestScope.pageNow}"/>
                     <c:forEach begin ="${1}" end = "${requestScope.numPage}" var = "i">
-                        <a class = "${i==pageNow?"active":""}"  href="search?pageNow=${i}&txtSearch=${requestScope.txtSearch}">${i}</a>
+                        <a class = "${i==pageNow?"active":""}"  href="search?pageNow=${i}&key=${requestScope.key}">${i}</a>
                     </c:forEach>
                 </div>
             </div>
