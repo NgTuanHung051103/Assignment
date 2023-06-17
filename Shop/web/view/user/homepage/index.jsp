@@ -17,12 +17,12 @@
     </head>
     <body>
             <!-- Navbar-->
-             <jsp:include page="../../common/navbar.jsp" ></jsp:include>             
+             <jsp:include page="../../common/homepage/navbar.jsp" ></jsp:include>             
              
              <!--Products-->
-             <jsp:include page="../../common/product.jsp" ></jsp:include>
+             <jsp:include page="../../common/homepage/product.jsp" ></jsp:include>
              
              <!-- Footer-->
-             <jsp:include page="../../common/footer.jsp" ></jsp:include>
+             <jsp:include page="../../common/homepage/footer.jsp" ></jsp:include>
     </body>
 </html>

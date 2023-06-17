@@ -25,7 +25,7 @@
 
     <body>
         <!-- Navbar-->
-        <jsp:include page="../../common/navbar.jsp"></jsp:include>
+        <jsp:include page="../../common/homepage/navbar.jsp"></jsp:include>
 
             <div style="margin-top: 40px;"></div>
 
@@ -112,7 +112,7 @@
 
 
         <!-- Footer-->
-        <jsp:include page="../../common/footer.jsp"></jsp:include>
+        <jsp:include page="../../common/homepage/footer.jsp"></jsp:include>
     </body>
 
 

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <context-param>
+        <param-name>homepagePathCommon</param-name>
+        <param-value>common/homepage</param-value>
+    </context-param>
     <servlet>
         <servlet-name>list</servlet-name>
         <servlet-class>controller.list</servlet-class>
@@ -8,12 +12,10 @@
         <servlet-name>search</servlet-name>
         <servlet-class>controller.search</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>quat</servlet-name>
         <servlet-class>controller.quat</servlet-class>
     </servlet>
-    
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/list</url-pattern>
@@ -30,12 +32,10 @@
         <servlet-name>search</servlet-name>
         <url-pattern>/search</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>quat</servlet-name>
         <url-pattern>/quat</url-pattern>
     </servlet-mapping>
-    
     <session-config>
         <session-timeout>
             30

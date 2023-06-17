@@ -20,7 +20,7 @@
     </head>
     <body>
         <!-- Navbar-->
-        <jsp:include page="../../common/navbar.jsp" ></jsp:include>
+        <jsp:include page="../../common/homepage/navbar.jsp" ></jsp:include>
 
             <h2>
                 Search for: ${requestScope.key}
@@ -62,7 +62,7 @@
             </div>
       </div>
             <!-- Footer-->
-        <jsp:include page="../../common/footer.jsp" ></jsp:include>
+        <jsp:include page="../../common/homepage/footer.jsp" ></jsp:include>
 
     </body>
 </html>

@@ -2,14 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="2">
         <file>
-            <url>src/java/controller/list.java</url>
-            <bookmark id="1">
-                <name/>
-                <line>44</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
             <url>web/view/common/navbar.jsp</url>
             <bookmark id="2">
                 <name/>
@@ -17,8 +9,29 @@
                 <key/>
             </bookmark>
         </file>
+        <file>
+            <url>src/java/controller/list.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>44</line>
+                <key/>
+            </bookmark>
+        </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/Assignment/Assignment/Shop/web/view/common/homepage/error.jsp</file>
+            <file>file:/D:/Assignment/Assignment/Shop/web/view/common/dashboard/areaChart.jsp</file>
+            <file>file:/D:/Assignment/Assignment/Shop/web/WEB-INF/web.xml</file>
+            <file>file:/D:/Assignment/Assignment/Shop/web/view/user/homepage/login.jsp</file>
+            <file>file:/D:/Assignment/Assignment/Shop/web/view/user/homepage/search.jsp</file>
+            <file>file:/D:/Assignment/Assignment/Shop/web/view/common/homepage/banner.jsp</file>
+            <file>file:/D:/Assignment/Assignment/Shop/web/view/admin/dashboard/datatableProduct.jsp</file>
+            <file>file:/D:/Assignment/Assignment/Shop/web/view/common/dashboard/navbar.jsp</file>
+            <file>file:/D:/Assignment/Assignment/Shop/web/view/admin/dashboard/index.jsp</file>
+            <file>file:/D:/Assignment/Assignment/Shop/web/view/user/homepage/index.jsp</file>
+            <file>file:/D:/Assignment/Assignment/Shop/web/view/common/homepage/footer.jsp</file>
+            <file>file:/D:/Assignment/Assignment/Shop/web/view/user/homepage/quat.jsp</file>
+        </group>
     </open-files>
 </project-private>
