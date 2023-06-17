@@ -3,18 +3,18 @@
     background-color: white;
     height: 70px;
     text-decoration: none;
-}
-
-.logo{
+  }
+  
+  .logo{
     height: 100%;
-}
-
-.navbar{
+  }
+  
+  .navbar{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
-.navbar-left{
+  }
+  .navbar-left{
     background-color: white;
     width: 470px;
     height: 70px;
@@ -22,57 +22,55 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
-.navbar-left-products{
+  }
+  .navbar-left-products{
     list-style: none;
     font-size: 20px;
     /* font-weight: bold; */
-
+  
     width: 85%;
-    display: flex;
-    justify-content: space-between;
-}
-.nav-product{
+     display: flex;
+     justify-content: space-between; 
+  }
+  .nav-product{
     display: flex;
     align-items: center;
-}
-
-.nav-link{
-    text-decoration: none;
-    color: #1f2022;
-    /*color: red;*/
-}
-/* Navbar-right */
-.navbar-right{
+  }
+  
+  .nav-link{
+   text-decoration: none;
+   color: #1f2022;
+   /*color: red;*/
+  }
+  /* Navbar-right */
+  .navbar-right{
     justify-content: flex-end;
     background-color: white;
 
-    height: 70px;
+        height: 70px;
 
-}
-
-.navbar-right-ul{
+  }
+  
+  .navbar-right-ul{
     list-style: none;
     font-size: 20px;
     /* font-weight: bold; */
-    display: flex;
-    height: 70px;
-    justify-content: space-between;
-    margin: 0px;
-}
-
-.nav-info{
-    display: flex;
+     display: flex;
+     height: 70px;
+     justify-content: space-between; 
+     margin: 0px;
+  }
+  
+  .nav-info{
+     display: flex;
     align-items: center;
-}
-
-.fa-user-o{
-    position: relative;
-}
-.fa-user-o .user-info{
-    position: absolute;
-    right: 10px;
-        background: red;
-}
-
+  }
+  
+  .fa-user-o{
+      margin-top: 60px;
+  }
+  .user-info{
+      
+  }
+  
 /*search*/

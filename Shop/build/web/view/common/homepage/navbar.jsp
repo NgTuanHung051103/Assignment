@@ -10,9 +10,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/fonts/fontawesome-free-6.4.0-web/css/all.min.css">
+        <!--css-->
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common/navbar.css">  
-
+        <!--fontware-->
+         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'> 
+         
+         <!--boostrap icon-->
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">    
     </head>
     <body>
         <section id="navbar">
@@ -42,27 +46,33 @@
                         <ul class="navbar-right-ul">
                             <li class="nav-info">
                                 <form action="search" method="GET">
-                                    <input name ="txtSearch"  type="text" placeholder="Looking for?">
+                                    <input name ="txtSearch"  type="text" placeholder="Looking for?" >
                                     <button type="submit">
-                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                        <i class="bi bi-search  "></i>
                                     </button>
                                 </form>
                             </li>
                             <li class="nav-info">
-                                <a href="${pageContext.request.contextPath}/view/user/homepage/login.jsp" class = "nav-link" style="color: #1f2022;">
-                                    <i class="fa-regular fa-user" >
-                                    </i>
+                            <c:if test ="${sessionScope.loginedAccount != null }">
+                                <i class="fa fa-user-o" >
+                                    <ul class = "user-info">
+                                        <li> <a href="">Tai Khoan Cua Toi</a></li>
+                                        <li> <a href="">Don Mua</a></li>
+                                        <li> <a href="">Dang Xuat</a></li>
+                                    </ul>
+                                </i>
+                            </c:if>
+                            
+
+                            </li>
+                            <li class="nav-info">
+                                <a href="" class = "nav-link" style="color: #1f2022;">
+                                    <i class="bi bi-heart"></i>
                                 </a>
                             </li>
                             <li class="nav-info">
                                 <a href="" class = "nav-link" style="color: #1f2022;">
-                                    <i class="fa-regular fa-heart"></i>
-                                </a>
-                            </li>
-                            <li class="nav-info">
-                                <a href="" class = "nav-link" style="color: #1f2022;">
-                                    <i class="fa-solid fa-cart-shopping">
-                                    </i>
+                                    <span class="bi bi-cart3"></span>                                
                                 </a>
                             </li>
                         </ul>
