@@ -27,7 +27,7 @@ public class UserDAO {
      public ArrayList<User> get_Info_User_Login(String Tk) {
          ArrayList<User> List_Users = new ArrayList<>();
         try {
-            String sql = "Select * From User Where Tk = ?";
+            String sql = "Select * From Users Where Tk = ?";
             User user = new User();
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
@@ -41,6 +41,7 @@ public class UserDAO {
                 user.setTk(rs.getString("Tk"));
                 user.setIsAdmin(rs.getInt("isAdmin"));
                 user.setSDT(rs.getString("SDT"));
+                System.out.println(user);
                 List_Users.add(user);
             }
         } catch (SQLException ex) {
@@ -76,7 +77,7 @@ public class UserDAO {
 //    output: mat khau
     public String get_Mk_ByTk(String Tk) {
         try {
-            String sql = "Select Mk From User Where Tk = ?";
+            String sql = "Select Mk From Users Where Tk = ?";
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
             statement.setString(1, Tk);
             ResultSet rs = statement.executeQuery();

@@ -24,8 +24,8 @@ public class loginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String Tk = request.getParameter("fullname");
-        String Mk = request.getParameter("password");
+        String Tk = request.getParameter("fullname_Login");
+        String Mk = request.getParameter("password_Login");
 
         LGlogin login = new LGlogin();
         int result = login.checkLogin(Tk, Mk);
@@ -33,13 +33,13 @@ public class loginServlet extends HttpServlet {
         switch (result) {
             case 0:
 //                 get all info of account
-                User user = login.get_Info_User_Login(Tk);
+                User account = login.get_Info_User_Login(Tk);
                 
-//                call session:
+//                call cookies:
                 HttpSession session = request.getSession();
-                session.setAttribute("loginedAccount", user);
+                session.setAttribute("loginedAccount", account);
                 
-                request.getRequestDispatcher("testResult.jsp").forward(request, response);
+                request.getRequestDispatcher("/view/user/homepage/login.jsp").forward(request, response);
                 break;
             case 1:
                 request.setAttribute("mess", "Tài kho?n không t?n t?i");
@@ -49,9 +49,7 @@ public class loginServlet extends HttpServlet {
                 request.setAttribute("mess", "Sai m?t kh?u");
                 request.getRequestDispatcher("/view/user/homepage/login.jsp").forward(request, response);
                 break;
-
         }
-
     }
 
     @Override

@@ -66,6 +66,8 @@
                     <span class="form-message"></span>
                 </div> -->
 
+                
+                    <!-- form dang nham-->
                 <div class="form-group">
                     <label for="fullname_Login" class="form-label">Tên dang nhap</label>
                     <input id="fullname" name="fullname_Login" type="text" placeholder="VD: NgTuanHung" class="form-control">
@@ -95,7 +97,7 @@
                     rules: [
                         Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ của bạn'),
                         // Validator.isEmail('#email'),
-                        Validator.minLength('#password', 6),
+                        Validator.minLength('#password', 1),
                         Validator.isRequired('#password_confirmation'),
                         Validator.isConfirmed('#password_confirmation', function () {
                             return document.querySelector('#form-1 #password').value;
@@ -116,7 +118,7 @@
                     rules: [
                         // Validator.isEmail('#email'),
                         Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ của bạn'),
-                        Validator.minLength('#password', 6),
+                        Validator.minLength('#password', 1),
                     ],
                     
                 });

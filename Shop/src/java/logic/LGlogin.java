@@ -25,11 +25,11 @@ public class LGlogin {
 //        lay danh sach tai khoan
         UserDAO Userdb = new UserDAO();
         ArrayList<String> List_Tk_Users = Userdb.get_Tk_Users();
-
+        
         if (List_Tk_Users.isEmpty() == true) {
             return 1;
         }
-
+        
 //       Duyet Tk cua tung Users 
         for (String s : List_Tk_Users) {
 

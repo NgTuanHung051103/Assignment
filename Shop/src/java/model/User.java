@@ -100,6 +100,11 @@ public class User {
         this.SDT = SDT;
     }
 
+    @Override
+    public String toString() {
+        return "User{" + "ID=" + ID + ", Ten=" + Ten + ", Email=" + Email + ", Tk=" + Tk + ", Mk=" + Mk + ", DiaChi=" + DiaChi + ", SDT=" + SDT + ", Tuoi=" + Tuoi + ", isAdmin=" + isAdmin + '}';
+    }
+
   
     
 }

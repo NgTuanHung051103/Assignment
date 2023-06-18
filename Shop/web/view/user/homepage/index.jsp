@@ -19,6 +19,7 @@
             <!-- Navbar-->
              <jsp:include page="../../common/homepage/navbar.jsp" ></jsp:include>             
              
+             <div style ="height: 200px"></div>
              <!--Products-->
              <jsp:include page="../../common/homepage/product.jsp" ></jsp:include>
              

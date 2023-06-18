@@ -3,7 +3,7 @@
     Created on : 04/06/2023, 1:01:27 PM
     Author     : NgTua
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,10 +13,10 @@
         <!--css-->
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common/navbar.css">  
         <!--fontware-->
-         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'> 
-         
-         <!--boostrap icon-->
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">    
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'> 
+
+        <!--boostrap icon-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">    
     </head>
     <body>
         <section id="navbar">
@@ -54,17 +54,25 @@
                             </li>
                             <li class="nav-info">
                             <c:if test ="${sessionScope.loginedAccount != null }">
-                                <i class="fa fa-user-o" >
-                                    <ul class = "user-info">
-                                        <li> <a href="">Tai Khoan Cua Toi</a></li>
-                                        <li> <a href="">Don Mua</a></li>
-                                        <li> <a href="">Dang Xuat</a></li>
-                                    </ul>
-                                </i>
+                                <div class="dropdown" style="margin: auto 12px auto 26px;">
+                                    <i class="fa fa-user-o-logined" ></i>
+                                    <div class="dropdown-content">
+                                        <a href="#">Tài Khoản</a>
+                                        <a href="#">Đơn Mua</a>
+                                        <a href="#">Đăng Xuất</a>
+                                    </div>
+                                </div>  
                             </c:if>
-                            
 
-                            </li>
+                            <c:if test ="${sessionScope.loginedAccount == null }">
+                                <a href  ="${pageContext.request.contextPath}/view/user/homepage/login.jsp"
+                                    style = "color: black;"> 
+                                    <i class="fa fa-user-o"  style="margin: auto 12px auto 16px;" > </i> 
+                                </a>
+
+
+                            </c:if>
+                                </li>    
                             <li class="nav-info">
                                 <a href="" class = "nav-link" style="color: #1f2022;">
                                     <i class="bi bi-heart"></i>
