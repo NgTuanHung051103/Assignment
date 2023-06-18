@@ -46,7 +46,7 @@
                         <ul class="navbar-right-ul">
                             <li class="nav-info">
                                 <form action="search" method="GET">
-                                    <input name ="txtSearch"  type="text" placeholder="Looking for?" >
+                                    <input name ="key"  type="text" placeholder="Looking for?" >
                                     <button type="submit">
                                         <i class="bi bi-search  "></i>
                                     </button>
