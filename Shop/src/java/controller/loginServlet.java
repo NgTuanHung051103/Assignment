@@ -6,6 +6,7 @@ package controller;
 
 import java.io.IOException;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -24,27 +25,36 @@ public class loginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+//        get TK MK from login.jsp
         String Tk = request.getParameter("fullname_Login");
         String Mk = request.getParameter("password_Login");
 
+//       Kiem tra xem co hop le hay khong
         LGlogin login = new LGlogin();
         int result = login.checkLogin(Tk, Mk);
 
         switch (result) {
+//         Dang nhap thanh cong: 
             case 0:
-//                 get all info of account
-                User account = login.get_Info_User_Login(Tk);
-                
-//                call cookies:
+//              Set Cookie
+                Cookie Account = new Cookie("loginedAccount", Tk);
+                Account.setMaxAge(60 * 30);
+                response.addCookie(Account);
+
+//               Set session de truyen toi trang home
                 HttpSession session = request.getSession();
-                session.setAttribute("loginedAccount", account);
-                
-                request.getRequestDispatcher("/view/user/homepage/login.jsp").forward(request, response);
+                session.setAttribute("loginedAccount", Tk);
+
+                response.sendRedirect("list");
                 break;
+                
+//          Chua ton tai tai khoan
             case 1:
                 request.setAttribute("mess", "Tài kho?n không t?n t?i");
                 request.getRequestDispatcher("/view/user/homepage/login.jsp").forward(request, response);
                 break;
+                
+//          Sai mat khau      
             case 2:
                 request.setAttribute("mess", "Sai m?t kh?u");
                 request.getRequestDispatcher("/view/user/homepage/login.jsp").forward(request, response);

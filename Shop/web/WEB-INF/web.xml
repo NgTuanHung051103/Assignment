@@ -16,6 +16,10 @@
         <servlet-name>quat</servlet-name>
         <servlet-class>controller.quat</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>logoutServlet</servlet-name>
+        <servlet-class>controller.logoutServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/list</url-pattern>
@@ -35,6 +39,10 @@
     <servlet-mapping>
         <servlet-name>quat</servlet-name>
         <url-pattern>/quat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>logoutServlet</servlet-name>
+        <url-pattern>/logoutServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -52,27 +52,30 @@
                                     </button>
                                 </form>
                             </li>
+                       
+                            <c:set var ="cookie" value = "${pageContext.request.cookies}"/>
+                            
                             <li class="nav-info">
-                            <c:if test ="${sessionScope.loginedAccount != null }">
-                                <div class="dropdown" style="margin: auto 12px auto 26px;">
-                                    <i class="fa fa-user-o-logined" ></i>
-                                    <div class="dropdown-content">
-                                        <a href="#">Tài Khoản</a>
-                                        <a href="#">Đơn Mua</a>
-                                        <a href="#">Đăng Xuất</a>
-                                    </div>
-                                </div>  
-                            </c:if>
+                                <c:if test ="${cookie.loginedAccount != null }">
+                                    <div class="dropdown" style="margin: auto 12px auto 26px;">
+                                        <i class="fa fa-user-o logined" ></i>
+                                        <div class="dropdown-content">
+                                            <a href="#">Tài Khoản</a>
+                                            <a href="#">Đơn Mua</a>
+                                            <a href="logoutServlet">Đăng Xuất</a>
+                                        </div>
+                                    </div>  
+                                </c:if>
 
-                            <c:if test ="${sessionScope.loginedAccount == null }">
-                                <a href  ="${pageContext.request.contextPath}/view/user/homepage/login.jsp"
-                                    style = "color: black;"> 
-                                    <i class="fa fa-user-o"  style="margin: auto 12px auto 16px;" > </i> 
-                                </a>
+                                <c:if test ="${cookie.loginedAccount == null }">
+                                    <a href  ="${pageContext.request.contextPath}/view/user/homepage/login.jsp"
+                                       style = "color: black;"> 
+                                        <i class="fa fa-user-o"  style="margin: auto 12px auto 16px;" > </i> 
+                                    </a>
 
 
-                            </c:if>
-                                </li>    
+                                </c:if>
+                            </li>    
                             <li class="nav-info">
                                 <a href="" class = "nav-link" style="color: #1f2022;">
                                     <i class="bi bi-heart"></i>

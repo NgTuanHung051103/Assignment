@@ -20,18 +20,9 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/common/homepage/error.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/common/dashboard/areaChart.jsp</file>
             <file>file:/D:/Assignment/Assignment/Shop/web/WEB-INF/web.xml</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/user/homepage/login.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/user/homepage/search.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/common/homepage/banner.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/admin/dashboard/datatableProduct.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/common/dashboard/navbar.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/admin/dashboard/index.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/user/homepage/index.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/common/homepage/footer.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/user/homepage/quat.jsp</file>
+            <file>file:/D:/Assignment/Assignment/Shop/src/java/controller/logoutServlet.java</file>
+            <file>file:/D:/Assignment/Assignment/Shop/web/view/common/homepage/navbar.jsp</file>
         </group>
     </open-files>
 </project-private>
