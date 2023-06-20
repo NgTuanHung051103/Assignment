@@ -29,25 +29,22 @@ public class quat extends HttpServlet {
         String thuong_hieu_str = request.getParameter("thuong_hieu");
         String so_canh_quat_str = request.getParameter("so_canh_quat");
         String gia_str = request.getParameter("gia");
-        System.out.println("1");
-//        int loai_quat = Integer.parseInt(loai_quat_str);
+        
         int thuong_hieu = Integer.parseInt(thuong_hieu_str);
         int so_canh_quat = Integer.parseInt(so_canh_quat_str);
         int gia = Integer.parseInt(gia_str);
-        
-//        String[] list_loai_quat = {"", "treo",  "đứng", "trần"};
-        String[] list_thuong_hieu = {"", "Senko", "Asia", "KDK"};
-        String[] list_canh_quat = {"", "3", "4", "5", "6"};
-        String[] list_gia = {"", "1", "2", "3", "4"};
             
 //        Code: xu ly de lay: listOfPage: list trang hien tai
 //                                       pageNow; stt trang hien tai
 //                                       numPage: tong so trang
          SanPhamDAO SPdb = new SanPhamDAO();
          
+//         lay toan bo san pham dua tren filter
+//          jsp: danh stt 1234 nhung trong DAO: danh stt 0123 nen phai -1 de lay phan tu trong array trong DAO
         ArrayList<SanPham> List_SanPhams = 
-        SPdb.getListByFilter(loai_quat_str,thuong_hieu-1,so_canh_quat-1,gia-1);
+                     SPdb.getListByFilter(loai_quat_str,thuong_hieu-1,so_canh_quat-1,gia-1);
         
+//        xu ly: pageNow: 
        int pageNow, numPerPage = 8, size = List_SanPhams.size(),
                 numPage = ( size%numPerPage == 0 ? (size / numPerPage ): ( (size/numPerPage) +  1) );
        if( request.getParameter("pageNow") == null ){
@@ -59,8 +56,12 @@ public class quat extends HttpServlet {
         start = (pageNow - 1 ) * numPerPage;
         end =  Math.min( pageNow * numPerPage, size );
        
+//        xu ly: listOfPage: list trang hien tai: 
         ArrayList<SanPham> listOfPage = SPdb.getListByPage(List_SanPhams, start, end);
         
+//        End: xu ly xong lay list trang hien tai
+
+
 //       set cac thong so can thiet;[ 
 
         request.setAttribute("loai_quat",loai_quat_str);
