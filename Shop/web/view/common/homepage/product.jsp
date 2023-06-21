@@ -29,7 +29,7 @@
 
                     <div class="category-nhomSP col-md-2">
                         <c:set var = "nhomSP_ID" value = "${requestScope.nhomSP_ID}"/>
-                        <c:forEach items = "${requestScope.data}" var ="c">
+                        <c:forEach var ="c" items = "${requestScope.data}" >
                             <a  href ="list?nhomSP_ID=${c.getMaNhom()}">${c.getTenNhom()}</a><br/>
                         </c:forEach>
                     </div>

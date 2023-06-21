@@ -9,20 +9,20 @@ package model;
  * @author NgTua
  */
 public class OrderDetail {
-    private SanPham p;
+    private SanPham sanpham;
     private int SoLuong,  GiaThanh;
 
     public OrderDetail() {
     }
 
     public OrderDetail(SanPham p, int SoLuong, int GiaThanh) {
-        this.p = p;
+        this.sanpham = p;
         this.SoLuong = SoLuong;
         this.GiaThanh = GiaThanh;
     }
 
-    public SanPham getP() {
-        return p;
+    public SanPham getSanPham() {
+        return sanpham;
     }
 
     public int getSoLuong() {
@@ -33,8 +33,8 @@ public class OrderDetail {
         return GiaThanh;
     }
 
-    public void setP(SanPham p) {
-        this.p = p;
+    public void setSanPham(SanPham p) {
+        this.sanpham = p;
     }
 
     public void setSoLuong(int SoLuong) {
@@ -47,7 +47,7 @@ public class OrderDetail {
 
     @Override
     public String toString() {
-        return "OrderDetail{" + "p=" + p + ", SoLuong=" + SoLuong + ", GiaThanh=" + GiaThanh + '}';
+        return "OrderDetail{" + "p=" + sanpham + ", SoLuong=" + SoLuong + ", GiaThanh=" + GiaThanh + '}';
     }
     
     

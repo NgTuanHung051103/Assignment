@@ -35,13 +35,13 @@ public class cart extends HttpServlet {
 
 //      lay tat ca san pham tu database        
         SanPhamDAO SPdb = new SanPhamDAO();
-        ArrayList<SanPham> list = SPdb.getSanPhams();
+        ArrayList<SanPham> list = SPdb.getAll();
 
         Cookie[] cookies = request.getCookies();
         String txt_cart = "";
 
-//        set txt_cart
-        //        xoa cookie cart cu ( neu co ) de sua thanh cookie cart moi
+//        set txt_cart ( co the dua vao logic -> de sau )
+//        Bang cach: xoa cookie cart cu ( neu co ) de sua thanh cookie cart moi
         if (cookies != null) {
             for (Cookie o : cookies) {
                 if (o.getName().equals("txt_cart")) {
@@ -61,8 +61,11 @@ public class cart extends HttpServlet {
 //        lay so luong order co trong cart
         int n = listOrderDetail != null ? listOrderDetail.size() : 0;
 
+//        set soluong - list OrderDetail
         request.setAttribute("size", n);
-        request.setAttribute("data", list);
+        request.setAttribute("listOrderDetail", listOrderDetail);
+        
+        request.getRequestDispatcher("view/user/homepage/cart.jsp").forward(request, response);
     }
 
     @Override

@@ -17,7 +17,7 @@ public class SanPhamDAO {
 
     private final DBContext conn = new DBContext();
 
-    public ArrayList<SanPham> getSanPhams() {
+    public ArrayList<SanPham> getAll() {
         ArrayList<SanPham> List_SanPhams = new ArrayList<>();
         try {
             String sql = "Select * From SanPham";
@@ -41,6 +41,7 @@ public class SanPhamDAO {
         return List_SanPhams;
     }
 
+//    Lay Cac SanPham 1 trang
     public ArrayList<SanPham> getListByPage(ArrayList<SanPham> list, int start, int end) {
         ArrayList<SanPham> arr = new ArrayList<>();
         for (int i = start; i < end; i++) {
@@ -177,4 +178,31 @@ public class SanPhamDAO {
         return List_SanPhams;
    }
 
+    //     su dung thanh search o trang index.jsp de search ten
+    public ArrayList<SanPham> getSanPhamById(int MaSP) {
+        ArrayList<SanPham> List_SanPhams_by_ID = new ArrayList<>();
+        try {
+            String sql = "Select * From SanPham where MaSP = ?";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            String MaSP_str = Integer.toString(MaSP);
+            statement.setString(1, "%" + MaSP_str + "%");
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                SanPham s = new SanPham();
+                s.setMaSP(rs.getInt("MaSP"));
+                s.setTenSP(rs.getString("TenSP"));
+                s.setThuongHieu(rs.getString("ThuongHieu"));
+                s.setImg(rs.getString("Img"));
+                s.setGiaThanh(rs.getInt("GiaThanh"));
+                s.setNhomSP(rs.getInt("NhomSP"));
+                List_SanPhams_by_ID .add(s);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return List_SanPhams_by_ID ;
+    }
+    
 }

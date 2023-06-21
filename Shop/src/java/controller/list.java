@@ -74,7 +74,7 @@ public class list extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         SanPhamDAO db = new SanPhamDAO();
-        ArrayList<SanPham> List_SanPhams = db.getSanPhams();
+        ArrayList<SanPham> List_SanPhams = db.getAll();
         System.out.println("1");
         if (List_SanPhams == null) {
             PrintWriter out = response.getWriter();

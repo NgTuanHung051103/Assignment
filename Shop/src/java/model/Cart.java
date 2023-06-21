@@ -5,6 +5,7 @@
 package model;
 
 import java.util.ArrayList;
+import logic.LGcartGetSanPhamById;
 
 /**
  *
@@ -18,7 +19,7 @@ public class Cart {
         cart = new ArrayList<>();
     }
 
-    //    Constructor: khoi tao list cart dua tren qua khu 
+//    Constructor: khoi tao list cart dua tren qua khu 
 //    INPUT: txt: item da them vao gio hang truoc day
 //                  list: tat ca san pham
 //      OUTPUT: null ( da khoi tao 1 doi tuong luu nhung item da them vao cart )
@@ -30,10 +31,10 @@ public class Cart {
                 for (String i : s) {
                     String[] n = i.split(":");
                     int id = Integer.parseInt(n[0]);
-                    int quantity = Integer.parseInt(n[1]);
-                    SanPham p = getProductById(id, list);
-                    OrderDetail t = new OrderDetail(p, quantity, p.getGiaThanh());
-                    addOrderDetail(t);
+                    int soluong = Integer.parseInt(n[1]);
+                    SanPham sp = getSanPhamById(id);
+                    OrderDetail t = new OrderDetail(sp, soluong, sp.getGiaThanh());
+                    addOrderDetailToCart(t);
                 }
             }
         } catch (NumberFormatException e) {
@@ -44,15 +45,16 @@ public class Cart {
 //    Them vao Cart 
 //    INPUT: 1 orderDetail
 //    OUTPUT: null
-    private void addOrderDetail(OrderDetail t) {
-//        kiem tra xem da ton tai item trong list hay chua
-//        neu chua: khoi tao 1 item moi
-//        if ( getItemById(t.getProduct().getId()) != null) {
-//            Item m = getItemById(t.getProduct().getId());
-//            m.setQuantity(m.getQuantity() + t.getQuantity());
-//        } else {
-//            items.add(t);
-//        }
+    private void addOrderDetailToCart(OrderDetail order) {
+        
+//        kiem tra xem OrderDetail da ton tai trong list OrderDetail hay chua 
+        if ( getOrderById(order.getSanPham().getMaSP()) != null) {
+            OrderDetail o = getOrderById(order.getSanPham().getMaSP());
+            o.setSoLuong(o.getSoLuong()+ order.getSoLuong());
+        } else {
+//        neu chua: khoi tao 1 OrderDetail moi
+           cart.add(order);
+        }
     }
 
     public ArrayList<OrderDetail> getCart() {
@@ -61,7 +63,24 @@ public class Cart {
     
     
     
-    private SanPham getProductById(int id, ArrayList<SanPham> list) {
+//    Truy cap vao SanPhamDAO de lay 1 san pham dua tren MaSP
+//    INPUT: id cua 1 sanpham
+//   OUTPUT: null or SanPham
+    private SanPham getSanPhamById(int id) {
+        LGcartGetSanPhamById logic = new LGcartGetSanPhamById();
+        return logic.getSanPhamById(id);
+    }
+
+    
+//    Lay OrderDetail trong cart bang MaSP
+//    INPUT: int MaSP
+//    OUTPUT: null or OrderDetail
+    private OrderDetail getOrderById(int MaSP) {
+        for( OrderDetail o : cart ){
+            if( o.getSanPham().getMaSP() == MaSP){
+                return o; 
+            }
+        }
         return null;
     }
 
