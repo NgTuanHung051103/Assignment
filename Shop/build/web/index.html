@@ -1,80 +1,101 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--css-->
+        <link rel="stylesheet" href="style.css">
 
-    <!-- Css -->
-    <link rel="stylesheet" href="style.css">
+        <!--boostrap-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
-    <!--boostrap icon-->
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">    
+        <!--css Duc-->
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Document</title>
-</head>
 
-<body>
-        <section id="navbar">
+        <title>JSP Page</title>
+    </head>
+    <body style = "background-color: #E0FFFF;">
+        <section class="shopping-cart dark">
             <div class="container">
-                <nav class="navbar">
-                    <div class="navbar-left">
-                        <a href="${pageContext.request.contextPath}/list" class="navbar-logo">
-                            <img class="logo" src="${pageContext.request.contextPath}/images/Logo.png" alt="">
-                        </a>
-                        <ul class = "navbar-left-products">
-                            <li class="nav-product">
-                                <a href="${pageContext.request.contextPath}/view/user/homepage/quat.jsp" class = "nav-link" style="color: #1f2022;">Quat</a>
-                            </li>
-                            <li class="nav-product">
-                                <a href="" class = "nav-link" style="color: #1f2022;">Ti vi</a>
-                            </li>
-                            <li class="nav-product">
-                                <a href="" class = "nav-link"style="color: #1f2022;" >Dieu hoa</a>
-                            </li>
-                            <li class="nav-product">
-                                <a href="" class = "nav-link" style="color: #1f2022;">Tu lanh</a>
-                            </li>
-                        </ul>
+                <div class="block-heading">
+                    <h2>Shopping Cart</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                </div>
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-8">
+                            <div class="items">
+                                <div class="product">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img class="img-fluid mx-auto d-block image" src="">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="info">
+                                                <div class="row">
+                                                    <div class="col-md-4 product-name">
+                                                        <div class="product-name">
+                                                            <a href="#">Lorem Ipsum dolor</a>
+                                                            <div class="product-info">
+                                                                <div>Display: <span class="value">5 inch</span></div>
+                                                                <div>RAM: <span class="value">4GB</span></div>
+                                                                <div>Memory: <span class="value">32GB</span></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3 quantity">
+                                                        <label for="quantity">Quantity:</label>
+                                                        <input id="quantity" type="number" value ="1" class="form-control quantity-input">
+                                                    </div>
+                                                    <div class="col-md-2 price">
+                                                        <span>$120</span>
+                                                    </div>
+                                                    <div class="col-md-2" >
+                                                        <!--nut xoa-->
+                                                        <button type="button" onclick="confirmDelete('${item.productID}');" style="border: 0px; padding: 0px; background-color: white; " id="" class="" >
+                                                            <!--thung rac-->
+                                                            <svg width="20" height="20" viewBox="0 0 128 128" fill="#ff5b6a" class="icon" xmlns="http://www.w3.org/2000/svg"><path d="M4 30.2c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5l117.5.2c1.4 0 2.5 1.1 2.5 2.5s-1.1 2.5-2.5 2.5L4 30.2zm19.3 5.1c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5v86.1l73.2-.8V36.2c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5v89.6l-83.3.9V35.3z"/><path d="M85.3 108.4c-1.4 0-2.5-1.1-2.5-2.5V46.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5v59.4c.1 1.4-1.1 2.5-2.5 2.5zm-39.4 0c-1.4 0-2.5-1.1-2.5-2.5V46.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5v59.4c.1 1.4-1.1 2.5-2.5 2.5zm19.7 0c-1.4 0-2.5-1.1-2.5-2.5V46.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5v59.4c.1 1.4-1.1 2.5-2.5 2.5zm16.3-81.7v-6.1c0-2.2-1.8-4-4-4H52.3c-2.3 0-4 1.8-4 4.1V26h-5v-5.3c0-5 4.1-9.1 9.1-9.1H78c5 0 9.1 4.1 9.1 9.1v6.1h-5.2z" fill="ff5b6a"/></svg>
+                                                        </button>
+                                                    </div>
 
-                    </div>
-                    <div class="navbar-right" >
-                        <ul class="navbar-right-ul">
-                            <li class="nav-info">
-                                <form action="search" method="GET">
-                                    <input name ="txtSearch"  type="text" placeholder="Looking for?">
-                                    <button type="submit">
-                                        <i class="bi bi-search  "></i>
-                                    </button>
-                                </form>
-                            </li>
-                            <li class="nav-info">
-                                <i class="fa fa-user-o" >
-                                    <ul class = "">
-                                        <li> <a href="">Tai Khoan Cua Toi</a></li>
-                                        <li> <a href="">Don Mua</a></li>
-                                        <li> <a href="">Dang Xuat</a></li>
-                                    </ul>
-                                </i>
-                            
-
-                            </li>
-                            <li class="nav-info">
-                                <a href="" class = "nav-link" style="color: #1f2022;">
-                                    <i class="bi bi-heart"></i>
-                                </a>
-                            </li>
-                            <li class="nav-info">
-                                <a href="" class = "nav-link" style="color: #1f2022;">
-                                    <span class="bi bi-cart3"></span>                                
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-4">
+                            <div class="summary">
+                                <h3>Summary</h3>
+                                <div class="summary-item"><span class="text">Subtotal</span><span class="price">$360</span></div>
+                                <div class="summary-item"><span class="text">Discount</span><span class="price">$0</span></div>
+                                <div class="summary-item"><span class="text">Shipping</span><span class="price">$0</span></div>
+                                <div class="summary-item"><span class="text">Total</span><span class="price">$360</span></div>
+                                <button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
             </div>
         </section>
-</body>
 
+    </body>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+                                                            function confirmDelete(productID) {
+                                                                if (confirm("Are you sure you want to remove this item?")) {
+                                                                    window.location.href = "deletecart?pid=" + productID;
+                                                                } else {
+                                                                    return false;
+                                                                }
+                                                            }
+
+    </script>
 </html>

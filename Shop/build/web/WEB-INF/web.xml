@@ -20,6 +20,10 @@
         <servlet-name>logoutServlet</servlet-name>
         <servlet-class>controller.logoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>cart</servlet-name>
+        <servlet-class>controller.cart</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/list</url-pattern>
@@ -43,6 +47,10 @@
     <servlet-mapping>
         <servlet-name>logoutServlet</servlet-name>
         <url-pattern>/logoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cart</servlet-name>
+        <url-pattern>/cart</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

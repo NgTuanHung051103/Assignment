@@ -72,8 +72,6 @@
                                        style = "color: black;"> 
                                         <i class="fa fa-user-o"  style="margin: auto 12px auto 16px;" > </i> 
                                     </a>
-
-
                                 </c:if>
                             </li>    
                             <li class="nav-info">
@@ -82,7 +80,7 @@
                                 </a>
                             </li>
                             <li class="nav-info">
-                                <a href="" class = "nav-link" style="color: #1f2022;">
+                                <a href="cart" class = "nav-link" style="color: #1f2022;">
                                     <span class="bi bi-cart3"></span>                                
                                 </a>
                             </li>
