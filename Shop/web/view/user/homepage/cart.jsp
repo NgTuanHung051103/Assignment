@@ -61,7 +61,7 @@
                                                     <div class="info">
                                                         <div class="row">
                                                             <!--MaSP-->
-                                                            <input type ="text" style = "display: none;" name = "MaSP" value = "${order.sanpham.MaSP}">
+                                                            <input type ="text" hidden name = "MaSP" value = "${order.sanpham.MaSP}"></input>
                                                             <div class="col-md-4 product-name">
                                                                 <div class="product-name">
                                                                     <!--TenSP-->

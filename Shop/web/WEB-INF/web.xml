@@ -24,6 +24,10 @@
         <servlet-name>cart</servlet-name>
         <servlet-class>controller.cart</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>detailProduct</servlet-name>
+        <servlet-class>controller.detailProduct</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/list</url-pattern>
@@ -51,6 +55,10 @@
     <servlet-mapping>
         <servlet-name>cart</servlet-name>
         <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>detailProduct</servlet-name>
+        <url-pattern>/detailProduct</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

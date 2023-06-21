@@ -40,14 +40,13 @@
                                 <div class="card">
                                     <img class="card-img-top" style="height:300px"src="${o.getImg()}" alt="Card image cap">
                                     <div class="card-body">
-                                        <h4 class="card-title show_txt"><a href="#" title="View Product">${o.getTenSP()}</a></h4>
+                                        <h4 class="card-title show_txt"><a href="#">${o.getTenSP()}</a></h4>
                                         <p class="card-text show_txt">${o.getTenSP()}</p>
                                         <div class="row">
                                             <div class="col">
-                                                <p class="btn btn-danger btn-block">${o.getTenSP()} $</p>
-                                            </div>
-                                            <div class="col">
-                                                <a href="#" class="btn btn-success btn-block">Add to cart</a>
+                                                <a href ="detailProduct?id=${o.getMaSP()}">
+                                                    <p class="btn btn-danger btn-block">View Detail</p>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
