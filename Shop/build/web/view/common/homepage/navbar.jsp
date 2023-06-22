@@ -20,7 +20,7 @@
     </head>
     <body>
         <section id="navbar">
-            <div class="container">
+            <div class="container" style = "max-width: 100%;">
                 <nav class="navbar">
                     <div class="navbar-left">
                         <a href="${pageContext.request.contextPath}/list" class="navbar-logo">

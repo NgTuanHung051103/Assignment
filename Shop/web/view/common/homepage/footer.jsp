@@ -20,7 +20,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <footer class="footer-distributed">
+        <section class = "section-footer">
+            <footer class="footer-distributed">
             <div class="footer-left">
                 <h3>Company<span>logo</span></h3>
                 <p class="footer-links">
@@ -48,5 +49,7 @@
                 </form>
             </div>
         </footer>
+        </section>
+        
     </body>
 </html>

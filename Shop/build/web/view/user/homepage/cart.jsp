@@ -24,9 +24,12 @@
 
 
         <title>JSP Page</title>
-    </head>
-    <body style = "background-color: #E0FFFF;">
-        <section class="shopping-cart dark">
+    </head>  
+        
+        <!-- Navbar-->
+        <jsp:include page="../../common/homepage/navbar.jsp" ></jsp:include>      
+    
+        <section class="shopping-cart dark" style = "margin-top: 8px;">
             <div class="container">
                 <div class="block-heading">
                     <h2>Shopping Cart</h2>
@@ -42,8 +45,7 @@
                             <div>Gio hang rong, Vui long chon san pham</div>
                         </c:if>
 
-
-                        <c:if test = "${size == null}">
+                        <c:if test = "${size != null}">
                             <!--SAN PHAM--> 
                             <div class="col-md-12 col-lg-8">
                                 <div class="items">
@@ -97,7 +99,6 @@
                                             </div>
                                         </div>
                                     </c:forEach>
-
                                 </div>
                             </div>
 
@@ -118,19 +119,21 @@
                 </div>
             </div>
         </section>
+                        
+                         <!-- Footer-->
+             <jsp:include page="../../common/homepage/footer.jsp" ></jsp:include>
 
-    </body>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <script>
-            function confirmDelete(productID) {
-                if (confirm("Are you sure you want to remove this item?")) {
-                    window.location.href = "deletecart?pid=" + productID;
-                } else {
-                    return false;
-                }
+        function confirmDelete(productID) {
+            if (confirm("Are you sure you want to remove this item?")) {
+                window.location.href = "deletecart?pid=" + productID;
+            } else {
+                return false;
             }
+        }
 
     </script>
 </html>

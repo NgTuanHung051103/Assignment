@@ -75,10 +75,14 @@
                              <br></br>
                              
                              <!--Them vao gio hang-->
-                            <button class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title data-original-title="Add to cart">
-                                <i class="fa fa-shopping-cart"></i>
-                                Add to Cart
-                            </button>
+                            
+                            <form action="addToCart" method="post">
+                                    <input name="MaSP" hidden value="${SanPham.getMaSP()}"></input>
+                                    <button class="btn btn-success btn-rounded mr-1" data-toggle="tooltip" title data-original-title="Add to cart">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    Add to Cart
+                                    </button
+                              </form>
                              
                             <!--<button class="btn btn-primary btn-rounded" hidden> Buy Now</button>-->
                             <h3 class="box-title mt-5"></h3>
