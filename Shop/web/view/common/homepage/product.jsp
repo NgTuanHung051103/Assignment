@@ -44,7 +44,7 @@
                                         <p class="card-text show_txt">${o.getTenSP()}</p>
                                         <div class="row">
                                             <div class="col">
-                                                <a href ="detailProduct?id=${o.getMaSP()}">
+                                                <a href ="detailProduct?MaSP=${o.getMaSP()}">
                                                     <p class="btn btn-danger btn-block">View Detail</p>
                                                 </a>
                                             </div>

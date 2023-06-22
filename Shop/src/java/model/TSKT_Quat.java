@@ -10,10 +10,10 @@ package model;
  */
 public class TSKT_Quat {
     String LoaiQuat, DuongKinhQuat, CheDoGio, BangDieuKhien, LoaiMotor, TienIch, KichThuocKhoiLuong;
-    private String MaSP;
+    private int MaSP;
     int SoCanhQuat;
 
-    public TSKT_Quat(String LoaiQuat, String DuongKinhQuat, String CheDoGio, String BangDieuKhien, String LoaiMotor, String TienIch, String KichThuocKhoiLuong, String MaSP, int SoCanhQuat) {
+    public TSKT_Quat(String LoaiQuat, String DuongKinhQuat, String CheDoGio, String BangDieuKhien, String LoaiMotor, String TienIch, String KichThuocKhoiLuong, int MaSP, int SoCanhQuat) {
         this.LoaiQuat = LoaiQuat;
         this.DuongKinhQuat = DuongKinhQuat;
         this.CheDoGio = CheDoGio;
@@ -56,7 +56,7 @@ public class TSKT_Quat {
         return KichThuocKhoiLuong;
     }
 
-    public String getMaSP() {
+    public int getMaSP() {
         return MaSP;
     }
 
@@ -92,12 +92,17 @@ public class TSKT_Quat {
         this.KichThuocKhoiLuong = KichThuocKhoiLuong;
     }
 
-    public void setMaSP(String MaSP) {
+    public void setMaSP(int MaSP) {
         this.MaSP = MaSP;
     }
 
     public void setSoCanhQuat(int SoCanhQuat) {
         this.SoCanhQuat = SoCanhQuat;
+    }
+
+    @Override
+    public String toString() {
+        return "TSKT_Quat{" + "LoaiQuat=" + LoaiQuat + ", DuongKinhQuat=" + DuongKinhQuat + ", CheDoGio=" + CheDoGio + ", BangDieuKhien=" + BangDieuKhien + ", LoaiMotor=" + LoaiMotor + ", TienIch=" + TienIch + ", KichThuocKhoiLuong=" + KichThuocKhoiLuong + ", MaSP=" + MaSP + ", SoCanhQuat=" + SoCanhQuat + '}';
     }
     
     

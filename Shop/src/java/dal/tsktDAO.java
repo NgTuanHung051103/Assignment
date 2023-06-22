@@ -20,26 +20,26 @@ import model.User;
 public class tsktDAO {
      private final DBContext conn = new DBContext();
      
-    public ArrayList<TSKT_Quat> getByID(int MaSP, int NhomSP) {
-        ArrayList<User> List_TSKT = new ArrayList<>();
+    public ArrayList<TSKT_Quat> getTSKTQuatByID(int MaSP) {
+        ArrayList<TSKT_Quat> List_TSKT = new ArrayList<>();
         try {
             
-            String sql = "Select * From Users Where Tk = ?";
-            User user = new User();
+            String sql = "Select * From TSKTQuat Where MaSP = ?";
+            TSKT_Quat result = new TSKT_Quat();
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            statement.setInt(1, MaSP);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                user.setID(rs.getString("ID"));
-                user.setTen(rs.getString("Ten"));
-                user.setEmail(rs.getString("Email"));
-                user.setDiaChi(rs.getString("DiaChi"));
-                user.setMk(rs.getString("Mk"));
-                user.setTuoi(rs.getInt("Tuoi"));
-                user.setTk(rs.getString("Tk"));
-                user.setIsAdmin(rs.getInt("isAdmin"));
-                user.setSDT(rs.getString("SDT"));
-                System.out.println(user);
-                 List_TSKT.add(user);
+                result.setMaSP(rs.getInt("MaSP"));
+                result.setLoaiQuat(rs.getString("LoaiQuat"));
+                result.setDuongKinhQuat(rs.getString("DuongKinhQuat"));
+                result.setCheDoGio(rs.getString("CheDoGio"));
+                result.setBangDieuKhien(rs.getString("BangDieuKhien"));
+                result.setLoaiMotor(rs.getString("LoaiMotor"));
+                result.setTienIch(rs.getString("TienIch"));
+                result.setKichThuocKhoiLuong(rs.getString("KichThuocKhoiLuong"));
+                result.setSoCanhQuat(rs.getInt("SoCanhQuat"));
+                 List_TSKT.add(result);
             }
         } catch (SQLException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -48,4 +48,7 @@ public class tsktDAO {
         }
         return  List_TSKT;
     }
+    
+    
+//    Con 3 loai san pham nua
 }

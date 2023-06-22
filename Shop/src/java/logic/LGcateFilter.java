@@ -16,17 +16,12 @@ public class LGcateFilter {
 
     public ArrayList<TSKT_Quat> getAll(int MaSP, int NhomSP) {
         tsktDAO TSdb = new tsktDAO();
+        
         switch (NhomSP){
             case 1:
-                    return TSdb.getByID(MaSP, NhomSP);
-                break;
-                
-            case 2: 
-                
-                break;
+                    return TSdb.getTSKTQuatByID(MaSP);
         }
-                
-                 return null;   
+          return null;   
     }
     
 }

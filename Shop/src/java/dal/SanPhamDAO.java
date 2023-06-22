@@ -184,8 +184,7 @@ public class SanPhamDAO {
         try {
             String sql = "Select * From SanPham where MaSP = ?";
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
-            String MaSP_str = Integer.toString(MaSP);
-            statement.setString(1, "%" + MaSP_str + "%");
+            statement.setInt(1, MaSP );
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 SanPham s = new SanPham();

@@ -19,21 +19,33 @@ public class detailProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String MaSP_str = request.getParameter("id");
+        String MaSP_str = request.getParameter("MaSP");
         int MaSP = Integer.parseInt(MaSP_str);
         
         SanPhamDAO SPdb = new SanPhamDAO();
-        ArrayList<SanPham> list = SPdb.getSanPhamById(MaSP);
+        ArrayList<SanPham> sp_list = SPdb.getSanPhamById(MaSP);
+        System.out.println(sp_list.size());
         
 //        Lay thanh cong San Pham
-        SanPham sp = list.get(0);
-        
+        SanPham sp = sp_list.get(0);
+        System.out.println(sp);
 //        Lay ma nhom SP de phan chia tskt
         int NhomSP = sp.getNhomSP();
         
+//        Lay tskt cua san pham theo nhomSP
         LGcateFilter logic = new LGcateFilter();
-        ArrayList <TSKT_Quat> tskt = logic.getAll(sp.getMaSP(), NhomSP);
         
+//        Quat
+        if( NhomSP == 1){
+             ArrayList <model.TSKT_Quat> tskt_list = logic.getAll(sp.getMaSP(), NhomSP);
+//        Lay thanh cong TSKT
+            model.TSKT_Quat tskt = tskt_list.get(0);
+            request.setAttribute("tskt", tskt);
+            System.out.println(tskt);
+        }
+        
+        request.setAttribute("sp", sp);
+        request.getRequestDispatcher("view/user/homepage/detailProduct.jsp").forward(request, response);
     }
 
     @Override
