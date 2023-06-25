@@ -46,16 +46,18 @@
                         </c:if>
 
                         <c:if test = "${size != null}">
+                            
                             <!--SAN PHAM--> 
                             <div class="col-md-12 col-lg-8">
                                 <div class="items">
-                                    <c:forEach var = "order" items = "${requestScope.listOrderDetail}">
+                                    <c:forEach var = "order" items = "${requestScope.data}">
+                                        <c:set var="total" value="${total +order.getGiaThanh()*order.getSoLuong()}" />
                                         <div class="product">
                                             <div class="row">
-
+                                                
                                                 <!--IMG-->
                                                 <div class="col-md-3">
-                                                    <img class="img-fluid mx-auto d-block image" src="${order.sanpham.img}">
+                                                    <img class="img-fluid mx-auto d-block image" src="${order.getSanPham().getImg()}">
                                                 </div>
 
                                                 <!--DETAIL-->
@@ -63,11 +65,11 @@
                                                     <div class="info">
                                                         <div class="row">
                                                             <!--MaSP-->
-                                                            <input type ="text" hidden name = "MaSP" value = "${order.sanpham.MaSP}"></input>
+                                                            <input type ="text" hidden name = "MaSP" value = "${order.getSanPham().getMaSP()}"></input>
                                                             <div class="col-md-4 product-name">
                                                                 <div class="product-name">
                                                                     <!--TenSP-->
-                                                                    <a href="#">${order.sanpham.TenSP}</a>
+                                                                    <a href="#">${order.getSanPham().getTenSP()}</a>
                                                                     <!--TSKT-->
                                                                     <div class="product-info">
                                                                         <div>Display: <span class="value">5 inch</span></div>
@@ -79,15 +81,15 @@
                                                             <div class="col-md-3 quantity">
                                                                 <label for="quantity">Quantity:</label>
                                                                 <!--So Luong-->
-                                                                <input id="quantity" type="number" value ="1" min ="${order.SoLuong}" max ="10" class="form-control quantity-input">
+                                                                <input id="quantity" type="number" value ="${order.getSoLuong()}" min ="1" max ="10" class="form-control quantity-input">
                                                             </div>
                                                             <div class="col-md-2 price">
                                                                 <!--Gia Thanh-->
-                                                                <span >${order.GiaThanh}</span>
+                                                                <span >${order.getGiaThanh()}</span>
                                                             </div>
                                                             <div class="col-md-2" >
                                                                 <!--nut xoa-->
-                                                                <button type="button" onclick="confirmDelete('${order.sanpham.MaSP}');" style="border: 0px; padding: 0px; background-color: white; margin: 32px;" id="" class="" >
+                                                                <button type="button" onclick="confirmDelete('${order.getSanPham().getMaSP()}');" style="border: 0px; padding: 0px; background-color: white; margin: 32px;" id="" class="" >
                                                                     <!--thung rac-->
                                                                     <svg width="20" height="20" viewBox="0 0 128 128" fill="#ff5b6a" class="icon" xmlns="http://www.w3.org/2000/svg"><path d="M4 30.2c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5l117.5.2c1.4 0 2.5 1.1 2.5 2.5s-1.1 2.5-2.5 2.5L4 30.2zm19.3 5.1c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5v86.1l73.2-.8V36.2c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5v89.6l-83.3.9V35.3z"/><path d="M85.3 108.4c-1.4 0-2.5-1.1-2.5-2.5V46.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5v59.4c.1 1.4-1.1 2.5-2.5 2.5zm-39.4 0c-1.4 0-2.5-1.1-2.5-2.5V46.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5v59.4c.1 1.4-1.1 2.5-2.5 2.5zm19.7 0c-1.4 0-2.5-1.1-2.5-2.5V46.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5v59.4c.1 1.4-1.1 2.5-2.5 2.5zm16.3-81.7v-6.1c0-2.2-1.8-4-4-4H52.3c-2.3 0-4 1.8-4 4.1V26h-5v-5.3c0-5 4.1-9.1 9.1-9.1H78c5 0 9.1 4.1 9.1 9.1v6.1h-5.2z" fill="ff5b6a"/></svg>
                                                                 </button>
@@ -106,10 +108,10 @@
                             <div class="col-md-12 col-lg-4">
                                 <div class="summary">
                                     <h3>Summary</h3>
-                                    <div class="summary-item"><span class="text">Subtotal</span><span class="price">$360</span></div>
+                                    <div class="summary-item"><span class="text">Subtotal</span><span class="price">${total}</span></div>
                                     <div class="summary-item"><span class="text">Discount</span><span class="price">$0</span></div>
                                     <div class="summary-item"><span class="text">Shipping</span><span class="price">$0</span></div>
-                                    <div class="summary-item"><span class="text">Total</span><span class="price">$360</span></div>
+                                    <div class="summary-item"><span class="text">Total</span><span class="price">${total}</span></div>
                                     <button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
                                 </div>
                             </div>
