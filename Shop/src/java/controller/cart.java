@@ -46,14 +46,14 @@ public class cart extends HttpServlet {
             for (Cookie o : cookies) {
                 if (o.getName().equals("txt_cart")) {
                     txt_cart += o.getValue();
-                    o.setMaxAge(0);
-                    response.addCookie(o);
+//                    o.setMaxAge(0);
+//                    response.addCookie(o);
                 }
             }
         }
 
 //        Tao cart: list luu cac item da duoc add vao gio hang
-        Cart cart = new Cart(txt_cart, list);
+        Cart cart = new Cart(txt_cart);
 
 //        Lay list order co trong cart
         ArrayList< OrderDetail> listOrderDetail = cart.getCart();

@@ -30,6 +30,7 @@ public class UserDAO {
             String sql = "Select * From Users Where Tk = ?";
             User user = new User();
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            statement.setString(1, Tk);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 user.setID(rs.getString("ID"));
@@ -41,6 +42,7 @@ public class UserDAO {
                 user.setTk(rs.getString("Tk"));
                 user.setIsAdmin(rs.getInt("isAdmin"));
                 user.setSDT(rs.getString("SDT"));
+                user.setTxtCart(rs.getString("txtCart"));
                 System.out.println(user);
                 List_Users.add(user);
             }

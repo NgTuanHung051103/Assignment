@@ -10,11 +10,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import model.Cart;
 import model.NhomSP;
+import model.OrderDetail;
 import model.SanPham;
 
 /**
@@ -28,7 +31,9 @@ public class list extends HttpServlet {
             throws ServletException, IOException {
         SanPhamDAO SPdb = new SanPhamDAO();
         NhomSPDAO nSPdb = new NhomSPDAO();
-        
+
+//      ------ Phan trang va nhom san pham -----        
+//        Neu chua chon nhom san pham thi mac dinh = 1
        String nhomSP_ID_str = request.getParameter("nhomSP_ID");
        int nhomSP_ID;
        if(nhomSP_ID_str == null){
@@ -59,13 +64,49 @@ public class list extends HttpServlet {
         end =  Math.min( pageNow * numPerPage, size );
         
 //        lay list trong trang do
-        ArrayList<SanPham> listOfPage = SPdb.getListByPage(List_SanPhams, start, end);
-        
+       ArrayList<SanPham> listOfPage = SPdb.getListByPage(List_SanPhams, start, end);
         request.setAttribute("data",List_NhomSP);
         request.setAttribute("nhomSP_ID",nhomSP_ID);
         request.setAttribute("listOfPage", listOfPage);
         request.setAttribute("pageNow", pageNow);
         request.setAttribute("numPage", numPage);
+        
+//      ------Ket thuc  Phan trang va nhom san pham -----          
+       
+    
+//        ----Khoi tao Cookie txt cart----
+
+        Cookie[] cookies = request.getCookies();
+        String txt_cart = "";
+
+//        set txt_cart ( co the dua vao logic -> de sau )
+//        Bang cach: xoa cookie cart cu ( neu co ) de sua thanh cookie cart moi
+        if (cookies != null) {
+            for (Cookie o : cookies) {
+                if (o.getName().equals("txt_cart")) {
+                    txt_cart += o.getValue();
+                    o.setMaxAge(0);
+                    response.addCookie(o);
+                }
+            }
+        }
+
+//        Tao cart: list luu cac item da duoc add vao gio hang
+        Cart cart = new Cart(txt_cart);   
+        
+//        Lay list order co trong cart
+        ArrayList< OrderDetail> listOrderDetail = cart.getCart();
+        
+//        lay so luong order co trong cart
+        int n = listOrderDetail != null ? listOrderDetail.size() : 0;
+        
+//        set soluong - list OrderDetail
+        request.setAttribute("size", n);        
+        
+//        -----Ket thuc Cookie txt cart-----
+
+
+       
         request.getRequestDispatcher("view/user/homepage/index.jsp").forward(request, response);      
     }
 //request.getRequestDispatcher("view/common/product.jsp").forward(request, response);

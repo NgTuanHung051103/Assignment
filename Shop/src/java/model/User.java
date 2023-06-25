@@ -9,10 +9,10 @@ package model;
  * @author NgTua
  */
 public class User {
-      private String ID, Ten,  Email,Tk, Mk, DiaChi,  SDT;
+      private String ID, Ten,  Email,Tk, Mk, DiaChi,  SDT, txtCart;
       private int Tuoi, isAdmin;
 
-    public User(String ID, String Ten, String Email, String Tk, String Mk, String DiaChi, String SDT, int Tuoi, int isAdmin) {
+    public User(String ID, String Ten, String Email, String Tk, String Mk, String DiaChi, String SDT, String txtCart, int Tuoi, int isAdmin) {
         this.ID = ID;
         this.Ten = Ten;
         this.Email = Email;
@@ -20,6 +20,7 @@ public class User {
         this.Mk = Mk;
         this.DiaChi = DiaChi;
         this.SDT = SDT;
+        this.txtCart = txtCart;
         this.Tuoi = Tuoi;
         this.isAdmin = isAdmin;
     }
@@ -103,6 +104,14 @@ public class User {
     @Override
     public String toString() {
         return "User{" + "ID=" + ID + ", Ten=" + Ten + ", Email=" + Email + ", Tk=" + Tk + ", Mk=" + Mk + ", DiaChi=" + DiaChi + ", SDT=" + SDT + ", Tuoi=" + Tuoi + ", isAdmin=" + isAdmin + '}';
+    }
+
+    public String getTxtCart() {
+        return txtCart;
+    }
+
+    public void setTxtCart(String txtCart) {
+        this.txtCart = txtCart;
     }
 
   

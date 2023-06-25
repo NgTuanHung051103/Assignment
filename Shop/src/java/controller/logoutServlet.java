@@ -29,10 +29,10 @@ public class logoutServlet extends HttpServlet {
 //            remove cookie: loginedAccount
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
-            for (Cookie cooky : cookies) {
-                if (cooky.getName().equals("loginedAccount")) {
-                    cooky.setMaxAge(0);
-                    response.addCookie(cooky);
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("loginedAccount")) {
+                    cookie.setMaxAge(0);
+                    response.addCookie(cookie);
                 }
             }
         }

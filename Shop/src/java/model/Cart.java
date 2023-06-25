@@ -23,7 +23,7 @@ public class Cart {
 //    INPUT: txt: item da them vao gio hang truoc day
 //                  list: tat ca san pham
 //      OUTPUT: null ( da khoi tao 1 doi tuong luu nhung item da them vao cart )
-    public Cart(String txt, ArrayList<SanPham> list) {
+    public Cart(String txt) {
         cart = new ArrayList<>();
         try {
             if (txt != null && txt.length() != 0) {

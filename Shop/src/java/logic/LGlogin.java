@@ -55,10 +55,23 @@ public class LGlogin {
     public User get_Info_User_Login(String Tk){
         UserDAO Userdb = new UserDAO();
         ArrayList<User> List_Users = Userdb.get_Info_User_Login(Tk);
+        System.out.println("size: "+List_Users.size());
         if(List_Users.isEmpty()){
             return null;
         } else {
             return List_Users.get(0);
         }
     }
+
+//  Lay cart cua tai khoan khi duoc dang nhap
+//    Input: Tk
+//    OUTPUT: String cart
+    public String getTxtCart(String Tk) {
+        if (get_Info_User_Login(Tk).getTxtCart().equalsIgnoreCase("") ){
+            return "";
+        }
+        return  get_Info_User_Login(Tk).getTxtCart();
+    }
+    
+    
 }
