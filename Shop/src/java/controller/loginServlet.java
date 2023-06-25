@@ -33,7 +33,9 @@ public class loginServlet extends HttpServlet {
         LGlogin login = new LGlogin();
         int result = login.checkLogin(Tk, Mk);
         
+//        Kiem tra ket qua dang nhap
         switch (result) {
+            
 //         Dang nhap thanh cong: 
             case 0:
 //              Set Cookie Account
@@ -41,7 +43,6 @@ public class loginServlet extends HttpServlet {
                 Account.setMaxAge(60 * 30);
                 response.addCookie(Account);
                 
-                System.out.println("1");
 //                get Cart
                 String txtCart = login.getTxtCart(Tk) ;
 

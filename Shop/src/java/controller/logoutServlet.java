@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import logic.LGcartCookie;
 import logic.LGlogin;
 
 /**
@@ -22,15 +23,32 @@ public class logoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        remove session
+        
+
         HttpSession session = request.getSession();
+
+//      save Tk         
+        String Tk = (String) session.getAttribute("loginedAccount");
+        
+//        remove session       
         session.removeAttribute("loginedAccount");
 
-//            remove cookie: loginedAccount
+        
+//      remove cookie: loginedAccount
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("loginedAccount")) {
+                if ( cookie.getName().equals("loginedAccount") ) {
+                    cookie.setMaxAge(0);
+                    response.addCookie(cookie);
+                }
+                if ( cookie.getName().equals("txt_cart") ){
+                    
+//                    set cart cho tai khoan 
+                    LGcartCookie lgCart = new LGcartCookie();
+                    boolean result = lgCart.update_db( cookie.getValue(), Tk );
+                        System.out.println("logout:  " + result );
+//                    remove cookie txt_cart
                     cookie.setMaxAge(0);
                     response.addCookie(cookie);
                 }

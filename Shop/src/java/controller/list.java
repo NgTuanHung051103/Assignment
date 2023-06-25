@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import logic.LGcartCookie;
 import model.Cart;
 import model.NhomSP;
 import model.OrderDetail;
@@ -29,6 +30,7 @@ public class list extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         SanPhamDAO SPdb = new SanPhamDAO();
         NhomSPDAO nSPdb = new NhomSPDAO();
 
@@ -45,7 +47,6 @@ public class list extends HttpServlet {
        
 //         lay full san pham theo NhomSP ( category )
          ArrayList<SanPham> List_SanPhams = SPdb.getListByCategory(nhomSP_ID);
-        
         
 //        page: trang hien tai va numPerPage: so sp moi trang
         int  pageNow, numPerPage = 6, 
@@ -76,18 +77,11 @@ public class list extends HttpServlet {
     
 //        ----Khoi tao Cookie txt cart----
 
-        Cookie[] cookies = request.getCookies();
-        String txt_cart = "";
+//          Tao logic xu ly cart
+        LGcartCookie lgCart = new LGcartCookie();
 
-//        set txt_cart ( co the dua vao logic -> de sau )
-//        Bang cach: xoa cookie cart cu ( neu co ) de sua thanh cookie cart moi
-        if (cookies != null) {
-            for (Cookie o : cookies) {
-                if (o.getName().equals("txt_cart")) {
-                    txt_cart += o.getValue();
-                }
-            }
-        }
+//          Them san pham moi vao cart         
+         String txt_cart = lgCart.get(request, response);
 
 //        Tao cart: list luu cac item da duoc add vao gio hang
         Cart cart = new Cart(txt_cart);   
@@ -103,8 +97,6 @@ public class list extends HttpServlet {
         
 //        -----Ket thuc Cookie txt cart-----
 
-
-       
         request.getRequestDispatcher("view/user/homepage/index.jsp").forward(request, response);      
     }
 //request.getRequestDispatcher("view/common/product.jsp").forward(request, response);

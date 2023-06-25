@@ -55,7 +55,6 @@ public class LGlogin {
     public User get_Info_User_Login(String Tk){
         UserDAO Userdb = new UserDAO();
         ArrayList<User> List_Users = Userdb.get_Info_User_Login(Tk);
-        System.out.println("size: "+List_Users.size());
         if(List_Users.isEmpty()){
             return null;
         } else {

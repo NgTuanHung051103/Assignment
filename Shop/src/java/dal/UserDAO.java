@@ -14,18 +14,19 @@ import model.User;
 
 /**
  *
- * @author NgTua
+ * @author NgTua á ?
  */
 public class UserDAO {
 
     private final DBContext conn = new DBContext();
 
+//    ----------------------GET INFO FROM DATABASE-------------------------
 //    get info of user by Tk
 //    input: tai khoan
 //    output: all info of tai khoan
 //                  but this type: list
-     public ArrayList<User> get_Info_User_Login(String Tk) {
-         ArrayList<User> List_Users = new ArrayList<>();
+    public ArrayList<User> get_Info_User_Login(String Tk) {
+        ArrayList<User> List_Users = new ArrayList<>();
         try {
             String sql = "Select * From Users Where Tk = ?";
             User user = new User();
@@ -43,7 +44,6 @@ public class UserDAO {
                 user.setIsAdmin(rs.getInt("isAdmin"));
                 user.setSDT(rs.getString("SDT"));
                 user.setTxtCart(rs.getString("txtCart"));
-                System.out.println(user);
                 List_Users.add(user);
             }
         } catch (SQLException ex) {
@@ -53,7 +53,7 @@ public class UserDAO {
         }
         return List_Users;
     }
-     
+
 //     lay tat ca tai khoan
 //     input: null
 //     output: list tai khoan
@@ -83,14 +83,35 @@ public class UserDAO {
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
             statement.setString(1, Tk);
             ResultSet rs = statement.executeQuery();
-            if(rs.next())
+            if (rs.next()) {
                 return rs.getString("Mk");
+            }
         } catch (SQLException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+// --------------------------UPDATE INFO TO DATABASE----------------------------------
+    public boolean update_cart_by_Tk(String txt_cart, String Tk) {
+        try {
+            String sql = " UPDATE Users\n"
+                    + "   SET \n"
+                    + "      txtCart = ? \n"
+                    + " WHERE Tk = ?";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            statement.setString(1, txt_cart);
+            statement.setString(2,  Tk );
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return false;
+        } catch (Exception ex) {
+            return false;
+        }
+        return true;
     }
 
 }
