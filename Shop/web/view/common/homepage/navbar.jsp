@@ -17,77 +17,76 @@
 
         <!--boostrap icon-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">    
+    
     </head>
     <body>
-        <section id="navbar">
-            <div class="container" style = "max-width: 100%;">
-                <nav class="navbar">
-                    <div class="navbar-left">
-                        <a href="${pageContext.request.contextPath}/list" class="navbar-logo">
-                            <img class="logo" src="${pageContext.request.contextPath}/images/Logo.png" alt="">
-                        </a>
-                        <ul class = "navbar-left-products">
-                            <li class="nav-product">
-                                <a href="${pageContext.request.contextPath}/view/user/homepage/quat.jsp" class = "nav-link" style="color: #1f2022;">Quat</a>
-                            </li>
-                            <li class="nav-product">
-                                <a href="" class = "nav-link" style="color: #1f2022;">Ti vi</a>
-                            </li>
-                            <li class="nav-product">
-                                <a href="" class = "nav-link"style="color: #1f2022;" >Dieu hoa</a>
-                            </li>
-                            <li class="nav-product">
-                                <a href="" class = "nav-link" style="color: #1f2022;">Tu lanh</a>
-                            </li>
-                        </ul>
+                <div class = "container-fluid container-navbar" >
+                    <nav class="navbar">
+                        <div class="navbar-left">
+                            <a href="${pageContext.request.contextPath}/list" class="navbar-logo">
+                                <img class="logo" src="${pageContext.request.contextPath}/images/Logo.png" alt="">
+                            </a>
+                            <ul class = "navbar-left-products">
+                                <li class="nav-product">
+                                    <a href="${pageContext.request.contextPath}/view/user/homepage/quat.jsp" class = "nav-link" style="color: #1f2022;">Quat</a>
+                                </li>
+                                <li class="nav-product">
+                                    <a href="" class = "nav-link" style="color: #1f2022;">Ti vi</a>
+                                </li>
+                                <li class="nav-product">
+                                    <a href="" class = "nav-link"style="color: #1f2022;" >Dieu hoa</a>
+                                </li>
+                                <li class="nav-product">
+                                    <a href="" class = "nav-link" style="color: #1f2022;">Tu lanh</a>
+                                </li>
+                            </ul>
 
-                    </div>
-                    <div class="navbar-right" >
-                        <ul class="navbar-right-ul">
-                            <li class="nav-info">
-                                <form action="search" method="GET">
-                                    <input name ="key"  type="text" placeholder="Looking for?" >
-                                    <button type="submit">
-                                        <i class="bi bi-search  "></i>
-                                    </button>
-                                </form>
-                            </li>
-                                
-                            <c:set var ="cookie" value = "${sessionScope.cookies}"/>
-                                
-                            <li class="nav-info">
-                                <c:if test ="${cookie.loginedAccount != null }">
-                                    <div class="dropdown" style="margin: auto 12px auto 26px;">
-                                        <i class="fa fa-user-o logined" ></i>
-                                        <div class="dropdown-content">
-                                            <a href="#">Tài Khoản</a>
-                                            <a href="#">Đơn Mua</a>
-                                            <a href="${pageContext.request.contextPath}/logoutServlet">Đăng Xuất</a>
-                                        </div>
-                                    </div>  
-                                </c:if>
+                        </div>
+                        <div class="navbar-right" >
+                            <ul class="navbar-right-ul">
+                                <li class="nav-info">
+                                    <form action="search" method="GET">
+                                        <input name ="key"  type="text" placeholder="Looking for?" >
+                                        <button type="submit">
+                                            <i class="bi bi-search  "></i>
+                                        </button>
+                                    </form>
+                                </li>
 
-                                <c:if test ="${cookie.loginedAccount == null }">
-                                    <a href  ="${pageContext.request.contextPath}/view/user/homepage/login.jsp"
-                                       style = "color: black;"> 
-                                        <i class="fa fa-user-o"  style="margin: auto 12px auto 16px;" > </i> 
+                                <c:set var ="cookie" value = "${sessionScope.cookies}"/>
+
+                                <li class="nav-info">
+                                    <c:if test ="${cookie.loginedAccount != null }">
+                                        <div class="dropdown" style="margin: auto 12px auto 26px;">
+                                            <i class="fa fa-user-o logined" ></i>
+                                            <div class="dropdown-content">
+                                                <a href="#">Tài Khoản</a>
+                                                <a href="#">Đơn Mua</a>
+                                                <a href="${pageContext.request.contextPath}/logoutServlet">Đăng Xuất</a>
+                                            </div>
+                                        </div>  
+                                    </c:if>
+
+                                    <c:if test ="${cookie.loginedAccount == null }">
+                                        <a href  ="${pageContext.request.contextPath}/view/user/homepage/login.jsp"
+                                           style = "color: black;"> 
+                                            <i class="fa fa-user-o"  style="margin: auto 12px auto 16px;" > </i> 
+                                        </a>
+                                    </c:if>
+                                </li>    
+                                <li class="nav-info">
+                                    <a href="" class = "nav-link" style="color: #1f2022;">
+                                        <i class="bi bi-heart"></i>
                                     </a>
-                                </c:if>
-                            </li>    
-                            <li class="nav-info">
-                                <a href="" class = "nav-link" style="color: #1f2022;">
-                                    <i class="bi bi-heart"></i>
-                                </a>
-                            </li>
-                            <li class="nav-info">
-                                <a href="cart" class = "nav-link" style="color: #1f2022;">
-                                    <span class="bi bi-cart3"></span>                                
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </section>
+                                </li>
+                                <li class="nav-info">
+                                    <a href="cart" class = "nav-link" style="color: #1f2022;">
+                                        <span class="bi bi-cart3"></span>                                
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
     </body>
 </html>

@@ -1,11 +1,16 @@
-body{
+.container-detailProduct{
     background-color: #edf1f5;
-    margin-top:20px;
+    padding-top: 32px;
+
+    display: flex;
+    justify-content: center;
 }
-.card {
+.card {   
+    
+    width: 75%;
     margin-bottom: 30px;
 }
-.card {
+.card-body {
     position: relative;
     display: flex;
     flex-direction: column;

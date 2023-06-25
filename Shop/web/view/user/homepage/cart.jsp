@@ -42,7 +42,7 @@
 
                         <!--GIO HANG KHONG CO GI-->
                         <c:if test = "${size == null}">
-                            <div>Gio hang rong, Vui long chon san pham</div>
+                            <div style = "height: 200px;">Gio hang rong, Vui long chon san pham</div>
                         </c:if>
 
                         <c:if test = "${size != null}">

@@ -88,9 +88,12 @@
                                     <h4 class="card-title show_txt"><a href="#" title="View Product">${o.getTenSP()}</a></h4>
                                     <p class="card-text show_txt">${o.getTenSP()}</p>
                                     <div class="row">
+                                        
                                         <div class="col">
-                                            <a href="#" class="btn btn-success btn-block">Add to cart</a>
-                                        </div>
+                                                <a href ="detailProduct?MaSP=${o.getMaSP()}">
+                                                    <p class="btn btn-danger btn-block">View Detail</p>
+                                                </a>
+                                            </div>
                                     </div>
                                 </div>
                             </div>

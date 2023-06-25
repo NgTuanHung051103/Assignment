@@ -1,8 +1,10 @@
 
-#navbar{
+
+.container-navbar{
     background-color: white;
-    height: 70px;
+    height: 85px;
     text-decoration: none;
+     max-width: 100%;
 }
 
 .logo{
