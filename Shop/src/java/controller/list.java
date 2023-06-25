@@ -85,8 +85,6 @@ public class list extends HttpServlet {
             for (Cookie o : cookies) {
                 if (o.getName().equals("txt_cart")) {
                     txt_cart += o.getValue();
-                    o.setMaxAge(0);
-                    response.addCookie(o);
                 }
             }
         }

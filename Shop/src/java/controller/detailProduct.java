@@ -11,6 +11,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import logic.LGcateFilter;
 import model.SanPham;
@@ -19,16 +20,25 @@ public class detailProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String MaSP_str = request.getParameter("MaSP");
+        
+       HttpSession session = request.getSession();
+       
+        String MaSP_str = "";
+        if (  request.getParameter("MaSP") == null ){
+            MaSP_str = (String) session.getAttribute("MaSP");
+            session.removeAttribute("MaSP");
+        } else {
+            MaSP_str = request.getParameter("MaSP");
+        }
+        
         int MaSP = Integer.parseInt(MaSP_str);
         
         SanPhamDAO SPdb = new SanPhamDAO();
         ArrayList<SanPham> sp_list = SPdb.getSanPhamById(MaSP);
-        System.out.println(sp_list.size());
         
 //        Lay thanh cong San Pham
         SanPham sp = sp_list.get(0);
-        System.out.println(sp);
+        
 //        Lay ma nhom SP de phan chia tskt
         int NhomSP = sp.getNhomSP();
         
@@ -41,7 +51,6 @@ public class detailProduct extends HttpServlet {
 //        Lay thanh cong TSKT
             model.TSKT_Quat tskt = tskt_list.get(0);
             request.setAttribute("tskt", tskt);
-            System.out.println(tskt);
         }
         
         request.setAttribute("sp", sp);
