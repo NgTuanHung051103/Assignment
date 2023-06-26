@@ -72,10 +72,24 @@ public class LGcartCookie {
        return txt_cart;
     }
    
+    public String delete(HttpServletRequest request,  HttpServletResponse response, 
+                                            String MaSP_str){
+        String txt_cart = get(request, response);
+         
+        String[] products = txt_cart.split("/");
+        for (String product : products) {
+            if (!product.split(":")[0].equals(MaSP_str)) {
+                txt_cart += product + "/";
+            }
+        }
+        return txt_cart;
+    }
+    
     public boolean update_db ( String txt_cart, String Tk){
             UserDAO db = new UserDAO();
             boolean result = db.update_cart_by_Tk(txt_cart, Tk);
             System.out.println("LG: " + result);
             return result;
     }
+    
 }

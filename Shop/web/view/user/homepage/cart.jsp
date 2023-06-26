@@ -27,7 +27,7 @@
     </head>  
         
         <!-- Navbar-->
-        <jsp:include page="../../common/homepage/navbar.jsp" ></jsp:include>      
+        <jsp:include page="../../${initParam['CommonHomepage']}/navbar.jsp" ></jsp:include>      
     
         <section class="shopping-cart dark" style = "margin-top: 8px;">
             <div class="container">
@@ -120,18 +120,19 @@
                     </div> 
                 </div>
             </div>
-        </section>
+        </section>+
+        
                         
                          <!-- Footer-->
-             <jsp:include page="../../common/homepage/footer.jsp" ></jsp:include>
+             <jsp:include page="../../${initParam['CommonHomepage']}/footer.jsp" ></jsp:include>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <script>
-        function confirmDelete(productID) {
+        function confirmDelete(MaSP) {
             if (confirm("Are you sure you want to remove this item?")) {
-                window.location.href = "deletecart?pid=" + productID;
+                window.location.href = "${pageContext.request.contextPath}/deleteCart?MaSP=" + MaSP;
             } else {
                 return false;
             }

@@ -1,36 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <context-param>
-        <param-name>homepagePathCommon</param-name>
+        <param-name>CommonHomepage</param-name>
         <param-value>common/homepage</param-value>
     </context-param>
     <servlet>
         <servlet-name>list</servlet-name>
-        <servlet-class>controller.list</servlet-class>
+        <servlet-class>controller.user.list</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>search</servlet-name>
-        <servlet-class>controller.search</servlet-class>
+        <servlet-class>controller.user.search</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>quat</servlet-name>
-        <servlet-class>controller.quat</servlet-class>
+        <servlet-class>controller.user.quat</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>logoutServlet</servlet-name>
-        <servlet-class>controller.logoutServlet</servlet-class>
+        <servlet-class>controller.loginout.logoutServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>cart</servlet-name>
-        <servlet-class>controller.cart</servlet-class>
+        <servlet-class>controller.cart.cart</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>detailProduct</servlet-name>
-        <servlet-class>controller.detailProduct</servlet-class>
+        <servlet-class>controller.user.detailProduct</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>addToCart</servlet-name>
-        <servlet-class>controller.addToCart</servlet-class>
+        <servlet-class>controller.cart.addToCart</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteCart</servlet-name>
+        <servlet-class>controller.cart.deleteCart</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
@@ -38,7 +42,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>loginServlet</servlet-name>
-        <servlet-class>controller.loginServlet</servlet-class>
+        <servlet-class>controller.loginout.loginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>loginServlet</servlet-name>
@@ -67,6 +71,10 @@
     <servlet-mapping>
         <servlet-name>addToCart</servlet-name>
         <url-pattern>/addToCart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteCart</servlet-name>
+        <url-pattern>/deleteCart</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
