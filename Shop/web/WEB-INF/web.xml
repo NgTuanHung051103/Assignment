@@ -4,6 +4,10 @@
         <param-name>CommonHomepage</param-name>
         <param-value>common/homepage</param-value>
     </context-param>
+    <context-param>
+        <param-name>CommonDashboard</param-name>
+        <param-value>common/dashboard</param-value>
+    </context-param>
     <servlet>
         <servlet-name>list</servlet-name>
         <servlet-class>controller.user.list</servlet-class>
