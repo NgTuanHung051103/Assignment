@@ -22,7 +22,7 @@
     </servlet>
     <servlet>
         <servlet-name>logoutServlet</servlet-name>
-        <servlet-class>controller.loginout.logoutServlet</servlet-class>
+        <servlet-class>controller.user.logoutServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>cart</servlet-name>
@@ -40,13 +40,17 @@
         <servlet-name>deleteCart</servlet-name>
         <servlet-class>controller.cart.deleteCart</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>listAdmin</servlet-name>
+        <servlet-class>controller.admin.listAdmin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/list</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>loginServlet</servlet-name>
-        <servlet-class>controller.loginout.loginServlet</servlet-class>
+        <servlet-class>controller.user.loginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>loginServlet</servlet-name>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>deleteCart</servlet-name>
         <url-pattern>/deleteCart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>listAdmin</servlet-name>
+        <url-pattern>/listAdmin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
