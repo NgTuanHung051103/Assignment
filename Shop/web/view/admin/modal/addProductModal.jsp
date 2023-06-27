@@ -209,8 +209,6 @@
                     KichThuocKhoiLuong.style.display = "block";
                     SoCanhQuat.style.display = "block";
                     
-                    
-
                 } else {
                     // Hide the color and material inputs
                      // Show the color and material inputs
