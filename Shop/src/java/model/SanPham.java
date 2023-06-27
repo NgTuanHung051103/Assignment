@@ -9,18 +9,28 @@ package model;
  * @author NgTua
  */
 public class SanPham {
-    private int MaSP, GiaThanh, NhomSP;
+    private int MaSP, GiaThanh, NhomSP, SoLuong;
     private String TenSP, ThuongHieu, Img;
 
-    public SanPham(int MaSP, int GiaThanh, int NhomSP, String TenSP, String ThuongHieu, String Img) {
+    public SanPham(int MaSP, int GiaThanh, int NhomSP, int SoLuong, String TenSP, String ThuongHieu, String Img) {
         this.MaSP = MaSP;
         this.GiaThanh = GiaThanh;
         this.NhomSP = NhomSP;
+        this.SoLuong = SoLuong;
         this.TenSP = TenSP;
         this.ThuongHieu = ThuongHieu;
         this.Img = Img;
     }
 
+    public int getSoLuong() {
+        return SoLuong;
+    }
+
+    public void setSoLuong(int SoLuong) {
+        this.SoLuong = SoLuong;
+    }
+    
+    
     public int getMaSP() {
         return MaSP;
     }

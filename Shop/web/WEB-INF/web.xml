@@ -44,6 +44,10 @@
         <servlet-name>listAdmin</servlet-name>
         <servlet-class>controller.admin.listAdmin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>addSanPham</servlet-name>
+        <servlet-class>controller.admin.addSanPham</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/list</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>listAdmin</servlet-name>
         <url-pattern>/listAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addSanPham</servlet-name>
+        <url-pattern>/addSanPham</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

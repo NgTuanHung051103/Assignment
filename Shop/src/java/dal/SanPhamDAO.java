@@ -31,6 +31,7 @@ public class SanPhamDAO {
                 s.setImg(rs.getString("Img"));
                 s.setGiaThanh(rs.getInt("GiaThanh"));
                 s.setNhomSP(rs.getInt("NhomSP"));
+                s.setSoLuong(rs.getInt("SoLuong"));
                 List_SanPhams.add(s);
             }
         } catch (SQLException ex) {
@@ -124,14 +125,14 @@ public class SanPhamDAO {
             }
             
 //            thuong hieu
-            if(!list_thuong_hieu[thuong_hieu].equalsIgnoreCase("") ){
+            if( ! list_thuong_hieu[thuong_hieu].equalsIgnoreCase("") ){
                 statement.setString(2, "%"+list_thuong_hieu[thuong_hieu]+"%");
             }else{
                 statement.setString(2, "%%");
             }
             
 //            canh quat
-            if(!list_canh_quat[canh_quat].equalsIgnoreCase("") ){
+            if( ! list_canh_quat[canh_quat].equalsIgnoreCase("") ){
                 statement.setString(3, "%"+list_canh_quat[canh_quat]+"%");
             }else{
                 statement.setString(3, "%%");
