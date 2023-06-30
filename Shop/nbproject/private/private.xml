@@ -20,11 +20,9 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Assignment/Assignment/Shop/src/java/model/NhomSP.java</file>
             <file>file:/D:/Assignment/Assignment/Shop/web/view/admin/dashboard/datatableProduct.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/common/dashboard/breadcumb.jsp</file>
             <file>file:/D:/Assignment/Assignment/Shop/web/view/admin/modal/addProductModal.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/admin/dashboard/index.jsp</file>
+            <file>file:/D:/Assignment/Assignment/Shop/src/java/dal/DBContext.java</file>
         </group>
     </open-files>
 </project-private>

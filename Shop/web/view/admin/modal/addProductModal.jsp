@@ -81,54 +81,58 @@
                                 <img id="previewImage" src="#" alt="Preview" style="display: none; max-width: 300px; max-height: 300px;">
                             </div>
 
-                            
-                            <!--Loai Quat-->
-                            <div class="form-group" style = "display: none;">                               
-                                <label for="LoaiQuat">Loại Quạt:</label>
-                                <input type="text" class="form-control" id="LoaiQuatInput" name="LoaiQuat">
+
+                            <div class = "form-group" style = "display: none">
+                                <!--Loai Quat-->
+                                <div class="form-group">                               
+                                    <label for="LoaiQuat">Loại Quạt:</label>
+                                    <input type="text" class="form-control" id="LoaiQuatInput" name="LoaiQuat">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="DuongKinhQuat">Đường Kính Quạt:</label>
+                                    <input type="text" class="form-control" id="DuongKinhQuatInput" name="DuongKinhQuat">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="CheDoGio">Chế Độ Gió:</label>
+                                    <input type="text" class="form-control" id="CheDoGioInput" name="CheDoGio">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="BangDieuKhien">Bảng Điều Khiển:</label>
+                                    <input type="text" class="form-control" id="BangDieuKhienInput" name="BangDieuKhien">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="LoaiMotor">Loại Motor:</label>
+                                    <input type="text" class="form-control" id="LoaiMotorInput" name="LoaiMotor">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="TienIch">Tiện ích:</label>
+                                    <input type="text" class="form-control" id="TienIchInput" name="TienIch">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="KichThuocKhoiLuong">Kích thước khối lượng:</label>
+                                    <input type="text" class="form-control" id="KichThuocKhoiLuongInput" name="KichThuocKhoiLuong">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="SoCanhQuat">Số cánh quạt:</label>
+                                    <input type="text" class="form-control" id="SoCanhQuatInput" name="SoCanhQuat">
+                                </div>
                             </div>
-                            
-                            <!--Loai Quat-->
-                            <div class="form-group" style = "display: none;">                               
-                                <label for="DuongKinhQuat">Đường Kính Quạt:</label>
-                                <input type="text" class="form-control" id="DuongKinhQuatInput" name="DuongKinhQuat">
-                            </div>
-                            
-                            <!--Loai Quat-->
-                            <div class="form-group" style = "display: none;">                               
-                                <label for="CheDoGio">Chế Độ Gió:</label>
-                                <input type="text" class="form-control" id="CheDoGioInput" name="CheDoGio">
-                            </div>
-                            
-                            <!--Loai Quat-->
-                            <div class="form-group" style = "display: none;">                               
-                                <label for="BangDieuKhien">Bảng Điều Khiển:</label>
-                                <input type="text" class="form-control" id="BangDieuKhienInput" name="BangDieuKhien">
-                            </div>
-                            
-                            <!--Loai Quat-->
-                            <div class="form-group" style = "display: none;">                               
-                                <label for="LoaiMotor">Loại Motor:</label>
-                                <input type="text" class="form-control" id="LoaiMotorInput" name="LoaiMotor">
-                            </div>
-                            
-                            <!--Loai Quat-->
-                            <div class="form-group" style = "display: none;">                               
-                                <label for="TienIch">Tiện ích:</label>
-                                <input type="text" class="form-control" id="TienIchInput" name="TienIch">
-                            </div>
-                            
-                            <!--Loai Quat-->
-                            <div class="form-group" style = "display: none;">                               
-                                <label for="KichThuocKhoiLuong">Kích thước khối lượng:</label>
-                                <input type="text" class="form-control" id="KichThuocKhoiLuongInput" name="KichThuocKhoiLuong">
-                            </div>
-                            
-                            <!--Loai Quat-->
-                            <div class="form-group" style = "display: none;">                               
-                                <label for="SoCanhQuat">Số cánh quạt:</label>
-                                <input type="text" class="form-control" id="SoCanhQuatInput" name="SoCanhQuat">
-                            </div>
+
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -182,15 +186,9 @@
 
 //            let color = $('#colorInput');
 
-            var LoaiQuat = document.getElementById("LoaiQuatInput").parentElement;
-            var DuongKinhQuat = document.getElementById("DuongKinhQuatInput").parentElement;
-            var CheDoGio = document.getElementById("CheDoGioInput").parentElement;
-            var BangDieuKhien = document.getElementById("BangDieuKhienInput").parentElement;
-            var LoaiMotor = document.getElementById("LoaiMotorInput").parentElement;
-            var TienIch = document.getElementById("TienIchInput").parentElement;
-            var KichThuocKhoiLuong = document.getElementById("KichThuocKhoiLuongInput").parentElement;
-            var SoCanhQuat = document.getElementById("SoCanhQuatInput").parentElement;
-            
+            var Quat = document.getElementById("LoaiQuatInput").parentElement.parentElement;
+
+
             var categorySelect = document.getElementById("categoryInput");
 
             categorySelect.addEventListener("change", function () {
@@ -198,28 +196,14 @@
                 var selectedCategory = categorySelect.value;
 
                 // Check if the selected category requires color and material inputs
-                if ( parseInt(selectedCategory) === 1) {
+                if (parseInt(selectedCategory) === 1) {
                     // Show the color and material inputs
-                    LoaiQuat.style.display = "block";
-                    DuongKinhQuat.style.display = "block";
-                    CheDoGio.style.display = "block";
-                    BangDieuKhien.style.display = "block";
-                    LoaiMotor.style.display = "block";
-                    TienIch.style.display = "block";
-                    KichThuocKhoiLuong.style.display = "block";
-                    SoCanhQuat.style.display = "block";
-                    
+                    Quat.style.display = "block";
+
                 } else {
                     // Hide the color and material inputs
-                     // Show the color and material inputs
-                    LoaiQuat.style.display = "none";
-                    DuongKinhQuat.style.display = "none";
-                    CheDoGio.style.display = "none";
-                    BangDieuKhien.style.display = "none";
-                    LoaiMotor.style.display = "none";
-                    TienIch.style.display = "none";
-                    KichThuocKhoiLuong.style.display = "none";
-                    SoCanhQuat.style.display = "none";
+                    // Show the color and material inputs
+                    Quat.style.display = "none";
                 }
             });
 
