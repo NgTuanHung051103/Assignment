@@ -208,7 +208,7 @@
             });
 
 
-
+            
             function displayImage(input) {
                 var previewImage = document.getElementById("previewImage");
                 var file = input.files[0];
@@ -218,7 +218,6 @@
                     previewImage.src = e.target.result;
                     previewImage.style.display = "block";
                 }
-
                 reader.readAsDataURL(file);
             }
 
