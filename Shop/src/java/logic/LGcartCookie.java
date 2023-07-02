@@ -32,6 +32,15 @@ public class LGcartCookie {
         return txt_cart;
     }
     
+    public void set(HttpServletRequest request,  HttpServletResponse response, 
+                                            String txt_cart){
+ //                set Cookie Cart
+                Cookie cookie = new Cookie("txt_cart", txt_cart);
+                cookie.setMaxAge( 60 * 24 );
+                response.addCookie(cookie);
+                
+    }
+    
     public String add(HttpServletRequest request,  HttpServletResponse response, 
                                             String MaSP_str){
         String txt_cart = get(request, response);
@@ -91,9 +100,10 @@ public class LGcartCookie {
         }
         int pos_last = txt_cart.length();
         return txt_cart.substring(0, pos_last-1);
+        
     }
     
-    public boolean update_db ( String txt_cart, String Tk){
+    public boolean updateToDB ( String txt_cart, String Tk){
             UserDAO db = new UserDAO();
             boolean result = db.update_cart_by_Tk(txt_cart, Tk);
             return result;

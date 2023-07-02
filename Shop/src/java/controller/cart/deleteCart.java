@@ -23,27 +23,16 @@ public class deleteCart extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String MaSP_str = request.getParameter("MaSP");
-        
-//          xoa cart
+
         LGcartCookie lgCart = new LGcartCookie();
+
+//        Xoa san pham da thao tac
         String txt_cart = lgCart.delete(request, response, MaSP_str);
 
-        Cookie cookie = new Cookie("txt_cart", txt_cart);
+//        Set lai txt_cart len cookie
+        lgCart.set(request, response, txt_cart);
         
-        
-//        Cap nhat vao tai khoan Neu da login
-        Cookie[] cookies = request.getCookies();
-         
-        if (cookies != null) {
-            for (Cookie c : cookies) {
-                if ( c.getName().equals("loginedAccount") ) {
-                     lgCart.update_db( cookie.getValue(),  c.getValue() );
-                }
-            }
-        }
-        
-        cookie.setMaxAge(60 * 24);
-        response.addCookie(cookie);
+//       Quay ve servlet cart de khoi tao lai trang cart.jsp
         response.sendRedirect("cart");
 
     }

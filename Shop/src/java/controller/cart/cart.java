@@ -29,6 +29,7 @@ public class cart extends HttpServlet {
             throws ServletException, IOException {
         //      lay tat ca san pham tu database        
         SanPhamDAO SPdb = new SanPhamDAO();
+        
         ArrayList<SanPham> list = SPdb.getAll();
 
         LGcartCookie lgCart = new LGcartCookie();
@@ -55,9 +56,13 @@ public class cart extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+            
     }
 
+    public void updateCart(){
+    }
+    
+    
     @Override
     public String getServletInfo() {
         return "Short description";

@@ -81,7 +81,7 @@
                                                             <div class="col-md-3 quantity">
                                                                 <label for="quantity">Quantity:</label>
                                                                 <!--So Luong-->
-                                                                <input id="quantity" type="number" value ="${order.getSoLuong()}" min ="1" max ="10" class="form-control quantity-input">
+                                                                <input name = "quantity" id="quantity" type="number" value ="${order.getSoLuong()}" min ="1" max ="10" class="form-control quantity-input">
                                                             </div>
                                                             <div class="col-md-2 price">
                                                                 <!--Gia Thanh-->
@@ -114,8 +114,11 @@
                                     <div class="summary-item"><span class="text">Total</span><span class="price">${total}</span></div>
                                      
                                     <div class="float-left">
-                                        <form action ="updateCart" method ="Post">
-                                            <button type="button" name="updatecart" class="btn btn-lg btn-primary btn-block" style="background-color: #ff5b6a">Save</button>
+                                        <form id = "updateForm" action ="updateCart" method ="GET">
+                                            <button type="button" name="updatecart" 
+                                                    class="btn btn-lg btn-primary btn-block" 
+                                                    style="background-color: #ff5b6a">Save
+                                            </button>
                                         </form>
                                     </div>
                                     <div class="float-right">
@@ -148,11 +151,37 @@
             }
         }
         
+        
+     
 //        Update cart
         var btn_update = document.getElementsByName("updatecart")[0];
-        function confirmUpdate(){
+       btn_update.onclick = () => {
+            var cart = "";
+            var temp = "${size}";
+            var cart_count = parseInt(temp);
+            for( var i = 0; i < cart_count; i++ ){
+                try{
+                    var productid = document.getElementsByName("MaSP")[i].value;
+                    var quantity = document.getElementsByName("quantity")[i].value;
+                   if ( productid != "" && productid != undefined && quantity != "" && quantity != undefined ) {
+                        cart += productid + ":" + quantity + "/";
+                    } else {
+                        break;
+                    }
+                } catch (error) {
+                    break;
+              }
+            } 
+            var cartUpdate = document.createElement("input");
+            cartUpdate.setAttribute("type", "hidden");
+            cartUpdate.setAttribute("name", "txt_cart");
+            cartUpdate.setAttribute("value", cart.substring(0, cart.length-1));
             
-        }
+            
+            var form = document.getElementById("updateForm");
+            form.appendChild(cartUpdate);
+            form.submit();
+       }
 
     </script>
 </html>
