@@ -47,7 +47,7 @@ public class logoutServlet extends HttpServlet {
 //                    set cart cho tai khoan 
                     LGcartCookie lgCart = new LGcartCookie();
                     boolean result = lgCart.update_db( cookie.getValue(), Tk );
-                        System.out.println("logout:  " + result );
+                    
 //                    remove cookie txt_cart
                     cookie.setMaxAge(0);
                     response.addCookie(cookie);

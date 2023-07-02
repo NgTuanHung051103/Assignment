@@ -44,7 +44,7 @@ public class cart extends HttpServlet {
 
 //        lay so luong order co trong cart
         int n = listOrderDetail != null ? listOrderDetail.size() : 0;
-        System.out.println(n);
+        
 //        set soluong - list OrderDetail
         request.setAttribute("size", n);
         request.setAttribute("data", listOrderDetail);

@@ -149,7 +149,7 @@
                 let quantity = $('#quantityInput').val();
                 let category = $('#categoryInput').val();
 
-                //xoá thông báo loi hien tai: goi den class
+//          xoá thông báo loi hien tai: goi den class
                 $('.error').html('');
 
                 if (name === '') {
@@ -185,7 +185,6 @@
             }
 
 //            let color = $('#colorInput');
-
             var Quat = document.getElementById("LoaiQuatInput").parentElement.parentElement;
 
 

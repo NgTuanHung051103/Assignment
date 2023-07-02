@@ -48,6 +48,10 @@
         <servlet-name>addSanPham</servlet-name>
         <servlet-class>controller.admin.addSanPham</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>updateCart</servlet-name>
+        <servlet-class>controller.cart.updateCart</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/list</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>addSanPham</servlet-name>
         <url-pattern>/addSanPham</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateCart</servlet-name>
+        <url-pattern>/updateCart</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -112,7 +112,16 @@
                                     <div class="summary-item"><span class="text">Discount</span><span class="price">$0</span></div>
                                     <div class="summary-item"><span class="text">Shipping</span><span class="price">$0</span></div>
                                     <div class="summary-item"><span class="text">Total</span><span class="price">${total}</span></div>
-                                    <button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+                                     
+                                    <div class="float-left">
+                                        <form action ="updateCart" method ="Post">
+                                            <button type="button" name="updatecart" class="btn btn-lg btn-primary btn-block" style="background-color: #ff5b6a">Save</button>
+                                        </form>
+                                    </div>
+                                    <div class="float-right">
+                                        <button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </c:if>
@@ -130,12 +139,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <script>
+//        Confirm Delete product
         function confirmDelete(MaSP) {
             if (confirm("Are you sure you want to remove this item?")) {
                 window.location.href = "${pageContext.request.contextPath}/deleteCart?MaSP=" + MaSP;
             } else {
                 return false;
             }
+        }
+        
+//        Update cart
+        var btn_update = document.getElementsByName("updatecart")[0];
+        function confirmUpdate(){
+            
         }
 
     </script>

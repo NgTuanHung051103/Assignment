@@ -36,7 +36,8 @@ public class LGcartCookie {
                                             String MaSP_str){
         String txt_cart = get(request, response);
         
-//          Them san pham vao txt_cart
+//      Them san pham vao txt_cart
+
 //      Neu chua co San Pham nao trong txt_cart
        if (txt_cart.isEmpty()) {
             txt_cart = MaSP_str + ":" + "1";
@@ -74,21 +75,27 @@ public class LGcartCookie {
    
     public String delete(HttpServletRequest request,  HttpServletResponse response, 
                                             String MaSP_str){
+//          Lay txt_cart
         String txt_cart = get(request, response);
          
+//          Tach thanh tung san pham
         String[] products = txt_cart.split("/");
+        
+//        Them cac san pham lai tu dau
+        txt_cart = "";
         for (String product : products) {
-            if (!product.split(":")[0].equals(MaSP_str)) {
+//            Neu khac san pham bi xoa thi moi + vao txt_cart
+            if ( !product.split(":")[0].equals(MaSP_str)) {
                 txt_cart += product + "/";
             }
         }
-        return txt_cart;
+        int pos_last = txt_cart.length();
+        return txt_cart.substring(0, pos_last-1);
     }
     
     public boolean update_db ( String txt_cart, String Tk){
             UserDAO db = new UserDAO();
             boolean result = db.update_cart_by_Tk(txt_cart, Tk);
-            System.out.println("LG: " + result);
             return result;
     }
     

@@ -6,11 +6,9 @@ package controller.user;
 
 import dal.NhomSPDAO;
 import dal.SanPhamDAO;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -30,7 +28,7 @@ public class list extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        System.out.println("1");
         SanPhamDAO SPdb = new SanPhamDAO();
         NhomSPDAO nSPdb = new NhomSPDAO();
 
@@ -76,13 +74,12 @@ public class list extends HttpServlet {
        
     
 //        ----Khoi tao Cookie txt cart----
-
 //          Tao logic xu ly cart
         LGcartCookie lgCart = new LGcartCookie();
 
 //          Them san pham moi vao cart         
          String txt_cart = lgCart.get(request, response);
-
+         
 //        Tao cart: list luu cac item da duoc add vao gio hang
         Cart cart = new Cart(txt_cart);   
         
@@ -106,12 +103,10 @@ public class list extends HttpServlet {
             throws ServletException, IOException {
         SanPhamDAO db = new SanPhamDAO();
         ArrayList<SanPham> List_SanPhams = db.getAll();
-        System.out.println("1");
         if (List_SanPhams == null) {
             PrintWriter out = response.getWriter();
             out.println("Cannot get the data");
         } else {
-            System.out.println("2");
             request.setAttribute("listP", List_SanPhams);
             request.getRequestDispatcher("view/user/homepage/index.jsp").forward(request, response);
         }
