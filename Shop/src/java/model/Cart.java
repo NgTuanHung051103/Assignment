@@ -46,7 +46,6 @@ public class Cart {
 //    INPUT: 1 orderDetail
 //    OUTPUT: null
     private void addOrderDetailToCart(OrderDetail order) {
-        
 //        kiem tra xem OrderDetail da ton tai trong list OrderDetail hay chua 
         if ( getOrderById(order.getSanPham().getMaSP()) != null) {
             OrderDetail o = getOrderById(order.getSanPham().getMaSP());

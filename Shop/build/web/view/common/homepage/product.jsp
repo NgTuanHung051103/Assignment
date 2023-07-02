@@ -58,7 +58,7 @@
                     
 
                 </div>
-                        <!--paginatio: danh so trang-->
+                        <!--pagination: danh so trang-->
                         <div class ="paginationOfProduct">
                             <c:set var = "pageNow" value = "${requestScope.pageNow}"/>
                             <c:forEach begin ="${1}" end = "${requestScope.numPage}" var = "i">

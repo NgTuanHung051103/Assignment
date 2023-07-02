@@ -30,14 +30,14 @@ public class cart extends HttpServlet {
         //      lay tat ca san pham tu database        
         SanPhamDAO SPdb = new SanPhamDAO();
         
-        ArrayList<SanPham> list = SPdb.getAll();
+//        ArrayList<SanPham> list = SPdb.getAll();
 
         LGcartCookie lgCart = new LGcartCookie();
 
 //        get txt_cart from cookie
         String txt_cart = lgCart.get(request, response);
 
-//        Tao cart: list luu cac item da duoc add vao gio hang
+//        Tao cart: list luu cac item da duoc add vao gio hang (0rder)
         Cart cart = new Cart(txt_cart);
 
 //        Lay list order co trong cart
@@ -58,10 +58,6 @@ public class cart extends HttpServlet {
             throws ServletException, IOException {
             
     }
-
-    public void updateCart(){
-    }
-    
     
     @Override
     public String getServletInfo() {

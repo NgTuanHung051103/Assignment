@@ -23,7 +23,7 @@
         
         <!--Page Content-->
         <c:set var = "SanPham" value="${requestScope.sp}"/>
-        <c:set var = "TSKT" value="${requestScope.tskt}"/>
+        <c:set var = "TSKT" value="${requestScope.tskt3}"/>
         <div class =" container-fluid container-detailProduct">
             <div class="card">
                 <div class="card-body">
@@ -37,7 +37,7 @@
                             <div class="white-box text-center"><img src="${SanPham.getImg()}" style ="width: 100%;" class="img-responsive"></div>
                         </div>
 
-                        <!--Thong tin chi tiet-->
+                        <!--Thong tin co ban-->
                         <div class="col-lg-7 col-md-7 col-sm-6">
 
                             <!--Description-->
@@ -69,43 +69,46 @@
                                 <li><i class="fa fa-check text-success"></i>Bảo hành tận nơi trong 3 năm</li>
                             </ul>
                         </div>
+                                
+                        <!--Thong so ky thuat-->         
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <h3 class="box-title mt-5">General Info</h3>
                             <div class="table-responsive">
                                 <table class="table table-striped table-product">
                                     <tbody>
 
+                                        
                                         <tr>
-                                            <td width="390">Loại quạt</td>
-                                            <td>${TSKT.getLoaiQuat()}</td>
+                                            <td width="390">Kiểu Tủ</td>
+                                            <td>${TSKT.getKieuTu()}</td>
                                         </tr>
                                         <tr>
-                                            <td width="390">Đường kính quạt</td>
-                                            <td>${TSKT.getDuongKinhQuat()}</td>
+                                            <td width="390">Dung Tích</td>
+                                            <td>${TSKT.getDungTich()}</td>
                                         </tr>
                                         <tr>
-                                            <td width="390">Chế độ gió</td>
-                                            <td>${TSKT.getCheDoGio()}</td>
+                                            <td width="390">Công Nghệ Tiết Kiệm Điện</td>
+                                            <td>${TSKT.getCongNgheTietKiemDien()}</td>
                                         </tr>
                                         <tr>
-                                            <td width="390">Bảng điều khiển</td>
-                                            <td>${TSKT.getBangDieuKhien()}</td>
+                                            <td width="390">Công Nghệ Làm Lạnh</td>
+                                            <td>${TSKT.getCongNgheLamLanh()}</td>
                                         </tr>
                                         <tr>
-                                            <td width="390">Loại motor</td>
-                                            <td>${TSKT.getLoaiMotor()}</td>
+                                            <td width="390">Công Nghệ Khánh Khuẩn Khử Mùi</td>
+                                            <td>${TSKT.getCongNgheKhangKhuanKhuMui()}</td>
                                         </tr>
                                         <tr>
-                                            <td width="390">Tiện ích</td>
-                                            <td>${TSKT.getTienIch()}</td>
+                                            <td width="390">Công Nghệ Bảo Quản Thực Phẩm</td>
+                                            <td>${TSKT.getCongNgheBaoQuanThucPham()}</td>
                                         </tr>
                                         <tr>
-                                            <td width="390">Kích thước - Khối lượng</td>
+                                            <td width="390">Kích Thước Khối Lượng</td>
                                             <td>${TSKT.getKichThuocKhoiLuong()}</td>
                                         </tr>
                                         <tr>
-                                            <td width="390">Số cánh quạt</td>
-                                            <td>${TSKT.getSoCanhQuat()} cánh</td>
+                                            <td width="390">Tiện Ích</td>
+                                            <td>${TSKT.getTienIch()} </td>
                                         </tr>
                                     </tbody>
                                 </table>

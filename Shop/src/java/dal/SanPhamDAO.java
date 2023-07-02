@@ -8,7 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.SanPham;
@@ -195,6 +194,7 @@ public class SanPhamDAO {
                 s.setImg(rs.getString("Img"));
                 s.setGiaThanh(rs.getInt("GiaThanh"));
                 s.setNhomSP(rs.getInt("NhomSP"));
+                 s.setSoLuong(rs.getInt("SoLuong"));
                 List_SanPhams_by_ID .add(s);
             }
         } catch (SQLException ex) {

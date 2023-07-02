@@ -82,6 +82,8 @@
                                                                 <label for="quantity">Quantity:</label>
                                                                 <!--So Luong-->
                                                                 <input name = "quantity" id="quantity" type="number" value ="${order.getSoLuong()}" min ="1" max ="10" class="form-control quantity-input">
+                                                                
+                                                            
                                                             </div>
                                                             <div class="col-md-2 price">
                                                                 <!--Gia Thanh-->

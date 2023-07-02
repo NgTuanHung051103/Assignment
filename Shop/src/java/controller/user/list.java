@@ -28,7 +28,6 @@ public class list extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("1");
         SanPhamDAO SPdb = new SanPhamDAO();
         NhomSPDAO nSPdb = new NhomSPDAO();
 
@@ -71,7 +70,6 @@ public class list extends HttpServlet {
         request.setAttribute("numPage", numPage);
         
 //      ------Ket thuc  Phan trang va nhom san pham -----          
-       
     
 //        ----Khoi tao Cookie txt cart----
 //          Tao logic xu ly cart

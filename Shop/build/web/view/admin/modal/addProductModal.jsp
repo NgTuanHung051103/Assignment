@@ -81,8 +81,8 @@
                                 <img id="previewImage" src="#" alt="Preview" style="display: none; max-width: 300px; max-height: 300px;">
                             </div>
 
-
-                            <div class = "form-group" style = "display: none">
+                            <!--TSKT QUAT:--> 
+                            <div class = "form-group " style = "display: none">
                                 <!--Loai Quat-->
                                 <div class="form-group">                               
                                     <label for="LoaiQuat">Loại Quạt:</label>
@@ -132,7 +132,163 @@
                                 </div>
                             </div>
 
+                            <!--TSKT DIEU HOA-->
+                            <div class = "form-group " style = "display: none">
+                                <!--Loai Quat-->
+                                <div class="form-group">                               
+                                    <label for="LoaiMay">Loại Máy:</label>
+                                    <input type="text" class="form-control" id="LoaiMayInput" name="LoaiMay">
+                                </div>
 
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="CongSuat">Công Suất:</label>
+                                    <input type="text" class="form-control" id="CongSuatInput" name="CongSuat">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="PhamVi">Phạm Vi:</label>
+                                    <input type="text" class="form-control" id="PhamViInput" name="PhamVi">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="KhuKhuan">Khử Khuẩn:</label>
+                                    <input type="text" class="form-control" id="KhuKhuanInput" name="KhuKhuan">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="CongNgheTietKiemDien">Công Nghệ Tích Kiệm Điện:</label>
+                                    <input type="text" class="form-control" id="CongNgheTietKiemDienInput" name="CongNgheTietKiemDien">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="LamLanhNhanh">Làm Lạnh Nhanh:</label>
+                                    <input type="text" class="form-control" id="LamLanhNhanhInput" name="LamLanhNhanh">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="TienIch">Tiện Ích:</label>
+                                    <input type="text" class="form-control" id="TienIchInput" name="TienIch">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="TieuThuDien">Tiêu Thụ Điện:</label>
+                                    <input type="text" class="form-control" id="TieuThuDienInput" name="TieuThuDien">
+                                </div>
+                                
+                                <div class="form-group" >                               
+                                    <label for="DanLanh">Dàn Lạnh:</label>
+                                    <input type="text" class="form-control" id="DanLanhInput" name="DanLanh">
+                                </div>
+                                
+                                <div class="form-group" >                               
+                                    <label for="DanNong">Dàn Nóng:</label>
+                                    <input type="text" class="form-control" id="DanNongInput" name="DanNong">
+                                </div>
+                            </div>
+                            
+                            <!--TSKT TU LANH-->
+                            <div class = "form-group " style = "display: none">
+                                <!--Loai Quat-->
+                                <div class="form-group">                               
+                                    <label for="KieuTu">Kiểu Tủ:</label>
+                                    <input type="text" class="form-control" id="KieuTuInput" name="KieuTu">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="DungTich">Dung Tích:</label>
+                                    <input type="text" class="form-control" id="DungTichInput" name="DungTich">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="CongNgheTietKiemDien">Công Nghệ Tiết Kiệm Điện:</label>
+                                    <input type="text" class="form-control" id="CongNgheTietKiemDienInput" name="CongNgheTietKiemDien">
+                                </div>
+                                
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="CongNgheLamLanh">Công Nghệ Làm Lạnh:</label>
+                                    <input type="text" class="form-control" id="CongNgheLamLanhInput" name="CongNgheLamLanh">
+                                </div>
+                                
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="CongNgheKhangKhuanKhuMui">Công Nghệ Khánh Khuẩn Khử Mùi:</label>
+                                    <input type="text" class="form-control" id="CongNgheKhangKhuanKhuMuiInput" name="CongNgheKhangKhuanKhuMui">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="CongNgheBaoQuanThucPham">Công Nghệ Bảo Quản Thực Phẩm:</label>
+                                    <input type="text" class="form-control" id="CongNgheBaoQuanThucPhamInput" name="CongNgheBaoQuanThucPham">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="KichThuocKhoiLuong">Kích Thước Khối Lượng:</label>
+                                    <input type="text" class="form-control" id="KichThuocKhoiLuongInput" name="KichThuocKhoiLuong">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="TienIch">Tiện Ích:</label>
+                                    <input type="text" class="form-control" id="TienIchInput" name="TienIch">
+                                </div>
+                            </div>
+                            
+                            <!--TSKT TIVI-->
+                            <div class = "form-group " style = "display: none">
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="LoaiTV">Loại Tivi:</label>
+                                    <input type="text" class="form-control" id="LoaiTVInput" name="LoaiTV">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="UngDung">Ứng Dụng:</label>
+                                    <input type="text" class="form-control" id="UngDungInput" name="UngDung">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="CongNgheHinhAnh">Công Nghệ Hình Ảnh:</label>
+                                    <input type="text" class="form-control" id="CongNgheHinhAnhInput" name="CongNgheHinhAnh">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="DieuKhienBangGiongNoi">Điều Khiển Bằng Giọng Nói:</label>
+                                    <input type="text" class="form-control" id="DieuKhienBangGiongNoiInput" name="DieuKhienBangGiongNoi">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="RemoteThongMinh">Remote Thông Minh:</label>
+                                    <input type="text" class="form-control" id="RemoteThongMinhInput" name="RemoteThongMinh">
+                                </div>
+                                
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="PhanChieu">Phản Chiếu:</label>
+                                    <input type="text" class="form-control" id="PhanChieuInput" name="PhanChieu">
+                                </div>
+
+                                <!--Loai Quat-->
+                                <div class="form-group" >                               
+                                    <label for="KichThuoc">Kích Thước:</label>
+                                    <input type="text" class="form-control" id="KichThuocInput" name="KichThuoc">
+                                </div>
+                            </div>
+                            
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -186,8 +342,10 @@
 
 //            let color = $('#colorInput');
             var Quat = document.getElementById("LoaiQuatInput").parentElement.parentElement;
-
-
+            var DieuHoa = document.getElementById("LoaiMayInput").parentElement.parentElement;
+            var TuLanh = document.getElementById("KieuTuInput").parentElement.parentElement;
+            var Tivi = document.getElementById("LoaiTVInput").parentElement.parentElement;
+            
             var categorySelect = document.getElementById("categoryInput");
 
             categorySelect.addEventListener("change", function () {
@@ -198,16 +356,44 @@
                 if (parseInt(selectedCategory) === 1) {
                     // Show the color and material inputs
                     Quat.style.display = "block";
-
-                } else {
-                    // Hide the color and material inputs
+                    DieuHoa.style.display = "none";
+                    TuLanh.style.display = "none";
+                    Tivi.style.display = "none";
+                }
+                
+                else if (parseInt(selectedCategory) === 2) {
                     // Show the color and material inputs
                     Quat.style.display = "none";
+                    DieuHoa.style.display = "block";
+                    TuLanh.style.display = "none";
+                    Tivi.style.display = "none";
+                }
+                
+                else if (parseInt(selectedCategory) === 3) {
+                    // Show the color and material inputs
+                    Quat.style.display = "none";
+                    DieuHoa.style.display = "none";
+                    TuLanh.style.display = "block";
+                    Tivi.style.display = "none";
+                }
+                
+                else if (parseInt(selectedCategory) === 4) {
+                    // Show the color and material inputs
+                    Quat.style.display = "none";
+                    DieuHoa.style.display = "none";
+                    TuLanh.style.display = "block";
+                    Tivi.style.display = "none";
+                }
+                else {
+                    Quat.style.display = "none";
+                    DieuHoa.style.display = "none";
+                    TuLanh.style.display = "none";
+                    Tivi.style.display = "none";
                 }
             });
 
 
-            
+//            Xu ly them anh
             function displayImage(input) {
                 var previewImage = document.getElementById("previewImage");
                 var file = input.files[0];
