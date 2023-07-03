@@ -49,7 +49,6 @@ public class cart extends HttpServlet {
 //        set soluong - list OrderDetail
         request.setAttribute("size", n);
         request.setAttribute("data", listOrderDetail);
-
         request.getRequestDispatcher("view/user/homepage/cart.jsp").forward(request, response);
     }
 

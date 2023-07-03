@@ -16,6 +16,7 @@ public class SanPhamDAO {
 
     private final DBContext conn = new DBContext();
 
+//   -------------GET-------------
     public ArrayList<SanPham> getAll() {
         ArrayList<SanPham> List_SanPhams = new ArrayList<>();
         try {
@@ -75,6 +76,7 @@ public class SanPhamDAO {
         }
         return List_SanPhams;
     }
+
     //     su dung thanh search o trang index.jsp de search ten
     public ArrayList<SanPham> getListBySearchName(String key) {
         ArrayList<SanPham> List_SanPhams = new ArrayList<>();
@@ -100,7 +102,7 @@ public class SanPhamDAO {
         }
         return List_SanPhams;
     }
-    
+
     public ArrayList<SanPham> getListByFilter(String loai_quat, int thuong_hieu, int canh_quat, int gia) {
         ArrayList<SanPham> List_SanPhams = new ArrayList<>();
         String[] list_thuong_hieu = {"", "Senko", "Asia", "KDK"};
@@ -115,47 +117,47 @@ public class SanPhamDAO {
                     + "and t.SoCanhQuat like ? "
                     + "and  s.GiaThanh > ? and s.GiaThanh < ?\n";
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
-            
+
 //           loai quat
-            if(! loai_quat.equalsIgnoreCase("all") ){
-                statement.setString(1, "%"+loai_quat+"%");
-            }else{
+            if (!loai_quat.equalsIgnoreCase("all")) {
+                statement.setString(1, "%" + loai_quat + "%");
+            } else {
                 statement.setString(1, "%%");
             }
-            
+
 //            thuong hieu
-            if( ! list_thuong_hieu[thuong_hieu].equalsIgnoreCase("") ){
-                statement.setString(2, "%"+list_thuong_hieu[thuong_hieu]+"%");
-            }else{
+            if (!list_thuong_hieu[thuong_hieu].equalsIgnoreCase("")) {
+                statement.setString(2, "%" + list_thuong_hieu[thuong_hieu] + "%");
+            } else {
                 statement.setString(2, "%%");
             }
-            
+
 //            canh quat
-            if( ! list_canh_quat[canh_quat].equalsIgnoreCase("") ){
-                statement.setString(3, "%"+list_canh_quat[canh_quat]+"%");
-            }else{
+            if (!list_canh_quat[canh_quat].equalsIgnoreCase("")) {
+                statement.setString(3, "%" + list_canh_quat[canh_quat] + "%");
+            } else {
                 statement.setString(3, "%%");
             }
-            
+
 //            gia tien
-             if(!list_gia[gia].equalsIgnoreCase("")){
-                 if( list_gia[gia].equalsIgnoreCase("1")){
-                     statement.setInt(4, 0);
-                     statement.setInt(5, 300000);
-                 }
-                if(list_gia[gia].equalsIgnoreCase("2")){
-                     statement.setInt(4, 300000);
-                     statement.setInt(5, 500000);
+            if (!list_gia[gia].equalsIgnoreCase("")) {
+                if (list_gia[gia].equalsIgnoreCase("1")) {
+                    statement.setInt(4, 0);
+                    statement.setInt(5, 300000);
                 }
-                if(list_gia[gia].equalsIgnoreCase("3")){
-                     statement.setInt(4, 500000);
-                     statement.setInt(5, 1000000);
+                if (list_gia[gia].equalsIgnoreCase("2")) {
+                    statement.setInt(4, 300000);
+                    statement.setInt(5, 500000);
                 }
-                if( list_gia[gia].equalsIgnoreCase("4")){
-                     statement.setInt(4, 1000000);
-                     statement.setInt(5, Integer.MAX_VALUE);
+                if (list_gia[gia].equalsIgnoreCase("3")) {
+                    statement.setInt(4, 500000);
+                    statement.setInt(5, 1000000);
                 }
-             } else{
+                if (list_gia[gia].equalsIgnoreCase("4")) {
+                    statement.setInt(4, 1000000);
+                    statement.setInt(5, Integer.MAX_VALUE);
+                }
+            } else {
                 statement.setInt(4, 0);
                 statement.setInt(5, Integer.MAX_VALUE);
             }
@@ -176,7 +178,7 @@ public class SanPhamDAO {
             Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return List_SanPhams;
-   }
+    }
 
     //     su dung thanh search o trang index.jsp de search ten
     public ArrayList<SanPham> getSanPhamById(int MaSP) {
@@ -184,7 +186,7 @@ public class SanPhamDAO {
         try {
             String sql = "Select * From SanPham where MaSP = ?";
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
-            statement.setInt(1, MaSP );
+            statement.setInt(1, MaSP);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 SanPham s = new SanPham();
@@ -194,15 +196,55 @@ public class SanPhamDAO {
                 s.setImg(rs.getString("Img"));
                 s.setGiaThanh(rs.getInt("GiaThanh"));
                 s.setNhomSP(rs.getInt("NhomSP"));
-                 s.setSoLuong(rs.getInt("SoLuong"));
-                List_SanPhams_by_ID .add(s);
+                s.setSoLuong(rs.getInt("SoLuong"));
+                List_SanPhams_by_ID.add(s);
             }
         } catch (SQLException ex) {
             Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return List_SanPhams_by_ID ;
+        return List_SanPhams_by_ID;
     }
-    
+
+//    ----------------UPDATE------------------
+    public void addProduct(int MaSP, String TenSP,
+            String ThuongHieu, String Img,
+            int GiaThanh, int NhomSP, int SoLuong) {
+        try {
+            String sql = "INSERT INTO [dbo].[SanPham]\n"
+                    + "           ([MaSP]\n"
+                    + "           ,[TenSP]\n"
+                    + "           ,[ThuongHieu]\n"
+                    + "           ,[Img]\n"
+                    + "           ,[GiaThanh]\n"
+                    + "           ,[NhomSP]\n"
+                    + "           ,[SoLuong])\n"
+                    + "     VALUES\n"
+                    + "           (? \n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?);";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            
+            statement.setInt(1, MaSP);
+            statement.setString(2, TenSP);
+            statement.setString(3, ThuongHieu);
+            statement.setString(4, Img);
+            statement.setInt(5, GiaThanh);
+            statement.setInt(6, NhomSP);
+            statement.setInt(7, SoLuong);
+            
+            statement.executeUpdate();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }

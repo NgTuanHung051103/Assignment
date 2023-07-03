@@ -30,19 +30,29 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form id="addProductForm" action="addProduct" method="POST" enctype="multipart/form-data">
+                        <form id="addProductForm" action="addSanPham" method="POST" enctype="multipart/form-data">
+                            
                             <!--Name-->
                             <div class="form-group">
                                 <label for="name">Tên:</label>
                                 <input type="text" class="form-control" id="nameInput" name="name">
                                 <div id="nameError" class="error"></div>
                             </div>
+                            
+                             <!--Thuong hieu-->
+                            <div class="form-group">
+                                <label for="thuonghieu">Thương Hiệu:</label>
+                                <input type="text" class="form-control" id="thuonghieuInput" name="thuonghieu">
+                                <div id="thuonghieuError" class="error"></div>
+                            </div>
+                            
                             <!--Price-->
                             <div class="form-group">
                                 <label for="price">Giá:</label>
                                 <input type="text" class="form-control" id="priceInput" name="price">
                                 <div id="priceError" class="error"></div>
                             </div>
+                            
                             <!--Quantity-->
                             <div class="form-group">
                                 <label for="quantity">Số Lượng:</label>
@@ -57,7 +67,7 @@
                                     <select class="custom-select" id="categoryInput" name="category">
                                         <option value="">Chọn một tùy chọn</option>
                                         <c:forEach items ="${listCategories}" var="category">
-                                            <option value="${category.getMaNhom()}">${category.getTenNhom()}</option>
+                                                <option value="${category.getMaNhom()}">${category.getTenNhom()}</option>
                                         </c:forEach>
                                     </select>
                                     <div class="input-group-append">    
@@ -66,6 +76,7 @@
                                 </div>
                                 <div id="categoryError" class="error"></div>
                             </div>
+                            
                             <!--Image-->
                             <div class="form-group">
                                 <label for="image">Image: </label>
@@ -289,6 +300,7 @@
                                 </div>
                             </div>
                             
+                        </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -297,10 +309,11 @@
                 </div>
             </div>
         </div>
-
+        
         <script>
             function validateForm() {
                 let name = $('#nameInput').val();
+                let thuonghieu = $('#thuonghieuInput').val();
                 let price = $('#priceInput').val();
                 let quantity = $('#quantityInput').val();
                 let category = $('#categoryInput').val();
@@ -311,7 +324,11 @@
                 if (name === '') {
                     $('#nameError').html('Name of product must not be empty');
                 }
-
+                
+                if (thuonghieu === '') {
+                    $('#thuonghieuError').html('ThuongHieu of product must not be empty');
+                }
+                
                 if (price === '') {
                     $('#priceError').html('Price of product must not be empty');
                 } else if (!$.isNumeric(price) || parseFloat(price) < 0) {

@@ -27,24 +27,24 @@ public class listAdmin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        HttpSession session = request.getSession();
+//        HttpSession session = request.getSession();
 
         SanPhamDAO SPdb = new SanPhamDAO();
-
+        System.out.println("1");
 //        Lay tat ca thong tin co ban ve san pham
         ArrayList<SanPham> List_SanPhams = SPdb.getAll();
-
+        System.out.println("2");
 //        them vao session: luu list len session
-        session.setAttribute("listSP", List_SanPhams);
-
+        request.setAttribute("listSP", List_SanPhams);
+        System.out.println("3");
         NhomSPDAO NHdb = new NhomSPDAO();
-
+        System.out.println("4");
 //        Lay cac category
         ArrayList<NhomSP> List_NhomSPs = NHdb.getListCategory();
-
+        System.out.println("5");
 //        them vao session: luu category len session
-        session.setAttribute("listCategories", List_NhomSPs);
-
+        request.setAttribute("listCategories", List_NhomSPs);
+        System.out.println("6");
         request.getRequestDispatcher("view/admin/dashboard/index.jsp").forward(request, response);
     }
 
