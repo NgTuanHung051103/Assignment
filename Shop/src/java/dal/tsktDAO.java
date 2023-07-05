@@ -22,6 +22,7 @@ import model.TSKT_TuLanh;
 public class tsktDAO {
      private final DBContext conn = new DBContext();
      
+//     -----------------GET INFO FROM DATABASE--------------------
     public ArrayList<TSKT_Quat> getTSKTQuatByID(int MaSP) {
         ArrayList<TSKT_Quat> List_TSKT = new ArrayList<>();
         try {
@@ -142,6 +143,26 @@ public class tsktDAO {
         return  List_TSKT;
     }
     
-    
+//      --------------- UPDATE INFO TO DATABASE -------------------
+
+    public void addTSKTQuatByID(int MaSP, String LoaiQuat, 
+            String DuongKinhQuat, String CheDoGio, String BangDieuKhien,
+            String LoaiMotor, String TienIch, String KichThuocKhoiLuong) {
+     
+        
+        
+    }
+
+    public void addTSKTDieuHoa(int MaSP, String LoaiMay, String CongSuat, String PhamVi, String KhuKhuan, String CongNgheTietKiemDien, String LamLanhNhanh, String TienIch, String TieuThuDien, String DanLanh, String DanNong) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void addTSKTTuLanh(int MaSP, String KieuTu, String DungTich, String CongNgheTietKiemDien, String CongNgheLamLanh, String CongNgheKhangKhuanKhuMui, String CongNgheBaoQuanThucPham, String KichThuocKhoiLuong, String TienIch) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void addTSKTTivi(int MaSP, String LoaiTV, String UngDung, String CongNgheHinhAnh, String DieuKhienBangGiongNoi, String RemoteThongMinh, String PhanChieu, String KichThuoc) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }

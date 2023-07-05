@@ -126,14 +126,14 @@
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="TienIch">Tiện ích:</label>
-                                    <input type="text" class="form-control" id="TienIchInput" name="TienIch">
+                                    <label for="TienIch1">Tiện ích:</label>
+                                    <input type="text" class="form-control" id="TienIch1Input" name="TienIch1">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="KichThuocKhoiLuong">Kích thước khối lượng:</label>
-                                    <input type="text" class="form-control" id="KichThuocKhoiLuongInput" name="KichThuocKhoiLuong">
+                                    <label for="KichThuocKhoiLuong1">Kích thước khối lượng:</label>
+                                    <input type="text" class="form-control" id="KichThuocKhoiLuong1Input" name="KichThuocKhoiLuong1">
                                 </div>
 
                                 <!--Loai Quat-->
@@ -171,8 +171,8 @@
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="CongNgheTietKiemDien">Công Nghệ Tích Kiệm Điện:</label>
-                                    <input type="text" class="form-control" id="CongNgheTietKiemDienInput" name="CongNgheTietKiemDien">
+                                    <label for="CongNgheTietKiemDien2">Công Nghệ Tích Kiệm Điện:</label>
+                                    <input type="text" class="form-control" id="CongNgheTietKiemDien2Input" name="CongNgheTietKiemDien2">
                                 </div>
 
                                 <!--Loai Quat-->
@@ -220,8 +220,8 @@
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="CongNgheTietKiemDien">Công Nghệ Tiết Kiệm Điện:</label>
-                                    <input type="text" class="form-control" id="CongNgheTietKiemDienInput" name="CongNgheTietKiemDien">
+                                    <label for="CongNgheTietKiemDien3">Công Nghệ Tiết Kiệm Điện:</label>
+                                    <input type="text" class="form-control" id="CongNgheTietKiemDien3Input" name="CongNgheTietKiemDien3">
                                 </div>
                                 
                                 <!--Loai Quat-->
@@ -244,14 +244,14 @@
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="KichThuocKhoiLuong">Kích Thước Khối Lượng:</label>
-                                    <input type="text" class="form-control" id="KichThuocKhoiLuongInput" name="KichThuocKhoiLuong">
+                                    <label for="KichThuocKhoiLuong3">Kích Thước Khối Lượng:</label>
+                                    <input type="text" class="form-control" id="KichThuocKhoiLuong3Input" name="KichThuocKhoiLuong3">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="TienIch">Tiện Ích:</label>
-                                    <input type="text" class="form-control" id="TienIchInput" name="TienIch">
+                                    <label for="TienIch3">Tiện Ích:</label>
+                                    <input type="text" class="form-control" id="TienIch3Input" name="TienIch3">
                                 </div>
                             </div>
                             

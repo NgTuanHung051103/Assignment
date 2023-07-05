@@ -15,41 +15,42 @@
     </head>
     <body>
         <div class="card mb-3">
-            <div class="card-header">
+                    <div class="card-header">
                 <i class="fas fa-table"></i>
-                Data Table Example</div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                Data Table Example
+            </div>
+        <div class="card-body">
+               <div class="table-responsive">
+               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Ảnh Sản Phẩm</th>
-                                <th>Tên</th>
-                                <th>Thương Hiệu</th>
-                                 <th>Giá Sản Phẩm</th>
-                                <th>Số Lượng</th>
-                               
+                                <th>Name</th>
+                                <th>Image</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Description</th>
                             </tr>
                         </thead>
                         <tbody>
-                           <c:forEach items = "${listSP}" var = "sp">
-                               <tr>
-                                <td><img class="card-img-top" style=" width: 125px;" src="${sp.getImg()}" alt="Card image cap"></td>
-                                <td>${sp.getTenSP()}</td>
-                                <td>${sp.getThuongHieu()}</td>
-                                <td>${sp.getGiaThanh()}</td>
-                                <td>${sp.getSoLuong()}</td>
-                            </tr>
-                           </c:forEach>
+                            <c:forEach items = "${listSP}" var = "sp">
+                                <tr>
+                                    <td><img class="card-img-top" style=" width: 125px;" src="${sp.getImg()}" alt="Card image cap"></td>
+                                    <td>${sp.getTenSP()}</td>
+                                    <td>${sp.getThuongHieu()}</td>
+                                    <td>${sp.getGiaThanh()}</td>
+                                    <td>${sp.getSoLuong()}</td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
-                </div>
-            </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-            <jsp:include page="../modal/editProductModal.jsp"></jsp:include>
-            <jsp:include page="../modal/deleteProductModal.jsp"></jsp:include>
-
         </div>
+        </div>
+               <jsp:include page="../modal/editProductModal.jsp"></jsp:include>
+                <jsp:include page="../modal/deleteProductModal.jsp"></jsp:include>
+        </div>
+         
+         
+                 
     </body>
 
 </html>

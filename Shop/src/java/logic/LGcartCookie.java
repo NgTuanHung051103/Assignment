@@ -14,41 +14,42 @@ import jakarta.servlet.http.HttpServletResponse;
  * Xu ly nhung tac vu lien quan den them, sua, xoa txt_cart
  */
 public class LGcartCookie {
-    
+
 //    Get txt_cart from Cookie
 //    INPUT: request, response:
 //    OUTPUT: txt_cart
-    public String get(HttpServletRequest request,  HttpServletResponse response){
+    public String get(HttpServletRequest request, HttpServletResponse response) {
         Cookie[] cookies = request.getCookies();
-         String txt_cart = "";
+        String txt_cart = "";
 //         Lay txt_cart da luu tu truoc 
 //            Xoa txt_cart da luu vi co thay doi
-          for (Cookie cookie : cookies) {
-            if ( cookie.getName().equals("txt_cart") ) {
-                txt_cart += cookie.getValue();
-                break;
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("txt_cart")) {
+                    txt_cart += cookie.getValue();
+                    break;
+                }
             }
         }
         return txt_cart;
     }
-    
-    public void set(HttpServletRequest request,  HttpServletResponse response, 
-                                            String txt_cart){
- //                set Cookie Cart
-                Cookie cookie = new Cookie("txt_cart", txt_cart);
-                cookie.setMaxAge( 60 * 24 );
-                response.addCookie(cookie);
-                
-    }
-    
-    public String add(HttpServletRequest request,  HttpServletResponse response, 
-                                            String MaSP_str){
-        String txt_cart = get(request, response);
-        
-//      Them san pham vao txt_cart
 
+    public void set(HttpServletRequest request, HttpServletResponse response,
+            String txt_cart) {
+        //                set Cookie Cart
+        Cookie cookie = new Cookie("txt_cart", txt_cart);
+        cookie.setMaxAge(60 * 24);
+        response.addCookie(cookie);
+
+    }
+
+    public String add(HttpServletRequest request, HttpServletResponse response,
+            String MaSP_str) {
+        String txt_cart = get(request, response);
+
+//      Them san pham vao txt_cart
 //      Neu chua co San Pham nao trong txt_cart
-       if (txt_cart.isEmpty()) {
+        if (txt_cart.isEmpty()) {
             txt_cart = MaSP_str + ":" + "1";
 //        Da co 1 so San Pham trong txt_cart
         } else {
@@ -58,7 +59,7 @@ public class LGcartCookie {
             for (int i = 0; i < products.length; i++) {
 //                  Chia MaSP va SoLuong
                 String[] product = products[i].split(":");
-                if ( product[0].equals(MaSP_str) ) {
+                if (product[0].equals(MaSP_str)) {
 //                          Tang SoLuong them 1
                     int quantity = Integer.parseInt(product[1]) + 1;
 //                         ghep SoLuong vao MaSP
@@ -73,40 +74,40 @@ public class LGcartCookie {
             for (int i = 1; i < products.length; i++) {
                 txt_cart += "/" + products[i];
             }
-            
+
 //              Chua ton tai San Pham do trong cart
-            if ( !isExist ) {
+            if (!isExist) {
                 txt_cart += "/" + MaSP_str + ":" + 1;
             }
         }
-       return txt_cart;
+        return txt_cart;
     }
-   
-    public String delete(HttpServletRequest request,  HttpServletResponse response, 
-                                            String MaSP_str){
+
+    public String delete(HttpServletRequest request, HttpServletResponse response,
+            String MaSP_str) {
 //          Lay txt_cart
         String txt_cart = get(request, response);
-         
+
 //          Tach thanh tung san pham
         String[] products = txt_cart.split("/");
-        
+
 //        Them cac san pham lai tu dau
         txt_cart = "";
         for (String product : products) {
 //            Neu khac san pham bi xoa thi moi + vao txt_cart
-            if ( !product.split(":")[0].equals(MaSP_str)) {
+            if (!product.split(":")[0].equals(MaSP_str)) {
                 txt_cart += product + "/";
             }
         }
         int pos_last = txt_cart.length();
-        return txt_cart.substring(0, pos_last-1);
-        
+        return txt_cart.substring(0, pos_last - 1);
+
     }
-    
-    public boolean updateToDB ( String txt_cart, String Tk){
-            UserDAO db = new UserDAO();
-            boolean result = db.update_cart_by_Tk(txt_cart, Tk);
-            return result;
+
+    public boolean updateToDB(String txt_cart, String Tk) {
+        UserDAO db = new UserDAO();
+        boolean result = db.update_cart_by_Tk(txt_cart, Tk);
+        return result;
     }
-    
+
 }

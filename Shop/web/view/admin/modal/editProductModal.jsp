@@ -44,7 +44,7 @@
                                 <div class="input-group">
                                     <select class="custom-select" id="categoryEditInput" name="category">
                                         <c:forEach items="${listCategories}" var="category">
-                                            <option value="${category.id}">${category.name}</option>
+                                            <option value="${category.getMaNhom()}">${category.getTenNhom()}</option>
                                         </c:forEach>
                                     </select>
                                     <div class="input-group-append">
