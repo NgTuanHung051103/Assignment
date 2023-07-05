@@ -241,9 +241,9 @@ public class SanPhamDAO {
             statement.executeUpdate();
             
         } catch (SQLException ex) {
-            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Loi o db SanPham");
         } catch (Exception ex) {
-            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Loi o db SanPham");
         }
     }
 

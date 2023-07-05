@@ -92,7 +92,7 @@
                                 <img id="previewImage" src="#" alt="Preview" style="display: none; max-width: 300px; max-height: 300px;">
                             </div>
 
-                            <!--TSKT QUAT:--> 
+                   <!--TSKT QUAT:--> 
                             <div class = "form-group " style = "display: none">
                                 <!--Loai Quat-->
                                 <div class="form-group">                               
@@ -411,7 +411,7 @@
 
 
 //            Xu ly them anh
-            function displayImage(input) {
+           function displayImage(input) {
                 var previewImage = document.getElementById("previewImage");
                 var file = input.files[0];
                 var reader = new FileReader();
@@ -420,9 +420,9 @@
                     previewImage.src = e.target.result;
                     previewImage.style.display = "block";
                 }
+
                 reader.readAsDataURL(file);
             }
-
         </script>
     </body>
 </html>

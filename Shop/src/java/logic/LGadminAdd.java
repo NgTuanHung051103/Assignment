@@ -16,10 +16,12 @@ import model.SanPham;
 public class LGadminAdd {
         
         tsktDAO TSdb = new tsktDAO();
+        
+//        create SanPham moi vao db: SanPham
 //    Co return MaSP: tan dung viec xuly MaSP de tra ve cho function ke tiep
         public int addProduct(String TenSP,
             String ThuongHieu, String Img,
-            int GiaThanh, int NhomSP, int SoLuong){
+            int GiaThanh, int MaNhom, int SoLuong){
             
             SanPhamDAO SPdb = new SanPhamDAO();
             
@@ -28,15 +30,15 @@ public class LGadminAdd {
 //            set MaSP = MaSP thang cuoi cung + 1
             int MaSP = list.get(list.size() - 1).getMaSP() + 1;
             
-            SPdb.addProduct(MaSP, TenSP, ThuongHieu, Img, GiaThanh, NhomSP, SoLuong);
+            SPdb.addProduct(MaSP, TenSP, ThuongHieu, Img, GiaThanh, MaNhom, SoLuong);
             
              return MaSP;
         }
 
     public void addTSKTQuat(int MaSP, String LoaiQuat, String DuongKinhQuat, 
                     String CheDoGio, String BangDieuKhien, String LoaiMotor, 
-                    String TienIch, String KichThuocKhoiLuong) {
-        TSdb.addTSKTQuatByID( MaSP,  LoaiQuat,  DuongKinhQuat,  CheDoGio,  BangDieuKhien,  LoaiMotor,  TienIch,  KichThuocKhoiLuong);
+                    String TienIch, String KichThuocKhoiLuong, int SoCanhQuat) {
+        TSdb.addTSKTQuatByID( MaSP,  LoaiQuat,  DuongKinhQuat,  CheDoGio,  BangDieuKhien,  LoaiMotor,  TienIch,  KichThuocKhoiLuong, SoCanhQuat);
     }
 
     public void addTSKTDieuHoa(int MaSP, String LoaiMay, String CongSuat, 
@@ -58,7 +60,6 @@ public class LGadminAdd {
                  CongNgheTietKiemDien,  CongNgheLamLanh, 
                  CongNgheKhangKhuanKhuMui,  CongNgheBaoQuanThucPham, 
                  KichThuocKhoiLuong,  TienIch);
-        
         }
 
     public void addTSKTTivi(int MaSP, String LoaiTV, String UngDung, 
