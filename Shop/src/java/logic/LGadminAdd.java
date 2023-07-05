@@ -38,14 +38,14 @@ public class LGadminAdd {
     public void addTSKTQuat(int MaSP, String LoaiQuat, String DuongKinhQuat, 
                     String CheDoGio, String BangDieuKhien, String LoaiMotor, 
                     String TienIch, String KichThuocKhoiLuong, int SoCanhQuat) {
-        TSdb.addTSKTQuatByID( MaSP,  LoaiQuat,  DuongKinhQuat,  CheDoGio,  BangDieuKhien,  LoaiMotor,  TienIch,  KichThuocKhoiLuong, SoCanhQuat);
+        TSdb.updateTSKTQuatByID( MaSP,  LoaiQuat,  DuongKinhQuat,  CheDoGio,  BangDieuKhien,  LoaiMotor,  TienIch,  KichThuocKhoiLuong, SoCanhQuat);
     }
 
     public void addTSKTDieuHoa(int MaSP, String LoaiMay, String CongSuat, 
                     String PhamVi, String KhuKhuan, String CongNgheTietKiemDien, 
                     String LamLanhNhanh, String TienIch,
                     String TieuThuDien, String DanLanh, String DanNong) {
-             TSdb.addTSKTDieuHoa(MaSP,  LoaiMay,  CongSuat, 
+             TSdb.updateTSKTDieuHoa(MaSP,  LoaiMay,  CongSuat, 
                      PhamVi,  KhuKhuan,  CongNgheTietKiemDien, 
                      LamLanhNhanh,  TienIch,
                      TieuThuDien,  DanLanh,  DanNong);       
@@ -56,7 +56,7 @@ public class LGadminAdd {
                 String CongNgheTietKiemDien, String CongNgheLamLanh, 
                 String CongNgheKhangKhuanKhuMui, String CongNgheBaoQuanThucPham, 
                 String KichThuocKhoiLuong, String TienIch) {
-        TSdb.addTSKTTuLanh( MaSP,  KieuTu,  DungTich, 
+        TSdb.updateTSKTTuLanh( MaSP,  KieuTu,  DungTich, 
                  CongNgheTietKiemDien,  CongNgheLamLanh, 
                  CongNgheKhangKhuanKhuMui,  CongNgheBaoQuanThucPham, 
                  KichThuocKhoiLuong,  TienIch);
@@ -65,7 +65,7 @@ public class LGadminAdd {
     public void addTSKTTivi(int MaSP, String LoaiTV, String UngDung, 
                 String CongNgheHinhAnh, String DieuKhienBangGiongNoi, 
                 String RemoteThongMinh, String PhanChieu, String KichThuoc) {
-            TSdb.addTSKTTivi(MaSP,  LoaiTV,  UngDung, 
+            TSdb.updateTSKTTivi(MaSP,  LoaiTV,  UngDung, 
                  CongNgheHinhAnh,  DieuKhienBangGiongNoi, 
                  RemoteThongMinh,  PhanChieu,  KichThuoc);
     }

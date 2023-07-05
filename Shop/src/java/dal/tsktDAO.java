@@ -221,7 +221,7 @@ public class tsktDAO {
     }
 
 //      --------------- UPDATE INFO TO DATABASE -------------------
-    public void addTSKTQuatByID(int MaSP, String LoaiQuat,
+    public void updateTSKTQuatByID(int MaSP, String LoaiQuat,
             String DuongKinhQuat, String CheDoGio, String BangDieuKhien,
             String LoaiMotor, String TienIch, String KichThuocKhoiLuong,
             int SoCanhQuat) {
@@ -261,7 +261,7 @@ public class tsktDAO {
 
     }
 
-    public void addTSKTDieuHoa(int MaSP, String LoaiMay, 
+    public void updateTSKTDieuHoa(int MaSP, String LoaiMay, 
                 String CongSuat, String PhamVi, String KhuKhuan, 
                 String CongNgheTietKiemDien, String LamLanhNhanh, 
                 String TienIch, String TieuThuDien,
@@ -306,7 +306,7 @@ public class tsktDAO {
         
     }
 
-    public void addTSKTTuLanh(int MaSP, String KieuTu, 
+    public void updateTSKTTuLanh(int MaSP, String KieuTu, 
                 String DungTich, String CongNgheTietKiemDien, 
                 String CongNgheLamLanh, String CongNgheKhangKhuanKhuMui, 
                 String CongNgheBaoQuanThucPham, 
@@ -346,7 +346,7 @@ public class tsktDAO {
         }
     }
 
-    public void addTSKTTivi(int MaSP, String LoaiTV, String UngDung, 
+    public void updateTSKTTivi(int MaSP, String LoaiTV, String UngDung, 
                 String CongNgheHinhAnh, String DieuKhienBangGiongNoi, 
                 String RemoteThongMinh, String PhanChieu, String KichThuoc) {
         try {

@@ -24,30 +24,43 @@
                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Name</th>
+                                <th>ID</th>
                                 <th>Image</th>
+                                <th>Name</th>
+                                <th>Brand</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
-                                <th>Description</th>
+                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <c:forEach items = "${listSP}" var = "sp">
-                                <tr>
+                                <tr> 
+                                    <td>${sp.getMaSP()}</td>
                                     <td><img class="card-img-top" style=" width: 125px;" src="${sp.getImg()}" alt="Card image cap"></td>
                                     <td>${sp.getTenSP()}</td>
                                     <td>${sp.getThuongHieu()}</td>
                                     <td>${sp.getGiaThanh()}</td>
                                     <td>${sp.getSoLuong()}</td>
+                                    <td style="text-align:center"> 
+                                        <i class="fa fa-edit" data-toggle="modal" data-target="#editProductModal" 
+                                           onclick="editProductModal(
+                                           ${sp.getMaSP()}, `${sp.getTenSP()}`, `${sp.getThuongHieu()}`,${sp.getGiaThanh()} ,${sp.getSoLuong()}, `${sp.getImg()}`,${sp.getNhomSP()})"></i>
+                                        &nbsp;&nbsp;
+                                        <!--Delete-->
+                                        <i class="fa fa-trash" data-toggle="modal" data-target="#delete-modal" onclick="deleteProductModal(${product.id})"></i>  
+
+                                    </td>
+                                    
+                                    
                                 </tr>
                             </c:forEach>
                         </tbody>
                     </table>
         </div>
-        </div>
+
                <jsp:include page="../modal/editProductModal.jsp"></jsp:include>
                 <jsp:include page="../modal/deleteProductModal.jsp"></jsp:include>
-        </div>
          
          
                  

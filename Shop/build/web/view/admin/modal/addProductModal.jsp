@@ -41,9 +41,9 @@
                             
                              <!--Thuong hieu-->
                             <div class="form-group">
-                                <label for="thuonghieu">Thương Hiệu:</label>
-                                <input type="text" class="form-control" id="thuonghieuInput" name="thuonghieu">
-                                <div id="thuonghieuError" class="error"></div>
+                                <label for="brand">Thương Hiệu:</label>
+                                <input type="text" class="form-control" id="brandInput" name="brand">
+                                <div id="brandError" class="error"></div>
                             </div>
                             
                             <!--Price-->
@@ -94,6 +94,7 @@
 
                    <!--TSKT QUAT:--> 
                             <div class = "form-group " style = "display: none">
+                                
                                 <!--Loai Quat-->
                                 <div class="form-group">                               
                                     <label for="LoaiQuat">Loại Quạt:</label>
@@ -143,7 +144,7 @@
                                 </div>
                             </div>
 
-                            <!--TSKT DIEU HOA-->
+                   <!--TSKT DIEU HOA-->
                             <div class = "form-group " style = "display: none">
                                 <!--Loai Quat-->
                                 <div class="form-group">                               
@@ -204,7 +205,7 @@
                                 </div>
                             </div>
                             
-                            <!--TSKT TU LANH-->
+                   <!--TSKT TU LANH-->
                             <div class = "form-group " style = "display: none">
                                 <!--Loai Quat-->
                                 <div class="form-group">                               
@@ -255,7 +256,7 @@
                                 </div>
                             </div>
                             
-                            <!--TSKT TIVI-->
+                    <!--TSKT TIVI-->
                             <div class = "form-group " style = "display: none">
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
@@ -313,7 +314,7 @@
         <script>
             function validateForm() {
                 let name = $('#nameInput').val();
-                let thuonghieu = $('#thuonghieuInput').val();
+                let brand = $('#brandInput').val();
                 let price = $('#priceInput').val();
                 let quantity = $('#quantityInput').val();
                 let category = $('#categoryInput').val();
@@ -325,8 +326,8 @@
                     $('#nameError').html('Name of product must not be empty');
                 }
                 
-                if (thuonghieu === '') {
-                    $('#thuonghieuError').html('ThuongHieu of product must not be empty');
+                if (brand === '') {
+                    $('#brandError').html('ThuongHieu of product must not be empty');
                 }
                 
                 if (price === '') {
