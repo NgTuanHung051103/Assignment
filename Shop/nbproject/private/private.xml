@@ -20,10 +20,13 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/Test/Assignment-main/Shop/src/java/logic/LGadminAdd.java</file>
+            <file>file:/D:/Test/Assignment-main/Shop/src/java/logic/LGadminUpdate.java</file>
             <file>file:/D:/Test/Assignment-main/Shop/src/java/controller/admin/listAdmin.java</file>
-            <file>file:/D:/Test/Assignment-main/Shop/src/java/controller/admin/editSanPham.java</file>
-            <file>file:/D:/Test/Assignment-main/Shop/web/view/admin/modal/deleteProductModal.jsp</file>
-            <file>file:/D:/Test/Assignment-main/Shop/web/view/admin/modal/editProductModal.jsp</file>
+            <file>file:/D:/Test/Assignment-main/Shop/src/java/controller/admin/addSanPham.java</file>
+            <file>file:/D:/Test/Assignment-main/Shop/web/view/admin/modal/addProductModal.jsp</file>
+            <file>file:/D:/Test/Assignment-main/Shop/src/java/dal/SanPhamDAO.java</file>
+            <file>file:/D:/Test/Assignment-main/Shop/src/java/dal/tsktDAO.java</file>
         </group>
     </open-files>
 </project-private>

@@ -174,8 +174,8 @@
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="TienIchEdit">Tiện Ích:</label>
-                                    <input type="text" class="form-control" id="TienIchEdit" name="TienIchEdit">
+                                    <label for="TienIch2Edit">Tiện Ích:</label>
+                                    <input type="text" class="form-control" id="TienIch2Edit" name="TienIch2Edit">
                                 </div>
 
                                 <!--Loai Quat-->
