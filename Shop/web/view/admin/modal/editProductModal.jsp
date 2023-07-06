@@ -17,7 +17,6 @@
                     </div>
                     <div class="modal-body">
                         <form id="editProductForm" action="editSanPham" method="POST" enctype="multipart/form-data">
-                            
                               <!--id-->
                             <div class="form-group" style="display: none">
                                 <input type="text" class="form-control" id="MaSPEdit" name="MaSPEdit" />
@@ -94,7 +93,7 @@
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="DuongKinhQuat">Đường Kính Quạt:</label>
+                                    <label for="DuongKinhQuatEdit">Đường Kính Quạt:</label>
                                     <input type="text" class="form-control" id="DuongKinhQuatEdit" name="DuongKinhQuatEdit">
                                 </div>
 
@@ -304,16 +303,15 @@
 
         <script>
             
-//  Lay the cha cua tung loai the theo tskt           
-            var Quat = document.getElementById("LoaiQuatEdit").parentElement.parentElement;
-            var DieuHoa = document.getElementById("LoaiMayEdit").parentElement.parentElement;
-            var TuLanh = document.getElementById("KieuTuEdit").parentElement.parentElement;
-            var Tivi = document.getElementById("LoaiTVEdit").parentElement.parentElement;
+ //  Lay the cha cua tung loai the theo tskt           
+            var QuatEdit = document.getElementById("LoaiQuatEdit").parentElement.parentElement;
+            var DieuHoaEdit = document.getElementById("LoaiMayEdit").parentElement.parentElement;
+            var TuLanhEdit = document.getElementById("KieuTuEdit").parentElement.parentElement;
+            var TiviEdit = document.getElementById("LoaiTVEdit").parentElement.parentElement;
             
-            var categorySelect = document.getElementById("categoryEdit");
-  
-    
-//  Truyen nhung gia tri ban dau vao tung the cua SanPham    
+            var categorySelectEdit = document.getElementById("categoryEdit");           
+            
+            //  Truyen nhung gia tri ban dau vao tung the cua SanPham    
             function editProductModal(id, name, brand, price, quantity, image, categoryId) {
                 $('#MaSPEdit').val(id);
 //                console.log(id);
@@ -322,54 +320,53 @@
                 $('#priceEdit').val(price);
                 $('#quantityEdit').val(quantity);
                 $('#categoryEdit').val(categoryId);
-
         
 //Hien thi tskt theo tung category KHI MAC DINH tu admin -> Edit        
 //                get value of selected tag
-                var selectedCategory = categorySelect.value;
-
+                var selectedCategoryEdit = categorySelectEdit.value;
                 // Check if the selected category requires color and material inputs
-                if (parseInt(selectedCategory) === 1) {
+                if (parseInt(selectedCategoryEdit) === 1) {
                     // Show the color and material inputs
-                    Quat.style.display = "block";
-                    DieuHoa.style.display = "none";
-                    TuLanh.style.display = "none";
-                    Tivi.style.display = "none";
+                    QuatEdit.style.display = "block";
+                    DieuHoaEdit.style.display = "none";
+                    TuLanhEdit.style.display = "none";
+                    TiviEdit.style.display = "none";
                 }
                 
-                else if (parseInt(selectedCategory) === 2) {
+                else if (parseInt(selectedCategoryEdit) === 2) {
                     // Show the color and material inputs
-                    Quat.style.display = "none";
-                    DieuHoa.style.display = "block";
-                    TuLanh.style.display = "none";
-                    Tivi.style.display = "none";
+                    QuatEdit.style.display = "none";
+                    DieuHoaEdit.style.display = "block";
+                    TuLanhEdit.style.display = "none";
+                    TiviEdit.style.display = "none";
                 }
                 
-                else if (parseInt(selectedCategory) === 3) {
+                else if (parseInt(selectedCategoryEdit) === 3) {
                     // Show the color and material inputs
-                    Quat.style.display = "none";
-                    DieuHoa.style.display = "none";
-                    TuLanh.style.display = "block";
-                    Tivi.style.display = "none";
+                     QuatEdit.style.display = "none";
+                    DieuHoaEdit.style.display = "none";
+                    TuLanhEdit.style.display = "block";
+                    TiviEdit.style.display = "none";
                 }
                 
-                else if (parseInt(selectedCategory) === 4) {
+                else if (parseInt(selectedCategoryEdit) === 4) {
                     // Show the color and material inputs
-                    Quat.style.display = "none";
-                    DieuHoa.style.display = "none";
-                    TuLanh.style.display = "block";
-                    Tivi.style.display = "none";
+                   QuatEdit.style.display = "none";
+                    DieuHoaEdit.style.display = "none";
+                    TuLanhEdit.style.display = "none";
+                    TiviEdit.style.display = "block";
                 }
                 else {
-                    Quat.style.display = "none";
-                    DieuHoa.style.display = "none";
-                    TuLanh.style.display = "none";
-                    Tivi.style.display = "none";
+                     QuatEdit.style.display = "none";
+                    DieuHoaEdit.style.display = "none";
+                    TuLanhEdit.style.display = "none";
+                    TiviEdit.style.display = "none";
                 }
                 
                 $('#previewImageEdit').attr('src',image);
                 $('#previewImageEdit').css('display','block');
             }
+          
             
             function validateForm2() {
                 let name = $('#nameEdit').val();
@@ -377,10 +374,8 @@
                 let price = $('#priceEdit').val();
                 let quantity = $('#quantityEdit').val();
                 let category = $('#categoryEdit').val();
-
 //          xoá thông báo loi hien tai: goi den class
                 $('.error').html('');
-
                 if (name === '') {
                     $('#nameEditError').html('Name of product must not be empty');
                 }
@@ -394,17 +389,14 @@
                 } else if (!$.isNumeric(price) || parseFloat(price) < 0) {
                     $('#priceEditError').html('Price of product must be digits and greater than 0');
                 }
-
                 if (quantity === '') {
                     $('#quantityEditError').html('Quantity of product must not be empty');
                 } else if (!$.isNumeric(quantity) || parseInt(quantity) <= 0) {
                     $('#quantityEditError').html('Quantity of product must be digits and greater or equal than 0');
                 }
-
                 if (category === '') {
                     $('#categoryEditError').html('Category of product must not be empty');
                 }
-
                 // Kiểm tra nếu không có lỗi thì submit form
                 let error = '';
                 $('.error').each(function () {
@@ -417,67 +409,66 @@
                 }
             }
             
-            //            let color = $('#colorEdit');
-
-//Hien thi tskt theo tung category KHI THAY DOI
-            categorySelect.addEventListener("change", function () {
-//                get value of selected tag
-                var selectedCategory = categorySelect.value;
-
-                // Check if the selected category requires color and material inputs
-                if (parseInt(selectedCategory) === 1) {
-                    // Show the color and material inputs
-                    Quat.style.display = "block";
-                    DieuHoa.style.display = "none";
-                    TuLanh.style.display = "none";
-                    Tivi.style.display = "none";
-                }
-                
-                else if (parseInt(selectedCategory) === 2) {
-                    // Show the color and material inputs
-                    Quat.style.display = "none";
-                    DieuHoa.style.display = "block";
-                    TuLanh.style.display = "none";
-                    Tivi.style.display = "none";
-                }
-                
-                else if (parseInt(selectedCategory) === 3) {
-                    // Show the color and material inputs
-                    Quat.style.display = "none";
-                    DieuHoa.style.display = "none";
-                    TuLanh.style.display = "block";
-                    Tivi.style.display = "none";
-                }
-                
-                else if (parseInt(selectedCategory) === 4) {
-                    // Show the color and material inputs
-                    Quat.style.display = "none";
-                    DieuHoa.style.display = "none";
-                    TuLanh.style.display = "block";
-                    Tivi.style.display = "none";
-                }
-                else {
-                    Quat.style.display = "none";
-                    DieuHoa.style.display = "none";
-                    TuLanh.style.display = "none";
-                    Tivi.style.display = "none";
-                }
-            });
-            
             function displayImage2(input) {
                 var previewImage = document.getElementById("previewImageEdit");
                 var file = input.files[0];
                 var reader = new FileReader();
-
                 reader.onload = function (e) {
                     previewImage.src = e.target.result;
                     previewImage.style.display = "block";
                 }
-
                 reader.readAsDataURL(file);
             }
+            
+            
 
-          
+  
+    
+//Hien thi tskt theo tung category KHI THAY DOI
+            categorySelectEdit.addEventListener("change", function () {
+//                get value of selected tag
+                var selectedCategoryEdit = categorySelectEdit.value;
+                // Check if the selected category requires color and material inputs
+                if (parseInt(selectedCategoryEdit) === 1) {
+                    // Show the color and material inputs
+                    QuatEdit.style.display = "block";
+                    DieuHoaEdit.style.display = "none";
+                    TuLanhEdit.style.display = "none";
+                    TiviEdit.style.display = "none";
+                }
+                
+                else if (parseInt(selectedCategoryEdit) === 2) {
+                    // Show the color and material inputs
+                    QuatEdit.style.display = "none";
+                    DieuHoaEdit.style.display = "block";
+                    TuLanhEdit.style.display = "none";
+                    TiviEdit.style.display = "none";
+                }
+                
+                else if (parseInt(selectedCategoryEdit) === 3) {
+                    // Show the color and material inputs
+                     QuatEdit.style.display = "none";
+                    DieuHoaEdit.style.display = "none";
+                    TuLanhEdit.style.display = "block";
+                    TiviEdit.style.display = "none";
+                }
+                
+                else if (parseInt(selectedCategoryEdit) === 4) {
+                    // Show the color and material inputs
+                   QuatEdit.style.display = "none";
+                    DieuHoaEdit.style.display = "none";
+                    TuLanhEdit.style.display = "none";
+                    TiviEdit.style.display = "block";
+                }
+                else {
+                     QuatEdit.style.display = "none";
+                    DieuHoaEdit.style.display = "none";
+                    TuLanhEdit.style.display = "none";
+                    TiviEdit.style.display = "none";
+                }
+            });
+            
+            
         </script>
     </body>
 </html>

@@ -34,35 +34,35 @@
                             
                             <!--Name-->
                             <div class="form-group">
-                                <label for="name">Tên:</label>
+                                <label for="nameInput">Tên:</label>
                                 <input type="text" class="form-control" id="nameInput" name="name">
                                 <div id="nameError" class="error"></div>
                             </div>
                             
                              <!--Thuong hieu-->
                             <div class="form-group">
-                                <label for="brand">Thương Hiệu:</label>
-                                <input type="text" class="form-control" id="brandInput" name="brand">
-                                <div id="brandError" class="error"></div>
+                                <label for="thuonghieuInput">Thương Hiệu:</label>
+                                <input type="text" class="form-control" id="thuonghieuInput" name="thuonghieu">
+                                <div id="thuonghieuError" class="error"></div>
                             </div>
                             
                             <!--Price-->
                             <div class="form-group">
-                                <label for="price">Giá:</label>
+                                <label for="priceInput">Giá:</label>
                                 <input type="text" class="form-control" id="priceInput" name="price">
                                 <div id="priceError" class="error"></div>
                             </div>
                             
                             <!--Quantity-->
                             <div class="form-group">
-                                <label for="quantity">Số Lượng:</label>
+                                <label for="quantityInput">Số Lượng:</label>
                                 <input type="text" class="form-control" id="quantityInput" name="quantity">
                                 <div id="quantityError" class="error"></div>
                             </div>
 
                             <!--Category-->
                             <div class="form-group">
-                                <label for="category">Category: </label>
+                                <label for="categoryInput">Category: </label>
                                 <div class="input-group">
                                     <select class="custom-select" id="categoryInput" name="category">
                                         <option value="">Chọn một tùy chọn</option>
@@ -92,211 +92,210 @@
                                 <img id="previewImage" src="#" alt="Preview" style="display: none; max-width: 300px; max-height: 300px;">
                             </div>
 
-                   <!--TSKT QUAT:--> 
+                            <!--TSKT QUAT:--> 
                             <div class = "form-group " style = "display: none">
-                                
                                 <!--Loai Quat-->
                                 <div class="form-group">                               
-                                    <label for="LoaiQuat">Loại Quạt:</label>
+                                    <label for="LoaiQuatInput">Loại Quạt:</label>
                                     <input type="text" class="form-control" id="LoaiQuatInput" name="LoaiQuat">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="DuongKinhQuat">Đường Kính Quạt:</label>
+                                    <label for="DuongKinhQuatInput">Đường Kính Quạt:</label>
                                     <input type="text" class="form-control" id="DuongKinhQuatInput" name="DuongKinhQuat">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="CheDoGio">Chế Độ Gió:</label>
+                                    <label for="CheDoGioInput">Chế Độ Gió:</label>
                                     <input type="text" class="form-control" id="CheDoGioInput" name="CheDoGio">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="BangDieuKhien">Bảng Điều Khiển:</label>
+                                    <label for="BangDieuKhienInput">Bảng Điều Khiển:</label>
                                     <input type="text" class="form-control" id="BangDieuKhienInput" name="BangDieuKhien">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="LoaiMotor">Loại Motor:</label>
+                                    <label for="LoaiMotorInput">Loại Motor:</label>
                                     <input type="text" class="form-control" id="LoaiMotorInput" name="LoaiMotor">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="TienIch1">Tiện ích:</label>
+                                    <label for="TienIch1Input">Tiện ích:</label>
                                     <input type="text" class="form-control" id="TienIch1Input" name="TienIch1">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="KichThuocKhoiLuong1">Kích thước khối lượng:</label>
+                                    <label for="KichThuocKhoiLuong1Input">Kích thước khối lượng:</label>
                                     <input type="text" class="form-control" id="KichThuocKhoiLuong1Input" name="KichThuocKhoiLuong1">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="SoCanhQuat">Số cánh quạt:</label>
+                                    <label for="SoCanhQuatInput">Số cánh quạt:</label>
                                     <input type="text" class="form-control" id="SoCanhQuatInput" name="SoCanhQuat">
                                 </div>
                             </div>
 
-                   <!--TSKT DIEU HOA-->
+                            <!--TSKT DIEU HOA-->
                             <div class = "form-group " style = "display: none">
                                 <!--Loai Quat-->
                                 <div class="form-group">                               
-                                    <label for="LoaiMay">Loại Máy:</label>
+                                    <label for="LoaiMayInput">Loại Máy:</label>
                                     <input type="text" class="form-control" id="LoaiMayInput" name="LoaiMay">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="CongSuat">Công Suất:</label>
+                                    <label for="CongSuatInput">Công Suất:</label>
                                     <input type="text" class="form-control" id="CongSuatInput" name="CongSuat">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="PhamVi">Phạm Vi:</label>
+                                    <label for="PhamViInput">Phạm Vi:</label>
                                     <input type="text" class="form-control" id="PhamViInput" name="PhamVi">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="KhuKhuan">Khử Khuẩn:</label>
+                                    <label for="KhuKhuanInput">Khử Khuẩn:</label>
                                     <input type="text" class="form-control" id="KhuKhuanInput" name="KhuKhuan">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="CongNgheTietKiemDien2">Công Nghệ Tích Kiệm Điện:</label>
+                                    <label for="CongNgheTietKiemDien2Input">Công Nghệ Tích Kiệm Điện:</label>
                                     <input type="text" class="form-control" id="CongNgheTietKiemDien2Input" name="CongNgheTietKiemDien2">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="LamLanhNhanh">Làm Lạnh Nhanh:</label>
+                                    <label for="LamLanhNhanhInput">Làm Lạnh Nhanh:</label>
                                     <input type="text" class="form-control" id="LamLanhNhanhInput" name="LamLanhNhanh">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="TienIch">Tiện Ích:</label>
+                                    <label for="TienIchInput">Tiện Ích:</label>
                                     <input type="text" class="form-control" id="TienIchInput" name="TienIch">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="TieuThuDien">Tiêu Thụ Điện:</label>
+                                    <label for="TieuThuDienInput">Tiêu Thụ Điện:</label>
                                     <input type="text" class="form-control" id="TieuThuDienInput" name="TieuThuDien">
                                 </div>
                                 
                                 <div class="form-group" >                               
-                                    <label for="DanLanh">Dàn Lạnh:</label>
+                                    <label for="DanLanhInput">Dàn Lạnh:</label>
                                     <input type="text" class="form-control" id="DanLanhInput" name="DanLanh">
                                 </div>
                                 
                                 <div class="form-group" >                               
-                                    <label for="DanNong">Dàn Nóng:</label>
+                                    <label for="DanNongInput">Dàn Nóng:</label>
                                     <input type="text" class="form-control" id="DanNongInput" name="DanNong">
                                 </div>
                             </div>
                             
-                   <!--TSKT TU LANH-->
+                            <!--TSKT TU LANH-->
                             <div class = "form-group " style = "display: none">
                                 <!--Loai Quat-->
                                 <div class="form-group">                               
-                                    <label for="KieuTu">Kiểu Tủ:</label>
+                                    <label for="KieuTuInput">Kiểu Tủ:</label>
                                     <input type="text" class="form-control" id="KieuTuInput" name="KieuTu">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="DungTich">Dung Tích:</label>
+                                    <label for="DungTichInput">Dung Tích:</label>
                                     <input type="text" class="form-control" id="DungTichInput" name="DungTich">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="CongNgheTietKiemDien3">Công Nghệ Tiết Kiệm Điện:</label>
+                                    <label for="CongNgheTietKiemDien3Input">Công Nghệ Tiết Kiệm Điện:</label>
                                     <input type="text" class="form-control" id="CongNgheTietKiemDien3Input" name="CongNgheTietKiemDien3">
                                 </div>
                                 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="CongNgheLamLanh">Công Nghệ Làm Lạnh:</label>
+                                    <label for="CongNgheLamLanhInput">Công Nghệ Làm Lạnh:</label>
                                     <input type="text" class="form-control" id="CongNgheLamLanhInput" name="CongNgheLamLanh">
                                 </div>
                                 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="CongNgheKhangKhuanKhuMui">Công Nghệ Khánh Khuẩn Khử Mùi:</label>
+                                    <label for="CongNgheKhangKhuanKhuMuiInput">Công Nghệ Khánh Khuẩn Khử Mùi:</label>
                                     <input type="text" class="form-control" id="CongNgheKhangKhuanKhuMuiInput" name="CongNgheKhangKhuanKhuMui">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="CongNgheBaoQuanThucPham">Công Nghệ Bảo Quản Thực Phẩm:</label>
+                                    <label for="CongNgheBaoQuanThucPhamInput">Công Nghệ Bảo Quản Thực Phẩm:</label>
                                     <input type="text" class="form-control" id="CongNgheBaoQuanThucPhamInput" name="CongNgheBaoQuanThucPham">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="KichThuocKhoiLuong3">Kích Thước Khối Lượng:</label>
+                                    <label for="KichThuocKhoiLuong3Input">Kích Thước Khối Lượng:</label>
                                     <input type="text" class="form-control" id="KichThuocKhoiLuong3Input" name="KichThuocKhoiLuong3">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="TienIch3">Tiện Ích:</label>
+                                    <label for="TienIch3Input">Tiện Ích:</label>
                                     <input type="text" class="form-control" id="TienIch3Input" name="TienIch3">
                                 </div>
                             </div>
                             
-                    <!--TSKT TIVI-->
+                            <!--TSKT TIVI-->
                             <div class = "form-group " style = "display: none">
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="LoaiTV">Loại Tivi:</label>
+                                    <label for="LoaiTVInput">Loại Tivi:</label>
                                     <input type="text" class="form-control" id="LoaiTVInput" name="LoaiTV">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="UngDung">Ứng Dụng:</label>
+                                    <label for="UngDungInput">Ứng Dụng:</label>
                                     <input type="text" class="form-control" id="UngDungInput" name="UngDung">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="CongNgheHinhAnh">Công Nghệ Hình Ảnh:</label>
+                                    <label for="CongNgheHinhAnhInput">Công Nghệ Hình Ảnh:</label>
                                     <input type="text" class="form-control" id="CongNgheHinhAnhInput" name="CongNgheHinhAnh">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="DieuKhienBangGiongNoi">Điều Khiển Bằng Giọng Nói:</label>
+                                    <label for="DieuKhienBangGiongNoiInput">Điều Khiển Bằng Giọng Nói:</label>
                                     <input type="text" class="form-control" id="DieuKhienBangGiongNoiInput" name="DieuKhienBangGiongNoi">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="RemoteThongMinh">Remote Thông Minh:</label>
+                                    <label for="RemoteThongMinhInput">Remote Thông Minh:</label>
                                     <input type="text" class="form-control" id="RemoteThongMinhInput" name="RemoteThongMinh">
                                 </div>
                                 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="PhanChieu">Phản Chiếu:</label>
+                                    <label for="PhanChieuInput">Phản Chiếu:</label>
                                     <input type="text" class="form-control" id="PhanChieuInput" name="PhanChieu">
                                 </div>
 
                                 <!--Loai Quat-->
                                 <div class="form-group" >                               
-                                    <label for="KichThuoc">Kích Thước:</label>
+                                    <label for="KichThuocInput">Kích Thước:</label>
                                     <input type="text" class="form-control" id="KichThuocInput" name="KichThuoc">
                                 </div>
                             </div>
@@ -314,7 +313,7 @@
         <script>
             function validateForm() {
                 let name = $('#nameInput').val();
-                let brand = $('#brandInput').val();
+                let thuonghieu = $('#thuonghieuInput').val();
                 let price = $('#priceInput').val();
                 let quantity = $('#quantityInput').val();
                 let category = $('#categoryInput').val();
@@ -326,8 +325,8 @@
                     $('#nameError').html('Name of product must not be empty');
                 }
                 
-                if (brand === '') {
-                    $('#brandError').html('ThuongHieu of product must not be empty');
+                if (thuonghieu === '') {
+                    $('#thuonghieuError').html('ThuongHieu of product must not be empty');
                 }
                 
                 if (price === '') {
@@ -412,7 +411,7 @@
 
 
 //            Xu ly them anh
-           function displayImage(input) {
+            function displayImage(input) {
                 var previewImage = document.getElementById("previewImage");
                 var file = input.files[0];
                 var reader = new FileReader();
@@ -421,9 +420,9 @@
                     previewImage.src = e.target.result;
                     previewImage.style.display = "block";
                 }
-
                 reader.readAsDataURL(file);
             }
+
         </script>
     </body>
 </html>

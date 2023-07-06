@@ -119,8 +119,6 @@
             </div>
         </div>
                                         
-           <!-- Footer-->
-             <jsp:include page="../../common/homepage/footer.jsp" ></jsp:include>              
                                         
                                         
     </body>

@@ -207,7 +207,7 @@ public class SanPhamDAO {
         return List_SanPhams_by_ID;
     }
 
-//    ----------------UPDATE------------------
+//    ----------------Insert------------------
     public void addProduct(int MaSP, String TenSP,
             String ThuongHieu, String Img,
             int GiaThanh, int NhomSP, int SoLuong) {
@@ -229,7 +229,7 @@ public class SanPhamDAO {
                     + "           ,?\n"
                     + "           ,?);";
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
-            
+
             statement.setInt(1, MaSP);
             statement.setString(2, TenSP);
             statement.setString(3, ThuongHieu);
@@ -237,13 +237,44 @@ public class SanPhamDAO {
             statement.setInt(5, GiaThanh);
             statement.setInt(6, NhomSP);
             statement.setInt(7, SoLuong);
-            
+
             statement.executeUpdate();
-            
+
         } catch (SQLException ex) {
-            System.out.println("Loi o db SanPham");
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
-            System.out.println("Loi o db SanPham");
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+//    ----------------Update----------------
+    public void updateByID(int MaSP, String TenSP, String Img, String ThuongHieu, int GiaThanh, int SoLuong, int NhomSP) {
+        try {
+            String sql = "UPDATE [dbo].[SanPham]\n"
+                    + "   SET \n"
+                    + "      [TenSP] = ?\n"
+                    + "      ,[ThuongHieu] = ?\n"
+                    + "      ,[Img] = ?\n"
+                    + "      ,[GiaThanh] = ?\n"
+                    + "      ,[NhomSP] = ?\n"
+                    + "      ,[SoLuong] = ?\n"
+                    + " WHERE MaSP = ?;";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            
+            statement.setString(1, TenSP);
+            statement.setString(2, ThuongHieu);
+            statement.setString(3, Img);
+            statement.setInt(4, GiaThanh);
+            statement.setInt(5, SoLuong);
+            statement.setInt(6, NhomSP);
+            statement.setInt(7, MaSP);
+
+            statement.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -39,6 +39,7 @@ public class listAdmin extends HttpServlet {
         ArrayList<NhomSP> List_NhomSPs = NHdb.getListCategory();
 //        them vao session: luu category len session
         session.setAttribute("listCategories", List_NhomSPs);
+        
         request.getRequestDispatcher("view/admin/dashboard/index.jsp").forward(request, response);
     }
 

@@ -69,4 +69,5 @@ public class LGadminAdd {
                  CongNgheHinhAnh,  DieuKhienBangGiongNoi, 
                  RemoteThongMinh,  PhanChieu,  KichThuoc);
     }
+
 }

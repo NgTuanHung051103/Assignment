@@ -34,7 +34,7 @@ public class addSanPham extends HttpServlet {
         String ThuongHieu = request.getParameter("thuonghieu");
         int GiaThanh = Integer.parseInt(request.getParameter("price"));
         int SoLuong = Integer.parseInt(request.getParameter("quantity"));
-        int MaNhom = Integer.parseInt(request.getParameter("category"));
+        int NhomSP = Integer.parseInt(request.getParameter("category"));
 
         Part part = request.getPart("image");
 
@@ -58,25 +58,21 @@ public class addSanPham extends HttpServlet {
 
             LGadminAdd lgAdd = new LGadminAdd();
             
-            int MaSP = lgAdd.addProduct( TenSP,  ThuongHieu, image_Path, GiaThanh, MaNhom, SoLuong);
+            int MaSP = lgAdd.addProduct( TenSP,  ThuongHieu, image_Path, GiaThanh, NhomSP, SoLuong);
             
-            System.out.println("Da them vao SanPham: " + MaSP);
-            
-            switch( MaNhom ){
+            switch( NhomSP ){
                 case 1:
                     String LoaiQuat = request.getParameter("LoaiQuat");
                     String DuongKinhQuat = request.getParameter("LoaiQuat");
                     String CheDoGio = request.getParameter("CheDoGio");
                     String BangDieuKhien = request.getParameter("BangDieuKhien");
                     String LoaiMotor = request.getParameter("LoaiMotor");
-                    String TienIch1 = request.getParameter("TienIch");
-                    String KichThuocKhoiLuong1 = request.getParameter("KichThuocKhoiLuong");
-                    int SoCanhQuat = Integer.parseInt(request.getParameter("SoCanhQuat"));
-                    
-                    System.out.println("Quat: "+  LoaiQuat + " " + DuongKinhQuat);
+                    String TienIch1 = request.getParameter("TienIch1");
+                    String KichThuocKhoiLuong1 = request.getParameter("KichThuocKhoiLuong1");
+                    int SoCanhQuat = Integer.parseInt( request.getParameter("SoCanhQuat"));
                     
                     lgAdd.addTSKTQuat(MaSP, LoaiQuat, DuongKinhQuat, CheDoGio, BangDieuKhien, LoaiMotor
-                                                                , TienIch1, KichThuocKhoiLuong1, SoCanhQuat );
+                                                                , TienIch1, KichThuocKhoiLuong1 , SoCanhQuat );
                     break;
                 case 2:
                     String LoaiMay = request.getParameter("LoaiMay");
@@ -90,8 +86,6 @@ public class addSanPham extends HttpServlet {
                     String DanLanh = request.getParameter("DanLanh");
                     String DanNong = request.getParameter("DanNong");
                     
-                     System.out.println("DieuHoa: "+  LoaiMay + " " + CongSuat);
-                     
                     lgAdd.addTSKTDieuHoa(MaSP, LoaiMay, CongSuat, PhamVi, KhuKhuan, CongNgheTietKiemDien2
                                                                     , LamLanhNhanh, TienIch2, TieuThuDien, DanLanh, DanNong);
                     break;
@@ -105,8 +99,6 @@ public class addSanPham extends HttpServlet {
                     String CongNgheBaoQuanThucPham = request.getParameter("CongNgheBaoQuanThucPham");
                     String KichThuocKhoiLuong3 = request.getParameter("KichThuocKhoiLuong3");
                     String TienIch3 = request.getParameter("TienIch3");
-                    
-                    System.out.println("TuLanh: "+  KieuTu + " " + DungTich);
                     
                     lgAdd.addTSKTTuLanh(MaSP,KieuTu, DungTich, CongNgheTietKiemDien3, CongNgheLamLanh
                                         , CongNgheKhangKhuanKhuMui, CongNgheBaoQuanThucPham
@@ -122,8 +114,6 @@ public class addSanPham extends HttpServlet {
                    String RemoteThongMinh = request.getParameter("RemoteThongMinh");
                    String PhanChieu = request.getParameter("PhanChieu");
                    String KichThuoc = request.getParameter("KichThuoc");
-                   
-                   System.out.println("Tivi: "+  LoaiTV + " " + UngDung);
                    
                    lgAdd.addTSKTTivi(MaSP, LoaiTV, UngDung, CongNgheHinhAnh,
                                     DieuKhienBangGiongNoi, RemoteThongMinh, PhanChieu, KichThuoc);

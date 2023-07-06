@@ -102,17 +102,17 @@
     text-decoration: none;
 }
 
-.nav-link-login{
+. nav-link-login{
     color: black;
 }
 
-.fa-user-o {
+. fa-user-o {
   border: none;
   cursor: pointer;
   background-color: black
 }
 
-.flogined {
+. flogined {
   border: none;
   cursor: pointer;
 }
@@ -148,7 +148,7 @@
   display: block;
 }
 
-.dropdown:hover .fa-user-o {
+.dropdown:hover . fa-user-o {
   background-color: #3e8e41;
   cursor: pointer;
 }

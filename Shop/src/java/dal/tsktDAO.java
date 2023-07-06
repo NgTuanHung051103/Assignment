@@ -382,4 +382,17 @@ public class tsktDAO {
         }
     }
 
+//    -----------------UPDATE INFO TO DATABASE WITH CONDITION----------------
+
+    public void updateTSKTByCondition(String sql) {
+         try {
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+             System.out.println("Loi tskt 1: " + ex.getMessage());
+        } catch (Exception ex) {
+              System.out.println("Loi tskt 2 ");
+        }
+    }
+    
 }
