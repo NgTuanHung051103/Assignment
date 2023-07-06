@@ -105,6 +105,4 @@ public class TSKT_Quat {
         return "TSKT_Quat{" + "LoaiQuat=" + LoaiQuat + ", DuongKinhQuat=" + DuongKinhQuat + ", CheDoGio=" + CheDoGio + ", BangDieuKhien=" + BangDieuKhien + ", LoaiMotor=" + LoaiMotor + ", TienIch=" + TienIch + ", KichThuocKhoiLuong=" + KichThuocKhoiLuong + ", MaSP=" + MaSP + ", SoCanhQuat=" + SoCanhQuat + '}';
     }
     
-    
-    
 }

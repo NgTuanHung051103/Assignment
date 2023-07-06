@@ -260,7 +260,7 @@ public class SanPhamDAO {
                     + "      ,[SoLuong] = ?\n"
                     + " WHERE MaSP = ?;";
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
-            
+
             statement.setString(1, TenSP);
             statement.setString(2, ThuongHieu);
             statement.setString(3, Img);
@@ -276,6 +276,25 @@ public class SanPhamDAO {
         } catch (Exception ex) {
             Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+//    -----------------Delete--------------------
+    public void deleteByID(int MaSP) {
+        try {
+            String sql = "delete from SanPham\n"
+                    + "where MaSP = ?";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+
+            statement.setInt(1, MaSP);
+
+            statement.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
 }

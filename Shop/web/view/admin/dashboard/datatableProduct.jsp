@@ -49,7 +49,7 @@
                                            ${sp.getMaSP()}, `${sp.getTenSP()}`, `${sp.getThuongHieu()}`,${sp.getGiaThanh()} ,${sp.getSoLuong()}, `${sp.getImg()}`,${sp.getNhomSP()})"></i>
                                         &nbsp;&nbsp;
                                         <!--Delete-->
-                                        <i class="fa fa-trash" data-toggle="modal" data-target="#delete-modal" onclick="deleteProductModal(${product.id})"></i>  
+                                        <i class="fa fa-trash" data-toggle="modal" data-target="#delete-modal" onclick="deleteProductModal(${sp.getMaSP()}, ${sp.getNhomSP()})"></i>  
 
                                     </td>
                                 </tr>

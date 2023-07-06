@@ -18,9 +18,10 @@
                 <p>Do you want to delete this product?</p>
             </div>
             <div class="modal-footer">
-                <form action="deleteProduct" method="POST">
+                <form action="deleteSanPham" method="POST">
                     <div class="form-group" style="display: none">
-                        <input type="text" class="form-control" id="idDeleteInput" name="id">
+                        <input type="text" class="form-control" id="idDelete" name="id">
+                        <input type="text" class="form-control" id="categoryDelete" name="cate">
                     </div>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                     <button type="submit" class="btn btn-danger">Yes</button>
@@ -31,7 +32,8 @@
 </div>
 
 <script>
-    function deleteProductModal(id) {
-        $('#idDeleteInput').val(id);
+    function deleteProductModal(id, cate) {
+        $('#idDelete').val(id);
+        $('#categoryDelete').val(cate);
     }
 </script>

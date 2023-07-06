@@ -122,5 +122,6 @@ public class TSKT_DieuHoa {
     public String toString() {
         return "TSKT_DieuHoa{" + "MaSP=" + MaSP + ", LoaiMay=" + LoaiMay + ", CongSuat=" + CongSuat + ", PhamVi=" + PhamVi + ", KhuKhuan=" + KhuKhuan + ", CongNgheTietKiemDien=" + CongNgheTietKiemDien + ", LamLanhNhanh=" + LamLanhNhanh + ", TienIch=" + TienIch + ", TieuThuDien=" + TieuThuDien + ", DanLanh=" + DanLanh + ", DanNong=" + DanNong + '}';
     }
+
     
 }

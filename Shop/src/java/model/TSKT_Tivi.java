@@ -96,5 +96,6 @@ public class TSKT_Tivi {
     public String getKichThuoc() {
         return KichThuoc;
     }
+
     
 }

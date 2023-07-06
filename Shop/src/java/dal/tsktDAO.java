@@ -143,7 +143,6 @@ public class tsktDAO {
     }
 
 //    ----------------- CREATE NEW --------------
-
 //    Tao 1 row moi voi MaSP ( chua nhap nhung thong tin sau )
 //    INPUT: MaSP
 //    OUTPUT: null
@@ -162,7 +161,7 @@ public class tsktDAO {
             System.out.println(ex);
         }
     }
-    
+
 //    Tao 1 row moi voi MaSP ( chua nhap nhung thong tin sau )
 //    INPUT: MaSP
 //    OUTPUT: null
@@ -181,7 +180,7 @@ public class tsktDAO {
             System.out.println(ex);
         }
     }
-    
+
 //    Tao 1 row moi voi MaSP ( chua nhap nhung thong tin sau )
 //    INPUT: MaSP
 //    OUTPUT: null
@@ -200,7 +199,7 @@ public class tsktDAO {
             System.out.println(ex);
         }
     }
-    
+
 //    Tao 1 row moi voi MaSP ( chua nhap nhung thong tin sau )
 //    INPUT: MaSP
 //    OUTPUT: null
@@ -228,7 +227,7 @@ public class tsktDAO {
         try {
 //            Tao 1 row moi
             createNewTSKTQuat(MaSP);
-            
+
 //            Update du lieu vao row vua tao
             String sql = " 	UPDATE [dbo].[TSKTQuat]\n"
                     + "	   SET [LoaiQuat] = ?\n"
@@ -248,28 +247,28 @@ public class tsktDAO {
             statement.setString(4, BangDieuKhien);
             statement.setString(5, LoaiMotor);
             statement.setString(6, TienIch);
-             statement.setString(7, TienIch);
+            statement.setString(7, TienIch);
             statement.setInt(8, SoCanhQuat);
             statement.setInt(9, MaSP);
 
             statement.executeUpdate();
         } catch (SQLException ex) {
-             System.out.println("Loi tskt quat1" + ex.getMessage());
+            System.out.println("Loi tskt quat1" + ex.getMessage());
         } catch (Exception ex) {
-              System.out.println("Loi tskt quat2");
+            System.out.println("Loi tskt quat2");
         }
 
     }
 
-    public void updateTSKTDieuHoa(int MaSP, String LoaiMay, 
-                String CongSuat, String PhamVi, String KhuKhuan, 
-                String CongNgheTietKiemDien, String LamLanhNhanh, 
-                String TienIch, String TieuThuDien,
-                String DanLanh, String DanNong) {
-                try {
+    public void updateTSKTDieuHoa(int MaSP, String LoaiMay,
+            String CongSuat, String PhamVi, String KhuKhuan,
+            String CongNgheTietKiemDien, String LamLanhNhanh,
+            String TienIch, String TieuThuDien,
+            String DanLanh, String DanNong) {
+        try {
 //            Tao 1 row moi
             createNewTSKTDieuHoa(MaSP);
-            
+
 //            Update du lieu vao row vua tao
             String sql = " 	UPDATE [dbo].[TSKTDieuHoa]\n"
                     + "	   SET [LoaiMay] = ?\n"
@@ -281,7 +280,7 @@ public class tsktDAO {
                     + "		  ,[TienIch] = ?\n"
                     + "		  ,[TieuThuDien] = ?\n"
                     + "		  ,[DanLanh] = ?\n"
-                     + "		  ,[DanNong] = ?\n"
+                    + "		  ,[DanNong] = ?\n"
                     + "	 WHERE MaSP = ?";
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
 
@@ -301,20 +300,20 @@ public class tsktDAO {
         } catch (SQLException ex) {
             System.out.println("Loi tskt dieuhoa1: " + ex.getMessage());
         } catch (Exception ex) {
-              System.out.println("Loi tskt dieuhoa2: ");
+            System.out.println("Loi tskt dieuhoa2: ");
         }
-        
+
     }
 
-    public void updateTSKTTuLanh(int MaSP, String KieuTu, 
-                String DungTich, String CongNgheTietKiemDien, 
-                String CongNgheLamLanh, String CongNgheKhangKhuanKhuMui, 
-                String CongNgheBaoQuanThucPham, 
-                String KichThuocKhoiLuong, String TienIch) {
-            try {
+    public void updateTSKTTuLanh(int MaSP, String KieuTu,
+            String DungTich, String CongNgheTietKiemDien,
+            String CongNgheLamLanh, String CongNgheKhangKhuanKhuMui,
+            String CongNgheBaoQuanThucPham,
+            String KichThuocKhoiLuong, String TienIch) {
+        try {
 //            Tao 1 row moi
             createNewTSKTTuLanh(MaSP);
-            
+
 //            Update du lieu vao row vua tao
             String sql = " 	UPDATE [dbo].[TSKTTuLanh]\n"
                     + "	   SET [KieuTu] = ?\n"
@@ -340,19 +339,19 @@ public class tsktDAO {
 
             statement.executeUpdate();
         } catch (SQLException ex) {
-             System.out.println("Loi tskt tulanh1: " + ex.getMessage());
+            System.out.println("Loi tskt tulanh1: " + ex.getMessage());
         } catch (Exception ex) {
-              System.out.println("Loi tskt tulanh2: ");
+            System.out.println("Loi tskt tulanh2: ");
         }
     }
 
-    public void updateTSKTTivi(int MaSP, String LoaiTV, String UngDung, 
-                String CongNgheHinhAnh, String DieuKhienBangGiongNoi, 
-                String RemoteThongMinh, String PhanChieu, String KichThuoc) {
+    public void updateTSKTTivi(int MaSP, String LoaiTV, String UngDung,
+            String CongNgheHinhAnh, String DieuKhienBangGiongNoi,
+            String RemoteThongMinh, String PhanChieu, String KichThuoc) {
         try {
 //            Tao 1 row moi
             createNewTSKTTivi(MaSP);
-            
+
 //            Update du lieu vao row vua tao
             String sql = " 	UPDATE [dbo].[TSKTTivi]\n"
                     + "	   SET [LoaiTV] = ?\n"
@@ -378,21 +377,89 @@ public class tsktDAO {
         } catch (SQLException ex) {
             System.out.println("Loi tskt tivi1: " + ex.getMessage());
         } catch (Exception ex) {
-           System.out.println("Loi tskt tivi");
+            System.out.println("Loi tskt tivi");
         }
     }
 
 //    -----------------UPDATE INFO TO DATABASE WITH CONDITION----------------
-
     public void updateTSKTByCondition(String sql) {
-         try {
+        try {
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
             statement.executeUpdate();
         } catch (SQLException ex) {
-             System.out.println("Loi tskt 1: " + ex.getMessage());
+            System.out.println("Loi tskt 1: " + ex.getMessage());
         } catch (Exception ex) {
-              System.out.println("Loi tskt 2 ");
+            System.out.println("Loi tskt 2 ");
         }
     }
-    
+
+//    ----------------------DELETE--------------------
+    public void deleteTSKTQuatByID(int MaSP) {
+        try {
+//            Update du lieu vao row vua tao
+            String sql = " delete from [TSKTQuat]\n"
+                    + "where MaSP = ?";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+
+            statement.setInt(1, MaSP);
+
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Loi tskt tivi1: " + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Loi tskt tivi");
+        }
+    }
+
+    public void deleteTSKTDieuHoaByID(int MaSP) {
+        try {
+//            Update du lieu vao row vua tao
+            String sql = " delete from [TSKTDieuHoa]\n"
+                    + "where MaSP = ?";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+
+            statement.setInt(1, MaSP);
+
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Loi tskt tivi1: " + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Loi tskt tivi");
+        }
+    }
+
+    public void deleteTSKTTuLanhByID(int MaSP) {
+          try {
+//            Update du lieu vao row vua tao
+            String sql = " delete from [TSKTTuLanh]\n"
+                    + "where MaSP = ?";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+
+            statement.setInt(1, MaSP);
+
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Loi tskt tivi1: " + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Loi tskt tivi");
+        }
+    }
+
+    public void deleteTSKTTiviByID(int MaSP) {
+         try {
+//            Update du lieu vao row vua tao
+            String sql = " delete from [TSKTTivi]\n"
+                    + "where MaSP = ?";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+
+            statement.setInt(1, MaSP);
+
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Loi tskt tivi1: " + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Loi tskt tivi");
+        }
+    }
+
 }

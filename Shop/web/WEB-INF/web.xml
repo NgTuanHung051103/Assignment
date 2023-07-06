@@ -56,6 +56,10 @@
         <servlet-name>editSanPham</servlet-name>
         <servlet-class>controller.admin.editSanPham</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>deleteSanPham</servlet-name>
+        <servlet-class>controller.admin.deleteSanPham</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/list</url-pattern>
@@ -111,6 +115,10 @@
     <servlet-mapping>
         <servlet-name>editSanPham</servlet-name>
         <url-pattern>/editSanPham</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteSanPham</servlet-name>
+        <url-pattern>/deleteSanPham</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
