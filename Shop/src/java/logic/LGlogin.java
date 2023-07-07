@@ -5,6 +5,9 @@
 package logic;
 
 import dal.UserDAO;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import model.User;
 
@@ -14,6 +17,29 @@ import model.User;
  */
 public class LGlogin {
 
+    
+//    Get Tk from Cookie
+//    INPUT: request, response:
+//    OUTPUT: Tk
+    public String getTK(HttpServletRequest request, HttpServletResponse response) {
+        Cookie[] cookies = request.getCookies();
+        String Tk = "";
+        
+//         Lay Tk da luu tu truoc 
+//            Xoa Tk da luu vi co thay doi
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("loginedAccount")) {
+                    Tk += cookie.getValue();
+                    break;
+                }
+            }
+        }
+        return Tk;
+    }
+    
+    
+    
 //    kiem tra dang nhap
 //    input: Tk, Mk
 //    output: 123: dieu huong servlet den cac trang khac
@@ -61,6 +87,9 @@ public class LGlogin {
             return List_Users.get(0);
         }
     }
+    
+    
+    
 
 //  Lay cart cua tai khoan khi duoc dang nhap
 //    Input: Tk

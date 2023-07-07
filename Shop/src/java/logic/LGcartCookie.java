@@ -21,6 +21,7 @@ public class LGcartCookie {
     public String get(HttpServletRequest request, HttpServletResponse response) {
         Cookie[] cookies = request.getCookies();
         String txt_cart = "";
+        
 //         Lay txt_cart da luu tu truoc 
 //            Xoa txt_cart da luu vi co thay doi
         if (cookies != null) {
@@ -38,7 +39,7 @@ public class LGcartCookie {
             String txt_cart) {
         //                set Cookie Cart
         Cookie cookie = new Cookie("txt_cart", txt_cart);
-        cookie.setMaxAge(60 * 24);
+        cookie.setMaxAge(60 * 20);
         response.addCookie(cookie);
 
     }

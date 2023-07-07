@@ -28,6 +28,7 @@ public class UserDAO {
     public ArrayList<User> get_Info_User_Login(String Tk) {
         ArrayList<User> List_Users = new ArrayList<>();
         try {
+            System.out.println("da vao USERDAO");
             String sql = "Select * From Users Where Tk = ?";
             User user = new User();
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
@@ -44,6 +45,7 @@ public class UserDAO {
                 user.setIsAdmin(rs.getInt("isAdmin"));
                 user.setSDT(rs.getString("SDT"));
                 user.setTxtCart(rs.getString("txtCart"));
+                System.out.println(user);
                 List_Users.add(user);
             }
         } catch (SQLException ex) {

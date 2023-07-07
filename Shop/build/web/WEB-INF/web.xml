@@ -60,6 +60,14 @@
         <servlet-name>deleteSanPham</servlet-name>
         <servlet-class>controller.admin.deleteSanPham</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>checkOut</servlet-name>
+        <servlet-class>controller.cart.checkOut</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>thanhtoan</servlet-name>
+        <servlet-class>controller.user.thanhtoan</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/list</url-pattern>
@@ -119,6 +127,14 @@
     <servlet-mapping>
         <servlet-name>deleteSanPham</servlet-name>
         <url-pattern>/deleteSanPham</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>checkOut</servlet-name>
+        <url-pattern>/checkOut</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>thanhtoan</servlet-name>
+        <url-pattern>/thanhtoan</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

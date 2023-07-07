@@ -13,7 +13,7 @@ import logic.LGcartGetSanPhamById;
  */
 public class Cart {
 
-    private ArrayList<OrderDetail> cart;
+    private ArrayList<CartDetail> cart;
 
     public Cart() {
         cart = new ArrayList<>();
@@ -33,8 +33,8 @@ public class Cart {
                     int id = Integer.parseInt(n[0]);
                     int soluong = Integer.parseInt(n[1]);
                     SanPham sp = getSanPhamById(id);
-                    OrderDetail t = new OrderDetail(sp, soluong, sp.getGiaThanh());
-                    addOrderDetailToCart(t);
+                    CartDetail t = new CartDetail(sp, soluong, sp.getGiaThanh());
+                    addCartDetailToCart(t);
                 }
             }
         } catch (NumberFormatException e) {
@@ -45,18 +45,18 @@ public class Cart {
 //    Them vao Cart 
 //    INPUT: 1 orderDetail
 //    OUTPUT: null
-    private void addOrderDetailToCart(OrderDetail order) {
-//        kiem tra xem OrderDetail da ton tai trong list OrderDetail hay chua 
-        if ( getOrderById(order.getSanPham().getMaSP()) != null) {
-            OrderDetail o = getOrderById(order.getSanPham().getMaSP());
+    private void addCartDetailToCart(CartDetail order) {
+//        kiem tra xem CartDetail da ton tai trong list CartDetail hay chua 
+        if ( getCartDetailById(order.getSanPham().getMaSP()) != null) {
+            CartDetail o = getCartDetailById(order.getSanPham().getMaSP());
             o.setSoLuong(o.getSoLuong()+ order.getSoLuong());
         } else {
-//        neu chua: khoi tao 1 OrderDetail moi
+//        neu chua: khoi tao 1 CartDetail moi
            cart.add(order);
         }
     }
 
-    public ArrayList<OrderDetail> getCart() {
+    public ArrayList<CartDetail> getCart() {
         return cart;
     }
     
@@ -71,11 +71,11 @@ public class Cart {
     }
 
     
-//    Lay OrderDetail trong cart bang MaSP
+//    Lay CartDetail trong cart bang MaSP
 //    INPUT: int MaSP
-//    OUTPUT: null or OrderDetail
-    private OrderDetail getOrderById(int MaSP) {
-        for( OrderDetail o : cart ){
+//    OUTPUT: null or CartDetail
+    private CartDetail getCartDetailById(int MaSP) {
+        for( CartDetail o : cart ){
             if( o.getSanPham().getMaSP() == MaSP){
                 return o; 
             }

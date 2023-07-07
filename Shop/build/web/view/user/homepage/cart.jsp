@@ -81,9 +81,8 @@
                                                             <div class="col-md-3 quantity">
                                                                 <label for="quantity">Quantity:</label>
                                                                 <!--So Luong-->
-                                                                <input name = "quantity" id="quantity" type="number" value ="${order.getSoLuong()}" min ="1" max ="10" class="form-control quantity-input">
-                                                                
-                                                            
+                                                                <input name = "quantity" id="quantity" type="number" value ="${order.getSoLuong()}" min ="1" max ="${order.getSanPham().getSoLuong()}" class="form-control quantity-input">
+                                                                <span>Còn lai: ${order.getSanPham().getSoLuong()}</span>
                                                             </div>
                                                             <div class="col-md-2 price">
                                                                 <!--Gia Thanh-->
@@ -116,7 +115,7 @@
                                     <div class="summary-item"><span class="text">Total</span><span class="price">${total}</span></div>
                                      
                                     <div class="float-left">
-                                        <form id = "updateForm" action ="updateCart" method ="GET">
+                                        <form action ="updateCart" id = "updateForm"  method ="GET">
                                             <button type="button" name="updatecart" 
                                                     class="btn btn-lg btn-primary btn-block" 
                                                     style="background-color: #ff5b6a">Save
@@ -124,7 +123,9 @@
                                         </form>
                                     </div>
                                     <div class="float-right">
-                                        <button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+                                        <form action ="checkOut" method ="GET" id ="checkOut" >
+                                            <button type="button" class="btn btn-primary btn-lg btn-block" name = "checkOut">Checkout</button>
+                                        </form>
                                     </div>
                                     
                                 </div>
@@ -185,5 +186,34 @@
             form.submit();
        }
 
+
+        var btn_checkOut = document.getElementsByName("checkOut")[0];
+        btn_checkOut.onclick = () => {
+             var order_txt = "";
+            var temp = "${size}";
+            var order_count = parseInt(temp);
+            for( var i = 0; i < order_count; i++ ){
+                try{
+                    var productid = document.getElementsByName("MaSP")[i].value;
+                    var quantity = document.getElementsByName("quantity")[i].value;
+                   if ( productid != "" && productid != undefined && quantity != "" && quantity != undefined ) {
+                        order_txt += productid + ":" + quantity + "/";
+                    } else {
+                        break;
+                    }
+                } catch (error) {
+                    break;
+              }
+            } 
+            var cartCheckOut = document.createElement("input");
+            cartCheckOut.setAttribute("type", "hidden");
+            cartCheckOut.setAttribute("name", "order_txt");
+            cartCheckOut.setAttribute("value", order_txt.substring(0, order_txt.length-1));
+            
+             var form = document.getElementById("checkOut");
+             
+             form.appendChild(cartCheckOut);
+             form.submit();
+        }
     </script>
 </html>

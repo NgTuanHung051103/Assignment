@@ -6,48 +6,42 @@ package model;
 
 /**
  *
- * @author NgTua
+ * @author ptkng
  */
 public class OrderDetail {
-    private SanPham sanpham;
-    private int SoLuong,  GiaThanh;
+    private int OrderID, MaSP, SoLuong;
 
     public OrderDetail() {
     }
 
-    public OrderDetail(SanPham p, int SoLuong, int GiaThanh) {
-        this.sanpham = p;
+    public OrderDetail(int OrderID, int MaSP, int SoLuong) {
+        this.OrderID = OrderID;
+        this.MaSP = MaSP;
         this.SoLuong = SoLuong;
-        this.GiaThanh = GiaThanh;
     }
 
-    public SanPham getSanPham() {
-        return sanpham;
+    public int getOrderID() {
+        return OrderID;
+    }
+
+    public int getMaSP() {
+        return MaSP;
     }
 
     public int getSoLuong() {
         return SoLuong;
     }
 
-    public int getGiaThanh() {
-        return GiaThanh;
+    public void setOrderID(int OrderID) {
+        this.OrderID = OrderID;
     }
 
-    public void setSanPham(SanPham p) {
-        this.sanpham = p;
+    public void setMaSP(int MaSP) {
+        this.MaSP = MaSP;
     }
 
     public void setSoLuong(int SoLuong) {
         this.SoLuong = SoLuong;
-    }
-
-    public void setGiaThanh(int GiaThanh) {
-        this.GiaThanh = GiaThanh;
-    }
-
-    @Override
-    public String toString() {
-        return "OrderDetail{" + "p=" + sanpham + ", SoLuong=" + SoLuong + ", GiaThanh=" + GiaThanh + '}';
     }
     
     

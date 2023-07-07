@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import logic.LGcartCookie;
 import model.Cart;
 import model.NhomSP;
-import model.OrderDetail;
+import model.CartDetail;
 import model.SanPham;
 
 /**
@@ -82,12 +82,12 @@ public class list extends HttpServlet {
         Cart cart = new Cart(txt_cart);   
         
 //        Lay list order co trong cart
-        ArrayList< OrderDetail> listOrderDetail = cart.getCart();
+        ArrayList< CartDetail> listOrderDetail = cart.getCart();
         
 //        lay so luong order co trong cart
         int n = listOrderDetail != null ? listOrderDetail.size() : 0;
         
-//        set soluong - list OrderDetail
+//        set soluong - list CartDetail
         request.setAttribute("size", n);        
         
 //        -----Ket thuc Cookie txt cart-----

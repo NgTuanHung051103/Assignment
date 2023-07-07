@@ -48,7 +48,7 @@ public class loginServlet extends HttpServlet {
 
 //                set Cookie Cart
                 Cookie txt_cart = new Cookie("txt_cart", txtCart);
-                txt_cart.setMaxAge( 60 * 60 * 24 );
+                txt_cart.setMaxAge( 60 * 30 );
                 response.addCookie(txt_cart);
                 
 //               Set session de truyen toi trang home
