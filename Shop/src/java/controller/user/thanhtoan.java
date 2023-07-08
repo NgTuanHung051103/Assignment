@@ -4,79 +4,55 @@
  */
 package controller.user;
 
+import dal.OrdersDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.Orders;
 
-/**
- *
- * @author ptkng
- */
+
 public class thanhtoan extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet thanhtoan</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet thanhtoan at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+  
     }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+         String AccountID = request.getParameter("ID");
+        String Order_txt = request.getParameter("order_txt");
+        int TotalPrice = Integer.parseInt(request.getParameter("TotalPrice"));
+        String Adress = request.getParameter("DiaChiInput");
+        String EmailInput = request.getParameter("EmailInput");
+        String SDTInput = request.getParameter("SDTInput");
+        int httt = Integer.parseInt(request.getParameter("hinhthucthanhtoan"));
+        
+        OrdersDAO ORdb = new OrdersDAO();
+        
+//       Tao id moi = id cuoi cung + 1
+        int OrderID = ORdb.getAll().get(ORdb.getAll().size()-1).getOrderID() + 1;
+        
+//        Lay Date ngay hom nay: 
+        long millis=System.currentTimeMillis();  
+        java.sql.Date date=new java.sql.Date(millis);  
+ 
+//        Tao 1 order moi
+        Orders order = new Orders(OrderID, AccountID,  date, Adress, TotalPrice, 1, Order_txt, EmailInput, SDTInput, httt);
+        
+//        Them order vao database
+        ORdb.insertOrders(order);
+        
+        request.setAttribute("mess", "Ban da dat hang thanh cong");
+         request.getRequestDispatcher("view/user/homepage/dathangthanhcong.jsp").forward(request, response);
+             
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
         return "Short description";

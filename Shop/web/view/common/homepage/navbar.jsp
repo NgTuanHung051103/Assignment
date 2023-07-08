@@ -56,12 +56,12 @@
                                 <c:set var ="cookie" value = "${sessionScope.cookies}"/>
 
                                 <li class="nav-info">
+                                    
                                     <c:if test ="${cookie.loginedAccount != null }">
                                         <div class="dropdown" style="margin: auto 12px auto 26px;">
                                             <i class="fa fa-user-o logined" ></i>
                                             <div class="dropdown-content">
-                                                <a href="#">Tài Khoản</a>
-                                                <a href="#">Đơn Mua</a>
+                                                <a href="${pageContext.request.contextPath}/view/user/homepage/account.jsp">Tài Khoản</a>
                                                 <a href="${pageContext.request.contextPath}/logoutServlet">Đăng Xuất</a>
                                             </div>
                                         </div>  

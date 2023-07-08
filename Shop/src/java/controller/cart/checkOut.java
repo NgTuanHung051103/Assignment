@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package controller.cart;
 
 import java.io.IOException;
@@ -42,6 +38,7 @@ public class checkOut extends HttpServlet {
 //          Lay thong tin User bang Tk da dang nhap
         User loginedAccount = login.get_Info_User_Login(Tk);
 
+        request.setAttribute("txt", order_txt);
         request.setAttribute("size", n);
         request.setAttribute("data", listOrderDetail);
         request.setAttribute("user", loginedAccount);

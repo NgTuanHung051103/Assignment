@@ -22,6 +22,8 @@
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+        
+        
         <style>
             .error {
                 color: red;
@@ -34,13 +36,13 @@
 
         <!-- Navbar-->
         <jsp:include page="../../${initParam['CommonHomepage']}/navbar.jsp" ></jsp:include>      
-
+        <form action ="thanhtoan" method ="POST" id ="thanhtoanForm" >
             <div class="container">
 
 
                 <!--THONG TIN KHACH HANG-->
             <c:set var="user" value="${requestScope.user}" />
-
+            
 
             <div class="form-group">
                 <h3>Thong Tin Khach Hang</h3>
@@ -54,6 +56,11 @@
                             <label for="">ID: </label>
                             <input type="text"name="ID"
                                    value = "${user.getID()}" >
+                        </div>
+                        <div class="form-group" style = "display: none">
+                            <label for="">order_txt </label>
+                            <input type="text"name="order_txt"
+                                   value = "${requestScope.txt}" >
                         </div>
                  <!--TEN-->
                         <div class="form-group">
@@ -162,7 +169,7 @@
                         </div>
                         ------------------------------------------------------
                         <div class="form-group">
-                            <label for="hinhthucthanhtoan">Category: </label>
+                            <label for="hinhthucthanhtoan">Chon hinh thuc thanh toan </label>
                             <div class="input-group">
                                 <select class="custom-select" id="hinhthucthanhtoan" name="hinhthucthanhtoan">
                                     <option value="1">Thanh toán truc tiep</option>
@@ -189,16 +196,18 @@
                     <div class="col-md-12 col-lg-4">
                     </div>
                     <div class="col-md-12 col-lg-4">
-                        <form action ="thanhtoan" method ="GET" id ="thanhtoanForm" >
-                            <button type="button" class="btn btn-success btn-lg btn-block" 
+                       
+                            <button type="submit" class="btn btn-success btn-lg btn-block" 
                                     onclick="validateForm()"
                                     >Thanh Toan</button>
+                             <input type = "text" value ="${total}" name = "TotalPrice" style ="display: none">
                         </form>
                     </div>
                     <div class="col-md-12 col-lg-4">
                     </div>
                 </div>               
-            </div>                  
+            </div>         
+          </form>              
         </div> 
     </body>
 
@@ -227,7 +236,7 @@
                 let Email = $('#EmailInput').val();
                 let DiaChi = $('#DiaChiInput').val();
 
-                console.log(name + SDT + Email + DiaChi);
+                console.log(name +  SDT);
 //          xoá thông báo loi hien tai: goi den class
                 $('.error').html('');
 
@@ -258,6 +267,12 @@
                     event.preventDefault();
                 }
             }
+         </script>
         
-    </script>
+           <!-- Bootstrap core JavaScript-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+                integrity="sha512-bnIvzh6FU75ZKxp0GXLH9bewza/OIw6dLVh9ICg0gogclmYGguQJWl8U30WpbsGTqbIiAwxTsbe76DErLq5EDQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        
+   
 </html>
