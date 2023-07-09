@@ -61,7 +61,7 @@
                                         <div class="dropdown" style="margin: auto 12px auto 26px;">
                                             <i class="fa fa-user-o logined" ></i>
                                             <div class="dropdown-content">
-                                                <a href="${pageContext.request.contextPath}/view/user/account/account.jsp">Tài Khoản</a>
+                                                <a href="${pageContext.request.contextPath}/account">Tài Khoản</a>
                                                 <a href="${pageContext.request.contextPath}/logoutServlet">Đăng Xuất</a>
                                             </div>
                                         </div>  

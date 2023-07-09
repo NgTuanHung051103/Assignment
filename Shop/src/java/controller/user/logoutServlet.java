@@ -11,8 +11,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import logic.LGcartCookie;
-import logic.LGlogin;
+import logic.cart.LGcartCookie;
+import logic.common.LGlogin;
 
 /**
  *

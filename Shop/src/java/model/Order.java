@@ -9,16 +9,16 @@ package model;
  * @author ptkng
  */
 import java.sql.Date;
-public class Orders {
+public class Order {
     private int OrderID, TotalPrice, Status, httt;
     private String AccountID, Address;
     private Date OrderDate;
     private String Order_txt, Email, SDT; 
     
-    public Orders() {
+    public Order() {
     }
     
-    public Orders(int OrderID, String AccountID, Date OrderDate, String Address, 
+    public Order(int OrderID, String AccountID, Date OrderDate, String Address, 
             int TotalPrice, int Status, String Order_txt, String Email, String SDT, int httt) {
         this.OrderID = OrderID;
         this.TotalPrice = TotalPrice;

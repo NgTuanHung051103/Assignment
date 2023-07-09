@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import logic.LGlogin;
+import logic.common.LGlogin;
 import model.User;
 
 public class loginServlet extends HttpServlet {

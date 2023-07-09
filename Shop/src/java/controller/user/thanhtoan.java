@@ -4,14 +4,17 @@
  */
 package controller.user;
 
-import dal.OrdersDAO;
+import dal.OrderDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Orders;
+import java.util.ArrayList;
+import logic.thanhtoan.LGttInsertOrD;
+import model.OrderDetail;
+import model.Order;
 
 
 public class thanhtoan extends HttpServlet {
@@ -33,7 +36,7 @@ public class thanhtoan extends HttpServlet {
         String SDTInput = request.getParameter("SDTInput");
         int httt = Integer.parseInt(request.getParameter("hinhthucthanhtoan"));
         
-        OrdersDAO ORdb = new OrdersDAO();
+        OrderDAO ORdb = new OrderDAO();
         
 //       Tao id moi = id cuoi cung + 1
         int OrderID = ORdb.getAll().get(ORdb.getAll().size()-1).getOrderID() + 1;
@@ -43,10 +46,15 @@ public class thanhtoan extends HttpServlet {
         java.sql.Date date=new java.sql.Date(millis);  
  
 //        Tao 1 order moi
-        Orders order = new Orders(OrderID, AccountID,  date, Adress, TotalPrice, 1, Order_txt, EmailInput, SDTInput, httt);
+        Order order = new Order(OrderID, AccountID,  date, Adress, TotalPrice, 1, Order_txt, EmailInput, SDTInput, httt);
         
 //        Them order vao database
         ORdb.insertOrders(order);
+        
+        LGttInsertOrD lgTTOrD = new  LGttInsertOrD();
+        
+        lgTTOrD.insertToOrD(OrderID, Order_txt);
+        
         
         request.setAttribute("mess", "Ban da dat hang thanh cong");
          request.getRequestDispatcher("view/user/homepage/dathangthanhcong.jsp").forward(request, response);

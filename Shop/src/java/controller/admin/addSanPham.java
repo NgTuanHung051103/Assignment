@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 import java.io.File;
-import logic.LGadminAdd;
+import logic.admin.LGadminAdd;
 /**
  *
  * @author NgTua

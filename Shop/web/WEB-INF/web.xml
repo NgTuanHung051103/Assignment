@@ -68,6 +68,10 @@
         <servlet-name>thanhtoan</servlet-name>
         <servlet-class>controller.user.thanhtoan</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>account</servlet-name>
+        <servlet-class>controller.user.account</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/list</url-pattern>
@@ -135,6 +139,10 @@
     <servlet-mapping>
         <servlet-name>thanhtoan</servlet-name>
         <url-pattern>/thanhtoan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>account</servlet-name>
+        <url-pattern>/account</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
