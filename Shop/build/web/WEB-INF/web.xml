@@ -72,6 +72,10 @@
         <servlet-name>account</servlet-name>
         <servlet-class>controller.user.account</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>signupServlet</servlet-name>
+        <servlet-class>controller.user.signupServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/list</url-pattern>
@@ -143,6 +147,10 @@
     <servlet-mapping>
         <servlet-name>account</servlet-name>
         <url-pattern>/account</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>signupServlet</servlet-name>
+        <url-pattern>/signupServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

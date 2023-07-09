@@ -60,13 +60,13 @@ public class loginServlet extends HttpServlet {
                 
 //          Chua ton tai tai khoan
             case 1:
-                request.setAttribute("mess", "Tài kho?n không t?n t?i");
+                request.setAttribute("messLogin", "Tài kho?n không t?n t?i");
                 request.getRequestDispatcher("/view/user/homepage/login.jsp").forward(request, response);
                 break;
                 
 //          Sai mat khau      
             case 2:
-                request.setAttribute("mess", "Sai m?t kh?u");
+                request.setAttribute("messLogin", "Sai m?t kh?u");
                 request.getRequestDispatcher("/view/user/homepage/login.jsp").forward(request, response);
                 break;
         }

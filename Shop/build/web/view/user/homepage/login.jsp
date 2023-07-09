@@ -21,10 +21,10 @@
     </head>
     <body>
         <div class="formLoginSignUp">
-            <form action="" method="POST" class="form" id="form-1">
+            <form action="signupServlet" method="POST" class="form" id="form-1">
                 <h3 class="heading">Đăng ký</h3>
                 <p class="desc">Cùng vui nào ❤️</p>
-
+                <p class="desc">${requestScope.messSignup}</p>
                 <div class="spacer"></div>
 
                 <div class="form-group">
@@ -57,7 +57,7 @@
             <form action="${pageContext.request.contextPath}/loginServlet" method="POST" class="form" id="form-2">
                 <h3 class="heading">Đăng nhập</h3>
                 <p class="desc">Cùng vui nào ❤️</p>
-                 <p class="desc">${mess}</p>
+                <p class="desc">${requestScope.messLogin}</p>
                 <div class="spacer"></div>
 
                 <!-- <div class="form-group">
