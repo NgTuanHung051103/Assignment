@@ -13,7 +13,7 @@ import model.SanPham;
  *
  * @author NgTua
  */
-public class LGadminAdd {
+public class LGadminAddProduct {
         
         tsktDAO TSdb = new tsktDAO();
         

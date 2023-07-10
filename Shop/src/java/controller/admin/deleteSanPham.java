@@ -9,7 +9,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import logic.admin.LGadminDelete;
+import logic.admin.LGadminDeleteProduct;
 
 /**
  *
@@ -23,7 +23,7 @@ public class deleteSanPham extends HttpServlet {
         int MaSP = Integer.parseInt(request.getParameter("id"));
         int MaNhom = Integer.parseInt(request.getParameter("cate"));
         
-        LGadminDelete lgDelete = new LGadminDelete();
+        LGadminDeleteProduct lgDelete = new LGadminDeleteProduct();
         
         lgDelete.deleteSanPham(MaSP);
                 

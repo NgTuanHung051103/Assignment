@@ -50,6 +50,7 @@
                                 <label for="categoryInput">Quyen su dung </label><span class="required">*</span>
                                 <div class="input-group">
                                     <select class="custom-select" id="categoryInput" name="category">
+                                         <option value="">Chọn một tùy chọn</option>
                                         <option value="1">User</option>
                                         <option value="2">Admin</option>
                                     </select>
@@ -118,7 +119,8 @@
             function ValidateForm(){
                 let Tk = $('#TkInput').val();
                 let Mk = $('#MkInput').val();
-                console.log(Tk);
+                let category = $('#categoryInput').val();
+                console.log(category);
                 $('.error').html('');
                 
                  if (Tk === '') {
@@ -126,6 +128,9 @@
                 }
                   if (Mk === '') {
                     $('#MkError').html('Mat khau khong duoc de trong');
+                }
+                 if (category === '') {
+                    $('#categoryError').html('Phai nhap quyen han');
                 }
                 
                 // Kiểm tra nếu không có lỗi thì submit form

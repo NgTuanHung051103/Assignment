@@ -11,7 +11,7 @@ import dal.tsktDAO;
  *
  * @author ptkng
  */
-public class LGadminUpdate {
+public class LGadminUpdateProduct {
 
     public void updateSanPham(int MaSP, String TenSP, String image, String ThuongHieu, int GiaThanh, int SoLuong, int MaNhom) {
         SanPhamDAO SPdb = new SanPhamDAO();

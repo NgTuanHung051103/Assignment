@@ -11,7 +11,7 @@ import dal.tsktDAO;
  *
  * @author ptkng
  */
-public class LGadminDelete {
+public class LGadminDeleteProduct {
 
     tsktDAO TSdb = new tsktDAO();
     public void deleteSanPham(int MaSP) {

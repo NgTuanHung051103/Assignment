@@ -21,31 +21,30 @@ public class UserDAO {
     private final DBContext conn = new DBContext();
 
 //    ----------------------GET INFO FROM DATABASE-------------------------
-    
 //    get all row
 //    INPUT: null
 //    OUTPUT: arrayList all info of user
     public ArrayList<User> getAll() {
-         ArrayList<User> List_Users = new ArrayList<>();
+        ArrayList<User> List_Users = new ArrayList<>();
         try {
             String sql = "Select * From Users";
-           
+
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
 //                Chua hieu tai sao lai hai khai bao user ben trong while
 //                  Neu khai bao ben ngoai  se bi lap thang cuoi
                 User user = new User();
-                    user.setID(rs.getString("ID"));
-                    user.setTen(rs.getString("Ten"));
-                    user.setEmail(rs.getString("Email"));
-                    user.setDiaChi(rs.getString("DiaChi"));
-                    user.setMk(rs.getString("Mk"));
-                    user.setTuoi(rs.getInt("Tuoi"));
-                    user.setTk(rs.getString("Tk"));
-                    user.setIsAdmin(rs.getInt("isAdmin"));
-                    user.setSDT(rs.getString("SDT"));
-                    user.setTxtCart(rs.getString("txtCart"));
+                user.setID(rs.getString("ID"));
+                user.setTen(rs.getString("Ten"));
+                user.setEmail(rs.getString("Email"));
+                user.setDiaChi(rs.getString("DiaChi"));
+                user.setMk(rs.getString("Mk"));
+                user.setTuoi(rs.getInt("Tuoi"));
+                user.setTk(rs.getString("Tk"));
+                user.setIsAdmin(rs.getInt("isAdmin"));
+                user.setSDT(rs.getString("SDT"));
+                user.setTxtCart(rs.getString("txtCart"));
                 System.out.println(user);
                 List_Users.add(user);
             }
@@ -55,10 +54,8 @@ public class UserDAO {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return List_Users;
-    }    
-    
-    
-    
+    }
+
 //    get info of user by Tk
 //    input: tai khoan
 //    output: all info of tai khoan
@@ -174,6 +171,11 @@ public class UserDAO {
     }
 
     //--------------------------Insert new account TO DATABASE----------------------------------
+//    TAO tai khoan tu form dang ky:
+//    INPUT: Tai khoan ( ten dang nhap )
+//                  Mat Khau
+//                  ID: moi tao tu logic
+//    OUTPUT: null
     public void create_Account_By_Tk(String Tk, String Mk, String ID) {
         try {
             String sql = " INSERT INTO [dbo].[Users]\n"
@@ -201,6 +203,66 @@ public class UserDAO {
         }
     }
 
-    
+//  TAO tai khoan tu tay admin
+//    INPUT: 1 object User co day du thong tin
+//    OUTPUT: null
+    public void create_Account_By_adAdd(User user) {
+        try {
+            String sql = " INSERT INTO [dbo].[Users]\n"
+                    + "           ([ID]\n"
+                    + "           ,[Ten]\n"
+                    + "           ,[Email]\n"
+                    + "           ,[DiaChi]\n"
+                    + "           ,[Tk]\n"
+                    + "           ,[Mk]\n"
+                    + "           ,[isAdmin]\n"
+                    + "           ,[SDT]\n"
+                    + "           ,[txtCart]\n"
+                    + "           ,[Tuoi])\n"
+                    + "     VALUES\n"
+                    + "           (?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?)";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            statement.setString(1, user.getID());
+            statement.setString(2, user.getTen());
+            statement.setString(3, user.getEmail());
+            statement.setString(4, user.getDiaChi());
+            statement.setString(5, user.getTk());
+            statement.setString(6, user.getMk());
+            statement.setInt(7, user.getIsAdmin());
+            statement.setString(8, user.getSDT());
+            statement.setString(9, user.getTxtCart());
+            statement.setInt(10, user.getTuoi());
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Khong the Tao tai khoan 1");
+        } catch (Exception ex) {
+            System.out.println("Khong the Tao tai khoan 2");
+        }
+
+        if (user.getTuoi() == 0) {
+            try {
+                String sql = " UPDATE Users\n"
+                        + "SET Tuoi = NULL\n"
+                        + "WHERE ID = ?';";
+                PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+                statement.setString(1, user.getID());
+                statement.executeUpdate();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+        }
+
+    }
 
 }

@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 import java.io.File;
-import logic.admin.LGadminAdd;
+import logic.admin.LGadminAddProduct;
 /**
  *
  * @author NgTua
@@ -56,7 +56,7 @@ public class addSanPham extends HttpServlet {
                     + CommonConst.SLASH
                     + image.getName();
 
-            LGadminAdd lgAdd = new LGadminAdd();
+            LGadminAddProduct lgAdd = new LGadminAddProduct();
             
             int MaSP = lgAdd.addProduct( TenSP,  ThuongHieu, image_Path, GiaThanh, NhomSP, SoLuong);
             
