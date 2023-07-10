@@ -28,7 +28,6 @@ public class UserDAO {
     public ArrayList<User> get_Info_User_Login(String Tk) {
         ArrayList<User> List_Users = new ArrayList<>();
         try {
-            System.out.println("da vao USERDAO");
             String sql = "Select * From Users Where Tk = ?";
             User user = new User();
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
@@ -45,7 +44,6 @@ public class UserDAO {
                 user.setIsAdmin(rs.getInt("isAdmin"));
                 user.setSDT(rs.getString("SDT"));
                 user.setTxtCart(rs.getString("txtCart"));
-                System.out.println(user);
                 List_Users.add(user);
             }
         } catch (SQLException ex) {
@@ -96,6 +94,27 @@ public class UserDAO {
         return null;
     }
 
+//    Lay ID cua tai khoan moi nhat 
+//    INPUT: null
+//    OUTPUT: String ID moi nhat
+    public String get_ID_Newest_User() {
+        try {
+            String sql = "SELECT TOP 1 ID FROM Users where isAdmin = 1 ORDER BY ID DESC ";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+//            statement.setInt(1, 1);
+//            statement.setInt(2, 1);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                return rs.getString(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
 // --------------------------UPDATE INFO TO DATABASE----------------------------------
     public boolean update_cart_by_Tk(String txt_cart, String Tk) {
         try {
@@ -105,7 +124,7 @@ public class UserDAO {
                     + " WHERE Tk = ?";
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
             statement.setString(1, txt_cart);
-            statement.setString(2,  Tk );
+            statement.setString(2, Tk);
             statement.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -114,6 +133,34 @@ public class UserDAO {
             return false;
         }
         return true;
+    }
+
+    //--------------------------Insert new account TO DATABASE----------------------------------
+    public void create_Account_By_Tk(String Tk, String Mk, String ID) {
+        try {
+            String sql = " INSERT INTO [dbo].[Users]\n"
+                    + "           ([ID]\n"
+                    + "           ,[Tk]\n"
+                    + "           ,[Mk]\n"
+                    + "           ,[isAdmin]\n"
+                    + "           )\n"
+                    + "     VALUES\n"
+                    + "           (?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           )";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            statement.setString(1, ID);
+            statement.setString(2, Tk);
+            statement.setString(3, Mk);
+            statement.setInt(4, 1);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Khong the Tao tai khoan 1");
+        } catch (Exception ex) {
+            System.out.println("Khong the Tao tai khoan 2");
+        }
     }
 
 }

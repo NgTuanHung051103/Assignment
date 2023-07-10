@@ -75,7 +75,7 @@
                                         <span class="input-group-text" >Upload</span>
                                     </div>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="imageEdit" name="imageEdit" onchange="displayImage2(this)">
+                                        <input type="text" class="custom-file-input" id="imageEdit" name="imageEdit" onchange="displayImage2(this)">
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
                                 </div>
@@ -365,6 +365,13 @@
                 
                 $('#previewImageEdit').attr('src',image);
                 $('#previewImageEdit').css('display','block');
+                
+                
+                $(document).ready(function() {
+                    var imagePath = $("#previewImageEdit").attr("src");
+                    $("#imageEdit").val(imagePath);
+                });
+                
             }
           
             

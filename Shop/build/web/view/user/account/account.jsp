@@ -165,61 +165,63 @@
                             <c:set var = "total" value = "${0}"/>
                             <hr>
                             <div class="form-group" >
-                                <div class="col-xs-12" style = "display: block; background-color: greenyellow; height: 30px;;"  >
-                                    <div class ="col-md-6"  style = "display: block; background-color: orange; height: 100%;">
+                                <div class="col-xs-12" style = "display: block; background-color: #FFFFFF; height: 30px; margin-bottom: 4px;"  >
+                                    <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF; height: 100%;">
                                         <span>Chua biet dien gi</span>
                                     </div>
-                                    <div class ="col-md-6"  style = "display: block; background-color: pink;  height: 100%;">
-                                        <div class ="col-md-6"  style = "display: block; background-color: blueviolet;">
+                                    <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;  height: 100%;">
+                                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
                                             <span>Dang chuan bi hang</span>
                                         </div>
-                                        <div class ="col-md-6"  style = "display: block; background-color: wheat;">
+                                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
                                             <span>Van Chuyen</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
+                            
                             <!--Duyet tung san pham co trong order-->
                             <!--Su dung if : OrD.OrderID = Order thi print-->
                             <c:forEach var = "orderdetail" items = "${requestScope.list_order_detailCXN}">
                                  <c:if test = "${orderdetail.getOrderID() == order.getOrderID()}">
                                         <div class="form-group" >
-                                    <div class="col-xs-12" style = "display: block; background-color: red; height: 100px; margin: 5px 0px; "  >
+                                    <div class="col-xs-12" style = "display: block; background-color: #FFFFFF; height: 100px;  "  >
                                         <!--MaSP-->
                                         <input type ="text" hidden name = "MaSP" value = "MaSP"></input>
                                         <div class="col-md-3">
-                                            <img class="img-fluid mx-auto d-block image" src="${orderdetail.getImg()}">
+                                            <img class="img-fluid mx-auto d-block image" style=" max-height: 90px;" src="${orderdetail.getImg()}">
                                         </div>
                                         <div class="col-md-4 product-name">
-                                            <div class="product-name">
+                                            <div class="product-name" style = "padding-top: 6px;">
                                                 <!--TenSP-->
-                                                <a href="#">${orderdetail.getTenSP()}</a>
+                                                <h5>${orderdetail.getTenSP()}</h5>
                                                 <!--TSKT-->
                                             </div>
                                         </div>
-                                        <div class="col-md-3 quantity">
-                                           Quantity: ${orderdetail.getSoLuong()}
+                                        <div class="col-md-3 quantity" style = "padding-top: 6px;">
+                                            <span  style = "color: #EE4D2D; font-size: 20px;">So Luong: </span>
+                                            <br>
+                                            <span style = "margin-left: 40px;"> ${orderdetail.getSoLuong()}</span>
                                             <!--So Luong-->
                                         </div>
-                                        <div class="col-md-2 price">
+                                        <div class="col-md-2 price" style = "padding-top: 6px;">
                                             <!--Gia Thanh-->
-                                            <span >Gia thanh:</span>
-                                            <span> ${orderdetail.getGiaThanh()}</span>
+                                            <span style = "color: #EE4D2D; font-size: 20px;">Gia thanh:</span>
+                                            <span > ${orderdetail.getGiaThanh()} VNÐ</span>
                                         </div>
                                     </div>
                                 </div>
                                      <c:set var ="total" value ="${total + orderdetail.getGiaThanh() }"/>   
                                     </c:if>
                             </c:forEach>
-
+                            
                             <div class="form-group">
-                                <div class="col-xs-12" style = "display: block; background-color: yellow; height: 50px; "  >
+                                <div class="col-xs-12" style = "display: block; background-color: #FFFEFB; height: 50px; margin-top:4px;margin-bottom: 10px"  >
                                     <div class="float-left">
-                                        ${total} VND
+                                       <h3 style="color: #EE4D2D; margin: 12px 0px 10px 0px">${total} VND</h3>
                                     </div>
                                     <div class="float-right">
-                                        <form action ="checkOut" method ="GET" id ="checkOut" >
+                                        <form action ="checkOut" method ="GET" id ="checkOut" style = "margin-top: 6px;">
                                             <button type="button" class="btn btn-success btn-lg btn-block" name = "checkOut"
                                                     style = "padding: 6px 8px;">Huy Don Hang</button>
                                         </form>
@@ -290,7 +292,7 @@
                             <div class="form-group">
                                 <div class="col-xs-12" style = "display: block; background-color: yellow; height: 50px; "  >
                                     <div class="float-left">
-                                        ${total} VND
+                                        <h3 style="color: #EE4D2D">${total} VND</h3>
                                     </div>
                                     <div class="float-right">
                                         <form action ="checkOut" method ="GET" id ="checkOut" >
