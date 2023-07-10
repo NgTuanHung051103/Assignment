@@ -17,7 +17,7 @@
         <div class="card mb-3">
                     <div class="card-header">
                 <i class="fas fa-table"></i>
-                Data Table Example
+                Data Table Product
             </div>
         <div class="card-body">
                <div class="table-responsive">
@@ -50,7 +50,6 @@
                                         &nbsp;&nbsp;
                                         <!--Delete-->
                                         <i class="fa fa-trash" data-toggle="modal" data-target="#delete-modal" onclick="deleteProductModal(${sp.getMaSP()}, ${sp.getNhomSP()})"></i>  
-
                                     </td>
                                 </tr>
                             </c:forEach>

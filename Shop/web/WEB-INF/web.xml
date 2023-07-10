@@ -76,6 +76,18 @@
         <servlet-name>signupServlet</servlet-name>
         <servlet-class>controller.user.signupServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>transition</servlet-name>
+        <servlet-class>controller.admin.transition</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>adAccount</servlet-name>
+        <servlet-class>controller.admin.adAccount</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addAccount</servlet-name>
+        <servlet-class>controller.admin.addAccount</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/list</url-pattern>
@@ -151,6 +163,18 @@
     <servlet-mapping>
         <servlet-name>signupServlet</servlet-name>
         <url-pattern>/signupServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>transition</servlet-name>
+        <url-pattern>/transition</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adAccount</servlet-name>
+        <url-pattern>/adAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addAccount</servlet-name>
+        <url-pattern>/addAccount</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

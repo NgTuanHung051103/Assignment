@@ -21,6 +21,44 @@ public class UserDAO {
     private final DBContext conn = new DBContext();
 
 //    ----------------------GET INFO FROM DATABASE-------------------------
+    
+//    get all row
+//    INPUT: null
+//    OUTPUT: arrayList all info of user
+    public ArrayList<User> getAll() {
+         ArrayList<User> List_Users = new ArrayList<>();
+        try {
+            String sql = "Select * From Users";
+           
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+//                Chua hieu tai sao lai hai khai bao user ben trong while
+//                  Neu khai bao ben ngoai  se bi lap thang cuoi
+                User user = new User();
+                    user.setID(rs.getString("ID"));
+                    user.setTen(rs.getString("Ten"));
+                    user.setEmail(rs.getString("Email"));
+                    user.setDiaChi(rs.getString("DiaChi"));
+                    user.setMk(rs.getString("Mk"));
+                    user.setTuoi(rs.getInt("Tuoi"));
+                    user.setTk(rs.getString("Tk"));
+                    user.setIsAdmin(rs.getInt("isAdmin"));
+                    user.setSDT(rs.getString("SDT"));
+                    user.setTxtCart(rs.getString("txtCart"));
+                System.out.println(user);
+                List_Users.add(user);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return List_Users;
+    }    
+    
+    
+    
 //    get info of user by Tk
 //    input: tai khoan
 //    output: all info of tai khoan
@@ -162,5 +200,7 @@ public class UserDAO {
             System.out.println("Khong the Tao tai khoan 2");
         }
     }
+
+    
 
 }

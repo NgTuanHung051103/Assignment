@@ -4,53 +4,43 @@
  */
 package controller.admin;
 
-import dal.NhomSPDAO;
-import dal.SanPhamDAO;
+import dal.UserDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
-import model.NhomSP;
-import model.SanPham;
+import model.User;
 
 /**
  *
- * @author NgTua
+ * @author ptkng
  */
-public class listAdmin extends HttpServlet {
+public class adAccount extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
-
-        SanPhamDAO SPdb = new SanPhamDAO();
         
-//        Lay tat ca thong tin co ban ve san pham
-        ArrayList<SanPham> List_SanPhams = SPdb.getAll();
+        UserDAO USdb = new UserDAO();
+ 
+//        Lay tat ca thong tin co ban ve User        
+        ArrayList<User>List_Users = USdb.getAll();
         
 //        them vao session: luu list len session
-        session.setAttribute("listSP", List_SanPhams);
-        
-        NhomSPDAO NHdb = new NhomSPDAO();
-        
-//        Lay cac category
-        ArrayList<NhomSP> List_NhomSPs = NHdb.getListCategory();
-        
-//        them vao session: luu category len session
-        session.setAttribute("listCategories", List_NhomSPs);
-        
-        request.getRequestDispatcher("view/admin/dashboard/adProduct.jsp").forward(request, response);
+        session.setAttribute("listAcc", List_Users);
+       
+         request.getRequestDispatcher("view/admin/dashboard/adAccount.jsp").forward(request, response);      
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
     }
 
     @Override
