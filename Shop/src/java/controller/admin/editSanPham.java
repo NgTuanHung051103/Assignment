@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 import java.io.File;
 import logic.admin.LGadminAddProduct;
-import logic.admin.LGadminUpdateProduct;
+import logic.admin.LGadminEditProduct;
 
 /**
  *
@@ -59,7 +59,7 @@ public class editSanPham extends HttpServlet {
                     + CommonConst.SLASH
                     + image.getName();
 
-            LGadminUpdateProduct lgUpdate = new LGadminUpdateProduct();
+            LGadminEditProduct lgUpdate = new LGadminEditProduct();
 
             lgUpdate.updateSanPham(MaSP, TenSP, image_Path, ThuongHieu, GiaThanh, SoLuong, MaNhom);
 

@@ -31,7 +31,6 @@ public class signupServlet extends HttpServlet {
             throws ServletException, IOException {
         String Tk = request.getParameter("fullname");
         
-        System.out.println(Tk);
         String Mk = request.getParameter("password");
         
         LGsignup signup = new LGsignup();

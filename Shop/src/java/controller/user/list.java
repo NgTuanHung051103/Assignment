@@ -32,6 +32,7 @@ public class list extends HttpServlet {
         NhomSPDAO nSPdb = new NhomSPDAO();
 
 //      ------ Phan trang va nhom san pham -----        
+
 //        Neu chua chon nhom san pham thi mac dinh = 1
        String nhomSP_ID_str = request.getParameter("nhomSP_ID");
        int nhomSP_ID;

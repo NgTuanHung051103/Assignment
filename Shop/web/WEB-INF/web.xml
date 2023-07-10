@@ -88,6 +88,14 @@
         <servlet-name>addAccount</servlet-name>
         <servlet-class>controller.admin.addAccount</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>editAccount</servlet-name>
+        <servlet-class>controller.admin.editAccount</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteAccount</servlet-name>
+        <servlet-class>controller.admin.deleteAccount</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/list</url-pattern>
@@ -175,6 +183,14 @@
     <servlet-mapping>
         <servlet-name>addAccount</servlet-name>
         <url-pattern>/addAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editAccount</servlet-name>
+        <url-pattern>/editAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteAccount</servlet-name>
+        <url-pattern>/deleteAccount</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

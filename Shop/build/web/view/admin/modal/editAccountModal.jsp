@@ -16,7 +16,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="editAccountForm" action="editAccount" method="POST" enctype="multipart/form-data">
+                <form id="editAccountForm" action="editAccount" method="POST" >
 
                     <!--id-->
                     <div class="form-group" style="display: none">
@@ -24,10 +24,8 @@
                     </div>
 
                     <!--Ten dang nhap-->
-                    <div class="form-group">
-                        <label for="TkEdit">Ten dang nhap: </label> <span class="requiredd">*</span>
+                    <div class="form-group"  style="display: none">
                         <input type="text" class="form-control" id="TkEdit" name="tkEdit">
-                        <div id="TkEditError" class="error"></div>
                     </div>
 
                     <!--Mat khau-->
@@ -39,7 +37,7 @@
 
                     <!--Category-->
                     <div class="form-group">
-                        <label for="categoryEdit">Quyen su dung </label><span class="requiredd">*</span>
+                        <label for="categoryEdit">Quyen su dung: </label><span class="requiredd">*</span>
                         <div class="input-group">
                             <select class="custom-select" id="categoryEdit" name="categoryEdit">
                                 <option value="">Chọn một tùy chọn</option>
@@ -65,7 +63,7 @@
                         <!--Thuong hieu-->
                         <div class="form-group">
                             <label for="EmailEdit">Email:</label>
-                            <input type="text" class="form-control" id="EmailEdit" name="EmailEdit">
+                            <input type="text" class="form-control" id="EmailEdit" name="emailEdit">
                             <div id="EmailEditError" class="error"></div>
                         </div>
 
@@ -125,13 +123,31 @@
         $('#SDTEdit').val(sdt);
         $('#txtCartEdit').val(txtcart);
         $('#TuoiEdit').val(tuoi);
-
-
     }
 
 
     function validateForm2() {
-
+                let Mk = $('#MkEdit').val();
+                let category = $('#categoryEdit').val();
+                $('.error').html('');
+                
+                if(MK ===''){
+                    $('#MkError').html('Mat khau khong duoc de trong');
+                }
+                 if (category === '') {
+                    $('#categoryError').html('Phai nhap quyen han');
+                }
+                
+                // Kiểm tra nếu không có lỗi thì submit form
+                let error = '';
+                $('.error').each(function () {
+                    error += $(this).html();
+                });
+                if (error === '') {
+                     $('#editAccountForm').submit();
+                } else {
+                    event.preventDefault();
+                }
     }
 
 

@@ -16,7 +16,7 @@
         <div class="card mb-3">
             <div class="card-header">
                 <i class="fas fa-table"></i>
-                Data Table Product
+                <span>Data Table Account</span>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -64,10 +64,14 @@
                                             , ${acc.getIsAdmin()}, `${acc.getSDT()}`, `${acc.getTxtCart()}`
                                             , ${acc.getTuoi()} )"></i>
                                         &nbsp;&nbsp;
+                                        
+                                         <!--Delete-->
+                                        <i class="fa fa-trash" data-toggle="modal" data-target="#delete-modal" onclick="deleteAccountModal(`${acc.getID()}`)"></i>  
+
                                     </td>
 
                                        <jsp:include page="../modal/editAccountModal.jsp"></jsp:include>
-
+                                        <jsp:include page="../modal/deleteAccountModal.jsp"></jsp:include>
                                 </tr>
                             </c:forEach>
                         </tbody>

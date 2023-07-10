@@ -19,7 +19,7 @@ public class LGadminAddAccount {
         LGsignup signup = new LGsignup();
         
 //        Tao ID moi
-        String ID = signup.generate_New_UserID();
+        String ID = signup.generate_New_UserID(isAdmin);
         
         User user = new User (ID, Ten, Email, Tk, Mk, DiaChi, SDT, txtCart, Tuoi, isAdmin);
         

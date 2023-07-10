@@ -45,7 +45,6 @@ public class UserDAO {
                 user.setIsAdmin(rs.getInt("isAdmin"));
                 user.setSDT(rs.getString("SDT"));
                 user.setTxtCart(rs.getString("txtCart"));
-                System.out.println(user);
                 List_Users.add(user);
             }
         } catch (SQLException ex) {
@@ -132,11 +131,11 @@ public class UserDAO {
 //    Lay ID cua tai khoan moi nhat 
 //    INPUT: null
 //    OUTPUT: String ID moi nhat
-    public String get_ID_Newest_User() {
+    public String get_ID_Newest_User( int isAdmin ) {
         try {
-            String sql = "SELECT TOP 1 ID FROM Users where isAdmin = 1 ORDER BY ID DESC ";
+            String sql = "SELECT TOP 1 ID FROM Users where isAdmin = ? ORDER BY ID DESC ";
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
-//            statement.setInt(1, 1);
+            statement.setInt(1, isAdmin);
 //            statement.setInt(2, 1);
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
@@ -151,6 +150,10 @@ public class UserDAO {
     }
 
 // --------------------------UPDATE INFO TO DATABASE----------------------------------
+    
+//    update txt_cart boi Tk 
+//    INPUT: txt_cart, Tk
+//    OUTPUT: boolean true or false
     public boolean update_cart_by_Tk(String txt_cart, String Tk) {
         try {
             String sql = " UPDATE Users\n"
@@ -165,9 +168,22 @@ public class UserDAO {
             System.out.println(ex);
             return false;
         } catch (Exception ex) {
+            System.out.println(ex);
             return false;
         }
         return true;
+    }
+    
+//    Update thong tin user boi admin edit
+    public void update_User_By_Condition(String sql) {
+         try {
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } catch (Exception ex) {
+             System.out.println(ex);
+        }
     }
 
     //--------------------------Insert new account TO DATABASE----------------------------------
@@ -248,4 +264,26 @@ public class UserDAO {
             System.out.println("Khong the Tao tai khoan 2");
         }
     }
+
+    
+//    -------------------------DELETE ACCOUNT--------------------
+    public void delete_By_ID(String ID) {
+        try {
+            String sql = "delete from Users \n"
+                    + "where ID = ?";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+
+            statement.setString(1, ID);
+
+            statement.executeUpdate();
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
+
+
+    
 }

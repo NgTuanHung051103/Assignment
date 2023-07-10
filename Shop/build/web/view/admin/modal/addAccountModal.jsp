@@ -34,7 +34,7 @@
                     
                     <div class="modal-body">
 
-                        <form id="addAccountForm" action="addAccount" method="GET" enctype="multipart/form-data">
+                        <form id="addAccountForm" action="addAccount" method="POST" >
                             
                             <!--Ten dang nhap-->
                             <div class="form-group">

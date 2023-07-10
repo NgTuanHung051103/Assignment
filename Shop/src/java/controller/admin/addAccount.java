@@ -21,7 +21,13 @@ public class addAccount extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//            Lay du lieu tu add.jsp
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        //            Lay du lieu tu add.jsp
         String Tk = request.getParameter("tk");
         String Mk = request.getParameter("mk");
         String isAdmin_str = request.getParameter("category");
@@ -43,14 +49,7 @@ public class addAccount extends HttpServlet {
         
         lgAdd.addAccount(Tk, Mk, isAdmin, Ten, Email, DiaChi, SDT, txtCart, Tuoi);
         
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
- 
- //   
-        
+        response.sendRedirect("adAccount");
         
     }
     @Override

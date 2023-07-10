@@ -26,6 +26,7 @@ public class detailProduct extends HttpServlet {
        
 //       Lay MaSP
         String MaSP_str = "";
+        
         if (  request.getParameter("MaSP") == null ){
             MaSP_str = (String) session.getAttribute("MaSP");
 //            session.removeAttribute("MaSP");
