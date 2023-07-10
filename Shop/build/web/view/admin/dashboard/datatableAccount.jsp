@@ -37,26 +37,39 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items = "${listAcc}" var = "acc">
-                            <tr>
-                                <td>${acc.getID()}</td>
-                                <td>${acc.getTen()}</td>
-                                <td>${acc.getEmail()}</td>
-                                <td>${acc.getDiaChi()}</td>
-                                <td>${acc.getTk()}</td>
-                                <td>${acc.getMk()}</td>
-                                <c:if test = "${acc.getIsAdmin() == 1 }">
-                                    <td>User</td>
-                                </c:if>
-                                <c:if test = "${acc.getIsAdmin() == 2 }">
-                                    <td>Admin</td>
-                                </c:if>
-                                <td>${acc.getSDT()}</td>
-                                 <td>${acc.getTxtCart()}</td>
-                                  <td>${acc.getTuoi()}</td>
-                                  <td>${acc.getTuoi()}</td>
-                            </tr>
-                        </c:forEach>
+                            <c:forEach items = "${listAcc}" var = "acc">
+                                <tr>
+                                    <td>${acc.getID()}</td>
+                                    <td>${acc.getTen()}</td>
+                                    <td>${acc.getEmail()}</td>
+                                    <td>${acc.getDiaChi()}</td>
+                                    <td>${acc.getTk()}</td>
+                                    <td>${acc.getMk()}</td>
+                                    <c:if test = "${acc.getIsAdmin() == 1 }">
+                                        <td>User</td>
+                                    </c:if>
+                                    <c:if test = "${acc.getIsAdmin() == 2 }">
+                                        <td>Admin</td>
+                                    </c:if>
+                                    <td>${acc.getSDT()}</td>
+                                    <td>${acc.getTxtCart()}</td>
+                                    <td>${acc.getTuoi()}</td>
+
+                                    <!--Edit-->
+                                    <td style="text-align:center"> 
+                                        <i class="fa fa-edit" data-toggle="modal" data-target="#editAccountModal" 
+                                           onclick="editAccountModal(
+                                           `${acc.getID()}`, `${acc.getTen()}`, `${acc.getEmail()}`
+                                            ,`${acc.getDiaChi()}`,`${acc.getTk()}`, `${acc.getMk()}`
+                                            , ${acc.getIsAdmin()}, `${acc.getSDT()}`, `${acc.getTxtCart()}`
+                                            , ${acc.getTuoi()} )"></i>
+                                        &nbsp;&nbsp;
+                                    </td>
+
+                                       <jsp:include page="../modal/editAccountModal.jsp"></jsp:include>
+
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>

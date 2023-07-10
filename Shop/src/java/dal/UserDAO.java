@@ -247,22 +247,5 @@ public class UserDAO {
         } catch (Exception ex) {
             System.out.println("Khong the Tao tai khoan 2");
         }
-
-        if (user.getTuoi() == 0) {
-            try {
-                String sql = " UPDATE Users\n"
-                        + "SET Tuoi = NULL\n"
-                        + "WHERE ID = ?';";
-                PreparedStatement statement = conn.getConnection().prepareStatement(sql);
-                statement.setString(1, user.getID());
-                statement.executeUpdate();
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            } catch (Exception ex) {
-                System.out.println(ex);
-            }
-        }
-
     }
-
 }

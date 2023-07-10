@@ -1,4 +1,8 @@
-
+<%-- 
+    Document   : addProductModal
+    Created on : Jun 17, 2023, 8:12:06 PM
+    Author     : ADMIN
+--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,7 +14,7 @@
             .error {
                 color: red;
             }
-            .required{
+            .requiredd{
                 color: red;
             }
 
@@ -27,27 +31,28 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+                    
                     <div class="modal-body">
 
-                        <form id="addAccountForm" action="addAccount" method="POST" enctype="multipart/form-data">
+                        <form id="addAccountForm" action="addAccount" method="GET" enctype="multipart/form-data">
                             
                             <!--Ten dang nhap-->
                             <div class="form-group">
-                                <label for="TkInput">Ten dang nhap: </label> <span class="required">*</span>
+                                <label for="TkInput">Ten dang nhap: </label> <span class="requiredd">*</span>
                                 <input type="text" class="form-control" id="TkInput" name="tk">
                                 <div id="TkError" class="error"></div>
                             </div>
 
                            <!--Mat khau-->
                             <div class="form-group">
-                                <label for="MkInput">Mat khau: </label><span class="required">*</span>
+                                <label for="MkInput">Mat khau: </label><span class="requiredd">*</span>
                                 <input type="text" class="form-control" id="MkInput" name="mk">
                                 <div id="MkError" class="error"></div>
                             </div>
 
                             <!--Category-->
                             <div class="form-group">
-                                <label for="categoryInput">Quyen su dung </label><span class="required">*</span>
+                                <label for="categoryInput">Quyen su dung </label><span class="requiredd">*</span>
                                 <div class="input-group">
                                     <select class="custom-select" id="categoryInput" name="category">
                                          <option value="">Chọn một tùy chọn</option>
@@ -111,7 +116,9 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         <button type="button" class="btn btn-primary" form="addAccountForm" onclick="ValidateForm()">Add</button>
                     </div>
+                    
                 </div>
+                
             </div>
         </div>
 
@@ -120,7 +127,6 @@
                 let Tk = $('#TkInput').val();
                 let Mk = $('#MkInput').val();
                 let category = $('#categoryInput').val();
-                console.log(category);
                 $('.error').html('');
                 
                  if (Tk === '') {
