@@ -104,6 +104,10 @@
         <servlet-name>PheDuyetCXN</servlet-name>
         <servlet-class>controller.admin.OrderCXN.PheDuyetCXN</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HuyCXN</servlet-name>
+        <servlet-class>controller.admin.OrderCXN.HuyCXN</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/list</url-pattern>
@@ -207,6 +211,10 @@
     <servlet-mapping>
         <servlet-name>PheDuyetCXN</servlet-name>
         <url-pattern>/PheDuyetCXN</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HuyCXN</servlet-name>
+        <url-pattern>/HuyCXN</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

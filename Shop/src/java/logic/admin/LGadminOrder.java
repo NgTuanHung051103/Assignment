@@ -36,16 +36,17 @@ public class LGadminOrder {
     public void duyetCXN(String OrderID, int status) {
             OrderDAO ORdb = new OrderDAO();
             
-//           tang status len 2 trong database
+//          status: 2 : dang ship
+//                      0: da huy
             ORdb.duyet(OrderID, status);
             
     }
 
-    public void truSoLuong(String OrderID) {
+    public void updateSoLuong(String OrderID, int calculate) {
         OrderDetailDAO ORDdb = new OrderDetailDAO();
         
 //        Vao table orderdetail lay masp va soluong
-        ORDdb.truSoLuongByMaSP(OrderID);
+        ORDdb.updateSoLuongByMaSP(OrderID, calculate);
         
         
     }

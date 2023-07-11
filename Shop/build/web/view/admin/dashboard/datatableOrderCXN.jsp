@@ -93,13 +93,13 @@
                                         style = "padding: 6px 8px;">Ghi chu</button>
                                   <input type ="text" hidden name ="OrderID" value ="${order.getOrderID()}"/>
                             </form>
-                            <form action ="PheDuyetCXN" method ="POST" id ="checkOut" style = "margin-top: 6px; ">
+                            <form action ="PheDuyetCXN" method ="POST"  style = "margin-top: 6px; ">
                                 <button type="submit" class="btn btn-success btn-lg btn-block" name = "checkOut"
                                         style = "padding: 6px 8px;">Phe Duyet</button>
                                    <input type ="text" hidden name ="OrderID" value ="${order.getOrderID()}"/>
                             </form>
-                            <form action ="HuyDonHangCXN" method ="POST" id ="checkOut" style = "margin-top: 6px;">
-                                <button type="button" class="btn btn-success btn-lg btn-block" name = "checkOut"
+                            <form action ="HuyCXN" method ="POST" style = "margin-top: 6px;">
+                                <button type="submit" class="btn btn-success btn-lg btn-block" name = "checkOut"
                                         style = "padding: 6px 8px;">Huy Don Hang</button>
                                     <input type ="text" hidden name ="OrderID" value ="${order.getOrderID()}"/>
                             </form>

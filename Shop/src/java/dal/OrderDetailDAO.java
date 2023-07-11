@@ -50,7 +50,7 @@ public class OrderDetailDAO {
     }
  
 
-     public void truSoLuongByMaSP(String OrderID) {
+     public void updateSoLuongByMaSP(String OrderID, int calculate) {
          
             try {
                 String sql = "Select MaSP, SoLuong  From OrderDetail Where OrderID = ? ";
@@ -58,9 +58,8 @@ public class OrderDetailDAO {
                 statement.setString(1, OrderID);
                 ResultSet rs = statement.executeQuery();
                 while (rs.next()) {
-                    System.out.println(rs.getInt(1) +"--" + rs.getInt(2));
                     SanPhamDAO SPdb = new SanPhamDAO();
-                    SPdb.truSoLuong(rs.getInt(1), rs.getInt(2));
+                    SPdb.truSoLuong(rs.getInt(1), rs.getInt(2), calculate);
                 }
             } catch (SQLException ex) {
                 System.out.println(ex);

@@ -309,8 +309,14 @@ public class SanPhamDAO {
 //    Tru so luong cua nhung don hang da huy
 //    INPUT: ArrayList Map MaSP_SoLuong
 //    OUTPUT: null
-    public void truSoLuong(int MaSP, int SoLuongOrder) {
-             int SoLuong = getSoLuongByMaSP(MaSP) - SoLuongOrder;
+    public void truSoLuong(int MaSP, int SoLuongOrder, int calculate) {
+         int SoLuong = 0;
+        if( calculate == 1 ) {
+              SoLuong = getSoLuongByMaSP(MaSP) - SoLuongOrder;
+        }    
+        else if ( calculate == 2 ){
+             SoLuong = getSoLuongByMaSP(MaSP) + SoLuongOrder;
+        }
              try {
                 String sql = "UPDATE [dbo].[SanPham]\n"
                         + "   SET \n"

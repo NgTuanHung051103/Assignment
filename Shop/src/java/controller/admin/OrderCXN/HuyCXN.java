@@ -16,32 +16,29 @@ import logic.admin.LGadminOrder;
  *
  * @author ptkng
  */
-public class PheDuyetCXN extends HttpServlet {
+public class HuyCXN extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            
+        
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
 //        Nhan OrderID tu jsp
         String OrderID = request.getParameter("OrderID");
-            
-//         Chuyen den ship hang 
-            LGadminOrder LGAO = new LGadminOrder();
-            
-//         Chuyen status order = 2   
-            LGAO.duyetCXN(OrderID, 2);
-
-//          Tru trong database: Truy cap vao table OrderDetail de lay so luong
-//           1: tru
-             LGAO.updateSoLuong(OrderID, 1); 
-             
-             response.sendRedirect("adOrderCXN");
+        
+//        Goi LG
+        LGadminOrder LGAO = new LGadminOrder();
+      
+//        Chuyen status order = 0
+        LGAO.duyetCXN(OrderID, 0);
+        
+//          Tang trong database: Truy cap vao table OrderDetail de lay so luong
+//              2: tang
+             LGAO.updateSoLuong(OrderID, 2); 
     }
     @Override
     public String getServletInfo() {
