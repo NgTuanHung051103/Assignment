@@ -2,10 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller.admin.Order;
+package controller.admin.OrderDG;
 
 import dal.OrderDAO;
-import dal.OrderDetailDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -13,46 +12,40 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
-import logic.account.LGaccountOrder;
-import logic.account.LGaccountOrderDetail;
 import logic.admin.LGadminOrder;
 import model.Order;
 import model.OrderDetail;
 
-/**
- *
- * @author ptkng
- */
-public class adOrderCXN extends HttpServlet {
+public class adOrderDG extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-//        Lay tat ca order dang CXN
+        //        Lay tat ca order dang CXN
         OrderDAO ODdb = new OrderDAO();
         
-        ArrayList<Order> list_orderCXN = ODdb.getAllByStatus(1);
+        ArrayList<Order> list_orderDG = ODdb.getAllByStatus(2);
         
-       request.setAttribute("list_orderCXN", list_orderCXN);
+       request.setAttribute("list_orderDG", list_orderDG);
         
 //        Lay tat ca orderdetail theo list order tren 
         LGadminOrder LGAO = new LGadminOrder();
         
-        ArrayList<OrderDetail> list_order_detailCXN = LGAO.get_OrderDetail_By_OrderID(list_orderCXN);
+        ArrayList<OrderDetail> list_order_detailDG = LGAO.get_OrderDetail_By_OrderID(list_orderDG);
         
-        request.setAttribute("list_order_detailCXN", list_order_detailCXN);
+        request.setAttribute("list_order_detailDG", list_order_detailDG);
         
-//      Chuyen toi adOrderCXN.jsp
-        request.getRequestDispatcher("view/admin/dashboard/adOrderCXN.jsp").forward(request, response);     
+//      Chuyen toi adOrderDG.jsp
+        request.getRequestDispatcher("view/admin/dashboard/adOrderDG.jsp").forward(request, response);     
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
+        
+        
     }
-
     @Override
     public String getServletInfo() {
         return "Short description";

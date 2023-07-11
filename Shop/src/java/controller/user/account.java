@@ -67,10 +67,10 @@ public class account extends HttpServlet {
         request.setAttribute("list_order_detailDG", list_order_detailDG);
         
         
-//        SET thong tin cho Da Giao:
+//        SET thong tin cho Thanh Cong:
         
 //    -- Lay Order: 
-        ArrayList <Order> list_orderTC = lgAOR.getOrderByAccountID(user.getID() , 2 );
+        ArrayList <Order> list_orderTC = lgAOR.getOrderByAccountID(user.getID() , 3 );
         
         request.setAttribute("list_orderTC", list_orderTC);
         

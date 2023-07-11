@@ -108,6 +108,18 @@
         <servlet-name>HuyCXN</servlet-name>
         <servlet-class>controller.admin.OrderCXN.HuyCXN</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>adOrderDG</servlet-name>
+        <servlet-class>controller.admin.OrderDG.adOrderDG</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>adOrderTC</servlet-name>
+        <servlet-class>controller.admin.OrderTC.adOrderTC</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>saveProfile</servlet-name>
+        <servlet-class>controller.user.account.saveProfile</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/list</url-pattern>
@@ -215,6 +227,18 @@
     <servlet-mapping>
         <servlet-name>HuyCXN</servlet-name>
         <url-pattern>/HuyCXN</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adOrderDG</servlet-name>
+        <url-pattern>/adOrderDG</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adOrderTC</servlet-name>
+        <url-pattern>/adOrderTC</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>saveProfile</servlet-name>
+        <url-pattern>/saveProfile</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
