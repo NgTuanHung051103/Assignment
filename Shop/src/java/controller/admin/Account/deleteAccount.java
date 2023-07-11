@@ -2,55 +2,42 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller.admin;
+package controller.admin.Account;
 
-import dal.UserDAO;
 import java.io.IOException;
+import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import java.util.ArrayList;
-import model.User;
+import logic.admin.LGadminDeleteAccount;
 
 /**
  *
  * @author ptkng
  */
-public class adAccount extends HttpServlet {
-
+public class deleteAccount extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        HttpSession session = request.getSession();
+         String ID = request.getParameter("IDDelete");
         
-        UserDAO USdb = new UserDAO();
- 
-//        Lay tat ca thong tin co ban ve User        
-        ArrayList<User>List_Users = USdb.getAll();
+        LGadminDeleteAccount lgDelete = new LGadminDeleteAccount();
         
-//        them vao session: luu list len session
-        session.setAttribute("listAcc", List_Users);
-       
-//        Neu co thong bao: da ton tai Tk
-        if ( session.getAttribute("messEdit") != null ){
-            
-            request.setAttribute("messEdit",  session.getAttribute("messEdit"));
-            
-            session.removeAttribute("messEdit");
-        } 
+//        Delete account in database
+        lgDelete.deleteAccount(ID);
         
-         request.getRequestDispatcher("view/admin/dashboard/adAccount.jsp").forward(request, response);      
+//      Delete orderCXN cua account vua xoa:
+//      Chuyen sang status 4: 
+        response.sendRedirect("adAccount");
     }
-
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
     }
-
+    
     @Override
     public String getServletInfo() {
         return "Short description";

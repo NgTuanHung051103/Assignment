@@ -66,8 +66,8 @@
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#Profile">Thong tin ca nhan</a></li>
                     <li><a data-toggle="tab" href="#ChoXacNhan">Cho Xac Nhan</a></li>
-                    <li><a data-toggle="tab" href="#ChoLayHang">Cho Lay Hang</a></li>
-                    <li><a data-toggle="tab" href="#DaGiao">Da Giao</a></li>
+                    <li><a data-toggle="tab" href="#DangGiao">Cho Lay Hang</a></li>
+                    <li><a data-toggle="tab" href="#ThanhCong">Da Giao</a></li>
                 </ul>
 
 
@@ -232,12 +232,12 @@
                     </div><!--/tab-pane-->
 
 
-                    <!--Cho Lay Hang:-->
-                    <div class="tab-pane" id="ChoLayHang">
+                    <!--Dang Giao:-->
+                    <div class="tab-pane" id="DangGiao">
                             <h2></h2>
 
                         <!--1 ORDER-->
-                        <c:forEach var = "order" items = "${requestScope.list_orderCLH}">
+                        <c:forEach var = "order" items = "${requestScope.list_orderDG}">
                             <c:set var = "total" value = "${0}"/>
                             <hr>
                             <div class="form-group" >
@@ -258,7 +258,7 @@
 
                             <!--Duyet tung san pham co trong order-->
                             <!--Su dung if : OrD.OrderID = Order thi print-->
-                            <c:forEach var = "orderdetail" items = "${requestScope.list_order_detailCLH}">
+                            <c:forEach var = "orderdetail" items = "${requestScope.list_order_detailDG}">
                                  <c:if test = "${orderdetail.getOrderID() == order.getOrderID()}">
                                         <div class="form-group" >
                                     <div class="col-xs-12" style = "display: block; background-color: red; height: 100px; margin: 5px 0px; "  >
@@ -305,12 +305,12 @@
                         </c:forEach>
                     </div>
 
-                    <!--Da Giao-->
-                    <div class="tab-pane" id="DaGiao">
+                    <!--Thanh Cong-->
+                    <div class="tab-pane" id="ThanhCong">
                             <h2></h2>
 
                         <!--1 ORDER-->
-                        <c:forEach var = "order" items = "${requestScope.list_orderDG}">
+                        <c:forEach var = "order" items = "${requestScope.list_orderTC}">
                             <c:set var = "total" value = "${0}"/>
                             <hr>
                             <div class="form-group" >
@@ -331,7 +331,7 @@
 
                             <!--Duyet tung san pham co trong order-->
                             <!--Su dung if : OrD.OrderID = Order thi print-->
-                            <c:forEach var = "orderdetail" items = "${requestScope.list_order_detailDG}">
+                            <c:forEach var = "orderdetail" items = "${requestScope.list_order_detailTC}">
                                  <c:if test = "${orderdetail.getOrderID() == order.getOrderID()}">
                                         <div class="form-group" >
                                     <div class="col-xs-12" style = "display: block; background-color: red; height: 100px; margin: 5px 0px; "  >

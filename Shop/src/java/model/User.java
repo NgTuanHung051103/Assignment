@@ -29,6 +29,9 @@ public class User {
         return isAdmin;
     }
 
+    
+    
+
     public void setIsAdmin(int isAdmin) {
         this.isAdmin = isAdmin;
     }

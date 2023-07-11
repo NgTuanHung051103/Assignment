@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.NhomSP;
@@ -46,6 +48,29 @@ public class OrderDetailDAO {
         }
         return list_order_details;
     }
+ 
+
+     public void truSoLuongByMaSP(String OrderID) {
+         
+            try {
+                String sql = "Select MaSP, SoLuong  From OrderDetail Where OrderID = ? ";
+                PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+                statement.setString(1, OrderID);
+                ResultSet rs = statement.executeQuery();
+                while (rs.next()) {
+                    System.out.println(rs.getInt(1) +"--" + rs.getInt(2));
+                    SanPhamDAO SPdb = new SanPhamDAO();
+                    SPdb.truSoLuong(rs.getInt(1), rs.getInt(2));
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+    }
+    
+    
+    
 
 //      ---------------INSERT---------------    
 //    Insert new OrderDetail:
@@ -89,5 +114,8 @@ public class OrderDetailDAO {
 
         }
     }
+
+   
+
 
 }

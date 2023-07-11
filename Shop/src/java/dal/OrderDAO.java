@@ -13,7 +13,6 @@ public class OrderDAO {
     private final DBContext conn = new DBContext();
 
 //  -----------------GET--------------------
-    
 //    GET ALL
 //    INPUT: null
 //    OUTPUT: tat ca order
@@ -34,14 +33,14 @@ public class OrderDAO {
         }
         return List_Orders;
     }
-    
+
 //    GET by UserID:
 //    INPUT: String AccountID
 //    OUTPUT: list order dua tren accountid
-        public ArrayList<Order> get_By_UserID(String AccountID, int status ) {
+    public ArrayList<Order> get_By_UserID(String AccountID, int status) {
         ArrayList<Order> List_Orders = new ArrayList<>();
         try {
-            String sql = "Select * From Orders Where AccountID = \'" + AccountID + "\'  AND status = " + Integer.toString(status) ;
+            String sql = "Select * From Orders Where AccountID = \'" + AccountID + "\'  AND status = " + Integer.toString(status);
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
@@ -55,10 +54,26 @@ public class OrderDAO {
         }
         return List_Orders;
     }
-    
+
+    public ArrayList<Order> getAllByStatus(int status) {
+        ArrayList<Order> List_Orders = new ArrayList<>();
+        try {
+            String sql = "Select * From Orders Where status = " + Integer.toString(status);
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Order o = new Order(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getInt(10));
+                List_Orders.add(o);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return List_Orders;
+    }
 
 //    ---------------Insert-------------------
-        
 //        Insert new order
 //        INPUT: object order full thong tin
 //        OUTPUT: null
@@ -108,6 +123,24 @@ public class OrderDAO {
     }
 
 //    ---------------Update-------------------
-    
+    public void duyet(String OrderID,int status) {
+        try {
+            String sql = "UPDATE [dbo].[Orders]\n"
+                    + "   SET [Status] = ?\n"
+                    + " WHERE OrderID = ?";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            statement.setInt(1, status);
+            statement.setString(2, OrderID);
+            statement.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
 //    ---------------Delete-------------------
+
 }

@@ -54,21 +54,8 @@ public class account extends HttpServlet {
         request.setAttribute("list_order_detailCXN", list_order_detailCXN);
 
         
-//        SET thong tin cho Cho lay hang:
+//        SET thong tin cho Dang Giao:
 
-//    -- Lay Order: 
-        ArrayList <Order> list_orderCLH = lgAOR.getOrderByAccountID(user.getID() , 2 );
-        
-        request.setAttribute("list_orderCLH", list_orderCLH);
-        
-//     -- Lay order detail: 
-        ArrayList<OrderDetail> list_order_detailCLH = lgAOD.get_OrderDetail_By_OrderID(list_orderCLH);
-        
-        request.setAttribute("list_order_detailCLH", list_order_detailCLH);
-        
-        
-//        SET thong tin cho Da Giao:
-        
 //    -- Lay Order: 
         ArrayList <Order> list_orderDG = lgAOR.getOrderByAccountID(user.getID() , 2 );
         
@@ -78,6 +65,19 @@ public class account extends HttpServlet {
         ArrayList<OrderDetail> list_order_detailDG = lgAOD.get_OrderDetail_By_OrderID(list_orderDG);
         
         request.setAttribute("list_order_detailDG", list_order_detailDG);
+        
+        
+//        SET thong tin cho Da Giao:
+        
+//    -- Lay Order: 
+        ArrayList <Order> list_orderTC = lgAOR.getOrderByAccountID(user.getID() , 2 );
+        
+        request.setAttribute("list_orderTC", list_orderTC);
+        
+//     -- Lay order detail: 
+        ArrayList<OrderDetail> list_order_detailTC = lgAOD.get_OrderDetail_By_OrderID(list_orderTC);
+        
+        request.setAttribute("list_order_detailTC", list_order_detailTC);
         
         
 //      Chuyen toi account.jsp

@@ -5,12 +5,10 @@
 package controller.admin;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -34,8 +32,14 @@ public class transition extends HttpServlet {
                 response.sendRedirect("adAccount");
                 break;
             case 3: 
-                response.sendRedirect("adOrder");
+                response.sendRedirect("adOrderCXN");
                 break;
+            case 4: 
+                response.sendRedirect("adOrderDG");
+                break;
+              case 5: 
+                response.sendRedirect("adOrderTC");
+                break;  
         }
     }
     

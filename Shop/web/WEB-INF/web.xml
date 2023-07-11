@@ -46,7 +46,7 @@
     </servlet>
     <servlet>
         <servlet-name>addSanPham</servlet-name>
-        <servlet-class>controller.admin.addSanPham</servlet-class>
+        <servlet-class>controller.admin.SanPham.addSanPham</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>updateCart</servlet-name>
@@ -54,11 +54,11 @@
     </servlet>
     <servlet>
         <servlet-name>editSanPham</servlet-name>
-        <servlet-class>controller.admin.editSanPham</servlet-class>
+        <servlet-class>controller.admin.SanPham.editSanPham</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>deleteSanPham</servlet-name>
-        <servlet-class>controller.admin.deleteSanPham</servlet-class>
+        <servlet-class>controller.admin.SanPham.deleteSanPham</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>checkOut</servlet-name>
@@ -82,19 +82,27 @@
     </servlet>
     <servlet>
         <servlet-name>adAccount</servlet-name>
-        <servlet-class>controller.admin.adAccount</servlet-class>
+        <servlet-class>controller.admin.Account.adAccount</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>addAccount</servlet-name>
-        <servlet-class>controller.admin.addAccount</servlet-class>
+        <servlet-class>controller.admin.Account.addAccount</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>editAccount</servlet-name>
-        <servlet-class>controller.admin.editAccount</servlet-class>
+        <servlet-class>controller.admin.Account.editAccount</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>deleteAccount</servlet-name>
-        <servlet-class>controller.admin.deleteAccount</servlet-class>
+        <servlet-class>controller.admin.Account.deleteAccount</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>adOrderCXN</servlet-name>
+        <servlet-class>controller.admin.Order.adOrderCXN</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PheDuyetCXN</servlet-name>
+        <servlet-class>controller.admin.OrderCXN.PheDuyetCXN</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
@@ -191,6 +199,14 @@
     <servlet-mapping>
         <servlet-name>deleteAccount</servlet-name>
         <url-pattern>/deleteAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adOrderCXN</servlet-name>
+        <url-pattern>/adOrderCXN</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PheDuyetCXN</servlet-name>
+        <url-pattern>/PheDuyetCXN</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
