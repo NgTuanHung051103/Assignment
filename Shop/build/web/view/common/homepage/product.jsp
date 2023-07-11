@@ -55,16 +55,17 @@
                         </c:forEach>
                                
                     </div>
-                    
+                    <div class ="paginationOfProduct" style = "display: flex; justify-content: center;">
+                    <c:set var = "pageNow" value = "${requestScope.pageNow}"/>
+                    <c:forEach begin ="${1}" end = "${requestScope.numPage}" var = "i">
+                        <a class = "${i==pageNow?"active":""}"  href="list?pageNow=${i}&nhomSP_ID=${nhomSP_ID}">${i}</a>
+                    </c:forEach>
+                </div>
+                        
 
                 </div>
-                        <!--pagination: danh so trang-->
-                        <div class ="paginationOfProduct">
-                            <c:set var = "pageNow" value = "${requestScope.pageNow}"/>
-                            <c:forEach begin ="${1}" end = "${requestScope.numPage}" var = "i">
-                                <a class = "${i==pageNow?"active":""}"  href="list?pageNow=${i}&nhomSP_ID=${nhomSP_ID}">${i}</a>
-                            </c:forEach>
-                        </div>
+                <!--pagination: danh so trang-->
+                
 
             </div>
         </div>
