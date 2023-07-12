@@ -6,7 +6,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
-import logic.cart.LGcartCookie;
 import logic.common.LGlogin;
 import model.Cart;
 import model.CartDetail;
@@ -17,7 +16,17 @@ public class checkOut extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+            LGlogin login = new LGlogin();
 
+//        Lay Tk da dang nhap tu cookie:
+        String Tk = login.getTK(request, response);
+        
+//        Neu chua dang nhap -> phai dang nhap
+        if( Tk.equalsIgnoreCase("") ){
+            request.getRequestDispatcher("view/user/homepage/login.jsp").forward(request, response);
+            return;
+        }
 //        Lay duoc txt_cart sau khi da save -> chuyen thanh order_txt ( van giu nguyen gia tri )
         String order_txt = request.getParameter("order_txt");
 
@@ -29,11 +38,6 @@ public class checkOut extends HttpServlet {
 
 //        lay so luong order co trong cart DA CHECKOUT
         int n = listOrderDetail != null ? listOrderDetail.size() : 0;
-
-        LGlogin login = new LGlogin();
-
-//        Lay Tk da dang nhap tu cookie:
-        String Tk = login.getTK(request, response);
 
 //          Lay thong tin User bang Tk da dang nhap
         User loginedAccount = login.get_Info_User_Login(Tk);

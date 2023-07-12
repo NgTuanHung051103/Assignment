@@ -428,9 +428,6 @@
             }
             
             
-
-  
-    
 //Hien thi tskt theo tung category KHI THAY DOI
             categorySelectEdit.addEventListener("change", function () {
 //                get value of selected tag

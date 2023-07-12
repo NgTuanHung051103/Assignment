@@ -87,12 +87,12 @@
                             <h3 style="color: #EE4D2D; margin: 12px 0px 10px 0px">Tong hoa don: ${total} VND</h3>
                         </div>
                         <div class="float-right" style = "display: flex;justify-content: space-between; width: 280px; ">
-                            
+<!--                            
                             <form action ="#" method ="GET" id ="checkOut" style = "margin-top: 6px;">
                                 <button type="button" class="btn btn-success btn-lg btn-block" name = "checkOut"
                                         style = "padding: 6px 8px;">Ghi chú</button>
                                   <input type ="text" hidden name ="OrderID" value ="${order.getOrderID()}"/>
-                            </form>
+                            </form>-->
                                <form action ="ThanhCong" method ="Post" id ="checkOut" style = "margin-top: 6px;">
                                 <button type="submit" class="btn btn-success btn-lg btn-block" name = "checkOut"
                                         style = "padding: 6px 8px;">Giao Thành Công</button>

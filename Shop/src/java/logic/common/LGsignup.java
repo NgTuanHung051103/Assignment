@@ -42,13 +42,15 @@ public class LGsignup {
 //    OUTPUT: ID moi hop le
     public String generate_New_UserID(int isAdmin) {
         String NewestID = "";
+        
+//        Neu chua ton tai user hay admin
         if (Userdb.get_ID_Newest_User(isAdmin) == null) {
             if (isAdmin == 1 ){
                 NewestID = "US01";
             } else if( isAdmin == 2){
                 NewestID = "AD01";
             }
-            
+             return NewestID;
         } else {
             NewestID = Userdb.get_ID_Newest_User(isAdmin).substring(2);
 
@@ -60,9 +62,10 @@ public class LGsignup {
             } else {
                 newID += Integer.toString(NewestStt + 1);
             }
+            return newID;
         }
 
-        return NewestID;
+       
     }
 
 }

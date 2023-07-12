@@ -55,7 +55,13 @@
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Tra Lai Hang</span></a>
             </li>
-
+            
+            <li class="nav-item">
+                <a class="nav-link" href="transition?transition=8">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Doanh Thu</span></a>
+            </li>
+            
 <!--            <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-fw fa-folder"></i>

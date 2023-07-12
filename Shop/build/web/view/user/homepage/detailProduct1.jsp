@@ -52,7 +52,13 @@
                             <br></br>
 
                             <!--Them vao gio hang-->
-
+                            <c:if test = "${SanPham.getSoLuong() == 0 }">
+                                    <button class="btn btn-warning btn-rounded mr-1" data-toggle="tooltip" title data-original-title="Add to cart">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    Da het hang
+                                </button
+                            </c:if>
+                               <c:if test = "${SanPham.getSoLuong() != 0 }">  
                             <form action="addToCart" method="post">
                                 <input name="MaSP" hidden value="${SanPham.getMaSP()}"></input>
                                 <button class="btn btn-success btn-rounded mr-1" data-toggle="tooltip" title data-original-title="Add to cart">
@@ -60,7 +66,7 @@
                                     Add to Cart
                                 </button
                             </form>
-
+                                </c:if>
                             <!--<button class="btn btn-primary btn-rounded" hidden> Buy Now</button>-->
                             <h3 class="box-title mt-5"></h3>
                             <ul class="list-unstyled">
