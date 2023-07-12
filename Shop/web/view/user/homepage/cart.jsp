@@ -41,11 +41,11 @@
                         <c:set var = "size" value = "${requestScope.size}"/>
 
                         <!--GIO HANG KHONG CO GI-->
-                        <c:if test = "${size == null}">
+                        <c:if test = "${size == 0}">
                             <div style = "height: 200px;">Gio hang rong, Vui long chon san pham</div>
                         </c:if>
 
-                        <c:if test = "${size != null}">
+                        <c:if test = "${size != 0}">
                             
                             <!--SAN PHAM--> 
                             <div class="col-md-12 col-lg-8">
@@ -131,7 +131,6 @@
                                 </div>
                             </div>
                         </c:if>
-
                     </div> 
                 </div>
             </div>

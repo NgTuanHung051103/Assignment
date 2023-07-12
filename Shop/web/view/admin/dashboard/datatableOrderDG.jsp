@@ -93,7 +93,7 @@
                                         style = "padding: 6px 8px;">Ghi chú</button>
                                   <input type ="text" hidden name ="OrderID" value ="${order.getOrderID()}"/>
                             </form>
-                               <form action ="#" method ="GET" id ="checkOut" style = "margin-top: 6px;">
+                               <form action ="ThanhCong" method ="Post" id ="checkOut" style = "margin-top: 6px;">
                                 <button type="submit" class="btn btn-success btn-lg btn-block" name = "checkOut"
                                         style = "padding: 6px 8px;">Giao Thành Công</button>
                                   <input type ="text" hidden name ="OrderID" value ="${order.getOrderID()}"/>

@@ -40,6 +40,12 @@ public class transition extends HttpServlet {
               case 5: 
                 response.sendRedirect("adOrderTC");
                 break;  
+             case 6: 
+                response.sendRedirect("adOrderDGD");
+                break;
+            case 7: 
+                response.sendRedirect("adOrderTLH");
+                break;
         }
     }
     

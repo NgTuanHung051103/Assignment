@@ -70,7 +70,7 @@
     </servlet>
     <servlet>
         <servlet-name>account</servlet-name>
-        <servlet-class>controller.user.account</servlet-class>
+        <servlet-class>controller.user.account.account</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>signupServlet</servlet-name>
@@ -119,6 +119,30 @@
     <servlet>
         <servlet-name>saveProfile</servlet-name>
         <servlet-class>controller.user.account.saveProfile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HuyDH</servlet-name>
+        <servlet-class>controller.user.account.HuyDH</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ThanhCong</servlet-name>
+        <servlet-class>controller.admin.OrderDG.ThanhCong</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TraLaiHang</servlet-name>
+        <servlet-class>controller.admin.OrderTC.TraLaiHang</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DaGiaoDich</servlet-name>
+        <servlet-class>controller.admin.OrderTC.DaGiaoDich</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>adOrderDGD</servlet-name>
+        <servlet-class>controller.admin.OrderDGD.adOrderDGD</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>adOrderTLH</servlet-name>
+        <servlet-class>controller.admin.OrderTLH.adOrderTLH</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
@@ -239,6 +263,30 @@
     <servlet-mapping>
         <servlet-name>saveProfile</servlet-name>
         <url-pattern>/saveProfile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HuyDH</servlet-name>
+        <url-pattern>/HuyDH</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ThanhCong</servlet-name>
+        <url-pattern>/ThanhCong</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TraLaiHang</servlet-name>
+        <url-pattern>/TraLaiHang</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DaGiaoDich</servlet-name>
+        <url-pattern>/DaGiaoDich</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adOrderDGD</servlet-name>
+        <url-pattern>/adOrderDGD</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adOrderTLH</servlet-name>
+        <url-pattern>/adOrderTLH</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

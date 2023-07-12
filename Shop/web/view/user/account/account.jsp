@@ -12,14 +12,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
+    <!-- Css -->
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common/navbar.css">
 </head>
 
 
-<hr>
 <body style ="background-color: #F5F5F5">
+        
+     <!-- Navbar-->
+      <jsp:include page="../../common/homepage/navbar.jsp" ></jsp:include> 
+    
 
-
-    <div class="container bootstrap snippet">
+    <div class="container bootstrap snippet" style = "margin-top: 50px">
 
         <div class="row">
 
@@ -79,7 +84,7 @@
                                 <div class="col-xs-6">
                                     <label for="first_name"><h4>Ten: </h4></label>
                                     <input type="text" class="form-control" 
-                                           name="first_name" id="first_name" 
+                                           name="ten" id="first_name" 
                                            placeholder="first name" 
                                            title="enter your first name if any."
                                            value = "${requestScope.user.getTen()}">
@@ -216,9 +221,10 @@
                                        <h3 style="color: #EE4D2D; margin: 12px 0px 10px 0px">${total} VND</h3>
                                     </div>
                                     <div class="float-right">
-                                        <form action ="checkOut" method ="GET" id ="checkOut" style = "margin-top: 6px;">
-                                            <button type="button" class="btn btn-success btn-lg btn-block" name = "checkOut"
+                                        <form action ="HuyDH" method ="POST" id ="checkOut" style = "margin-top: 6px;">
+                                            <button type="submit" class="btn btn-success btn-lg btn-block" name = "checkOut"
                                                     style = "padding: 6px 8px;">Huy Don Hang</button>
+                                                    <input type="text" name ="OrderID" hidden value ="${order.getOrderID()}"></input>
                                         </form>
                                     </div>
                                 </div>
@@ -291,12 +297,12 @@
                                     <div class="float-left">
                                        <h3 style="color: #EE4D2D; margin: 12px 0px 10px 0px">${total} VND</h3>
                                     </div>
-                                    <div class="float-right">
+<!--                                    <div class="float-right">
                                         <form action ="checkOut" method ="GET" id ="checkOut" style = "margin-top: 6px;">
                                             <button type="button" class="btn btn-success btn-lg btn-block" name = "checkOut"
                                                     style = "padding: 6px 8px;">Huy Don Hang</button>
                                         </form>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                         </c:forEach>
@@ -366,12 +372,12 @@
                                     <div class="float-left">
                                        <h3 style="color: #EE4D2D; margin: 12px 0px 10px 0px">${total} VND</h3>
                                     </div>
-                                    <div class="float-right">
+<!--                                    <div class="float-right">
                                         <form action ="checkOut" method ="GET" id ="checkOut" style = "margin-top: 6px;">
                                             <button type="button" class="btn btn-success btn-lg btn-block" name = "checkOut"
                                                     style = "padding: 6px 8px;">Huy Don Hang</button>
                                         </form>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                         </c:forEach>

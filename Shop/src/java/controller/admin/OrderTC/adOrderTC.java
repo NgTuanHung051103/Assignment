@@ -28,7 +28,7 @@ public class adOrderTC extends HttpServlet {
              //        Lay tat ca order dang CXN
         OrderDAO ODdb = new OrderDAO();
         
-        ArrayList<Order> list_orderTC = ODdb.getAllByStatus(4);
+        ArrayList<Order> list_orderTC = ODdb.getAllByStatus(3);
         
        request.setAttribute("list_orderTC", list_orderTC);
         

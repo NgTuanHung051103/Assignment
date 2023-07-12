@@ -86,11 +86,21 @@
                         <div class="float-left">
                             <h3 style="color: #EE4D2D; margin: 12px 0px 10px 0px">Tong hoa don: ${total} VND</h3>
                         </div>
-                        <div class="float-right" style = "display: flex;justify-content: right; width: 400px; ">
+                        <div class="float-right" style = "display: flex;justify-content: space-between; width: 400px; ">
                             
                             <form action ="#" method ="GET" id ="checkOut" style = "margin-top: 6px;">
                                 <button type="button" class="btn btn-success btn-lg btn-block" name = "checkOut"
                                         style = "padding: 6px 8px;">Ghi chu</button>
+                                  <input type ="text" hidden name ="OrderID" value ="${order.getOrderID()}"/>
+                            </form>
+                             <form action ="DaGiaoDich" method ="Post"  style = "margin-top: 6px;">
+                                <button type="submit" class="btn btn-success btn-lg btn-block" name = "checkOut"
+                                        style = "padding: 6px 8px;">Da giao dich</button>
+                                  <input type ="text" hidden name ="OrderID" value ="${order.getOrderID()}"/>
+                            </form>
+                             <form action ="TraLaiHang" method ="Post" id ="checkOut" style = "margin-top: 6px;">
+                                <button type="submit" class="btn btn-success btn-lg btn-block" name = "checkOut"
+                                        style = "padding: 6px 8px;">Da tra lai hang</button>
                                   <input type ="text" hidden name ="OrderID" value ="${order.getOrderID()}"/>
                             </form>
                         </div>

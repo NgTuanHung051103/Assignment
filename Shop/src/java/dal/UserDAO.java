@@ -185,7 +185,35 @@ public class UserDAO {
              System.out.println(ex);
         }
     }
+    
+     public void saveProfile(String Tk, String Ten, String SDT, String Email, String DiaChi, String Mk) {
+      try {
+            String sql = " UPDATE Users\n"
+                    + "   SET \n"
+                    + "      Ten = ? \n"
+                    + "     , SDT = ? \n"
+                     + "     , Email = ? \n"
+                     + "     , DiaChi = ? \n"
+                     + "     , Mk = ? \n"
+                    + " WHERE Tk = ?";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            statement.setString(1, Ten);
+            statement.setString(2, SDT);
+             statement.setString(3, Email);
+            statement.setString(4, DiaChi);
+             statement.setString(5, Mk);
+            statement.setString(6, Tk);
+            
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
 
+    
+    
     //--------------------------Insert new account TO DATABASE----------------------------------
 //    TAO tai khoan tu form dang ky:
 //    INPUT: Tai khoan ( ten dang nhap )
@@ -284,6 +312,7 @@ public class UserDAO {
         }
     }
 
+   
 
     
 }
