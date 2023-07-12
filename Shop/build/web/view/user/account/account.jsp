@@ -68,6 +68,7 @@
                     <li><a data-toggle="tab" href="#ChoXacNhan">Cho Xac Nhan</a></li>
                     <li><a data-toggle="tab" href="#DangGiao">Ðang Giao</a></li>
                     <li><a data-toggle="tab" href="#ThanhCong">Thành Công</a></li>
+                    <li><a data-toggle="tab" href="#DaGiaoDich">Ðã mua</a></li>
                 </ul>
 
 
@@ -167,14 +168,14 @@
                             <div class="form-group" >
                                 <div class="col-xs-12" style = "display: block; background-color: #FFFFFF; height: 30px; margin-bottom: 4px;"  >
                                     <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF; height: 100%;">
-                                        <span>Chua biet dien gi</span>
+<!--                                        <span>Chua biet dien gi</span>-->
                                     </div>
                                     <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;  height: 100%;">
                                         <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
-                                            <span>Dang chuan bi hang</span>
+                                            <!--<span>Dang chuan bi hang</span>-->
                                         </div>
                                         <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
-                                            <span>Van Chuyen</span>
+                                            <!--<span>Van Chuyen</span>-->
                                         </div>
                                     </div>
                                 </div>
@@ -244,14 +245,14 @@
                             <div class="form-group" >
                                 <div class="col-xs-12" style = "display: block; background-color: #FFFFFF; height: 30px; margin-bottom: 4px;"  >
                                     <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF; height: 100%;">
-                                        <span>Chua biet dien gi</span>
+                                        <!--<span>Chua biet dien gi</span>-->
                                     </div>
                                     <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;  height: 100%;">
                                         <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
-                                            <span>Dang chuan bi hang</span>
+                                            <!--<span>Dang chuan bi hang</span>-->
                                         </div>
                                         <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
-                                            <span>Van Chuyen</span>
+                                            <!--<span>Van Chuyen</span>-->
                                         </div>
                                     </div>
                                 </div>
@@ -319,14 +320,14 @@
                             <div class="form-group" >
                                 <div class="col-xs-12" style = "display: block; background-color: #FFFFFF; height: 30px; margin-bottom: 4px;"  >
                                     <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF; height: 100%;">
-                                        <span>Chua biet dien gi</span>
+                                        <!--<span>Chua biet dien gi</span>-->
                                     </div>
                                     <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;  height: 100%;">
                                         <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
-                                            <span>Dang chuan bi hang</span>
+                                            <!--<span>Dang chuan bi hang</span>-->
                                         </div>
                                         <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
-                                            <span>Van Chuyen</span>
+                                            <!--<span>Van Chuyen</span>-->
                                         </div>
                                     </div>
                                 </div>
@@ -382,7 +383,81 @@
                             </div>
                         </c:forEach>
                     </div>
+                    
+                     <!--Da Giao Dich-->
+                    <div class="tab-pane" id="DaGiaoDich">
+                            <h2></h2>
 
+                        <!--1 ORDER-->
+                        <c:forEach var = "order" items = "${requestScope.list_orderDGD}">
+                            <c:set var = "total" value = "${0}"/>
+                            <hr>
+                            <div class="form-group" >
+                                <div class="col-xs-12" style = "display: block; background-color: #FFFFFF; height: 30px; margin-bottom: 4px;"  >
+                                    <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF; height: 100%;">
+                                        <!--<span>Chua biet dien gi</span>-->
+                                    </div>
+                                    <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;  height: 100%;">
+                                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
+                                            <!--<span>Dang chuan bi hang</span>-->
+                                        </div>
+                                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
+                                            <!--<span>Van Chuyen</span>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!--Duyet tung san pham co trong order-->
+                            <!--Su dung if : OrD.OrderID = Order thi print-->
+                            <c:forEach var = "orderdetail" items = "${requestScope.list_order_detailDGD}">
+                                 <c:if test = "${orderdetail.getOrderID() == order.getOrderID()}">
+                                        <div class="form-group" >
+                                    <div class="col-xs-12" style = "display: block; background-color: #FFFFFF; height: 100px;  "  >
+                                        <!--MaSP-->
+                                        <input type ="text" hidden name = "MaSP" value = "MaSP"></input>
+                                        <div class="col-md-3">
+                                            <img class="img-fluid mx-auto d-block image" style=" max-height: 90px;" src="${orderdetail.getImg()}">
+                                        </div>
+                                        <div class="col-md-4 product-name">
+                                            <div class="product-name" style = "padding-top: 6px;">
+                                                <!--TenSP-->
+                                                <h5>${orderdetail.getTenSP()}</h5>
+                                                <!--TSKT-->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 quantity" style = "padding-top: 6px;">
+                                            <span  style = "color: #EE4D2D; font-size: 20px;">So Luong: </span>
+                                            <br>
+                                            <span style = "margin-left: 40px;"> ${orderdetail.getSoLuong()}</span>
+                                            <!--So Luong-->
+                                        </div>
+                                        <div class="col-md-2 price" style = "padding-top: 6px;">
+                                            <!--Gia Thanh-->
+                                            <span style = "color: #EE4D2D; font-size: 20px;">Gia thanh:</span>
+                                            <span > ${orderdetail.getGiaThanh()} VNÐ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                     <c:set var ="total" value ="${total + orderdetail.getGiaThanh() }"/>   
+                                    </c:if>
+                            </c:forEach>
+                            
+                            <div class="form-group">
+                                <div class="col-xs-12" style = "display: block; background-color: #FFFEFB; height: 50px; margin-top:4px;margin-bottom: 10px"  >
+                                    <div class="float-left">
+                                       <h3 style="color: #EE4D2D; margin: 12px 0px 10px 0px">${total} VND</h3>
+                                    </div>
+<!--                                    <div class="float-right">
+                                        <form action ="checkOut" method ="GET" id ="checkOut" style = "margin-top: 6px;">
+                                            <button type="button" class="btn btn-success btn-lg btn-block" name = "checkOut"
+                                                    style = "padding: 6px 8px;">Huy Don Hang</button>
+                                        </form>
+                                    </div>-->
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
 
                 </div><!--/tab-pane-->
             </div><!--/tab-content-->

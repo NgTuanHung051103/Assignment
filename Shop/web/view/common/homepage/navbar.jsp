@@ -31,13 +31,13 @@
                                     <a href="${pageContext.request.contextPath}/view/user/homepage/quat.jsp" class = "nav-link" style="color: #1f2022;">Quat</a>
                                 </li>
                                 <li class="nav-product">
-                                    <a href="" class = "nav-link" style="color: #1f2022;">Ti vi</a>
+                                    <a href="#" class = "nav-link" style="color: #1f2022;">Ti vi</a>
                                 </li>
                                 <li class="nav-product">
-                                    <a href="" class = "nav-link"style="color: #1f2022;" >Dieu hoa</a>
+                                    <a href="#" class = "nav-link"style="color: #1f2022;" >Dieu hoa</a>
                                 </li>
                                 <li class="nav-product">
-                                    <a href="" class = "nav-link" style="color: #1f2022;">Tu lanh</a>
+                                    <a href="#" class = "nav-link" style="color: #1f2022;">Tu lanh</a>
                                 </li>
                             </ul>
 

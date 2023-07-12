@@ -80,6 +80,20 @@ public class account extends HttpServlet {
         request.setAttribute("list_order_detailTC", list_order_detailTC);
         
         
+//        SET thong tin cho Da Giao Dich
+        
+//    -- Lay Order: 
+        ArrayList <Order> list_orderDGD = lgAOR.getOrderByAccountID(user.getID() , 4 );
+        
+        request.setAttribute("list_orderDGD", list_orderDGD);
+        
+//     -- Lay order detail: 
+        ArrayList<OrderDetail> list_order_detailDGD = lgAOD.get_OrderDetail_By_OrderID(list_orderDGD);
+        
+        request.setAttribute("list_order_detailDGD", list_order_detailDGD);
+        
+        
+        
 //      Chuyen toi account.jsp
         request.getRequestDispatcher("view/user/account/account.jsp").forward(request, response);      
     }

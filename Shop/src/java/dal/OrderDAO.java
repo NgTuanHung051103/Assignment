@@ -34,7 +34,7 @@ public class OrderDAO {
         return List_Orders;
     }
 
-//    GET by UserID:
+//    GET Order by UserID:
 //    INPUT: String AccountID
 //    OUTPUT: list order dua tren accountid
     public ArrayList<Order> get_By_UserID(String AccountID, int status) {
