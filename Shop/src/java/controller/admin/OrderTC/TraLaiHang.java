@@ -34,7 +34,7 @@ public class TraLaiHang extends HttpServlet {
             LGadminOrder LGAO = new LGadminOrder();
             
 //         Chuyen status order = 5:tra lai don hang  
-            LGAO.duyetCXN(OrderID, 5);
+            LGAO.duyet(OrderID, 5);
 
 //          Tru trong database: Truy cap vao table OrderDetail de lay so luong
 //           2: tang

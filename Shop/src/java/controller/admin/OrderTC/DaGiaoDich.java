@@ -34,7 +34,7 @@ public class DaGiaoDich extends HttpServlet {
             LGadminOrder LGAO = new LGadminOrder();
             
 //         Chuyen status order = 4: da giao dich  
-            LGAO.duyetCXN(OrderID, 4);
+            LGAO.duyet(OrderID, 4);
 
 //          Tru trong database: Truy cap vao table OrderDetail de lay so luong
 //           2: tang

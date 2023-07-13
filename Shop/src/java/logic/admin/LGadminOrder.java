@@ -33,7 +33,7 @@ public class LGadminOrder {
 
     }
 
-    public void duyetCXN(String OrderID, int status) {
+    public void duyet(String OrderID, int status) {
             OrderDAO ORdb = new OrderDAO();
             
 //          status: 2 : dang ship

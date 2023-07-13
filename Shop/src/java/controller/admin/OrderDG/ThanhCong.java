@@ -33,7 +33,7 @@ public class ThanhCong extends HttpServlet {
             LGadminOrder LGAO = new LGadminOrder();
             
 //         Chuyen status order = 3: thanh cong  
-            LGAO.duyetCXN(OrderID, 3);
+            LGAO.duyet(OrderID, 3);
 
             response.sendRedirect("adOrderDG");
     }

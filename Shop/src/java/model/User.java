@@ -104,13 +104,15 @@ public class User {
         this.SDT = SDT;
     }
 
-    @Override
-    public String toString() {
-        return "User{" + "ID=" + ID + ", Ten=" + Ten + ", Email=" + Email + ", Tk=" + Tk + ", Mk=" + Mk + ", DiaChi=" + DiaChi + ", SDT=" + SDT + ", Tuoi=" + Tuoi + ", isAdmin=" + isAdmin + '}';
-    }
+   
 
     public String getTxtCart() {
         return txtCart;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" + "ID=" + ID + ", Ten=" + Ten + ", Email=" + Email + ", Tk=" + Tk + ", Mk=" + Mk + ", DiaChi=" + DiaChi + ", SDT=" + SDT + ", txtCart=" + txtCart + ", Tuoi=" + Tuoi + ", isAdmin=" + isAdmin + '}';
     }
 
     public void setTxtCart(String txtCart) {

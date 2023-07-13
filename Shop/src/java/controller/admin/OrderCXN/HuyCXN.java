@@ -34,7 +34,7 @@ public class HuyCXN extends HttpServlet {
         LGadminOrder LGAO = new LGadminOrder();
       
 //        Chuyen status order = 0
-        LGAO.duyetCXN(OrderID, 0);
+        LGAO.duyet(OrderID, 0);
         
 //          Tang trong database: Truy cap vao table OrderDetail de lay so luong
 //              2: tang

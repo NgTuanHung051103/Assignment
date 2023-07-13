@@ -35,7 +35,7 @@ public class PheDuyetCXN extends HttpServlet {
             LGadminOrder LGAO = new LGadminOrder();
             
 //         Chuyen status order = 2   
-            LGAO.duyetCXN(OrderID, 2);
+            LGAO.duyet(OrderID, 2);
 
 //          Tru trong database: Truy cap vao table OrderDetail de lay so luong
 //           1: tru

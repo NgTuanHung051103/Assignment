@@ -303,13 +303,14 @@
 
         <script>
             
- //  Lay the cha cua tung loai the theo tskt           
+    //  Lay the cha cua tung loai the theo tskt           
             var QuatEdit = document.getElementById("LoaiQuatEdit").parentElement.parentElement;
             var DieuHoaEdit = document.getElementById("LoaiMayEdit").parentElement.parentElement;
             var TuLanhEdit = document.getElementById("KieuTuEdit").parentElement.parentElement;
             var TiviEdit = document.getElementById("LoaiTVEdit").parentElement.parentElement;
             
             var categorySelectEdit = document.getElementById("categoryEdit");           
+            
             
             //  Truyen nhung gia tri ban dau vao tung the cua SanPham    
             function editProductModal(id, name, brand, price, quantity, image, categoryId) {
@@ -321,6 +322,8 @@
                 $('#quantityEdit').val(quantity);
                 $('#categoryEdit').val(categoryId);
         
+                
+                
 //Hien thi tskt theo tung category KHI MAC DINH tu admin -> Edit        
 //                get value of selected tag
                 var selectedCategoryEdit = categorySelectEdit.value;
@@ -332,6 +335,8 @@
                     TuLanhEdit.style.display = "none";
                     TiviEdit.style.display = "none";
                 }
+                 
+                
                 
                 else if (parseInt(selectedCategoryEdit) === 2) {
                     // Show the color and material inputs
@@ -371,6 +376,12 @@
                     var imagePath = $("#previewImageEdit").attr("src");
                     $("#imageEdit").val(imagePath);
                 });
+                
+//              Truyen tskt theo id
+                
+                
+                
+                
                 
             }
           

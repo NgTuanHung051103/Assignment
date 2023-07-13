@@ -95,7 +95,7 @@ public class LGlogin {
 //    Input: Tk
 //    OUTPUT: String cart
     public String getTxtCart(String Tk) {
-        if (get_Info_User_Login(Tk).getTxtCart().equalsIgnoreCase("") ){
+        if ( get_Info_User_Login(Tk).getTxtCart() == null ){
             return "";
         }
         return  get_Info_User_Login(Tk).getTxtCart();

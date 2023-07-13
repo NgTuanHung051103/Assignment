@@ -33,7 +33,7 @@ public class HuyDH extends HttpServlet {
         LGadminOrder LGAO = new LGadminOrder();
       
 //        Chuyen status order = 0 (goi giong HuyCXN servlet)
-        LGAO.duyetCXN(OrderID, 0);
+        LGAO.duyet(OrderID, 0);
         
         response.sendRedirect("account");
         

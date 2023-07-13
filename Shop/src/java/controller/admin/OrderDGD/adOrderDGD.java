@@ -11,10 +11,14 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.HashMap;
+import logic.account.LGaccountSanPham;
 import logic.admin.LGadminOrder;
 import model.Order;
 import model.OrderDetail;
+import model.SanPham;
 
 /**
  *
@@ -39,6 +43,18 @@ public class adOrderDGD extends HttpServlet {
 
         request.setAttribute("list_order_detailDGD", list_order_detailDGD);
 
+//      -- Lay thong tin san pham: ( giong account.java )
+        HttpSession session = request.getSession();
+        
+        LGaccountSanPham lgASP = new LGaccountSanPham();
+
+        HashMap<Integer, SanPham> hashmapSanPham = new HashMap<>();
+
+        hashmapSanPham = lgASP.get_HashMap_SanPham_By_MaSP();
+        
+        session.setAttribute("hashmapSanPham", hashmapSanPham);        
+        
+        
 //      Chuyen toi adOrderDGD.jsp
         request.getRequestDispatcher("view/admin/dashboard/adOrderDGD.jsp").forward(request, response);
 

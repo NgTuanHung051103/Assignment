@@ -49,18 +49,20 @@
                 <!--Su dung if : OrD.OrderID = Order thi print-->
                 <c:forEach var = "orderdetail" items = "${requestScope.list_order_detailTC}">
                     <c:if test = "${orderdetail.getOrderID() == order.getOrderID()}">
+                         <!--lay thong tin san pham qua hashmap-->
+                        <c:set var = "sanpham" value = "${hashmapSanPham[orderdetail.getMaSP()]}"/>
                         <div class="container">
                             <div class="row" style = "display: block; background-color: #FFFFFF; height: 100px; 
                                                                         display: flex;"  >
                                 <!--MaSP-->
                                 <input type ="text" hidden name = "MaSP" value = "MaSP"></input>
                                 <div class="col col-sm-3">
-                                    <img class="img-fluid mx-auto d-block image" style=" max-height: 90px;" src="${orderdetail.getImg()}">
+                                    <img class="img-fluid mx-auto d-block image" style=" max-height: 90px;" src="${sanpham.getImg()}">
                                 </div>
                                 <div class="col col-sm-4 ">
                                     <div class="product-name" style = "padding-top: 6px;">
                                         <!--TenSP-->
-                                        <h5>${orderdetail.getTenSP()}</h5>
+                                        <h5>${sanpham.getTenSP()}</h5>
                                         <!--TSKT-->
                                     </div>
                                 </div>
@@ -73,7 +75,7 @@
                                 <div class="col col-sm-2 price" style = "padding-top: 6px;">
                                     <!--Gia Thanh-->
                                     <span style = "color: #EE4D2D; font-size: 20px;">Gia thanh:</span>
-                                    <span > ${orderdetail.getGiaThanh()} VNÐ</span>
+                                    <span > ${sanpham.getGiaThanh()} VNÐ</span>
                                 </div>
                             </div>
                         </div>

@@ -4,18 +4,23 @@
  */
 package controller.user.account;
 
+import dal.SanPhamDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.HashMap;
 import logic.account.LGaccountUser;
 import logic.account.LGaccountOrder;
 import logic.account.LGaccountOrderDetail;
+import logic.account.LGaccountSanPham;
 import model.Order;
 import model.OrderDetail;
+import model.SanPham;
 import model.User;
 
 /**
@@ -27,82 +32,96 @@ public class account extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-//        SET thong tin cho Profile
+        
+         HttpSession session = request.getSession();
+        
+        LGaccountOrder lgAOR = new LGaccountOrder();
+
+        LGaccountOrderDetail lgAOD = new LGaccountOrderDetail();
+
         LGaccountUser lgAIU = new LGaccountUser();
         
-        User user = lgAIU.getInfoUser(request, response);
+        LGaccountSanPham lgASP = new LGaccountSanPham();
         
-        request.setAttribute("user", user);
-        
+// ----------------Lay theo order va orderdetail-------------------------     
 
-// ----------------Lay theo order va orderdetail-------------------------       
-        LGaccountOrder lgAOR = new LGaccountOrder();
-         
-        LGaccountOrderDetail lgAOD = new LGaccountOrderDetail();
+//      SET thong tin cho Profile    
+
+        User user = lgAIU.getInfoUser(request, response);
+
+        request.setAttribute("user", user);
+
         
-//        SET thong tin cho Cho xac nhan            
+//      -- Lay thong tin san pham: 
+        HashMap<Integer, SanPham> hashmapSanPham = new HashMap<>();
+
+        hashmapSanPham = lgASP.get_HashMap_SanPham_By_MaSP();
+        
+        session.setAttribute("hashmapSanPham", hashmapSanPham);
+        
+        
+//        SET thong tin cho Cho xac nhan      
         
 //    -- Lay Order: 
-        ArrayList <Order> list_orderCXN = lgAOR.getOrderByAccountID(user.getID() , 1 );
-        
+        ArrayList<Order> list_orderCXN = lgAOR.getOrderByAccountID(user.getID(), 1);
+
         request.setAttribute("list_orderCXN", list_orderCXN);
-        
+
 //     -- Lay order detail: 
         ArrayList<OrderDetail> list_order_detailCXN = lgAOD.get_OrderDetail_By_OrderID(list_orderCXN);
-        
+
         request.setAttribute("list_order_detailCXN", list_order_detailCXN);
 
         
 //        SET thong tin cho Dang Giao:
 
 //    -- Lay Order: 
-        ArrayList <Order> list_orderDG = lgAOR.getOrderByAccountID(user.getID() , 2 );
-        
+        ArrayList<Order> list_orderDG = lgAOR.getOrderByAccountID(user.getID(), 2);
+
         request.setAttribute("list_orderDG", list_orderDG);
-        
+
 //     -- Lay order detail: 
         ArrayList<OrderDetail> list_order_detailDG = lgAOD.get_OrderDetail_By_OrderID(list_orderDG);
-        
+
         request.setAttribute("list_order_detailDG", list_order_detailDG);
-        
+
         
 //        SET thong tin cho Thanh Cong:
-        
+
 //    -- Lay Order: 
-        ArrayList <Order> list_orderTC = lgAOR.getOrderByAccountID(user.getID() , 3 );
-        
+        ArrayList<Order> list_orderTC = lgAOR.getOrderByAccountID(user.getID(), 3);
+
         request.setAttribute("list_orderTC", list_orderTC);
-        
+
 //     -- Lay order detail: 
         ArrayList<OrderDetail> list_order_detailTC = lgAOD.get_OrderDetail_By_OrderID(list_orderTC);
-        
+
         request.setAttribute("list_order_detailTC", list_order_detailTC);
-        
+
         
 //        SET thong tin cho Da Giao Dich
-        
+
 //    -- Lay Order: 
-        ArrayList <Order> list_orderDGD = lgAOR.getOrderByAccountID(user.getID() , 4 );
-        
+        ArrayList<Order> list_orderDGD = lgAOR.getOrderByAccountID(user.getID(), 4);
+
         request.setAttribute("list_orderDGD", list_orderDGD);
-        
+
 //     -- Lay order detail: 
         ArrayList<OrderDetail> list_order_detailDGD = lgAOD.get_OrderDetail_By_OrderID(list_orderDGD);
-        
+
         request.setAttribute("list_order_detailDGD", list_order_detailDGD);
-        
-        
-        
+
+//---------------------------Het lay order va orderdetail-------------------------
+
+
 //      Chuyen toi account.jsp
-        request.getRequestDispatcher("view/user/account/account.jsp").forward(request, response);      
+        request.getRequestDispatcher("view/user/account/account.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
+
     }
 
     @Override

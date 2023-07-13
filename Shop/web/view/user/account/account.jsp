@@ -160,7 +160,7 @@
                     <!--Cho Xac Nhan-->
                     <div class="tab-pane" id="ChoXacNhan">
                         <h2></h2>
-
+                        
                         <!--1 ORDER-->
                         <c:forEach var = "order" items = "${requestScope.list_orderCXN}">
                             <c:set var = "total" value = "${0}"/>
@@ -184,18 +184,23 @@
                             <!--Duyet tung san pham co trong order-->
                             <!--Su dung if : OrD.OrderID = Order thi print-->
                             <c:forEach var = "orderdetail" items = "${requestScope.list_order_detailCXN}">
-                                 <c:if test = "${orderdetail.getOrderID() == order.getOrderID()}">
+                                
+                                <!--Tim nhung orderdetail nam trong 1 order bang OrderID-->
+                                <c:if test = "${orderdetail.getOrderID() == order.getOrderID()}">
+                                     
+                                     <!--lay thong tin san pham qua hashmap-->
+                                     <c:set var = "sanpham" value = "${hashmapSanPham[orderdetail.getMaSP()]}"/>
                                         <div class="form-group" >
                                     <div class="col-xs-12" style = "display: block; background-color: #FFFFFF; height: 100px;  "  >
                                         <!--MaSP-->
                                         <input type ="text" hidden name = "MaSP" value = "MaSP"></input>
                                         <div class="col-md-3">
-                                            <img class="img-fluid mx-auto d-block image" style=" max-height: 90px;" src="${orderdetail.getImg()}">
+                                            <img class="img-fluid mx-auto d-block image" style=" max-height: 90px;" src="${sanpham.getImg()}">
                                         </div>
                                         <div class="col-md-4 product-name">
                                             <div class="product-name" style = "padding-top: 6px;">
                                                 <!--TenSP-->
-                                                <h5>${orderdetail.getTenSP()}</h5>
+                                                <h5>${sanpham.getTenSP()}</h5>
                                                 <!--TSKT-->
                                             </div>
                                         </div>
@@ -203,12 +208,14 @@
                                             <span  style = "color: #EE4D2D; font-size: 20px;">So Luong: </span>
                                             <br>
                                             <span style = "margin-left: 40px;"> ${orderdetail.getSoLuong()}</span>
-                                            <!--So Luong-->
+                                            <br>
+                                            <span style = "margin-left: 12px;">Con lai: </span>
+                                            <span > ${sanpham.getSoLuong()}</span>
                                         </div>
                                         <div class="col-md-2 price" style = "padding-top: 6px;">
                                             <!--Gia Thanh-->
                                             <span style = "color: #EE4D2D; font-size: 20px;">Gia thanh:</span>
-                                            <span > ${orderdetail.getGiaThanh()} VNÐ</span>
+                                            <span > ${sanpham.getGiaThanh()} VNÐ</span>
                                         </div>
                                     </div>
                                 </div>

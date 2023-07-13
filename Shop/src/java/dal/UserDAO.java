@@ -78,6 +78,7 @@ public class UserDAO {
                 user.setIsAdmin(rs.getInt("isAdmin"));
                 user.setSDT(rs.getString("SDT"));
                 user.setTxtCart(rs.getString("txtCart"));
+                user.setTuoi(rs.getInt("Tuoi"));
                 List_Users.add(user);
             }
         } catch (SQLException ex) {
