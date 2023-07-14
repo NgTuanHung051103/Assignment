@@ -173,7 +173,7 @@
                                     <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;  height: 100%;">
                                         <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
                                             <!--<span>Dang chuan bi hang</span>-->
-                                        </div>
+                                        </div>a
                                         <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
                                             <!--<span>Van Chuyen</span>-->
                                         </div>
@@ -199,9 +199,7 @@
                                         </div>
                                         <div class="col-md-4 product-name">
                                             <div class="product-name" style = "padding-top: 6px;">
-                                                <!--TenSP-->
                                                 <h5>${sanpham.getTenSP()}</h5>
-                                                <!--TSKT-->
                                             </div>
                                         </div>
                                         <div class="col-md-3 quantity" style = "padding-top: 6px;">
@@ -222,7 +220,6 @@
                                      <c:set var ="total" value ="${total + orderdetail.getGiaThanh() }"/>   
                                     </c:if>
                             </c:forEach>
-                            
                             <div class="form-group">
                                 <div class="col-xs-12" style = "display: block; background-color: #FFFEFB; height: 50px; margin-top:4px;margin-bottom: 10px"  >
                                     <div class="float-left">

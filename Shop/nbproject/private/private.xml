@@ -27,16 +27,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/Assignment/Assignment/Shop/src/java/controller/user/account/account.java</file>
-            <file>file:/D:/Assignment/Assignment/Shop/src/java/controller/admin/OrderCXN/PheDuyetCXN.java</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/admin/modal/editAccountModal.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/admin/dashboard/datatableProduct.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/src/java/logic/common/LGlogin.java</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/user/homepage/detailProduct1.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/src/java/dal/OrderDAO.java</file>
-            <file>file:/D:/Assignment/Assignment/Shop/src/java/logic/account/LGaccountOrder.java</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/user/account/account.jsp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
