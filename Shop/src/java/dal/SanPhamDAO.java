@@ -227,6 +227,9 @@ public class SanPhamDAO {
         }
         return 0;
     }
+    
+    
+    
 //    ----------------Insert------------------
     
 //    Them 1 san pham moi vao database

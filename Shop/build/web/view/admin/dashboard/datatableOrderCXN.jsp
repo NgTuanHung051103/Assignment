@@ -22,38 +22,38 @@
             <c:forEach var = "order" items = "${requestScope.list_orderCXN}">
                 <c:set var = "total" value = "${0}"/>
                 <hr>
-                    <div class="row" style = "display: block; background-color: #FFFFFF; height: 30px; margin-bottom: 4px; width : 100%; min-height: 50px;
-                                                                 display: flex; flex-direction: row; margin-left: 20px;"  >
-                        <div   class = "col-4" style = "display: block; background-color: #FFFFFF; height: 100%;">
-                            <span>SDT: ${order.getSDT()}</span>
+                <div class="row" style = "display: block; background-color: #FFFFFF; height: 30px; margin-bottom: 4px; width : 100%; min-height: 50px;
+                     display: flex; flex-direction: row; margin-left: 20px;"  >
+                    <div   class = "col-4" style = "display: block; background-color: #FFFFFF; height: 100%;">
+                        <span>SDT: ${order.getSDT()}</span>
+                    </div>
+                    <div  class = "col-8" style = "display: block; background-color: #FFFFFF;  height: 100%;
+                          display: flex; ">
+                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
+                            <span>Dia Chi: ${order.getAddress()}</span>
                         </div>
-                        <div  class = "col-8" style = "display: block; background-color: #FFFFFF;  height: 100%;
-                                                                                display: flex; ">
-                            <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
-                                <span>Dia Chi: ${order.getAddress()}</span>
-                            </div>
-                            <div  class = "col-md-6" style = "display: block; background-color: #FFFFFF;">
-                                <span>
-                                    <c:if test = "${order.getHttt() == 1 }">
-                                        Thanh toan truc tiep
-                                    </c:if>
-                                     <c:if test = "${order.getHttt() == 2 }">
-                                        Chuyen khoan
-                                    </c:if>
-                                </span>
-                            </div>
+                        <div  class = "col-md-6" style = "display: block; background-color: #FFFFFF;">
+                            <span>
+                                <c:if test = "${order.getHttt() == 1 }">
+                                    Thanh toan truc tiep
+                                </c:if>
+                                <c:if test = "${order.getHttt() == 2 }">
+                                    Chuyen khoan
+                                </c:if>
+                            </span>
                         </div>
                     </div>
+                </div>
 
                 <!--Duyet tung san pham co trong order-->
                 <!--Su dung if : OrD.OrderID = Order thi print-->
                 <c:forEach var = "orderdetail" items = "${requestScope.list_order_detailCXN}">
                     <c:if test = "${orderdetail.getOrderID() == order.getOrderID()}">
-                         <!--lay thong tin san pham qua hashmap-->
+                        <!--lay thong tin san pham qua hashmap-->
                         <c:set var = "sanpham" value = "${hashmapSanPham[orderdetail.getMaSP()]}"/>
                         <div class="container">
-                            <div class="row" style = "display: block; background-color: #FFFFFF; height: 100px; 
-                                                                        display: flex;"  >
+                            <div class="row" style = "display: block; background-color: #FFFFFF; height: 100px;
+                                 display: flex;"  >
                                 <!--MaSP-->
                                 <input type ="text" hidden name = "MaSP" value = "MaSP"></input>
                                 <div class="col col-sm-3">
@@ -91,21 +91,26 @@
                             <h3 style="color: #EE4D2D; margin: 12px 0px 10px 0px">Tong hoa don: ${total} VND</h3>
                         </div>
                         <div class="float-right" style = "display: flex;justify-content: space-between; width: 400px; ">
-                            
-<!--                            <form action ="#" method ="GET" id ="checkOut" style = "margin-top: 6px;">
-                                <button type="button" class="btn btn-success btn-lg btn-block" name = "checkOut"
-                                        style = "padding: 6px 8px;">Ghi chu</button>
-                                  <input type ="text" hidden name ="OrderID" value ="${order.getOrderID()}"/>
-                            </form>-->
+
+                            <!--                            <form action ="#" method ="GET" id ="checkOut" style = "margin-top: 6px;">
+                                                            <button type="button" class="btn btn-success btn-lg btn-block" name = "checkOut"
+                                                                    style = "padding: 6px 8px;">Ghi chu</button>
+                                                              <input type ="text" hidden name ="OrderID" value ="${order.getOrderID()}"/>
+                                                        </form>-->
                             <form action ="PheDuyetCXN" method ="POST"  style = "margin-top: 6px; ">
                                 <button type="submit" class="btn btn-success btn-lg btn-block" name = "checkOut"
                                         style = "padding: 6px 8px;">Phe Duyet</button>
-                                   <input type ="text" hidden name ="OrderID" value ="${order.getOrderID()}"/>
+                                <input type ="text" hidden name ="OrderID" value ="${order.getOrderID()}"/>
                             </form>
-                            <form action ="HuyCXN" method ="POST" style = "margin-top: 6px;">
-                                <button type="submit" class="btn btn-success btn-lg btn-block" name = "checkOut"
+                            <form action ="HuyCXN" method ="POST" id ="formhuydonhang${order.getOrderID()}"
+                                  style = "margin-top: 6px;">
+                                <button type="submit" class="btn btn-success btn-lg btn-block"  name = "checkOut" onclick="huydonhang('${order.getOrderID()}')"
                                         style = "padding: 6px 8px;">Huy Don Hang</button>
-                                    <input type ="text" hidden name ="OrderID" value ="${order.getOrderID()}"/>
+                                <input type ="text" hidden name ="OrderID" value ="${order.getOrderID()}"/>
+                                <input type ="text" hidden name ="AccountID" value ="${order.getAccountID()}"/>
+                                <div id ="div_thongbao${order.getOrderID()}" style = "display: none; height: 50px; width: 80px;">
+                                    <input type = "text" id = "thongbao" name ="thongbao"/>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -113,4 +118,18 @@
             </c:forEach>
         </div><!--/tab-pane-->
     </body>
+
+    <script>
+        function huydonhang(orderID) {
+            var div_thongbao = document.getElementById("div_thongbao"+orderID);
+            var form_huydonhang = document.getElementById("formhuydonhang$"+orderID);
+//            da hien thi
+            if (div_thongbao.style.display === 'block') {
+                form_huydonhang.submit();
+            } else {
+                div_thongbao.style.display = 'block';
+                event.preventDefault();
+            }
+        }
+    </script>
 </html>

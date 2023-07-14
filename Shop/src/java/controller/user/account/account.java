@@ -5,6 +5,7 @@
 package controller.user.account;
 
 import dal.SanPhamDAO;
+import dal.ThongBaoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -21,6 +22,7 @@ import logic.account.LGaccountSanPham;
 import model.Order;
 import model.OrderDetail;
 import model.SanPham;
+import model.ThongBao;
 import model.User;
 
 /**
@@ -35,6 +37,8 @@ public class account extends HttpServlet {
         
          HttpSession session = request.getSession();
         
+         ThongBaoDAO TBdb = new ThongBaoDAO();
+         
         LGaccountOrder lgAOR = new LGaccountOrder();
 
         LGaccountOrderDetail lgAOD = new LGaccountOrderDetail();
@@ -51,6 +55,12 @@ public class account extends HttpServlet {
 
         request.setAttribute("user", user);
 
+//      SET thông báo 
+
+        ArrayList<ThongBao> list_ThongBao = TBdb.getAllByAccountID(user.getID());
+        
+        request.setAttribute("list_ThongBao", list_ThongBao);
+        
         
 //      -- Lay thong tin san pham: 
         HashMap<Integer, SanPham> hashmapSanPham = new HashMap<>();
@@ -58,7 +68,6 @@ public class account extends HttpServlet {
         hashmapSanPham = lgASP.get_HashMap_SanPham_By_MaSP();
         
         session.setAttribute("hashmapSanPham", hashmapSanPham);
-        
         
 //        SET thong tin cho Cho xac nhan      
         

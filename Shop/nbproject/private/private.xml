@@ -27,6 +27,11 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/Assignment/Assignment/Shop/src/java/dal/ThongBaoDAO.java</file>
+            <file>file:/D:/Assignment/Assignment/Shop/src/java/controller/user/account/account.java</file>
+            <file>file:/D:/Assignment/Assignment/Shop/src/java/controller/admin/OrderCXN/HuyCXN.java</file>
+            <file>file:/D:/Assignment/Assignment/Shop/src/java/model/ThongBao.java</file>
+        </group>
     </open-files>
 </project-private>

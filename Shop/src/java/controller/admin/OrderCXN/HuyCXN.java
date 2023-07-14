@@ -4,6 +4,7 @@
  */
 package controller.admin.OrderCXN;
 
+import dal.ThongBaoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -40,6 +41,15 @@ public class HuyCXN extends HttpServlet {
 //              2: tang
 //             LGAO.updateSoLuong(OrderID, 2); 
 
+//      Lay thong bao:
+        String thongbao = request.getParameter("thongbao");
+        
+        String userID = request.getParameter("AccountID");
+        
+        ThongBaoDAO TBdb = new ThongBaoDAO();
+        
+        TBdb.insertNewThongBao(userID, thongbao);
+        
         response.sendRedirect("adOrderCXN");
     }
     @Override
