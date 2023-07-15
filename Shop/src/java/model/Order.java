@@ -115,9 +115,10 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Orders{" + "OrderID=" + OrderID + ", TotalPrice=" + TotalPrice + ", Status=" + Status + ", AccountID=" + AccountID + ", Address=" + Address + '}';
+        return "Order{" + "OrderID=" + OrderID + ", TotalPrice=" + TotalPrice + ", Status=" + Status + ", httt=" + httt + ", AccountID=" + AccountID + ", Address=" + Address + ", OrderDate=" + OrderDate + ", Order_txt=" + Order_txt + ", Email=" + Email + ", SDT=" + SDT + '}';
     }
-    
+
+ 
     
     
 }

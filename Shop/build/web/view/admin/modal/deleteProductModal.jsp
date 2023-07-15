@@ -15,7 +15,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Do you want to delete this product?</p>
+                <p>Bạn muốn xóa sản phẩm này chứ ?</p>
             </div>
             <div class="modal-footer">
                 <form action="deleteSanPham" method="POST">
@@ -23,8 +23,8 @@
                         <input type="text" class="form-control" id="idDelete" name="id">
                         <input type="text" class="form-control" id="categoryDelete" name="cate">
                     </div>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                    <button type="submit" class="btn btn-danger">Yes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">không</button>
+                    <button type="submit" class="btn btn-danger">có</button>
                 </form>
             </div>
         </div>

@@ -29,7 +29,7 @@
 
             <div style="margin-top: 40px;"></div>
 
-            <form action ="${pageContext.request.contextPath}/dieuhoa" method ="GET">
+            <form action ="${pageContext.request.contextPath}/tivi" method ="GET">
             <button class="submit-filter">Tìm kiếm</button>
         </form>
         <!--Product-->
@@ -63,7 +63,7 @@
                   <div class ="paginationOfProduct" style = "display: flex; justify-content: center;">
                     <c:set var = "pageNow" value = "${requestScope.pageNow}"/>
                     <c:forEach begin ="${1}" end = "${requestScope.numPage}" var = "i">
-                        <a class = "${i==pageNow?"active":""}"  href="dieuhoa?pageNow=${i}">${i}</a>
+                        <a class = "${i==pageNow?"active":""}"  href="tivi?pageNow=${i}">${i}</a>
                     </c:forEach>
                 </div>
             </div>

@@ -24,12 +24,11 @@
         
         <!-- Navbar-->
              <jsp:include page="../../common/homepage/navbar.jsp" ></jsp:include>     
-        <h1>Hello World!</h1>
         <h2>${requestScope.mess}</h2>
              
                 
                <a href="${pageContext.request.contextPath}/list" class="navbar-logo">
-                   Ve trang chu: <img style ="width: 100px;" class="logo" 
+                   Về trang chủ: <img style ="width: 100px;" class="logo" 
                                       src="https://www.icebergwebdesign.com/wp-content/uploads/2015/11/back-blue-button-xs.jpg" 
                                       alt="">
                 </a>

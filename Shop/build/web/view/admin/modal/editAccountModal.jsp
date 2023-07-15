@@ -30,14 +30,14 @@
 
                     <!--Mat khau-->
                     <div class="form-group">
-                        <label for="MkEdit">Mat khau: </label><span class="requiredd">*</span>
+                        <label for="MkEdit">Mật khẩu: </label><span class="requiredd">*</span>
                         <input type="text" class="form-control" id="MkEdit" name="mkEdit">
                         <div id="MkEditError" class="error"></div>
                     </div>
 
                     <!--Category-->
                     <div class="form-group">
-                        <label for="categoryEdit">Quyen su dung: </label><span class="requiredd">*</span>
+                        <label for="categoryEdit">Quyền hạn: </label><span class="requiredd">*</span>
                         <div class="input-group">
                             <select class="custom-select" id="categoryEdit" name="categoryEdit">
                                 <option value="">Chọn một tùy chọn</option>
@@ -45,7 +45,7 @@
                                 <option value="2">Admin</option>
                             </select>
                             <div class="input-group-append">    
-                                <button class="btn btn-outline-secondary" type="button">Chose</button>
+                                <button class="btn btn-outline-secondary" type="button">Chọn</button>
                             </div>
                         </div>
                         <div id="categoryEditError" class="error"></div>
@@ -69,7 +69,7 @@
 
                         <!--Price-->
                         <div class="form-group">
-                            <label for="DiaChiEdit">Dia Chi: </label>
+                            <label for="DiaChiEdit">Địa chỉ: </label>
                             <input type="text" class="form-control" id="DiaChiEdit" name="diachiEdit">
                             <div id="DiaChiEditError" class="error"></div>
                         </div>
@@ -89,7 +89,7 @@
                         </div>       
 
                         <div class="form-group">
-                            <label for="TuoiEdit">Tuoi:  </label>
+                            <label for="TuoiEdit">Tuổi:  </label>
                             <input type="text" class="form-control" id="TuoiEdit" name="tuoiEdit">
                             <div id="TuoiEditError" class="error"></div>
                         </div>          

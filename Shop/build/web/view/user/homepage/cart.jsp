@@ -42,7 +42,7 @@
 
                         <!--GIO HANG KHONG CO GI-->
                         <c:if test = "${size == 0}">
-                            <div style = "height: 200px;">Gio hang rong, Vui long chon san pham</div>
+                            <div style = "height: 200px;">Giỏ hàng không có gì, tiếp tục mua sắm</div>
                         </c:if>
 
                         <c:if test = "${size != 0}">
@@ -70,19 +70,19 @@
                                                                 <div class="product-name">
                                                                     <!--TenSP-->
                                                                     <a href="#">${order.getSanPham().getTenSP()}</a>
-                                                                    <!--TSKT-->
+<!--                                                                    TSKT
                                                                     <div class="product-info">
                                                                         <div>Display: <span class="value">5 inch</span></div>
                                                                         <div>RAM: <span class="value">4GB</span></div>
                                                                         <div>Memory: <span class="value">32GB</span></div>
-                                                                    </div>
+                                                                    </div>-->
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-3 quantity">
-                                                                <label for="quantity">Quantity:</label>
+                                                                <label for="quantity">Số lượng</label>
                                                                 <!--So Luong-->
                                                                 <input name = "quantity" id="quantity" type="number" value ="${order.getSoLuong()}" min ="1" max ="${order.getSanPham().getSoLuong()}" class="form-control quantity-input">
-                                                                <span>Còn lai: ${order.getSanPham().getSoLuong()}</span>
+                                                                <span>Còn lại: ${order.getSanPham().getSoLuong()}</span>
                                                             </div>
                                                             <div class="col-md-2 price">
                                                                 <!--Gia Thanh-->
@@ -124,7 +124,7 @@
                                     </div>
                                     <div class="float-right">
                                         <form action ="checkOut" method ="GET" id ="checkOut" >
-                                            <button type="button" class="btn btn-primary btn-lg btn-block" name = "checkOut">Checkout</button>
+                                            <button type="button" class="btn btn-primary btn-lg btn-block" name = "checkOut">Thanh toán</button>
                                         </form>
                                     </div>
                                     

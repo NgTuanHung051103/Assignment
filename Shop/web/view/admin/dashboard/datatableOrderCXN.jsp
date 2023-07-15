@@ -30,15 +30,15 @@
                     <div  class = "col-8" style = "display: block; background-color: #FFFFFF;  height: 100%;
                           display: flex; ">
                         <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
-                            <span>Dia Chi: ${order.getAddress()}</span>
+                            <span>Địa chỉ: ${order.getAddress()}</span>
                         </div>
                         <div  class = "col-md-6" style = "display: block; background-color: #FFFFFF;">
                             <span>
                                 <c:if test = "${order.getHttt() == 1 }">
-                                    Thanh toan truc tiep
+                                    Thanh toán trực tiếp
                                 </c:if>
                                 <c:if test = "${order.getHttt() == 2 }">
-                                    Chuyen khoan
+                                    Chuyển khoản
                                 </c:if>
                             </span>
                         </div>
@@ -67,16 +67,16 @@
                                     </div>
                                 </div>
                                 <div class=" col col-sm-3 quantity" style = "padding-top: 6px;">
-                                    <span  style = "color: #EE4D2D; font-size: 20px;">So Luong: </span>
+                                    <span  style = "color: #EE4D2D; font-size: 20px;">Số lượng: </span>
                                     <br>
                                     <span style = "margin-left: 40px;"> ${orderdetail.getSoLuong()}</span>
                                     <br>
-                                    <span style = "margin-left: 12px;">Con lai: </span>
+                                    <span style = "margin-left: 12px;">Còn lại: </span>
                                     <span > ${sanpham.getSoLuong()}</span>
                                 </div>
                                 <div class="col col-sm-2 price" style = "padding-top: 6px;">
                                     <!--Gia Thanh-->
-                                    <span style = "color: #EE4D2D; font-size: 20px;">Gia thanh:</span>
+                                    <span style = "color: #EE4D2D; font-size: 20px;">Thành tiền:</span>
                                     <span > ${sanpham.getGiaThanh()} VNÐ</span>
                                 </div>
                             </div>
@@ -99,17 +99,19 @@
                                                         </form>-->
                             <form action ="PheDuyetCXN" method ="POST"  style = "margin-top: 6px; ">
                                 <button type="submit" class="btn btn-success btn-lg btn-block" name = "checkOut"
-                                        style = "padding: 6px 8px;">Phe Duyet</button>
+                                        style = "padding: 6px 8px;">Phê duyệt</button>
                                 <input type ="text" hidden name ="OrderID" value ="${order.getOrderID()}"/>
                             </form>
                             <form action ="HuyCXN" method ="POST" id ="formhuydonhang${order.getOrderID()}"
                                   style = "margin-top: 6px;">
                                 <button type="submit" class="btn btn-success btn-lg btn-block"  name = "checkOut" onclick="huydonhang('${order.getOrderID()}')"
-                                        style = "padding: 6px 8px;">Huy Don Hang</button>
+                                        style = "padding: 6px 8px;">Hủy đơn hàng</button>
                                 <input type ="text" hidden name ="OrderID" value ="${order.getOrderID()}"/>
                                 <input type ="text" hidden name ="AccountID" value ="${order.getAccountID()}"/>
-                                <div id ="div_thongbao${order.getOrderID()}" style = "display: none; height: 50px; width: 80px;">
-                                    <input type = "text" id = "thongbao" name ="thongbao"/>
+                                <div id ="div_thongbao${order.getOrderID()}" style = "display: none; height: 60px; width: 80px;
+                                                                                                                            margin-top: 10px; margin-right: 10px">
+                                    <input type = "text" id = "thongbao" name ="thongbao"
+                                           style = "width: 150px"/>
                                 </div>
                             </form>
                         </div>

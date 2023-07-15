@@ -11,6 +11,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.Date;
 import logic.admin.LGadminOrder;
 
 /**
@@ -46,9 +47,15 @@ public class HuyCXN extends HttpServlet {
         
         String userID = request.getParameter("AccountID");
         
+        Date date = (LGAO.getOrderByID(Integer.parseInt(OrderID))).getOrderDate();
+        
+        String date_str = date.toString();
+        
         ThongBaoDAO TBdb = new ThongBaoDAO();
         
-        TBdb.insertNewThongBao(userID, thongbao);
+        
+        
+        TBdb.insertNewThongBao(userID, thongbao, date_str);
         
         response.sendRedirect("adOrderCXN");
     }

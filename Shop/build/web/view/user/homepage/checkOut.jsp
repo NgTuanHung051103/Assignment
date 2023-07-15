@@ -72,7 +72,7 @@
                         </div>
                     <!--SO DIEN THOAI-->        
                         <div class="form-group">
-                            <label for="SDTInput">So Dien Thoai: </label>
+                            <label for="SDTInput">Sdt: </label>
                             <input type="text" class="form-control" 
                                    id="SDTInput" name="SDTInput"
                                    value = "${user.getSDT()}">
@@ -90,7 +90,7 @@
                         </div>
                     <!--DIA CHI-->
                         <div class="form-group">
-                            <label for="DiaChiInput">Dia Chi:</label>
+                            <label for="DiaChiInput">Địa chỉ:</label>
                             <input type="text" class="form-control"
                                    id="DiaChiInput" name="DiaChiInput"
                                    value = "${user.getDiaChi()}">
@@ -109,15 +109,15 @@
                                 <div class="row">
                                     <div class="col-md-5 product-name">
                                         <div class="product-name">
-                                            <h4>Ten San Pham</h4>
+                                            <h4>Tên sản phẩm</h4>
                                         </div>
                                     </div>
                                     <div class="col-md-3 quantity">
-                                        <h4>So Luong</h4>
+                                        <h4>Số lượng</h4>
                                     </div>
                                     <div class="col-md-3 price">
                                         <!--Gia Thanh-->
-                                        <h4>Gia Thanh</h4>
+                                        <h4>Thành tiền</h4>
                                     </div>
                                 </div>
                             </div>
@@ -165,11 +165,11 @@
                     </div>
                     <div class="col-md-12 col-lg-4" style = "display:block; border: 1px solid #15b728; padding: 15px;">
                         <div class="form-group">
-                            <h3>Chi Tiet Thanh Toan</h3>
+                            <h3>Chi tiết thanh toán</h3>
                         </div>
                         ------------------------------------------------------
                         <div class="form-group">
-                            <label for="hinhthucthanhtoan">Chon hinh thuc thanh toan </label>
+                            <label for="hinhthucthanhtoan">Chọn hình thức thanh toán </label>
                             <div class="input-group">
                                 <select class="custom-select" id="hinhthucthanhtoan" name="hinhthucthanhtoan">
                                     <option value="1">Thanh toán truc tiep</option>
@@ -199,7 +199,7 @@
                        
                             <button type="submit" class="btn btn-success btn-lg btn-block" 
                                     onclick="validateForm()"
-                                    >Thanh Toan</button>
+                                    >Thanh Toán</button>
                              <input type = "text" value ="${total}" name = "TotalPrice" style ="display: none">
                         </form>
                     </div>

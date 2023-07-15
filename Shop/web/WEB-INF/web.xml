@@ -144,6 +144,18 @@
         <servlet-name>adOrderTLH</servlet-name>
         <servlet-class>controller.admin.OrderTLH.adOrderTLH</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>dieuhoa</servlet-name>
+        <servlet-class>controller.user.dieuhoa</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>tulanh</servlet-name>
+        <servlet-class>controller.user.tulanh</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>tivi</servlet-name>
+        <servlet-class>controller.user.tivi</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/list</url-pattern>
@@ -287,6 +299,18 @@
     <servlet-mapping>
         <servlet-name>adOrderTLH</servlet-name>
         <url-pattern>/adOrderTLH</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>dieuhoa</servlet-name>
+        <url-pattern>/dieuhoa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>tulanh</servlet-name>
+        <url-pattern>/tulanh</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>tivi</servlet-name>
+        <url-pattern>/tivi</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

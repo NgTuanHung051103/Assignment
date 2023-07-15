@@ -47,7 +47,11 @@ public class LGadminOrder {
         
 //        Vao table orderdetail lay masp va soluong
         ORDdb.updateSoLuongByMaSP(OrderID, calculate);
+    }
+    
+    public Order getOrderByID(int orderID){
+        OrderDAO ODdb = new OrderDAO();
         
-        
+        return ODdb.get_By_OrderID(orderID);
     }
 }

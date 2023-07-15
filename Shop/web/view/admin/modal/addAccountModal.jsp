@@ -38,7 +38,7 @@
                             
                             <!--Ten dang nhap-->
                             <div class="form-group">
-                                <label for="TkInput">Ten dang nhap: </label> <span class="requiredd">*</span>
+                                <label for="TkInput">Tên đăng nhập: </label> <span class="requiredd">*</span>
                                 <input type="text" class="form-control" id="TkInput" name="tk">
                                 <div id="TkError" class="error"></div>
                             </div>
@@ -52,7 +52,7 @@
 
                             <!--Category-->
                             <div class="form-group">
-                                <label for="categoryInput">Quyen su dung </label><span class="requiredd">*</span>
+                                <label for="categoryInput">Quyền hạn</label><span class="requiredd">*</span>
                                 <div class="input-group">
                                     <select class="custom-select" id="categoryInput" name="category">
                                          <option value="">Chọn một tùy chọn</option>
@@ -60,7 +60,7 @@
                                         <option value="2">Admin</option>
                                     </select>
                                     <div class="input-group-append">    
-                                        <button class="btn btn-outline-secondary" type="button">Chose</button>
+                                        <button class="btn btn-outline-secondary" type="button">Chọn</button>
                                     </div>
                                 </div>
                                 <div id="categoryError" class="error"></div>
@@ -84,7 +84,7 @@
 
                                 <!--Price-->
                                 <div class="form-group">
-                                    <label for="DiaChiInput">Dia Chi: </label>
+                                    <label for="DiaChiInput">Địa chỉ: </label>
                                     <input type="text" class="form-control" id="DiaChiInput" name="diachi">
                                     <div id="DiaChiError" class="error"></div>
                                 </div>
@@ -104,7 +104,7 @@
                                 </div>       
 
                                 <div class="form-group">
-                                    <label for="TuoiInput">Tuoi:  </label>
+                                    <label for="TuoiInput">Tuổi:  </label>
                                     <input type="text" class="form-control" id="TuoiInput" name="tuoi">
                                     <div id="TuoiError" class="error"></div>
                                 </div>          
@@ -113,8 +113,8 @@
                         </form>   
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary" form="addAccountForm" onclick="ValidateForm()">Add</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-primary" form="addAccountForm" onclick="ValidateForm()">Thêm</button>
                     </div>
                     
                 </div>

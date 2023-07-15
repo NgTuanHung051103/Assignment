@@ -30,16 +30,16 @@
                         <div  class = "col-8" style = "display: block; background-color: #FFFFFF;  height: 100%;
                                                                                 display: flex; ">
                             <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
-                                <span>Dia Chi: ${order.getAddress()}</span>
+                                <span>Địa chỉ: ${order.getAddress()}</span>
                             </div>
                             <div  class = "col-md-6" style = "display: block; background-color: #FFFFFF;">
                                 <span>
-                                    <c:if test = "${order.getHttt() == 1 }">
-                                        Thanh toan truc tiep
-                                    </c:if>
-                                     <c:if test = "${order.getHttt() == 2 }">
-                                        Chuyen khoan
-                                    </c:if>
+                                      <c:if test = "${order.getHttt() == 1 }">
+                                    Thanh toán trực tiếp
+                                </c:if>
+                                <c:if test = "${order.getHttt() == 2 }">
+                                    Chuyển khoản
+                                </c:if>
                                 </span>
                             </div>
                         </div>
@@ -67,14 +67,14 @@
                                     </div>
                                 </div>
                                 <div class=" col col-sm-3 quantity" style = "padding-top: 6px;">
-                                    <span  style = "color: #EE4D2D; font-size: 20px;">So Luong: </span>
+                                    <span  style = "color: #EE4D2D; font-size: 20px;">Số lượng: </span>
                                     <br>
                                     <span style = "margin-left: 40px;"> ${orderdetail.getSoLuong()}</span>
                                     <!--So Luong-->
                                 </div>
                                 <div class="col col-sm-2 price" style = "padding-top: 6px;">
                                     <!--Gia Thanh-->
-                                    <span style = "color: #EE4D2D; font-size: 20px;">Gia thanh:</span>
+                                    <span style = "color: #EE4D2D; font-size: 20px;">Thành tiền:</span>
                                     <span > ${sanpham.getGiaThanh()} VNÐ</span>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@
                 <div class="form-group">
                     <div class="col-xs-12" style = "display: block; background-color: #FFFEFB; height: 50px; margin-top:4px;margin-bottom: 10px"  >
                         <div class="float-left">
-                            <h3 style="color: #EE4D2D; margin: 12px 0px 10px 0px">Tong hoa don: ${total} VND</h3>
+                            <h3 style="color: #EE4D2D; margin: 12px 0px 10px 0px">Tổng hóa đơn: ${total} VND</h3>
                         </div>
                         <div class="float-right" style = "display: flex;justify-content: space-between; width: 400px; ">
                         </div>

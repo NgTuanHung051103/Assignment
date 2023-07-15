@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
+import static java.util.Collections.reverse;
 import java.util.HashMap;
 import logic.account.LGaccountUser;
 import logic.account.LGaccountOrder;
@@ -57,7 +58,9 @@ public class account extends HttpServlet {
 
 //      SET thông báo 
 
-        ArrayList<ThongBao> list_ThongBao = TBdb.getAllByAccountID(user.getID());
+        ArrayList<ThongBao> list_ThongBao =TBdb.getAllByAccountID(user.getID());
+        
+        reverse(list_ThongBao);
         
         request.setAttribute("list_ThongBao", list_ThongBao);
         

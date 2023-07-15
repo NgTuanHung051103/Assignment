@@ -8,11 +8,11 @@
 
 <head>
     <title>Bootstrap Example</title>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
     <!-- Css -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common/navbar.css">
 </head>
@@ -64,12 +64,12 @@
                 <div class="col-sm-9"> 
 
                     <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#Profile">Thong tin ca nhan</a></li>
-                        <li><a data-toggle="tab" href="#ThongBao">Th�ng b�o</a></li>
-                        <li><a data-toggle="tab" href="#ChoXacNhan">Cho Xac Nhan</a></li>
-                        <li><a data-toggle="tab" href="#DangGiao">�ang Giao</a></li>
-                        <li><a data-toggle="tab" href="#ThanhCong">Th�nh C�ng</a></li>
-                        <li><a data-toggle="tab" href="#DaGiaoDich">�� mua</a></li>
+                        <li class="active"><a data-toggle="tab" href="#Profile">Thông tin cá nhân</a></li>
+                        <li><a data-toggle="tab" href="#ThongBao">Thông báo</a></li>
+                        <li><a data-toggle="tab" href="#ChoXacNhan">Chờ xác nhận</a></li>
+                        <li><a data-toggle="tab" href="#DangGiao">Ðang Giao</a></li>
+                        <li><a data-toggle="tab" href="#ThanhCong">Thành Công</a></li>
+                        <li><a data-toggle="tab" href="#DaGiaoDich">Ðã mua</a></li>
                     </ul>
 
 
@@ -84,7 +84,7 @@
                                 <!--TEN:--> 
                                 <div class="form-group">
                                     <div class="col-xs-6">
-                                        <label for="first_name"><h4>Ten: </h4></label>
+                                        <label for="first_name"><h4>Tên:  </h4></label>
                                         <input type="text" class="form-control" 
                                                name="ten" id="first_name" 
                                                placeholder="first name" 
@@ -97,7 +97,7 @@
                             <!--SO DIEN THOAI:--> 
                             <div class="form-group">
                                 <div class="col-xs-6">
-                                    <label for="phone"><h4>So Dien Thoai: </h4></label>
+                                    <label for="phone"><h4>Số điện thoại: </h4></label>
                                     <input type="text" class="form-control" 
                                            name="phone" id="phone" 
                                            placeholder="enter phone" 
@@ -121,7 +121,7 @@
                             <!--DIA CHI:-->
                             <div class="form-group">
                                 <div class="col-xs-6">
-                                    <label for="email"><h4>Noi O: </h4></label>
+                                    <label for="email"><h4>Địa chỉ: </h4></label>
                                     <input type="email" class="form-control" 
                                            name = "diachi" 
                                            id = "location" 
@@ -134,7 +134,7 @@
                             <!--PASSWORD:--> 
                             <div class="form-group">
                                 <div class="col-xs-6">
-                                    <label for="password"><h4>Password</h4></label>
+                                    <label for="password"><h4>Mật khẩu</h4></label>
                                     <input type="password" class="form-control" 
                                            name="password" 
                                            id="password" 
@@ -157,19 +157,19 @@
                         <hr>
                     </div><!--/tab-pane-->
 
-                    <!--Th�ng b�o-->
+                    <!--Thông báo-->
                     <div class="tab-pane" id="ThongBao">
                         <c:forEach var = "thongbao" items = "${requestScope.list_ThongBao}">
-                          
-                            <div style="background-color: #b8daff; width: 500px; height: 200px;
-                                                margin: 30px;">
-                                              
-                                                ${thongbao.getThongbao()}
-                                
-                                
+
+                            <div style="background-color: #b8daff; max-width: 500px; max-height: 100px;
+                                 height: 50px;
+                                 margin: 30px; display: flex; justify-items: left">
+                                <span style = "margin: auto;">
+                                    ${thongbao.getThongbao()}
+                                </span> 
                             </div>
-                            
-                            </c:forEach>
+
+                        </c:forEach>
 
 
                     </div>
@@ -184,16 +184,25 @@
                             <c:set var = "total" value = "${0}"/>
                             <hr>
                             <div class="form-group" >
-                                <div class="col-xs-12" style = "display: block; background-color: #FFFFFF; height: 30px; margin-bottom: 4px;"  >
-                                    <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF; height: 100%;">
-                                        <!--                                        <span>Chua biet dien gi</span>-->
+                                <div class="col-xs-12" style = "display: block; background-color: #FFFFFF; height: 30px; margin-bottom: 4px;
+                                                    display: flex; align-items: center"  >
+                                    <div   class = "col-xs-6" style = "display: block; background-color: #FFFFFF;">
+                                        <span>Mã đơn hàng: ${order.getSDT()}   Ngày đặt hàng: ${order.getOrderDate()}</span>
                                     </div>
-                                    <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;  height: 100%;">
-                                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
-                                            <!--<span>Dang chuan bi hang</span>-->
+                                    <div  class = "col-xs-6" style = "display: block; background-color: #FFFFFF;
+                                          display: flex; ">
+                                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF; height: 100%;">
+                                            <span>Dia Chi: ${order.getAddress()}</span>
                                         </div>
-                                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
-                                            <!--<span>Van Chuyen</span>-->
+                                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;  height: 100%;">
+                                            <span>
+                                                <c:if test = "${order.getHttt() == 1 }">
+                                                    Thanh toán trực tiếp
+                                                </c:if>
+                                                <c:if test = "${order.getHttt() == 2 }">
+                                                    Chuyển khoản
+                                                </c:if>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -221,17 +230,17 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-3 quantity" style = "padding-top: 6px;">
-                                                <span  style = "color: #EE4D2D; font-size: 20px;">So Luong: </span>
+                                                <span  style = "color: #EE4D2D; font-size: 20px;">Số lượng: </span>
                                                 <br>
                                                 <span style = "margin-left: 40px;"> ${orderdetail.getSoLuong()}</span>
                                                 <br>
-                                                <span style = "margin-left: 12px;">Con lai: </span>
+                                                <span style = "margin-left: 12px;">Còn lại </span>
                                                 <span > ${sanpham.getSoLuong()}</span>
                                             </div>
                                             <div class="col-md-2 price" style = "padding-top: 6px;">
-                                                <!--Gia Thanh-->
-                                                <span style = "color: #EE4D2D; font-size: 20px;">Gia thanh:</span>
-                                                <span > ${sanpham.getGiaThanh()} VN�</span>
+                                                <!--Thành tiền-->
+                                                <span style = "color: #EE4D2D; font-size: 20px;">Thành tiền:</span>
+                                                <span > ${sanpham.getGiaThanh()} VNÐ</span>
                                             </div>
                                         </div>
                                     </div>
@@ -246,7 +255,7 @@
                                     <div class="float-right">
                                         <form action ="HuyDH" method ="POST" id ="checkOut" style = "margin-top: 6px;">
                                             <button type="submit" class="btn btn-success btn-lg btn-block" name = "checkOut"
-                                                    style = "padding: 6px 8px;">Huy Don Hang</button>
+                                                    style = "padding: 6px 8px;">Hủy đơn hàng</button>
                                             <input type="text" name ="OrderID" hidden value ="${order.getOrderID()}"></input>
                                         </form>
                                     </div>
@@ -299,15 +308,15 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-3 quantity" style = "padding-top: 6px;">
-                                                <span  style = "color: #EE4D2D; font-size: 20px;">So Luong: </span>
+                                                <span  style = "color: #EE4D2D; font-size: 20px;">Số lượng: </span>
                                                 <br>
                                                 <span style = "margin-left: 40px;"> ${orderdetail.getSoLuong()}</span>
-                                                <!--So Luong-->
+                                                <!--Số lượng-->
                                             </div>
                                             <div class="col-md-2 price" style = "padding-top: 6px;">
-                                                <!--Gia Thanh-->
-                                                <span style = "color: #EE4D2D; font-size: 20px;">Gia thanh:</span>
-                                                <span > ${orderdetail.getGiaThanh()} VN�</span>
+                                                <!--Thành tiền-->
+                                                <span style = "color: #EE4D2D; font-size: 20px;">Thành tiền:</span>
+                                                <span > ${orderdetail.getGiaThanh()} VNÐ</span>
                                             </div>
                                         </div>
                                     </div>
@@ -323,7 +332,7 @@
                                     <!--                                    <div class="float-right">
                                                                             <form action ="checkOut" method ="GET" id ="checkOut" style = "margin-top: 6px;">
                                                                                 <button type="button" class="btn btn-success btn-lg btn-block" name = "checkOut"
-                                                                                        style = "padding: 6px 8px;">Huy Don Hang</button>
+                                                                                        style = "padding: 6px 8px;">Hủy đơn hàng</button>
                                                                             </form>
                                                                         </div>-->
                                 </div>
@@ -374,15 +383,15 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-3 quantity" style = "padding-top: 6px;">
-                                                <span  style = "color: #EE4D2D; font-size: 20px;">So Luong: </span>
+                                                <span  style = "color: #EE4D2D; font-size: 20px;">Số lượng: </span>
                                                 <br>
                                                 <span style = "margin-left: 40px;"> ${orderdetail.getSoLuong()}</span>
-                                                <!--So Luong-->
+                                                <!--Số lượng-->
                                             </div>
                                             <div class="col-md-2 price" style = "padding-top: 6px;">
-                                                <!--Gia Thanh-->
-                                                <span style = "color: #EE4D2D; font-size: 20px;">Gia thanh:</span>
-                                                <span > ${orderdetail.getGiaThanh()} VN�</span>
+                                                <!--Thành tiền-->
+                                                <span style = "color: #EE4D2D; font-size: 20px;">Thành tiền:</span>
+                                                <span > ${orderdetail.getGiaThanh()} VNÐ</span>
                                             </div>
                                         </div>
                                     </div>
@@ -398,7 +407,7 @@
                                     <!--                                    <div class="float-right">
                                                                             <form action ="checkOut" method ="GET" id ="checkOut" style = "margin-top: 6px;">
                                                                                 <button type="button" class="btn btn-success btn-lg btn-block" name = "checkOut"
-                                                                                        style = "padding: 6px 8px;">Huy Don Hang</button>
+                                                                                        style = "padding: 6px 8px;">Hủy đơn hàng</button>
                                                                             </form>
                                                                         </div>-->
                                 </div>
@@ -449,15 +458,15 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-3 quantity" style = "padding-top: 6px;">
-                                                <span  style = "color: #EE4D2D; font-size: 20px;">So Luong: </span>
+                                                <span  style = "color: #EE4D2D; font-size: 20px;">Số lượng: </span>
                                                 <br>
                                                 <span style = "margin-left: 40px;"> ${orderdetail.getSoLuong()}</span>
-                                                <!--So Luong-->
+                                                <!--Số lượng-->
                                             </div>
                                             <div class="col-md-2 price" style = "padding-top: 6px;">
-                                                <!--Gia Thanh-->
-                                                <span style = "color: #EE4D2D; font-size: 20px;">Gia thanh:</span>
-                                                <span > ${orderdetail.getGiaThanh()} VN�</span>
+                                                <!--Thành tiền-->
+                                                <span style = "color: #EE4D2D; font-size: 20px;">Thành tiền:</span>
+                                                <span > ${orderdetail.getGiaThanh()} VNÐ</span>
                                             </div>
                                         </div>
                                     </div>
@@ -473,7 +482,7 @@
                                     <!--                                    <div class="float-right">
                                                                             <form action ="checkOut" method ="GET" id ="checkOut" style = "margin-top: 6px;">
                                                                                 <button type="button" class="btn btn-success btn-lg btn-block" name = "checkOut"
-                                                                                        style = "padding: 6px 8px;">Huy Don Hang</button>
+                                                                                        style = "padding: 6px 8px;">Hủy đơn hàng</button>
                                                                             </form>
                                                                         </div>-->
                                 </div>

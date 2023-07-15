@@ -28,16 +28,16 @@
                             </a>
                             <ul class = "navbar-left-products">
                                 <li class="nav-product">
-                                    <a href="${pageContext.request.contextPath}/view/user/homepage/quat.jsp" class = "nav-link" style="color: #1f2022;">Quat</a>
+                                    <a href="${pageContext.request.contextPath}/view/user/homepage/quat.jsp" class = "nav-link" style="color: #1f2022;">Quạt</a>
                                 </li>
                                 <li class="nav-product">
-                                    <a href="#" class = "nav-link" style="color: #1f2022;">Ti vi</a>
+                                    <a href="${pageContext.request.contextPath}/view/user/homepage/tivi.jsp" class = "nav-link" style="color: #1f2022;">Tivi</a>
                                 </li>
                                 <li class="nav-product">
-                                    <a href="#" class = "nav-link"style="color: #1f2022;" >Dieu hoa</a>
+                                    <a href="${pageContext.request.contextPath}/view/user/homepage/dieuhoa.jsp" class = "nav-link"style="color: #1f2022;" >Điều Hòa</a>
                                 </li>
                                 <li class="nav-product">
-                                    <a href="#" class = "nav-link" style="color: #1f2022;">Tu lanh</a>
+                                    <a href="${pageContext.request.contextPath}/view/user/homepage/tulanh.jsp" class = "nav-link" style="color: #1f2022;">Tủ Lạnh</a>
                                 </li>
                             </ul>
 

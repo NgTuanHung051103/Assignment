@@ -4,6 +4,7 @@
  */
 package dal;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -50,7 +51,7 @@ public class ThongBaoDAO {
 //    them thong bao moi 
 //    INPUT: userID, thongbao: noi dung
 //    OUTPUT: null
-    public void insertNewThongBao(String userID, String thongbao) {
+    public void insertNewThongBao(String userID, String thongbao, String date) {
         try {
             String sql = "INSERT INTO [dbo].[ThongBao]\n"
                     + "           ([userID]\n"
@@ -60,7 +61,7 @@ public class ThongBaoDAO {
                     + "           ,?)";
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
             statement.setString(1, userID);
-            statement.setString(2, thongbao);
+            statement.setString(2, "Don hang dat ngay "+date+" da bi huy vi ly do: "+"\n"+thongbao);
             statement.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Loi o ThongBaoDAO 1");

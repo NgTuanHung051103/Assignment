@@ -73,6 +73,25 @@ public class OrderDAO {
         return List_Orders;
     }
 
+    public Order get_By_OrderID(int orderID) {
+          ArrayList<Order> List_Orders = new ArrayList<>();
+        try {
+            String sql = "Select * From Orders Where OrderID = ?";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            statement.setInt(1, orderID);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Order o = new Order(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getInt(10));
+                List_Orders.add(o);
+                return List_Orders.get(0);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }return null;
+    }
+
 //    ---------------Insert-------------------
 //        Insert new order
 //        INPUT: object order full thong tin
@@ -123,7 +142,7 @@ public class OrderDAO {
     }
 
 //    ---------------Update-------------------
-    public void duyet(String OrderID,int status) {
+    public void duyet(String OrderID, int status) {
         try {
             String sql = "UPDATE [dbo].[Orders]\n"
                     + "   SET [Status] = ?\n"
@@ -142,5 +161,4 @@ public class OrderDAO {
     }
 
 //    ---------------Delete-------------------
-
 }

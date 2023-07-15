@@ -29,52 +29,9 @@
 
             <div style="margin-top: 40px;"></div>
 
-        <c:set var ="loat_quat" value = "${requestScope.loai_quat}"/> 
-        <c:set var ="thuong_hieu" value = "${requestScope.thuong_hieu}"/>
-        <c:set var ="so_canh_quat" value = "${requestScope.so_canh_quat}"/>
-        <c:set var ="gia" value = "${requestScope.gia}"/>
-
-        <form action ="${pageContext.request.contextPath}/quat" method ="GET">
-            <ul class ="filter-property" style="list-style: none;">
-                <li class ="filter-property-list"> 
-                    <select name = "loai_quat" id="filter-color" >
-                        <option value="all"  ${loai_quat.equalsIgnoreCase("all")?'selected':''}>Tất cả</option>
-                        <option value="treo"  ${loai_quat.equalsIgnoreCase("treo")?'selected':''}>Quạt treo tường</option>
-                        <option value= "đứng"  ${loai_quat.equalsIgnoreCase("đứng")?'selected':''}>Quạt đứng</option>
-                        <option value="trần"  ${loai_quat.equalsIgnoreCase("trần")?'selected':''}>Quạt trần</option>
-                    </select>
-                </li> 
-                <li class ="filter-property-list">
-                    <select name = "thuong_hieu" id="filter-size" >
-                        <option value="1"  ${thuong_hieu==1?'selected':''}>Tất cả</option>
-                        <option value="2"  ${thuong_hieu==2?'selected':''}>Senko</option>
-                        <option value="3" ${thuong_hieu==3?'selected':''}>Asia</option>
-                        <option value="4"  ${thuong_hieu==4?'selected':''}>KDK</option>
-                    </select>
-                </li>
-                <li class ="filter-property-list"> 
-                    <select name ="so_canh_quat" id="filter-gender">
-                        <option value="1" ${so_canh_quat==1?'selected':''}>Tất cả</option>
-                        <option value="2" ${so_canh_quat==2?'selected':''}>3 cánh</option>
-                        <option value="3" ${so_canh_quat==3?'selected':''}>4 cánh</option>
-                        <option value="4" ${so_canh_quat==4?'selected':''}>5 cánh</option>
-                        <option value="5" ${so_canh_quat==5?'selected':''}>6 cánh</option>
-                    </select>
-                </li>
-                <li class ="filter-property-list">
-                    <select name ="gia" id="filter-price">
-                        <option value="1" ${gia==1?'selected':''}>Tất cả</option>
-                        <option value="2" ${gia==2?'selected':''}>Dưới 300k</option>
-                        <option value="3" ${gia==3?'selected':''}>300k-500k</option>
-                        <option value="4" ${gia==4?'selected':''}>500k-1000k</option>
-                        <option value="5" ${gia==5?'selected':''}>Tren 1000k</option>
-                    </select>
-                </li>
-            </ul>
-            <div>
-                <button class="submit-filter">Tim Kiem</button>
+            <form action ="${pageContext.request.contextPath}/dieuhoa" method ="GET">
+            <button class="submit-filter">Tìm kiếm</button>
         </form>
-
         <!--Product-->
         <div class="container" style ="margin-top: 20px;">
             <!--hien thi noi dung san pham-->
@@ -102,10 +59,11 @@
                 </div>
 
                 <!--paginatio: danh so trang-->
-                <div class ="paginationOfProduct">
+                
+                  <div class ="paginationOfProduct" style = "display: flex; justify-content: center;">
                     <c:set var = "pageNow" value = "${requestScope.pageNow}"/>
                     <c:forEach begin ="${1}" end = "${requestScope.numPage}" var = "i">
-                        <a class = "${ i == pageNow?"active":""}"  href="quat?pageNow=${i}&loai_quat=${loai_quat}&thuong_hieu=${thuong_hieu}&so_canh_quat=${so_canh_quat}&gia=${gia}">${i}</a>
+                        <a class = "${i==pageNow?"active":""}"  href="dieuhoa?pageNow=${i}">${i}</a>
                     </c:forEach>
                 </div>
             </div>

@@ -25,12 +25,12 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Name</th>
-                                <th>Image</th>
-                                 <th>Brand</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Action</th>
+                                <th>Tên</th>
+                                <th>Ảnh</th>
+                                 <th>Thương hiệu</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Chức năng</th>
                             </tr>
                         </thead>
                         <tbody>
