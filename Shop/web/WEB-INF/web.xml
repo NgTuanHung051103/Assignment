@@ -160,6 +160,14 @@
         <servlet-name>editNewSanPham</servlet-name>
         <servlet-class>controller.admin.SanPham.editNewSanPham</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>viewAllOrders</servlet-name>
+        <servlet-class>controller.admin.Order.viewAllOrders</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>editOrder</servlet-name>
+        <servlet-class>controller.admin.Order.editOrder</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/list</url-pattern>
@@ -319,6 +327,14 @@
     <servlet-mapping>
         <servlet-name>editNewSanPham</servlet-name>
         <url-pattern>/editNewSanPham</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>viewAllOrders</servlet-name>
+        <url-pattern>/viewAllOrders</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editOrder</servlet-name>
+        <url-pattern>/editOrder</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

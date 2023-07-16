@@ -29,7 +29,7 @@ public class PheDuyetCXN extends HttpServlet {
             throws ServletException, IOException {
         
 //        Nhan OrderID tu jsp
-        String OrderID = request.getParameter("OrderID");
+        int OrderID = Integer.parseInt(request.getParameter("OrderID"));
             
 //         Chuyen den ship hang 
             LGadminOrder LGAO = new LGadminOrder();

@@ -30,7 +30,7 @@ public class HuyCXN extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 //        Nhan OrderID tu jsp
-        String OrderID = request.getParameter("OrderID");
+         int OrderID = Integer.parseInt(request.getParameter("OrderID"));
         
 //        Goi LG
         LGadminOrder LGAO = new LGadminOrder();
@@ -47,7 +47,7 @@ public class HuyCXN extends HttpServlet {
         
         String userID = request.getParameter("AccountID");
         
-        Date date = (LGAO.getOrderByID(Integer.parseInt(OrderID))).getOrderDate();
+        Date date = (LGAO.getOrderByID(OrderID)).getOrderDate();
         
         String date_str = date.toString();
         

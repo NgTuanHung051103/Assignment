@@ -1,7 +1,7 @@
 <%-- 
-    Document   : login
-    Created on : 05/06/2023, 7:55:15 AM
-    Author     : NgTua
+    Document   : newlogin
+    Created on : Jul 16, 2023, 12:32:04 PM
+    Author     : ptkng
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,119 +11,73 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
 
-        <!-- Bootrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-        
         <!-- Css -->
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/user/homepage/login.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/user/homepage/newlogin.css">
+        <<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
 
     </head>
     <body>
-        <div class="formLoginSignUp">
-            <form action="${pageContext.request.contextPath}/signupServlet" method="POST" class="form" id="form-1">
-                <h3 class="heading">Đăng ký</h3>
-                <p class="desc">Cùng vui nào ❤️</p>
-                <p class="desc">${requestScope.messSignUp}</p>
-                <div class="spacer"></div>
+        <div class ="row">
+            <div class="col-md-6 mx-auto p-0">
+                <div class="card">
+                    <div class="login-box">
+                        <span style ="display:flex; justify-content: center; font-size: 20px; color: red">${requestScope.messLogin}</span>
+                        <div class="login-snip">
+                            
+                            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label>
+                            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                            <div class="login-space">
+                                <div class="login">
+                                    <form action="${pageContext.request.contextPath}/loginServlet" method="POST">
+                                        <div class="group">
+                                            <label for="user" class="label">Tên dang nhap</label>
+                                            <input id="user" name = "fullname_Login" type="text" class="input"  placeholder="VD: NgTuanHung">
+                                            <span class="form-message"></span>
 
-                <div class="form-group">
-                    <label for="fullname" class="form-label">Tên đăng nhập</label>
-                    <input id="fullname" name="fullname" type="text" placeholder="VD: NgTuanHung" class="form-control">
-                    <span class="form-message"></span>
+                                        </div>
+                                        <div class="group">
+                                            <label for="pass" class="label">Mật khẩu</label>
+                                            <input id="pass"  name="password_Login" type="password" class="input" data-type="password" placeholder="Nhập mật khẩu">
+                                            <span class="form-message"></span>
+                                        </div>
+                                        <div class="group">
+                                            <input type="submit" class="button" value="Đăng nhập">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="sign-up-form">
+                                    <form action="${pageContext.request.contextPath}/signupServlet" method="POST">
+                                    <div class="group">
+                                        <label for="user" class="label">Tên đăng nhập</label>
+                                        <input id="user" name="fullname"type="text" class="input" placeholder="VD: NgTuanHung">
+                                        <span class="form-message"></span>
+                                    </div>
+                                    
+                                    <div class="group">
+                                        <label for="pass" class="label">Mật khẩu</label>
+                                        <input id="pass" name="password" type="password" class="input" data-type="password" placeholder="Nhập mật khẩu">
+                                    </div>
+                                    <div class="group">
+                                        <label for="pass" class="label">Nhập lại mật khẩu</label>
+                                        <input id="pass" type="password" name="password_confirmation" class="input" data-type="password" placeholder="Nhập lại mật khẩu" >
+                                    </div>
+                                    <div class="group">
+                                        <input type="submit" class="button" value="Đăng ký">
+                                    </div>
+                                    <div class="hr"></div>
+                                    <div class="foot">
+                                        <label for="tab-1">đã có tài khoản</label>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>   
                 </div>
-
-                <!-- <div class="form-group">
-                    <label for="email" class="form-label">Email</label>
-                    <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
-                    <span class="form-message"></span>
-                </div> -->
-
-                <div class="form-group">
-                    <label for="password" class="form-label">Mật khẩu</label>
-                    <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
-                    <span class="form-message"></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
-                    <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
-                    <span class="form-message"></span>
-                </div>
-
-                <button class="form-submit">Đăng ký</button>
-            </form>
-
-            <form action="${pageContext.request.contextPath}/loginServlet" method="POST" class="form" id="form-2">
-                <h3 class="heading">Đăng nhập</h3>
-                <!--<p class="desc">Cùng vui nào ❤️</p>-->
-                 <p class="desc">${mess}</p>
-                <div class="spacer"></div>
-
-                <!-- <div class="form-group">
-                    <label for="email" class="form-label">Email</label>
-                    <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
-                    <span class="form-message"></span>
-                </div> -->
-
-                
-                    <!-- form dang nham-->
-                <div class="form-group">
-                    <label for="fullname_Login" class="form-label">Tên dang nhap</label>
-                    <input id="fullname" name="fullname_Login" type="text" placeholder="VD: NgTuanHung" class="form-control">
-                    <span class="form-message"></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="password_Login" class="form-label">Mật khẩu</label>
-                    <input id="password" name="password_Login" type="password" placeholder="Nhập mật khẩu" class="form-control">
-                    <span class="form-message"></span>
-                </div>
-
-                <button class="form-submit">Đăng nhập</button>
-            </form>
-
+            </div>
         </div>
 
-        <script src="${pageContext.request.contextPath}/javascript/user/homepage/validate.js"></script>
-        <script>
-        
-            document.addEventListener('DOMContentLoaded', function () {
-                // Mong muốn của chúng ta
-                Validator({
-                    form: '#form-1',
-                    formGroupSelector: '.form-group',
-                    errorSelector: '.form-message',
-                    rules: [
-                        Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ của bạn'),
-                        // Validator.isEmail('#email'),
-                        Validator.minLength('#password', 1),
-                        Validator.isRequired('#password_confirmation'),
-                        Validator.isConfirmed('#password_confirmation', function () {
-                            return document.querySelector('#form-1 #password').value;
-                        }, 'Mật khẩu nhập lại không chính xác')
-                    ],
-//                    khi dung thi xoa di
-//                    onSubmit: function (data) {
-//                        // Call API
-//                        console.log(data);
-//                    }
-                });
-
-
-                Validator({
-                    form: '#form-2',
-                    formGroupSelector: '.form-group',
-                    errorSelector: '.form-message',
-                    rules: [
-                        // Validator.isEmail('#email'),
-                        Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ của bạn'),
-                        Validator.minLength('#password', 1),
-                    ],
-                    
-                });
-            });
-
-        </script>
     </body>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </html>

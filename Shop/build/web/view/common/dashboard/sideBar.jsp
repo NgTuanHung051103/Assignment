@@ -26,7 +26,13 @@
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Account</span></a>
             </li>
-
+            
+            <li class="nav-item">
+                <a class="nav-link" href="transition?transition=8">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>View all orders</span></a>
+            </li>
+            
             <li class="nav-item">
                 <button id="trangthai" onclick = "display()">
                     <span>Trang thai</span>

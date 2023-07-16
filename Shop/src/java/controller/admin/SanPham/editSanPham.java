@@ -38,7 +38,7 @@ public class editSanPham extends HttpServlet {
         int GiaThanh = Integer.parseInt(request.getParameter("priceEdit"));
         int SoLuong = Integer.parseInt(request.getParameter("quantityEdit"));
         int MaNhom = Integer.parseInt(request.getParameter("categoryEdit"));
-
+        
         Part part = request.getPart("imageEdit");
 
         try {
@@ -101,24 +101,24 @@ public class editSanPham extends HttpServlet {
                     String CongNgheBaoQuanThucPhamEdit = request.getParameter("CongNgheBaoQuanThucPhamEdit");
                     String KichThuocKhoiLuong3Edit = request.getParameter("KichThuocKhoiLuong3Edit");
                     String TienIch3Edit = request.getParameter("TienIch3Edit");
-                    
-                    lgUpdate.updateTSKTTuLanh(MaSP, KieuTuEdit ,DungTichEdit,CongNgheTietKiemDien3Edit,
+
+                    lgUpdate.updateTSKTTuLanh(MaSP, KieuTuEdit, DungTichEdit, CongNgheTietKiemDien3Edit,
                             CongNgheLamLanhEdit, CongNgheKhangKhuanKhuMuiEdit, CongNgheBaoQuanThucPhamEdit,
                             KichThuocKhoiLuong3Edit, TienIch3Edit);
-                    
+
                     break;
                 case 4:
                     String LoaiTVEdit = request.getParameter("LoaiTVEdit");
-                     String UngDungEdit = request.getParameter("UngDungEdit");
-                      String CongNgheHinhAnhEdit = request.getParameter("CongNgheHinhAnhEdit");
-                       String DieuKhienBangGiongNoiEdit = request.getParameter("DieuKhienBangGiongNoiEdit");
-                        String RemoteThongMinhEdit = request.getParameter("RemoteThongMinhEdit");
-                         String PhanChieuEdit = request.getParameter("PhanChieuEdit");
-                          String KichThuocEdit = request.getParameter("KichThuocEdit");
-                       
-                          lgUpdate.updateTSKTTivi(MaSP,LoaiTVEdit, UngDungEdit,  CongNgheHinhAnhEdit,
-                                 DieuKhienBangGiongNoiEdit,  RemoteThongMinhEdit,  PhanChieuEdit, KichThuocEdit);
-                          
+                    String UngDungEdit = request.getParameter("UngDungEdit");
+                    String CongNgheHinhAnhEdit = request.getParameter("CongNgheHinhAnhEdit");
+                    String DieuKhienBangGiongNoiEdit = request.getParameter("DieuKhienBangGiongNoiEdit");
+                    String RemoteThongMinhEdit = request.getParameter("RemoteThongMinhEdit");
+                    String PhanChieuEdit = request.getParameter("PhanChieuEdit");
+                    String KichThuocEdit = request.getParameter("KichThuocEdit");
+
+                    lgUpdate.updateTSKTTivi(MaSP, LoaiTVEdit, UngDungEdit, CongNgheHinhAnhEdit,
+                            DieuKhienBangGiongNoiEdit, RemoteThongMinhEdit, PhanChieuEdit, KichThuocEdit);
+
                     break;
 
             }

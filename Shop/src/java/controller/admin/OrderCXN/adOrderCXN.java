@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
+import static java.util.Collections.reverse;
 import java.util.HashMap;
 import logic.account.LGaccountOrder;
 import logic.account.LGaccountOrderDetail;
@@ -37,7 +38,7 @@ public class adOrderCXN extends HttpServlet {
         OrderDAO ODdb = new OrderDAO();
         
         ArrayList<Order> list_orderCXN = ODdb.getAllByStatus(1);
-        
+        reverse(list_orderCXN);
        request.setAttribute("list_orderCXN", list_orderCXN);
         
 //        Lay tat ca orderdetail theo list order tren 
@@ -45,6 +46,7 @@ public class adOrderCXN extends HttpServlet {
         
         ArrayList<OrderDetail> list_order_detailCXN = LGAO.get_OrderDetail_By_OrderID(list_orderCXN);
         
+        reverse(list_order_detailCXN);
         request.setAttribute("list_order_detailCXN", list_order_detailCXN);
        
 //      -- Lay thong tin san pham: ( giong account.java )

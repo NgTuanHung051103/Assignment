@@ -33,7 +33,7 @@ public class LGadminOrder {
 
     }
 
-    public void duyet(String OrderID, int status) {
+    public void duyet(int OrderID, int status) {
             OrderDAO ORdb = new OrderDAO();
             
 //          status: 2 : dang ship
@@ -41,8 +41,8 @@ public class LGadminOrder {
             ORdb.duyet(OrderID, status);
             
     }
-
-    public void updateSoLuong(String OrderID, int calculate) {
+//1 giam 2 tang
+    public void updateSoLuong(int OrderID, int calculate) {
         OrderDetailDAO ORDdb = new OrderDetailDAO();
         
 //        Vao table orderdetail lay masp va soluong

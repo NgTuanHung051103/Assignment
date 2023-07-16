@@ -36,6 +36,19 @@
                         <tbody>
                             <c:forEach items = "${listSP}" var = "sp">
                                 <tr>
+                                     <!--lay thong tin san pham qua hashmap-->
+                                     <c:if test="${sp.getNhomSP() == 1}">
+                                        <c:set var = "tskt" value = "${hashmapTSKTQuat[sp.getMaSP()]}"/>
+                                     </c:if>
+                                      <c:if test="${sp.getNhomSP() == 2}">
+                                        <c:set var = "tskt" value = "${hashmapTSKTDieuHoa[sp.getMaSP()]}"/>
+                                     </c:if>
+                                      <c:if test="${sp.getNhomSP() == 3}">
+                                        <c:set var = "tskt" value = "${hashmapTSKTTuLanh[sp.getMaSP()]}"/>
+                                     </c:if>
+                                      <c:if test="${sp.getNhomSP() == 4}">
+                                        <c:set var = "tskt" value = "${hashmapTSKTTivi[sp.getMaSP()]}"/>
+                                     </c:if>
                                      <td>${sp.getMaSP()}</td>
                                      <td>${sp.getTenSP()}</td>
                                     <td><img class="card-img-top" style=" width: 125px;" src="${sp.getImg()}" alt="Card image cap"></td>
@@ -46,7 +59,8 @@
                                     <td style="text-align:center"> 
                                         <i class="fa fa-edit" data-toggle="modal" data-target="#editProductModal" 
                                            onclick="editProductModal(
-                                           ${sp.getMaSP()}, `${sp.getTenSP()}`, `${sp.getThuongHieu()}`,${sp.getGiaThanh()} ,${sp.getSoLuong()}, `${sp.getImg()}`,${sp.getNhomSP()})"></i>
+                                           ${sp.getMaSP()}, `${sp.getTenSP()}`, `${sp.getThuongHieu()}`,${sp.getGiaThanh()} ,${sp.getSoLuong()}, `${sp.getImg()}`,${sp.getNhomSP()}, `${tskt}`)
+                                           "></i>
                                         &nbsp;&nbsp;
                                         <!--Delete-->
                                         <i class="fa fa-trash" data-toggle="modal" data-target="#delete-modal" onclick="deleteProductModal(${sp.getMaSP()}, ${sp.getNhomSP()})"></i>  
@@ -55,6 +69,7 @@
                             </c:forEach>
                         </tbody>
                     </table>
+                   
         </div>
         </div>
                <jsp:include page="../modal/editProductModal.jsp"></jsp:include>
@@ -64,5 +79,7 @@
          
                  
     </body>
+    <script>
+        </script>
 
 </html>

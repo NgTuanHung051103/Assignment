@@ -50,12 +50,12 @@ public class OrderDetailDAO {
     }
  
 
-     public void updateSoLuongByMaSP(String OrderID, int calculate) {
+     public void updateSoLuongByMaSP(int OrderID, int calculate) {
          
             try {
                 String sql = "Select MaSP, SoLuong  From OrderDetail Where OrderID = ? ";
                 PreparedStatement statement = conn.getConnection().prepareStatement(sql);
-                statement.setString(1, OrderID);
+                statement.setInt(1, OrderID);
                 ResultSet rs = statement.executeQuery();
                 while (rs.next()) {
                     SanPhamDAO SPdb = new SanPhamDAO();

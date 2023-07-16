@@ -89,11 +89,12 @@ public class tsktDAO {
         try {
 
             String sql = "Select * From TSKTTuLanh Where MaSP = ?";
-            TSKT_TuLanh result = new TSKT_TuLanh();
+      
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
             statement.setInt(1, MaSP);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
+                      TSKT_TuLanh result = new TSKT_TuLanh();
                 result.setMaSP(rs.getInt(1));
                 result.setKieuTu(rs.getString(2));
                 result.setDungTich(rs.getString(3));
@@ -119,11 +120,12 @@ public class tsktDAO {
         try {
 
             String sql = "Select * From TSKTTivi Where MaSP = ?";
-            TSKT_Tivi result = new TSKT_Tivi();
+          
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
             statement.setInt(1, MaSP);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
+                  TSKT_Tivi result = new TSKT_Tivi();
                 result.setMaSP(rs.getInt(1));
                 result.setLoaiTV(rs.getString(2));
                 result.setUngDung(rs.getString(3));
@@ -148,10 +150,11 @@ public class tsktDAO {
         try {
 
             String sql = "Select * From TSKTQuat";
-            TSKT_Quat result = new TSKT_Quat();
+          
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
+                  TSKT_Quat result = new TSKT_Quat();
                 result.setMaSP(rs.getInt("MaSP"));
                 result.setLoaiQuat(rs.getString("LoaiQuat"));
                 result.setDuongKinhQuat(rs.getString("DuongKinhQuat"));
@@ -176,10 +179,11 @@ public class tsktDAO {
         try {
 
             String sql = "Select * From TSKTDieuHoa ";
-            TSKT_DieuHoa result = new TSKT_DieuHoa();
+           
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
+                 TSKT_DieuHoa result = new TSKT_DieuHoa();
                 result.setMaSP(rs.getInt(1));
                 result.setLoaiMay(rs.getString(2));
                 result.setCongSuat(rs.getString(3));
@@ -206,10 +210,11 @@ public class tsktDAO {
         try {
 
             String sql = "Select * From TSKTTuLanh ";
-            TSKT_TuLanh result = new TSKT_TuLanh();
+           
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
+                 TSKT_TuLanh result = new TSKT_TuLanh();
                 result.setMaSP(rs.getInt(1));
                 result.setKieuTu(rs.getString(2));
                 result.setDungTich(rs.getString(3));
@@ -235,10 +240,10 @@ public class tsktDAO {
         try {
 
             String sql = "Select * From TSKTTivi ";
-            TSKT_Tivi result = new TSKT_Tivi();
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
+                TSKT_Tivi result = new TSKT_Tivi();
                 result.setMaSP(rs.getInt(1));
                 result.setLoaiTV(rs.getString(2));
                 result.setUngDung(rs.getString(3));

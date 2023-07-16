@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
+import static java.util.Collections.reverse;
 import java.util.HashMap;
 import logic.account.LGaccountSanPham;
 import logic.admin.LGadminOrder;
@@ -33,14 +34,14 @@ public class adOrderDGD extends HttpServlet {
         OrderDAO ODdb = new OrderDAO();
 
         ArrayList<Order> list_orderDGD = ODdb.getAllByStatus(4);
-
+        reverse(list_orderDGD);
         request.setAttribute("list_orderDGD", list_orderDGD);
 
 //        Lay tat ca orderdetail theo list order tren 
         LGadminOrder LGAO = new LGadminOrder();
 
         ArrayList<OrderDetail> list_order_detailDGD = LGAO.get_OrderDetail_By_OrderID(list_orderDGD);
-
+        reverse(list_order_detailDGD);
         request.setAttribute("list_order_detailDGD", list_order_detailDGD);
 
 //      -- Lay thong tin san pham: ( giong account.java )

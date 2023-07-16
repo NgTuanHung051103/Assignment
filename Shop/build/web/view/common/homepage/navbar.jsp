@@ -62,6 +62,9 @@
                                             <i class="fa fa-user-o logined" ></i>
                                             <div class="dropdown-content">
                                                 <a href="${pageContext.request.contextPath}/account">Tài Khoản</a>
+                                                 <c:if test = "${sessionScope.isAdmin == 2}">
+                                                     <a href="${pageContext.request.contextPath}/listAdmin">Quản lý</a>
+                                                 </c:if>
                                                 <a href="${pageContext.request.contextPath}/logoutServlet">Đăng Xuất</a>
                                             </div>
                                         </div>  
@@ -73,6 +76,7 @@
                                             <i class="fa fa-user-o"  style="margin: auto 12px auto 16px;" > </i> 
                                         </a>
                                     </c:if>
+                                   
                                 </li>    
                                 <li class="nav-info">
                                     <a href="" class = "nav-link" style="color: #1f2022;">

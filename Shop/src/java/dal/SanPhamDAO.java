@@ -296,8 +296,8 @@ public class SanPhamDAO {
             statement.setString(2, ThuongHieu);
             statement.setString(3, Img);
             statement.setInt(4, GiaThanh);
-            statement.setInt(5, SoLuong);
-            statement.setInt(6, NhomSP);
+            statement.setInt(5, NhomSP);    
+            statement.setInt(6, SoLuong);
             statement.setInt(7, MaSP);
 
             statement.executeUpdate();

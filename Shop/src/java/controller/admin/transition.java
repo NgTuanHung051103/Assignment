@@ -46,6 +46,9 @@ public class transition extends HttpServlet {
             case 7: 
                 response.sendRedirect("adOrderTLH");
                 break;
+            case 8:
+                response.sendRedirect("viewAllOrders");
+                break;
         }
     }
     

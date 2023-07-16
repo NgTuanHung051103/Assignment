@@ -142,14 +142,14 @@ public class OrderDAO {
     }
 
 //    ---------------Update-------------------
-    public void duyet(String OrderID, int status) {
+    public void duyet(int OrderID, int status) {
         try {
             String sql = "UPDATE [dbo].[Orders]\n"
                     + "   SET [Status] = ?\n"
                     + " WHERE OrderID = ?";
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
             statement.setInt(1, status);
-            statement.setString(2, OrderID);
+            statement.setInt(2, OrderID);
             statement.executeUpdate();
 
         } catch (SQLException ex) {
@@ -159,6 +159,27 @@ public class OrderDAO {
         }
 
     }
+    
+    public void setByAdmin(int OrderID, String diachi, String sdt) {
+          try {
+            String sql = "UPDATE [dbo].[Orders]\n"
+                    + "   SET [Address] = ?,"
+                    + "         [SDT] = ?\n"
+                    + " WHERE OrderID = ?";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            statement.setString(1, diachi);
+            statement.setString(2, sdt);
+             statement.setInt(3, OrderID);
+            statement.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 //    ---------------Delete-------------------
+
+    
 }

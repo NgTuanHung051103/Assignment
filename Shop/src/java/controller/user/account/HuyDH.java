@@ -26,9 +26,7 @@ public class HuyDH extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String OrderID = request.getParameter("OrderID");
-        
-        System.out.println(OrderID);
+        int OrderID  = Integer.parseInt(request.getParameter("OrderID"));
 //        Goi LG
         LGadminOrder LGAO = new LGadminOrder();
       

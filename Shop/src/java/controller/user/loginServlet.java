@@ -56,6 +56,9 @@ public class loginServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("loginedAccount", Tk);
                 
+//                hien thi manage khi la admin:
+                session.setAttribute("isAdmin", isAdmin);
+                
                 if(isAdmin == 1)
                     response.sendRedirect("list");
                 else if(isAdmin == 2)
@@ -64,13 +67,13 @@ public class loginServlet extends HttpServlet {
                 
 //          Chua ton tai tai khoan
             case 1:
-                request.setAttribute("messLogin", "Tài kho?n không t?n t?i");
+                request.setAttribute("messLogin", "Tài khoản đã tồn tại");
                 request.getRequestDispatcher("/view/user/homepage/login.jsp").forward(request, response);
                 break;
                 
 //          Sai mat khau      
             case 2:
-                request.setAttribute("messLogin", "Sai m?t kh?u");
+                request.setAttribute("messLogin", "Sai mật khẩu");
                 request.getRequestDispatcher("/view/user/homepage/login.jsp").forward(request, response);
                 break;
         }
