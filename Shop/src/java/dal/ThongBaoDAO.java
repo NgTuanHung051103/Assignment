@@ -61,7 +61,7 @@ public class ThongBaoDAO {
                     + "           ,?)";
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
             statement.setString(1, userID);
-            statement.setString(2, "Don hang dat ngay "+date+" da bi huy vi ly do: "+"\n"+thongbao);
+            statement.setString(2, "Đơn hàng đặt ngày "+date+" đã bị hủy vì lý do: "+"\n"+thongbao);
             statement.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Loi o ThongBaoDAO 1");

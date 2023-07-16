@@ -46,6 +46,7 @@ public class loginServlet extends HttpServlet {
 //                get Cart
                 String txtCart = login.getTxtCart(Tk) ;
 
+                int isAdmin = login.get_Info_User_Login(Tk).getIsAdmin();
 //                set Cookie Cart
                 Cookie txt_cart = new Cookie("txt_cart", txtCart);
                 txt_cart.setMaxAge( 60 * 30 );
@@ -54,8 +55,11 @@ public class loginServlet extends HttpServlet {
 //               Set session de truyen toi trang home
                 HttpSession session = request.getSession();
                 session.setAttribute("loginedAccount", Tk);
-
-                response.sendRedirect("list");
+                
+                if(isAdmin == 1)
+                    response.sendRedirect("list");
+                else if(isAdmin == 2)
+                    response.sendRedirect("listAdmin");
                 break;
                 
 //          Chua ton tai tai khoan

@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="3">
         <file>
+            <url>src/java/logic/admin/LGadminAddProduct.java</url>
+            <bookmark id="3">
+                <name/>
+                <line>22</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
             <url>web/view/common/navbar.jsp</url>
             <bookmark id="2">
                 <name/>
@@ -17,24 +25,12 @@
                 <key/>
             </bookmark>
         </file>
-        <file>
-            <url>src/java/logic/admin/LGadminAddProduct.java</url>
-            <bookmark id="3">
-                <name/>
-                <line>22</line>
-                <key/>
-            </bookmark>
-        </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/user/homepage/detailProduct2.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/user/homepage/checkOut.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/user/homepage/search.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/user/homepage/detailProduct1.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/user/homepage/dieuhoa.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/user/homepage/dathangthanhcong.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/user/homepage/cart.jsp</file>
+            <file>file:/D:/Assignment/Assignment/Shop/src/java/controller/user/dieuhoa.java</file>
+            <file>file:/D:/Assignment/Assignment/Shop/src/java/controller/user/loginServlet.java</file>
+            <file>file:/D:/Assignment/Assignment/Shop/src/java/controller/user/detailProduct.java</file>
         </group>
     </open-files>
 </project-private>

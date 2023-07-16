@@ -69,7 +69,7 @@
                                                             <div class="col-md-4 product-name">
                                                                 <div class="product-name">
                                                                     <!--TenSP-->
-                                                                    <a href="#">${order.getSanPham().getTenSP()}</a>
+                                                                    <span> ${order.getSanPham().getTenSP()}</span>
 <!--                                                                    TSKT
                                                                     <div class="product-info">
                                                                         <div>Display: <span class="value">5 inch</span></div>

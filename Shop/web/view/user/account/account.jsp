@@ -161,7 +161,7 @@
                     <div class="tab-pane" id="ThongBao">
                         <c:forEach var = "thongbao" items = "${requestScope.list_ThongBao}">
 
-                            <div style="background-color: #b8daff; max-width: 500px; max-height: 100px;
+                            <div style="background-color: #f8f9fa; max-width: 500px; max-height: 100px;
                                  height: 50px;
                                  margin: 30px; display: flex; justify-items: left">
                                 <span style = "margin: auto;">
@@ -187,7 +187,7 @@
                                 <div class="col-xs-12" style = "display: block; background-color: #FFFFFF; height: 30px; margin-bottom: 4px;
                                                     display: flex; align-items: center"  >
                                     <div   class = "col-xs-6" style = "display: block; background-color: #FFFFFF;">
-                                        <span>Mã đơn hàng: ${order.getSDT()}   Ngày đặt hàng: ${order.getOrderDate()}</span>
+                                        <span>Mã đơn hàng: ${order.getOrderID()}   Ngày đặt hàng: ${order.getOrderDate()}</span>
                                     </div>
                                     <div  class = "col-xs-6" style = "display: block; background-color: #FFFFFF;
                                           display: flex; ">
@@ -250,7 +250,7 @@
                             <div class="form-group">
                                 <div class="col-xs-12" style = "display: block; background-color: #FFFEFB; height: 50px; margin-top:4px;margin-bottom: 10px"  >
                                     <div class="float-left">
-                                        <h3 style="color: #EE4D2D; margin: 12px 0px 10px 0px">${total} VND</h3>
+                                        <h3 style="color: #EE4D2D; margin: 12px 0px 10px 0px">Tổng:  ${total} VND</h3>
                                     </div>
                                     <div class="float-right">
                                         <form action ="HuyDH" method ="POST" id ="checkOut" style = "margin-top: 6px;">
@@ -274,16 +274,25 @@
                             <c:set var = "total" value = "${0}"/>
                             <hr>
                             <div class="form-group" >
-                                <div class="col-xs-12" style = "display: block; background-color: #FFFFFF; height: 30px; margin-bottom: 4px;"  >
-                                    <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF; height: 100%;">
-                                        <!--<span>Chua biet dien gi</span>-->
+                                <div class="col-xs-12" style = "display: block; background-color: #FFFFFF; height: 30px; margin-bottom: 4px;
+                                                    display: flex; align-items: center"  >
+                                    <div   class = "col-xs-6" style = "display: block; background-color: #FFFFFF;">
+                                        <span>Mã đơn hàng: ${order.getOrderID()}   Ngày đặt hàng: ${order.getOrderDate()}</span>
                                     </div>
-                                    <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;  height: 100%;">
-                                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
-                                            <!--<span>Dang chuan bi hang</span>-->
+                                    <div  class = "col-xs-6" style = "display: block; background-color: #FFFFFF;
+                                          display: flex; ">
+                                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF; height: 100%;">
+                                            <span>Dia Chi: ${order.getAddress()}</span>
                                         </div>
-                                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
-                                            <!--<span>Van Chuyen</span>-->
+                                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;  height: 100%;">
+                                            <span>
+                                                <c:if test = "${order.getHttt() == 1 }">
+                                                    Thanh toán trực tiếp
+                                                </c:if>
+                                                <c:if test = "${order.getHttt() == 2 }">
+                                                    Chuyển khoản
+                                                </c:if>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -327,7 +336,7 @@
                             <div class="form-group">
                                 <div class="col-xs-12" style = "display: block; background-color: #FFFEFB; height: 50px; margin-top:4px;margin-bottom: 10px"  >
                                     <div class="float-left">
-                                        <h3 style="color: #EE4D2D; margin: 12px 0px 10px 0px">${total} VND</h3>
+                                        <h3 style="color: #EE4D2D; margin: 12px 0px 10px 0px">Tổng:  ${total} VND</h3>
                                     </div>
                                     <!--                                    <div class="float-right">
                                                                             <form action ="checkOut" method ="GET" id ="checkOut" style = "margin-top: 6px;">
@@ -348,17 +357,26 @@
                         <c:forEach var = "order" items = "${requestScope.list_orderTC}">
                             <c:set var = "total" value = "${0}"/>
                             <hr>
-                            <div class="form-group" >
-                                <div class="col-xs-12" style = "display: block; background-color: #FFFFFF; height: 30px; margin-bottom: 4px;"  >
-                                    <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF; height: 100%;">
-                                        <!--<span>Chua biet dien gi</span>-->
+                              <div class="form-group" >
+                                <div class="col-xs-12" style = "display: block; background-color: #FFFFFF; height: 30px; margin-bottom: 4px;
+                                                    display: flex; align-items: center"  >
+                                    <div   class = "col-xs-6" style = "display: block; background-color: #FFFFFF;">
+                                        <span>Mã đơn hàng: ${order.getOrderID()}   Ngày đặt hàng: ${order.getOrderDate()}</span>
                                     </div>
-                                    <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;  height: 100%;">
-                                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
-                                            <!--<span>Dang chuan bi hang</span>-->
+                                    <div  class = "col-xs-6" style = "display: block; background-color: #FFFFFF;
+                                          display: flex; ">
+                                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF; height: 100%;">
+                                            <span>Dia Chi: ${order.getAddress()}</span>
                                         </div>
-                                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
-                                            <!--<span>Van Chuyen</span>-->
+                                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;  height: 100%;">
+                                            <span>
+                                                <c:if test = "${order.getHttt() == 1 }">
+                                                    Thanh toán trực tiếp
+                                                </c:if>
+                                                <c:if test = "${order.getHttt() == 2 }">
+                                                    Chuyển khoản
+                                                </c:if>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -402,7 +420,7 @@
                             <div class="form-group">
                                 <div class="col-xs-12" style = "display: block; background-color: #FFFEFB; height: 50px; margin-top:4px;margin-bottom: 10px"  >
                                     <div class="float-left">
-                                        <h3 style="color: #EE4D2D; margin: 12px 0px 10px 0px">${total} VND</h3>
+                                        <h3 style="color: #EE4D2D; margin: 12px 0px 10px 0px">Tổng:  ${total} VND</h3>
                                     </div>
                                     <!--                                    <div class="float-right">
                                                                             <form action ="checkOut" method ="GET" id ="checkOut" style = "margin-top: 6px;">
@@ -423,17 +441,26 @@
                         <c:forEach var = "order" items = "${requestScope.list_orderDGD}">
                             <c:set var = "total" value = "${0}"/>
                             <hr>
-                            <div class="form-group" >
-                                <div class="col-xs-12" style = "display: block; background-color: #FFFFFF; height: 30px; margin-bottom: 4px;"  >
-                                    <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF; height: 100%;">
-                                        <!--<span>Chua biet dien gi</span>-->
+                              <div class="form-group" >
+                                <div class="col-xs-12" style = "display: block; background-color: #FFFFFF; height: 30px; margin-bottom: 4px;
+                                                    display: flex; align-items: center"  >
+                                    <div   class = "col-xs-6" style = "display: block; background-color: #FFFFFF;">
+                                        <span>Mã đơn hàng: ${order.getOrderID()}   Ngày đặt hàng: ${order.getOrderDate()}</span>
                                     </div>
-                                    <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;  height: 100%;">
-                                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
-                                            <!--<span>Dang chuan bi hang</span>-->
+                                    <div  class = "col-xs-6" style = "display: block; background-color: #FFFFFF;
+                                          display: flex; ">
+                                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF; height: 100%;">
+                                            <span>Dia Chi: ${order.getAddress()}</span>
                                         </div>
-                                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;">
-                                            <!--<span>Van Chuyen</span>-->
+                                        <div class ="col-md-6"  style = "display: block; background-color: #FFFFFF;  height: 100%;">
+                                            <span>
+                                                <c:if test = "${order.getHttt() == 1 }">
+                                                    Thanh toán trực tiếp
+                                                </c:if>
+                                                <c:if test = "${order.getHttt() == 2 }">
+                                                    Chuyển khoản
+                                                </c:if>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -477,7 +504,7 @@
                             <div class="form-group">
                                 <div class="col-xs-12" style = "display: block; background-color: #FFFEFB; height: 50px; margin-top:4px;margin-bottom: 10px"  >
                                     <div class="float-left">
-                                        <h3 style="color: #EE4D2D; margin: 12px 0px 10px 0px">${total} VND</h3>
+                                        <h3 style="color: #EE4D2D; margin: 12px 0px 10px 0px">Tổng:  ${total} VND</h3>
                                     </div>
                                     <!--                                    <div class="float-right">
                                                                             <form action ="checkOut" method ="GET" id ="checkOut" style = "margin-top: 6px;">

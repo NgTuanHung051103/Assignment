@@ -65,8 +65,7 @@
                                             , ${acc.getTuoi()} )"></i>
                                         &nbsp;&nbsp;
                                         
-<!--                                         Delete
-                                        <i class="fa fa-trash" data-toggle="modal" data-target="#delete-modal" onclick="deleteAccountModal(`${acc.getID()}`)"></i>  -->
+                                        <i class="fa fa-trash" data-toggle="modal" data-target="#delete-modal" onclick="deleteAccountModal(`${acc.getID()}`)"></i>  
 
                                     </td>
 

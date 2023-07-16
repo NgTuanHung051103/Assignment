@@ -156,6 +156,10 @@
         <servlet-name>tivi</servlet-name>
         <servlet-class>controller.user.tivi</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>editNewSanPham</servlet-name>
+        <servlet-class>controller.admin.SanPham.editNewSanPham</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/list</url-pattern>
@@ -311,6 +315,10 @@
     <servlet-mapping>
         <servlet-name>tivi</servlet-name>
         <url-pattern>/tivi</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editNewSanPham</servlet-name>
+        <url-pattern>/editNewSanPham</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

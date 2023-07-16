@@ -88,7 +88,7 @@
                 <div class="form-group">
                     <div class="col-xs-12" style = "display: block; background-color: #FFFEFB; height: 50px; margin-top:4px;margin-bottom: 10px"  >
                         <div class="float-left">
-                            <h3 style="color: #EE4D2D; margin: 12px 0px 10px 0px">Tong hoa don: ${total} VND</h3>
+                            <h3 style="color: #EE4D2D; margin: 12px 0px 10px 0px">Tổng hóa đơn: ${total} VND</h3>
                         </div>
                         <div class="float-right" style = "display: flex;justify-content: space-between; width: 400px; ">
 
