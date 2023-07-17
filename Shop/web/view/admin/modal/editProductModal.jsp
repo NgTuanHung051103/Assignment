@@ -80,6 +80,7 @@
                             </div>
                         </div>
                         <img id="previewImageEdit" src="#" alt="Preview" style="display: none; max-width: 300px; max-height: 300px;">
+                        <input type="hidden" id="currentImage" name="currentImage" value="">
                     </div>
 
                     <!--TSKT QUAT:--> 
@@ -361,7 +362,9 @@
 
         $('#previewImageEdit').attr('src', image);
         $('#previewImageEdit').css('display', 'block');
-
+        
+//        link image hien tai
+        $('#currentImage').val(image);
 
         $(document).ready(function () {
             var imagePath = $("#previewImageEdit").attr("src");

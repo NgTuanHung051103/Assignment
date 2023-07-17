@@ -398,8 +398,8 @@
                     // Show the color and material inputs
                     Quat.style.display = "none";
                     DieuHoa.style.display = "none";
-                    TuLanh.style.display = "block";
-                    Tivi.style.display = "none";
+                    TuLanh.style.display = "none";
+                    Tivi.style.display = "block";
                 }
                 else {
                     Quat.style.display = "none";

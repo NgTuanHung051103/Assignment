@@ -126,7 +126,6 @@ public class LGadminEditProduct {
         if (!KichThuocKhoiLuong3Edit.equalsIgnoreCase("")) {
             sql += ",KichThuocKhoiLuong = \'" + KichThuocKhoiLuong3Edit + "\'  ";
         }
-        System.out.println(TienIch3Edit);
         if (!TienIch3Edit.equalsIgnoreCase("")) {
             sql += ",TienIch = \'" + TienIch3Edit + "\'  ";
         }
@@ -152,13 +151,13 @@ public class LGadminEditProduct {
             sql += ",CongNgheHinhAnh = \'" + CongNgheHinhAnhEdit + "\'  ";
         }
         if (!DieuKhienBangGiongNoiEdit.equalsIgnoreCase("")) {
-            sql += ",CongNgheLamLanh = \'" + DieuKhienBangGiongNoiEdit + "\'  ";
+            sql += ",DieuKhienBangGiongNoi = \'" + DieuKhienBangGiongNoiEdit + "\'  ";
         }
         if (!RemoteThongMinhEdit.equalsIgnoreCase("")) {
             sql += ",RemoteThongMinh = \'" + RemoteThongMinhEdit + "\'  ";
         }
         if (!PhanChieuEdit.equalsIgnoreCase("")) {
-            sql += ",CongNgheBaoQuanThucPham = \'" + PhanChieuEdit + "\'  ";
+            sql += ",PhanChieu = \'" + PhanChieuEdit + "\'  ";
         }
         if (!KichThuocEdit.equalsIgnoreCase("")) {
             sql += ",KichThuoc = \'" + KichThuocEdit + "\'  ";

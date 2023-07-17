@@ -38,96 +38,107 @@ public class editSanPham extends HttpServlet {
         int GiaThanh = Integer.parseInt(request.getParameter("priceEdit"));
         int SoLuong = Integer.parseInt(request.getParameter("quantityEdit"));
         int MaNhom = Integer.parseInt(request.getParameter("categoryEdit"));
-        
-        Part part = request.getPart("imageEdit");
 
-        try {
-            File dir = new File(request.getServletContext().getRealPath("/Shop/"
-                    + CommonConst.SLASH + CommonConst.FOLDER_PRODUCT_IMAGE));
+        Part part = request.getPart("imageEdit");
+        
+//        tao bien trung gian de lay ket qua giua if else
+        String path_image_old = "";
+        if (part == null || part.getSize() <= 0) {
+            // Sử dụng ảnh hiện tại và cập nhật đường dẫn (imagePath)
+            String currentImage = request.getParameter("currentImage");
+            path_image_old = currentImage;
+        } else {
+            try {
+                File dir = new File(request.getServletContext().getRealPath("/Shop/"
+                        + CommonConst.SLASH + CommonConst.FOLDER_PRODUCT_IMAGE));
 
 //            Neu chua ton tai folder: 
-            if (!dir.exists()) {
+                if (!dir.exists()) {
 //                tao ra duong dan do:
-                dir.mkdirs();
-            }
+                    dir.mkdirs();
+                }
 //            Tao file chua image do
-            File image = new File(dir, part.getSubmittedFileName());
+                File image = new File(dir, part.getSubmittedFileName());
 
-            part.write(image.getAbsolutePath());
+                part.write(image.getAbsolutePath());
 
-            String image_Path = "Shop/" + CommonConst.FOLDER_PRODUCT_IMAGE
-                    + CommonConst.SLASH
-                    + image.getName();
-
-            LGadminEditProduct lgUpdate = new LGadminEditProduct();
-
-            lgUpdate.updateSanPham(MaSP, TenSP, image_Path, ThuongHieu, GiaThanh, SoLuong, MaNhom);
-
-            switch (MaNhom) {
-                case 1:
-                    String LoaiQuatEdit = request.getParameter("LoaiQuatEdit");
-                    String DuongKinhQuatEdit = request.getParameter("DuongKinhQuatEdit");
-                    String CheDoGioEdit = request.getParameter("CheDoGioEdit");
-                    String BangDieuKhienEdit = request.getParameter("BangDieuKhienEdit");
-                    String LoaiMotorEdit = request.getParameter("LoaiMotorEdit");
-                    String TienIch1Edit = request.getParameter("TienIch1Edit");
-                    String KichThuocKhoiLuong1Edit = request.getParameter("KichThuocKhoiLuong1Edit");
-                    String SoCanhQuatEdit = request.getParameter("SoCanhQuatEdit");
-
-                    lgUpdate.updateTSKTQuat(MaSP, LoaiQuatEdit, DuongKinhQuatEdit, CheDoGioEdit, BangDieuKhienEdit, LoaiMotorEdit, TienIch1Edit, KichThuocKhoiLuong1Edit, SoCanhQuatEdit);
-
-                    break;
-                case 2:
-                    String LoaiMayEdit = request.getParameter("LoaiMayEdit");
-                    String CongSuatEdit = request.getParameter("CongSuatEdit");
-                    String PhamViEdit = request.getParameter("PhamViEdit");
-                    String KhuKhuanEdit = request.getParameter("KhuKhuanEdit");
-                    String CongNgheTietKiemDien2Edit = request.getParameter("CongNgheTietKiemDien2Edit");
-                    String LamLanhNhanhEdit = request.getParameter("LamLanhNhanhEdit");
-                    String TienIch2Edit = request.getParameter("TienIch2Edit");
-                    String TieuThuDienEdit = request.getParameter("TieuThuDienEdit");
-                    String DanLanhEdit = request.getParameter("DanLanhEdit");
-                    String DanNongEdit = request.getParameter("DanNongEdit");
-
-                    lgUpdate.updateTSKTDieuHoa(MaSP, LoaiMayEdit, CongSuatEdit, PhamViEdit, KhuKhuanEdit, CongNgheTietKiemDien2Edit, LamLanhNhanhEdit, TienIch2Edit, TieuThuDienEdit, DanLanhEdit, DanNongEdit);
-
-                    break;
-                case 3:
-                    String KieuTuEdit = request.getParameter("KieuTuEdit");
-                    String DungTichEdit = request.getParameter("DungTichEdit");
-                    String CongNgheTietKiemDien3Edit = request.getParameter("CongNgheTietKiemDien3Edit");
-                    String CongNgheLamLanhEdit = request.getParameter("CongNgheLamLanhEdit");
-                    String CongNgheKhangKhuanKhuMuiEdit = request.getParameter("CongNgheKhangKhuanKhuMuiEdit");
-                    String CongNgheBaoQuanThucPhamEdit = request.getParameter("CongNgheBaoQuanThucPhamEdit");
-                    String KichThuocKhoiLuong3Edit = request.getParameter("KichThuocKhoiLuong3Edit");
-                    String TienIch3Edit = request.getParameter("TienIch3Edit");
-
-                    lgUpdate.updateTSKTTuLanh(MaSP, KieuTuEdit, DungTichEdit, CongNgheTietKiemDien3Edit,
-                            CongNgheLamLanhEdit, CongNgheKhangKhuanKhuMuiEdit, CongNgheBaoQuanThucPhamEdit,
-                            KichThuocKhoiLuong3Edit, TienIch3Edit);
-
-                    break;
-                case 4:
-                    String LoaiTVEdit = request.getParameter("LoaiTVEdit");
-                    String UngDungEdit = request.getParameter("UngDungEdit");
-                    String CongNgheHinhAnhEdit = request.getParameter("CongNgheHinhAnhEdit");
-                    String DieuKhienBangGiongNoiEdit = request.getParameter("DieuKhienBangGiongNoiEdit");
-                    String RemoteThongMinhEdit = request.getParameter("RemoteThongMinhEdit");
-                    String PhanChieuEdit = request.getParameter("PhanChieuEdit");
-                    String KichThuocEdit = request.getParameter("KichThuocEdit");
-
-                    lgUpdate.updateTSKTTivi(MaSP, LoaiTVEdit, UngDungEdit, CongNgheHinhAnhEdit,
-                            DieuKhienBangGiongNoiEdit, RemoteThongMinhEdit, PhanChieuEdit, KichThuocEdit);
-
-                    break;
-
+                String image_Path = "Shop/" + CommonConst.FOLDER_PRODUCT_IMAGE
+                        + CommonConst.SLASH
+                        + image.getName();
+                
+                path_image_old = image_Path;
+                
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-
-            //redirect to homepage
-            response.sendRedirect("listAdmin");
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+        LGadminEditProduct lgUpdate = new LGadminEditProduct();
+
+        lgUpdate.updateSanPham(MaSP, TenSP, path_image_old, ThuongHieu, GiaThanh, SoLuong, MaNhom);
+
+        switch (MaNhom) {
+            case 1:
+                String LoaiQuatEdit = request.getParameter("LoaiQuatEdit");
+                String DuongKinhQuatEdit = request.getParameter("DuongKinhQuatEdit");
+                String CheDoGioEdit = request.getParameter("CheDoGioEdit");
+                String BangDieuKhienEdit = request.getParameter("BangDieuKhienEdit");
+                String LoaiMotorEdit = request.getParameter("LoaiMotorEdit");
+                String TienIch1Edit = request.getParameter("TienIch1Edit");
+                String KichThuocKhoiLuong1Edit = request.getParameter("KichThuocKhoiLuong1Edit");
+                String SoCanhQuatEdit = request.getParameter("SoCanhQuatEdit");
+
+                lgUpdate.updateTSKTQuat(MaSP, LoaiQuatEdit, DuongKinhQuatEdit, CheDoGioEdit, BangDieuKhienEdit, LoaiMotorEdit, TienIch1Edit, KichThuocKhoiLuong1Edit, SoCanhQuatEdit);
+
+                break;
+            case 2:
+                String LoaiMayEdit = request.getParameter("LoaiMayEdit");
+                String CongSuatEdit = request.getParameter("CongSuatEdit");
+                String PhamViEdit = request.getParameter("PhamViEdit");
+                String KhuKhuanEdit = request.getParameter("KhuKhuanEdit");
+                String CongNgheTietKiemDien2Edit = request.getParameter("CongNgheTietKiemDien2Edit");
+                String LamLanhNhanhEdit = request.getParameter("LamLanhNhanhEdit");
+                String TienIch2Edit = request.getParameter("TienIch2Edit");
+                String TieuThuDienEdit = request.getParameter("TieuThuDienEdit");
+                String DanLanhEdit = request.getParameter("DanLanhEdit");
+                String DanNongEdit = request.getParameter("DanNongEdit");
+
+                lgUpdate.updateTSKTDieuHoa(MaSP, LoaiMayEdit, CongSuatEdit, PhamViEdit, KhuKhuanEdit, CongNgheTietKiemDien2Edit, LamLanhNhanhEdit, TienIch2Edit, TieuThuDienEdit, DanLanhEdit, DanNongEdit);
+
+                break;
+            case 3:
+                String KieuTuEdit = request.getParameter("KieuTuEdit");
+                String DungTichEdit = request.getParameter("DungTichEdit");
+                String CongNgheTietKiemDien3Edit = request.getParameter("CongNgheTietKiemDien3Edit");
+                String CongNgheLamLanhEdit = request.getParameter("CongNgheLamLanhEdit");
+                String CongNgheKhangKhuanKhuMuiEdit = request.getParameter("CongNgheKhangKhuanKhuMuiEdit");
+                String CongNgheBaoQuanThucPhamEdit = request.getParameter("CongNgheBaoQuanThucPhamEdit");
+                String KichThuocKhoiLuong3Edit = request.getParameter("KichThuocKhoiLuong3Edit");
+                String TienIch3Edit = request.getParameter("TienIch3Edit");
+
+                lgUpdate.updateTSKTTuLanh(MaSP, KieuTuEdit, DungTichEdit, CongNgheTietKiemDien3Edit,
+                        CongNgheLamLanhEdit, CongNgheKhangKhuanKhuMuiEdit, CongNgheBaoQuanThucPhamEdit,
+                        KichThuocKhoiLuong3Edit, TienIch3Edit);
+
+                break;
+            case 4:
+                String LoaiTVEdit = request.getParameter("LoaiTVEdit");
+                String UngDungEdit = request.getParameter("UngDungEdit");
+                String CongNgheHinhAnhEdit = request.getParameter("CongNgheHinhAnhEdit");
+                String DieuKhienBangGiongNoiEdit = request.getParameter("DieuKhienBangGiongNoiEdit");
+                String RemoteThongMinhEdit = request.getParameter("RemoteThongMinhEdit");
+                String PhanChieuEdit = request.getParameter("PhanChieuEdit");
+                String KichThuocEdit = request.getParameter("KichThuocEdit");
+
+                lgUpdate.updateTSKTTivi(MaSP, LoaiTVEdit, UngDungEdit, CongNgheHinhAnhEdit,
+                        DieuKhienBangGiongNoiEdit, RemoteThongMinhEdit, PhanChieuEdit, KichThuocEdit);
+
+                break;
+
+        }
+
+        //redirect to homepage
+        response.sendRedirect("listAdmin");
+
     }
 
     @Override
