@@ -34,11 +34,11 @@
             </li>
             
             <li class="nav-item">
-                <button id="trangthai" onclick = "display()">
+                <button class = "btn btn-secondary dropdown-toggle"id="trangthai" onclick = "display()" style = "margin-left:18px">
                     <span>Trang thai</span>
                 </button>
-                <div id="listtrangthai" style="display:none; background-color: wheat; color:black">
-                        <a class="dropdown-item" href="transition?transition=3">Chờ xác nhận</a>
+                <div class="dropdown-menu" id="listtrangthai" style="display:none;">
+                        <a class="dropdown-item"  href="transition?transition=3">Chờ xác nhận</a>
                         <a class="dropdown-item" href="transition?transition=4">Đang giao</a>
                         <a class="dropdown-item" href="transition?transition=5">Đã giao</a>
                         <a class="dropdown-item" href="transition?transition=6">Đã giao dịch</a>
