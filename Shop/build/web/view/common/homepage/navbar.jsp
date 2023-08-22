@@ -12,9 +12,11 @@
         <title>JSP Page</title>
         <!--css-->
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common/navbar.css">  
+        
         <!--fontware-->
-        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'> 
-
+        <!--<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>--> 
+         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.3/css/bootstrap.min.css'> 
+        
         <!--boostrap icon-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">    
     
