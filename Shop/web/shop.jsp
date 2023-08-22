@@ -21,10 +21,10 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
         <!-- Libraries Stylesheet: animation -->
-        <link href="assets/owlcarousel/owl.carousel.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/assets/owlcarousel/owl.carousel.min.css" rel="stylesheet">
 
         <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/template/style.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/css/template/style.css" rel="stylesheet">
 
 
     </head>
@@ -172,11 +172,11 @@
                 <div class="col-lg-3 col-md-12">
                     <!-- Price Start -->
                     <div class="border-bottom mb-4 pb-4">
-                        <h5 class="font-weight-semi-bold mb-4">Filter by price</h5>
+                        <h5 class="font-weight-semi-bold mb-4"></h5>
                         <form>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                                 <input type="checkbox" class="custom-control-input" checked id="price-all">
-                                <label class="custom-control-label" for="price-all">All Price</label>
+                                <label class="custom-control-label" for="price-all">Chọn mức giá</label>
                                 <span class="badge border font-weight-normal">1000</span>
                             </div>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
@@ -210,7 +210,7 @@
 
                     <!-- Color Start -->
                     <div class="border-bottom mb-4 pb-4">
-                        <h5 class="font-weight-semi-bold mb-4">Filter by color</h5>
+                        <h5 class="font-weight-semi-bold mb-4">Chọn loại sản phẩm</h5>
                         <form>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                                 <input type="checkbox" class="custom-control-input" checked id="color-all">
@@ -615,15 +615,15 @@
         <!--<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/easing/easing.min.js"></script>
+        <script src="${pageContext.request.contextPath}/assets/easing/easing.min.js"></script>
 
-        <script src="assets/owlcarousel/owl.carousel.min.js"></script>
+        <script src="${pageContext.request.contextPath}/assets/owlcarousel/owl.carousel.min.js"></script>
 
         <!-- Contact Javascript File -->
 <!--        <script src="mail/jqBootstrapValidation.min.js"></script>
         <script src="mail/contact.js"></script>-->
 
         <!-- Template Javascript -->
-        <script src="js/template/main.js"></script>
+        <script src="${pageContext.request.contextPath}/js/template/main.js"></script>
     </body>
 </html>

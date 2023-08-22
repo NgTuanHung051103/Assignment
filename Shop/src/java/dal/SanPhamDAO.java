@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.SanPham;
+
 public class SanPhamDAO {
 
     private final DBContext conn = new DBContext();
@@ -211,8 +212,8 @@ public class SanPhamDAO {
 //    Lay So luong boi 1 san pham qua MaSP
 //    INPUT: MaSP
 //    OUTPUT: SoLuong
-    public int getSoLuongByMaSP(int MaSP){
-         try {
+    public int getSoLuongByMaSP(int MaSP) {
+        try {
             String sql = "Select SoLuong From SanPham where MaSP = ?";
             PreparedStatement statement = conn.getConnection().prepareStatement(sql);
             statement.setInt(1, MaSP);
@@ -221,17 +222,44 @@ public class SanPhamDAO {
                 return rs.getInt(1);
             }
         } catch (SQLException ex) {
-             System.out.println(ex);
+            System.out.println(ex);
         } catch (Exception ex) {
-             System.out.println(ex);
+            System.out.println(ex);
         }
         return 0;
     }
-    
-    
-    
+
+//    Lay top 8 san pham duoc ban nhieu nhat
+//    INPUT: null
+//    OUTPUT: list trandy product
+    public ArrayList<SanPham> getListTrandy() {
+        ArrayList<SanPham> List_Trandy = new ArrayList<>();
+        try {
+            String sql = "Select TOP 8 * from SanPham \n"
+                    + "ORDER BY DaBan DESC";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                SanPham s = new SanPham();
+                s.setMaSP(rs.getInt("MaSP"));
+                s.setTenSP(rs.getString("TenSP"));
+                s.setThuongHieu(rs.getString("ThuongHieu"));
+                s.setImg(rs.getString("Img"));
+                s.setGiaThanh(rs.getInt("GiaThanh"));
+                s.setNhomSP(rs.getInt("NhomSP"));
+                s.setSoLuong(rs.getInt("SoLuong"));
+                s.setDaBan(rs.getInt("DaBan"));
+                List_Trandy.add(s);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return List_Trandy;
+    }
+
 //    ----------------Insert------------------
-    
 //    Them 1 san pham moi vao database
 //  INPUT: nhung thong in co
 //  OUTPUT: null    
@@ -275,7 +303,6 @@ public class SanPhamDAO {
     }
 
 //    ----------------Update----------------
-    
 //  UPdate thong tin san pham qua admin
 //  INPUT: nhung thong in co
 //  OUTPUT: null    
@@ -296,7 +323,7 @@ public class SanPhamDAO {
             statement.setString(2, ThuongHieu);
             statement.setString(3, Img);
             statement.setInt(4, GiaThanh);
-            statement.setInt(5, NhomSP);    
+            statement.setInt(5, NhomSP);
             statement.setInt(6, SoLuong);
             statement.setInt(7, MaSP);
 
@@ -309,35 +336,33 @@ public class SanPhamDAO {
         }
     }
 
-    
 //    Tru so luong cua nhung don hang da huy
 //    INPUT: ArrayList Map MaSP_SoLuong
 //    OUTPUT: null
     public void truSoLuong(int MaSP, int SoLuongOrder, int calculate) {
-         int SoLuong = 0;
-        if( calculate == 1 ) {
-              SoLuong = getSoLuongByMaSP(MaSP) - SoLuongOrder;
-        }    
-        else if ( calculate == 2 ){
-             SoLuong = getSoLuongByMaSP(MaSP) + SoLuongOrder;
+        int SoLuong = 0;
+        if (calculate == 1) {
+            SoLuong = getSoLuongByMaSP(MaSP) - SoLuongOrder;
+        } else if (calculate == 2) {
+            SoLuong = getSoLuongByMaSP(MaSP) + SoLuongOrder;
         }
-             try {
-                String sql = "UPDATE [dbo].[SanPham]\n"
-                        + "   SET \n"
-                        + "      [SoLuong] = ?\n"
-                        + " WHERE MaSP = ?;";
-                PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+        try {
+            String sql = "UPDATE [dbo].[SanPham]\n"
+                    + "   SET \n"
+                    + "      [SoLuong] = ?\n"
+                    + " WHERE MaSP = ?;";
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
 
-                statement.setInt(1, SoLuong);
-                statement.setInt(2, MaSP);
+            statement.setInt(1, SoLuong);
+            statement.setInt(2, MaSP);
 
-                statement.executeUpdate();
+            statement.executeUpdate();
 
-            } catch (SQLException ex) {
-                Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (Exception ex) {
-                Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 //    -----------------Delete--------------------
@@ -358,6 +383,5 @@ public class SanPhamDAO {
         }
 
     }
-
 
 }

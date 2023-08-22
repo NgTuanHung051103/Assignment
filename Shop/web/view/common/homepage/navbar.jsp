@@ -10,89 +10,116 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <!--css-->
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common/navbar.css">  
-        
-        <!--fontware-->
-        <!--<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>--> 
-         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.3/css/bootstrap.min.css'> 
-        
-        <!--boostrap icon-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">    
-    
+
     </head>
     <body>
-                <div class = "container-fluid container-navbar" >
-                    <nav class="navbar">
-                        <div class="navbar-left">
-                            <a href="${pageContext.request.contextPath}/list" class="navbar-logo">
-                                <img class="logo" src="${pageContext.request.contextPath}/images/Logo.png" alt="">
-                            </a>
-                            <ul class = "navbar-left-products">
-                                <li class="nav-product">
-                                    <a href="${pageContext.request.contextPath}/view/user/homepage/quat.jsp" class = "nav-link" style="color: #1f2022;">Quạt</a>
-                                </li>
-                                <li class="nav-product">
-                                    <a href="${pageContext.request.contextPath}/view/user/homepage/tivi.jsp" class = "nav-link" style="color: #1f2022;">Tivi</a>
-                                </li>
-                                <li class="nav-product">
-                                    <a href="${pageContext.request.contextPath}/view/user/homepage/dieuhoa.jsp" class = "nav-link"style="color: #1f2022;" >Điều Hòa</a>
-                                </li>
-                                <li class="nav-product">
-                                    <a href="${pageContext.request.contextPath}/view/user/homepage/tulanh.jsp" class = "nav-link" style="color: #1f2022;">Tủ Lạnh</a>
-                                </li>
-                            </ul>
-
-                        </div>
-                        <div class="navbar-right" >
-                            <ul class="navbar-right-ul">
-                                <li class="nav-info">
-                                    <form action="search" method="GET">
-                                        <input name ="key"  type="text" placeholder="Looking for?" >
-                                        <button type="submit">
-                                            <i class="bi bi-search  "></i>
-                                        </button>
-                                    </form>
-                                </li>
-
-                                <c:set var ="cookie" value = "${sessionScope.cookies}"/>
-
-                                <li class="nav-info">
-                                    
-                                    <c:if test ="${cookie.loginedAccount != null }">
-                                        <div class="dropdown" style="margin: auto 12px auto 26px;">
-                                            <i class="fa fa-user-o logined" ></i>
-                                            <div class="dropdown-content">
-                                                <a href="${pageContext.request.contextPath}/account">Tài Khoản</a>
-                                                 <c:if test = "${sessionScope.isAdmin == 2}">
-                                                     <a href="${pageContext.request.contextPath}/listAdmin">Quản lý</a>
-                                                 </c:if>
-                                                <a href="${pageContext.request.contextPath}/logoutServlet">Đăng Xuất</a>
-                                            </div>
-                                        </div>  
-                                    </c:if>
-
-                                    <c:if test ="${cookie.loginedAccount == null }">
-                                        <a href  ="${pageContext.request.contextPath}/view/user/homepage/login.jsp"
-                                           style = "color: black;"> 
-                                            <i class="fa fa-user-o"  style="margin: auto 12px auto 16px;" > </i> 
-                                        </a>
-                                    </c:if>
-                                   
-                                </li>    
-                                <li class="nav-info">
-                                    <a href="" class = "nav-link" style="color: #1f2022;">
-                                        <i class="bi bi-heart"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-info">
-                                    <a href="cart" class = "nav-link" style="color: #1f2022;">
-                                        <span class="bi bi-cart3"></span>                                
-                                    </a>
-                                </li>
-                            </ul>
+        <!-- Navbar Start -->
+        <div class="container-fluid mb-5">
+            <div class="row border-top px-xl-5">
+                <div class="col-lg-3 d-none d-lg-block">
+                    <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
+                        <h6 class="m-0">Categories</h6>
+                        <i class="fa fa-angle-down text-dark"></i>
+                    </a>
+                    <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
+                        <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link" data-toggle="dropdown">Dresses <i class="fa fa-angle-down float-right mt-1"></i></a>
+                                <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
+                                    <a href="" class="dropdown-item">Men's Dresses</a>
+                                    <a href="" class="dropdown-item">Women's Dresses</a>
+                                    <a href="" class="dropdown-item">Baby's Dresses</a>
+                                </div>
+                            </div>
+                            <a href="" class="nav-item nav-link">Shirts</a>
+                            <a href="" class="nav-item nav-link">Jeans</a>
+                            <a href="" class="nav-item nav-link">Swimwear</a>
+                            <a href="" class="nav-item nav-link">Sleepwear</a>
+                            <a href="" class="nav-item nav-link">Sportswear</a>
+                            <a href="" class="nav-item nav-link">Jumpsuits</a>
+                            <a href="" class="nav-item nav-link">Blazers</a>
+                            <a href="" class="nav-item nav-link">Jackets</a>
+                            <a href="" class="nav-item nav-link">Shoes</a>
                         </div>
                     </nav>
                 </div>
+                <div class="col-lg-9">
+                    <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+                        <a href="" class="text-decoration-none d-block d-lg-none">
+                            <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
+                        </a>
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                            <div class="navbar-nav mr-auto py-0">
+                                <a href="${pageContext.request.contextPath}/home" class="nav-item nav-link active">Home</a>
+                                <a href="" class="nav-item nav-link">Shop</a>
+                                <!--<a href="detail.html" class="nav-item nav-link">Shop Detail</a>-->
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                                    <div class="dropdown-menu rounded-0 m-0">
+                                        <a href="" class="dropdown-item">Shopping Cart</a>
+                                        <a href="" class="dropdown-item">Checkout</a>
+                                    </div>
+                                </div>
+                                <a href="" class="nav-item nav-link">Contact</a>
+                            </div>
+
+
+
+                            <c:set var ="cookie" value = "${sessionScope.cookies}"/>
+                            <c:if test ="${cookie.loginedAccount == null }">
+                                <div class="navbar-nav ml-auto py-0">
+                                    <a href="${pageContext.request.contextPath}/view/user/homepage/login.jsp" class="nav-item nav-link">Login</a>
+                                    <!--<a href="" class="nav-item nav-link">Register</a>-->
+                                </div>
+                            </c:if>
+                            <c:if test ="${cookie.loginedAccount != null }">
+                                <div class="navbar-nav ml-auto py-0">
+                                        <a href="${pageContext.request.contextPath}/account">Tài Khoản</a>
+                                        <a href="${pageContext.request.contextPath}/logoutServlet">Đăng Xuất</a>
+                                </div>
+                            </c:if>
+                        </div>
+                    </nav>
+                    <div id="header-carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" style="height: 410px;">
+                                <img class="img-fluid" src="${pageContext.request.contextPath}/images/carousel-1.jpg" alt="Image">
+                                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                    <div class="p-3" style="max-width: 700px;">
+                                        <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
+                                        <h3 class="display-4 text-white font-weight-semi-bold mb-4">Fashionable Dress</h3>
+                                        <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item" style="height: 410px;">
+                                <img class="img-fluid" src="${pageContext.request.contextPath}/images/carousel-1.jpg" alt="Image">
+                                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                    <div class="p-3" style="max-width: 700px;">
+                                        <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
+                                        <h3 class="display-4 text-white font-weight-semi-bold mb-4">Reasonable Price</h3>
+                                        <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+                            <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                                <span class="carousel-control-prev-icon mb-n2"></span>
+                            </div>
+                        </a>
+                        <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+                            <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                                <span class="carousel-control-next-icon mb-n2"></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar End -->
     </body>
 </html>

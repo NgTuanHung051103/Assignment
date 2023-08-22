@@ -28,6 +28,7 @@ public class list extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         SanPhamDAO SPdb = new SanPhamDAO();
         NhomSPDAO nSPdb = new NhomSPDAO();
 

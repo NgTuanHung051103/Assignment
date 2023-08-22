@@ -60,7 +60,7 @@ public class loginServlet extends HttpServlet {
                 session.setAttribute("isAdmin", isAdmin);
                 
                 if(isAdmin == 1)
-                    response.sendRedirect("list");
+                    response.sendRedirect("home");
                 else if(isAdmin == 2)
                     response.sendRedirect("listAdmin");
                 break;

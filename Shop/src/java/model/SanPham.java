@@ -9,10 +9,10 @@ package model;
  * @author NgTua
  */
 public class SanPham {
-    private int MaSP, GiaThanh, NhomSP, SoLuong;
+    private int MaSP, GiaThanh, NhomSP, SoLuong, DaBan;
     private String TenSP, ThuongHieu, Img;
 
-    public SanPham(int MaSP, int GiaThanh, int NhomSP, int SoLuong, String TenSP, String ThuongHieu, String Img) {
+    public SanPham(int MaSP, int GiaThanh, int NhomSP, int SoLuong, String TenSP, String ThuongHieu, String Img, int DaBan) {
         this.MaSP = MaSP;
         this.GiaThanh = GiaThanh;
         this.NhomSP = NhomSP;
@@ -20,6 +20,20 @@ public class SanPham {
         this.TenSP = TenSP;
         this.ThuongHieu = ThuongHieu;
         this.Img = Img;
+        this.DaBan = DaBan;
+    }
+
+    @Override
+    public String toString() {
+        return "SanPham{" + "MaSP=" + MaSP + ", GiaThanh=" + GiaThanh + ", NhomSP=" + NhomSP + ", SoLuong=" + SoLuong + ", DaBan=" + DaBan + ", TenSP=" + TenSP + ", ThuongHieu=" + ThuongHieu + ", Img=" + Img + '}';
+    }
+
+    public void setDaBan(int DaBan) {
+        this.DaBan = DaBan;
+    }
+
+    public int getDaBan() {
+        return DaBan;
     }
 
     public int getSoLuong() {
@@ -82,10 +96,6 @@ public class SanPham {
         this.Img = Img;
     }
 
-    @Override
-    public String toString() {
-        return "SanPham{" + "MaSP=" + MaSP + ", GiaThanh=" + GiaThanh + ", NhomSP=" + NhomSP + ", TenSP=" + TenSP + ", ThuongHieu=" + ThuongHieu + ", Img=" + Img + '}';
-    }
 
     
     
