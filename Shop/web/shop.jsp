@@ -104,7 +104,7 @@
                     </a>
                     <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 1;">
                         <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
-                            
+
                             <a href="" class="nav-item nav-link">Shirts</a>
                             <a href="" class="nav-item nav-link">Jeans</a>
                             <a href="" class="nav-item nav-link">Swimwear</a>
@@ -172,35 +172,35 @@
                 <div class="col-lg-3 col-md-12">
                     <!-- Price Start -->
                     <div class="border-bottom mb-4 pb-4">
-                        <h5 class="font-weight-semi-bold mb-4"></h5>
+                        <h5 class="font-weight-semi-bold mb-4">Chọn mức giá</h5>
                         <form>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" checked id="price-all">
-                                <label class="custom-control-label" for="price-all">Chọn mức giá</label>
+                                <input type="checkbox" class="price custom-control-input" checked id="price-all" onclick = "check(this)">
+                                <label class="custom-control-label" for="price-all">Tất cả</label>
                                 <span class="badge border font-weight-normal">1000</span>
                             </div>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="price-1">
+                                <input type="checkbox" class="price custom-control-input"  id="price-1" onclick = "check(this)">
                                 <label class="custom-control-label" for="price-1">$0 - $100</label>
                                 <span class="badge border font-weight-normal">150</span>
                             </div>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="price-2">
+                                <input type="checkbox" class="price custom-control-input" id="price-2" onclick = "check(this)">
                                 <label class="custom-control-label" for="price-2">$100 - $200</label>
                                 <span class="badge border font-weight-normal">295</span>
                             </div>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="price-3">
+                                <input type="checkbox" class="price custom-control-input"  id="price-3" onclick = "check(this)">
                                 <label class="custom-control-label" for="price-3">$200 - $300</label>
                                 <span class="badge border font-weight-normal">246</span>
                             </div>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="price-4">
+                                <input type="checkbox" class="price custom-control-input"  id="price-4" onclick = "check(this)">
                                 <label class="custom-control-label" for="price-4">$300 - $400</label>
                                 <span class="badge border font-weight-normal">145</span>
                             </div>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                                <input type="checkbox" class="custom-control-input" id="price-5">
+                                <input type="checkbox" class="price custom-control-input" id="price-5" onclick = "check(this)">
                                 <label class="custom-control-label" for="price-5">$400 - $500</label>
                                 <span class="badge border font-weight-normal">168</span>
                             </div>
@@ -208,119 +208,68 @@
                     </div>
                     <!-- Price End -->
 
-                    <!-- Color Start -->
+                    <!-- Categories Start -->
                     <div class="border-bottom mb-4 pb-4">
                         <h5 class="font-weight-semi-bold mb-4">Chọn loại sản phẩm</h5>
                         <form>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" checked id="color-all">
-                                <label class="custom-control-label" for="price-all">All Color</label>
+                                <input type="checkbox" class="category custom-control-input" checked id="category-all" onclick = "check(this)" >
+                                <label class="custom-control-label" for="category-all">Tất cả</label>
                                 <span class="badge border font-weight-normal">1000</span>
                             </div>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="color-1">
-                                <label class="custom-control-label" for="color-1">Black</label>
+                                <input type="checkbox" class="category custom-control-input" id="category-1" onclick = "check(this)">
+                                <label class="custom-control-label" for="category-1">Quạt</label>
                                 <span class="badge border font-weight-normal">150</span>
                             </div>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="color-2">
-                                <label class="custom-control-label" for="color-2">White</label>
+                                <input type="checkbox" class="category custom-control-input" id="category-2" onclick = "check(this)">
+                                <label class="custom-control-label" for="category-2">Điều Hòa</label>
                                 <span class="badge border font-weight-normal">295</span>
                             </div>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="color-3">
-                                <label class="custom-control-label" for="color-3">Red</label>
+                                <input type="checkbox" class="category custom-control-input" id="category-3" onclick = "check(this)">
+                                <label class="custom-control-label" for="category-3">Tủ Lạnh</label>
                                 <span class="badge border font-weight-normal">246</span>
                             </div>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="color-4">
-                                <label class="custom-control-label" for="color-4">Blue</label>
+                                <input type="checkbox" class="category custom-control-input" id="category-4" onclick = "check(this)">
+                                <label class="custom-control-label" for="category-4">Tivi</label>
                                 <span class="badge border font-weight-normal">145</span>
-                            </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                                <input type="checkbox" class="custom-control-input" id="color-5">
-                                <label class="custom-control-label" for="color-5">Green</label>
-                                <span class="badge border font-weight-normal">168</span>
                             </div>
                         </form>
                     </div>
-                    <!-- Color End -->
+                    <!-- Categories End -->
 
-                    <!-- Size Start -->
-                    <div class="mb-5">
-                        <h5 class="font-weight-semi-bold mb-4">Filter by size</h5>
+                <!-- LoaiQuat Start -->
+                    <div class="border-bottom mb-4 pb-4" id = "loaiquat" style = "display: none">
+                        <h5 class="font-weight-semi-bold mb-4">Chọn loại quạt</h5>
                         <form>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" checked id="size-all">
-                                <label class="custom-control-label" for="size-all">All Size</label>
+                                <input type="checkbox" class="loaiquat custom-control-input" checked id="loaiquat-all" onclick = "check(this)" >
+                                <label class="custom-control-label" for="category-all">Tất cả</label>
                                 <span class="badge border font-weight-normal">1000</span>
                             </div>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="size-1">
-                                <label class="custom-control-label" for="size-1">XS</label>
+                                <input type="checkbox" class="loaiquat custom-control-input" id="loaiquat-1" onclick = "check(this)">
+                                <label class="custom-control-label" for="loaiquat-1">Quạt đứng</label>
                                 <span class="badge border font-weight-normal">150</span>
                             </div>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="size-2">
-                                <label class="custom-control-label" for="size-2">S</label>
+                                <input type="checkbox" class="loaiquat custom-control-input" id="loaiquat-2" onclick = "check(this)">
+                                <label class="custom-control-label" for="loaiquat-2">Quạt treo tường</label>
                                 <span class="badge border font-weight-normal">295</span>
                             </div>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="size-3">
-                                <label class="custom-control-label" for="size-3">M</label>
+                                <input type="checkbox" class="loaiquat custom-control-input" id="loaiquat-3" onclick = "check(this)">
+                                <label class="custom-control-label" for="loaiquat-3">Quạt trần</label>
                                 <span class="badge border font-weight-normal">246</span>
-                            </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="size-4">
-                                <label class="custom-control-label" for="size-4">L</label>
-                                <span class="badge border font-weight-normal">145</span>
-                            </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                                <input type="checkbox" class="custom-control-input" id="size-5">
-                                <label class="custom-control-label" for="size-5">XL</label>
-                                <span class="badge border font-weight-normal">168</span>
                             </div>
                         </form>
                     </div>
-                    <!-- Size End -->
-
-                    <!-- Size Start -->
-                    <div class="mb-5">
-                        <h5 class="font-weight-semi-bold mb-4">Filter by size</h5>
-                        <form>
-                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" checked id="size-all">
-                                <label class="custom-control-label" for="size-all">All Size</label>
-                                <span class="badge border font-weight-normal">1000</span>
-                            </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="size-1">
-                                <label class="custom-control-label" for="size-1">XS</label>
-                                <span class="badge border font-weight-normal">150</span>
-                            </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="size-2">
-                                <label class="custom-control-label" for="size-2">S</label>
-                                <span class="badge border font-weight-normal">295</span>
-                            </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="size-3">
-                                <label class="custom-control-label" for="size-3">M</label>
-                                <span class="badge border font-weight-normal">246</span>
-                            </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="size-4">
-                                <label class="custom-control-label" for="size-4">L</label>
-                                <span class="badge border font-weight-normal">145</span>
-                            </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                                <input type="checkbox" class="custom-control-input" id="size-5">
-                                <label class="custom-control-label" for="size-5">XL</label>
-                                <span class="badge border font-weight-normal">168</span>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Size End -->
+                    <!-- Categories End -->
+                    
+                    
                 </div>
                 <!-- Shop Sidebar End -->
 
@@ -357,7 +306,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                             <div class="card product-item border-0 mb-4">
                                 <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <img class="img-fluid w-100" src="img/product-1.jpg" alt="">
+                                    <img class="img-fluid w-100" src="images/product-2.jpg" alt="">
                                 </div>
                                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                     <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
@@ -374,7 +323,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                             <div class="card product-item border-0 mb-4">
                                 <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <img class="img-fluid w-100" src="img/product-2.jpg" alt="">
+                                    <img class="img-fluid w-100" src="images/product-2.jpg" alt="">
                                 </div>
                                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                     <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
@@ -391,7 +340,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                             <div class="card product-item border-0 mb-4">
                                 <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <img class="img-fluid w-100" src="img/product-3.jpg" alt="">
+                                    <img class="img-fluid w-100" src="images/product-2.jpg" alt="">
                                 </div>
                                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                     <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
@@ -408,7 +357,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                             <div class="card product-item border-0 mb-4">
                                 <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <img class="img-fluid w-100" src="img/product-4.jpg" alt="">
+                                    <img class="img-fluid w-100" src="images/product-2.jpg" alt="">
                                 </div>
                                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                     <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
@@ -425,7 +374,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                             <div class="card product-item border-0 mb-4">
                                 <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <img class="img-fluid w-100" src="img/product-5.jpg" alt="">
+                                    <img class="img-fluid w-100" src="images/product-2.jpg" alt="">
                                 </div>
                                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                     <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
@@ -442,7 +391,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                             <div class="card product-item border-0 mb-4">
                                 <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <img class="img-fluid w-100" src="img/product-6.jpg" alt="">
+                                    <img class="img-fluid w-100" src="images/product-2.jpg" alt="">
                                 </div>
                                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                     <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
@@ -459,7 +408,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                             <div class="card product-item border-0 mb-4">
                                 <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <img class="img-fluid w-100" src="img/product-7.jpg" alt="">
+                                    <img class="img-fluid w-100" src="images/product-2.jpg" alt="">
                                 </div>
                                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                     <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
@@ -476,7 +425,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                             <div class="card product-item border-0 mb-4">
                                 <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <img class="img-fluid w-100" src="img/product-8.jpg" alt="">
+                                    <img class="img-fluid w-100" src="images/product-2.jpg" alt="">
                                 </div>
                                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                     <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
@@ -493,7 +442,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                             <div class="card product-item border-0 mb-4">
                                 <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <img class="img-fluid w-100" src="img/product-1.jpg" alt="">
+                                    <img class="img-fluid w-100" src="images/product-2.jpg" alt="">
                                 </div>
                                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                     <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
@@ -620,10 +569,109 @@
         <script src="${pageContext.request.contextPath}/assets/owlcarousel/owl.carousel.min.js"></script>
 
         <!-- Contact Javascript File -->
-<!--        <script src="mail/jqBootstrapValidation.min.js"></script>
-        <script src="mail/contact.js"></script>-->
+        <!--        <script src="mail/jqBootstrapValidation.min.js"></script>
+                <script src="mail/contact.js"></script>-->
 
         <!-- Template Javascript -->
         <script src="${pageContext.request.contextPath}/js/template/main.js"></script>
+
+        <script>
+            
+            var arr_price = [1,0,0,0,0,0];
+            var arr_category = [1,0,0,0,0];
+//            input: the duoc click
+            function check(tag) { 
+                
+//            classname: loai filter de xu ly: price, category
+                var classname = tag.className.split(" ")[0];
+                
+//              arr: array cac the cung 1 loai filter
+                var arr = document.getElementsByClassName(classname);
+                
+//                stt duoc tick trong 1 filter
+                var index_selected;
+                
+//                luu mang danh sach stt cua filter
+                var arr_index = [arr.length];
+                
+//                tim ra vi tri cua the duoc click trong array
+//                gan vi tri vao bien index_selected
+                for (var i = 0; i < arr.length; i++) {
+                   if( tag.id == arr[i].id){
+                     index_selected = i;
+                   }
+                }
+                
+//            neu la the 0 duoc chon: all -> xoa het tick cac the con lai
+                if( index_selected == 0 ){
+                    arr[index_selected].checked = true;
+                    for (var i = 1; i < arr.length; i++) {
+                        arr[i].checked = false;
+                    }
+                } else { // neu khac the 0: all -> xoa tick the 0
+                    arr[0].checked = false;
+                }
+                
+//               luu nhung tick vao arr_index: tick: 1, ko tick : 0
+                for (var i = 0; i < arr.length; i++) {
+                    if ( arr[i].checked == true ) {
+                       arr_index[i] = 1;
+                   } else {
+                       arr_index[i] = 0;
+                   }
+                }
+                
+//                Truong hop: neu huy tick thi phai tick lai all
+//              -> them property checked vao the all
+//              -> arr_index tick: 1
+                var check_clear_tick = 0;
+                for(var i = 0; i < arr.length; i++){
+                    if( arr_index[i] == 1 ){
+                        check_clear_tick = 1;
+                    }
+                }
+                if( check_clear_tick == 0 ){
+                    arr_index[0] = 1;
+                     arr[0].checked = true;
+                }
+                
+                if ( classname == "price" ){
+                    arr_price = arr_index;
+                } else if ( classname == "category" ){
+                    arr_category = arr_index;
+                }
+                
+                display();
+            }
+            
+//            hien thi nhung the lien quan
+            function display(){
+                
+                 if( arr_category[0] == 1 ){
+                        document.getElementById("loaiquat").style.display = "block";
+                    }else {
+                        for(var i = 1; i < arr_category.length; i++){
+                          if( arr_category[i] == 1 ){
+                             document.getElementById("loaiquat").style.display = "block";
+                          }
+                      }
+                    }
+            }
+            
+            function load(classname, arr_index){
+                $.ajax({
+                    url : "Shop/shop",
+                    type : "post",
+//                    dataType:"text",
+                    data : {
+                         number : $('#number').val()
+                    },
+                    success : function (result){
+                        $('#result').html(result);
+                    }
+                });
+            }
+            
+        </script>
     </body>
 </html>
