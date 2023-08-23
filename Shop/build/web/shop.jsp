@@ -240,36 +240,6 @@
                         </form>
                     </div>
                     <!-- Categories End -->
-
-                <!-- LoaiQuat Start -->
-                    <div class="border-bottom mb-4 pb-4" id = "loaiquat" style = "display: none">
-                        <h5 class="font-weight-semi-bold mb-4">Chọn loại quạt</h5>
-                        <form>
-                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="loaiquat custom-control-input" checked id="loaiquat-all" onclick = "check(this)" >
-                                <label class="custom-control-label" for="category-all">Tất cả</label>
-                                <span class="badge border font-weight-normal">1000</span>
-                            </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="loaiquat custom-control-input" id="loaiquat-1" onclick = "check(this)">
-                                <label class="custom-control-label" for="loaiquat-1">Quạt đứng</label>
-                                <span class="badge border font-weight-normal">150</span>
-                            </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="loaiquat custom-control-input" id="loaiquat-2" onclick = "check(this)">
-                                <label class="custom-control-label" for="loaiquat-2">Quạt treo tường</label>
-                                <span class="badge border font-weight-normal">295</span>
-                            </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="loaiquat custom-control-input" id="loaiquat-3" onclick = "check(this)">
-                                <label class="custom-control-label" for="loaiquat-3">Quạt trần</label>
-                                <span class="badge border font-weight-normal">246</span>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Categories End -->
-                    
-                    
                 </div>
                 <!-- Shop Sidebar End -->
 
@@ -641,33 +611,22 @@
                     arr_category = arr_index;
                 }
                 
-                display();
+                load();
             }
             
-//            hien thi nhung the lien quan
-            function display(){
-                
-                 if( arr_category[0] == 1 ){
-                        document.getElementById("loaiquat").style.display = "block";
-                    }else {
-                        for(var i = 1; i < arr_category.length; i++){
-                          if( arr_category[i] == 1 ){
-                             document.getElementById("loaiquat").style.display = "block";
-                          }
-                      }
-                    }
-            }
-            
-            function load(classname, arr_index){
+             var arr_price = [1,0,0,0,0,0];
+            var arr_category = [1,0,0,0,0];
+            function load(){
                 $.ajax({
-                    url : "Shop/shop",
+                    url : "shop",
                     type : "post",
+                    traditional: true,
 //                    dataType:"text",
                     data : {
-                         number : $('#number').val()
+                        price : JSON.stringify(arr_price),
+                         category : JSON.stringify(arr_category)
                     },
                     success : function (result){
-                        $('#result').html(result);
                     }
                 });
             }
