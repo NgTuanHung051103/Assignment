@@ -259,6 +259,34 @@ public class SanPhamDAO {
         return List_Trandy;
     }
 
+// Lay top 9 theo filter mac dinh chua loadmore
+// INPUT: sql da qua xu ly
+// OUTPUT: list top 9 products by filter    
+   public ArrayList<SanPham> getListBySQL(String sql) {
+       ArrayList<SanPham> ListBySQL = new ArrayList<>();
+        try {
+            PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                SanPham s = new SanPham();
+                s.setMaSP(rs.getInt("MaSP"));
+                s.setTenSP(rs.getString("TenSP"));
+                s.setThuongHieu(rs.getString("ThuongHieu"));
+                s.setImg(rs.getString("Img"));
+                s.setGiaThanh(rs.getInt("GiaThanh"));
+                s.setNhomSP(rs.getInt("NhomSP"));
+                s.setSoLuong(rs.getInt("SoLuong"));
+                s.setDaBan(rs.getInt("DaBan"));
+                ListBySQL.add(s);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ListBySQL;
+    }   
+    
 //    ----------------Insert------------------
 //    Them 1 san pham moi vao database
 //  INPUT: nhung thong in co
@@ -383,5 +411,7 @@ public class SanPhamDAO {
         }
 
     }
+
+  
 
 }

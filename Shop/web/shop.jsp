@@ -3,7 +3,7 @@
     Created on : Aug 21, 2023, 10:12:34 PM
     Author     : ptkng
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -25,10 +25,14 @@
 
         <!-- Customized Bootstrap Stylesheet -->
         <link href="${pageContext.request.contextPath}/css/template/style.css" rel="stylesheet">
+        
+        <!-- Added Bootstrap Stylesheet -->
+        <link href="${pageContext.request.contextPath}/css/template/added.css" rel="stylesheet">
 
 
     </head>
     <body>
+        <span class="loader"></span>
         <!-- Topbar Start -->
         <div class="container-fluid">
             <div class="row bg-secondary py-2 px-xl-5">
@@ -246,187 +250,53 @@
 
                 <!-- Shop Product Start -->
                 <div class="col-lg-9 col-md-12">
-                    <div class="row pb-3">
-                        <div class="col-12 pb-1">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <form action="">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search by name">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text bg-transparent text-primary">
-                                                <i class="fa fa-search"></i>
-                                            </span>
-                                        </div>
+                    <div class="row pb-3" id = "content">
+<!--                        <div class="col-12 pb-1">
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <form action="">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search by name">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-transparent text-primary">
+                                            <i class="fa fa-search"></i>
+                                        </span>
                                     </div>
-                                </form>
-                                <div class="dropdown ml-4">
-                                    <button class="btn border dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                        Sort by
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
-                                        <a class="dropdown-item" href="#">Latest</a>
-                                        <a class="dropdown-item" href="#">Popularity</a>
-                                        <a class="dropdown-item" href="#">Best Rating</a>
-                                    </div>
+                                </div>
+                            </form>
+                            <div class="dropdown ml-4">
+                                <button class="btn border dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                            Sort by
+                                        </button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
+                                    <a class="dropdown-item" href="#">Latest</a>
+                                    <a class="dropdown-item" href="#">Popularity</a>
+                                    <a class="dropdown-item" href="#">Best Rating</a>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+                    </div>-->
+                        <c:forEach items="${requestScope.listByFilter}" var="o">
+                        <div class="sanpham col-lg-4 col-md-6 col-sm-12 pb-1">
                             <div class="card product-item border-0 mb-4">
-                                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <img class="img-fluid w-100" src="images/product-2.jpg" alt="">
-                                </div>
-                                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                    <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                                    <div class="d-flex justify-content-center">
-                                        <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                    </div>
-                                </div>
-                                <div class="card-footer d-flex justify-content-between bg-light border">
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                                <img class="img-fluid w-100" src="${o.getImg()}" alt="">
+                            </div>
+                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                                <h6 class="text-truncate mb-3">${o.getTenSP()}</h6>
+                                <div class="d-flex justify-content-center">
+                                    <h6>${o.getGiaThanh()}VNÐ</h6><h6 class="text-muted ml-2"><del>${o.getGiaThanh()}VNÐ</del></h6>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                            <div class="card product-item border-0 mb-4">
-                                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <img class="img-fluid w-100" src="images/product-2.jpg" alt="">
-                                </div>
-                                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                    <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                                    <div class="d-flex justify-content-center">
-                                        <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                    </div>
-                                </div>
-                                <div class="card-footer d-flex justify-content-between bg-light border">
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
-                                </div>
+                            <div class="card-footer d-flex justify-content-between bg-light border">
+                                <a href="detailProduct?MaSP=${o.getMaSP()}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                                <a href="addToCart?MaSP=${o.getMaSP()}" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                            </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                            <div class="card product-item border-0 mb-4">
-                                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <img class="img-fluid w-100" src="images/product-2.jpg" alt="">
-                                </div>
-                                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                    <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                                    <div class="d-flex justify-content-center">
-                                        <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                    </div>
-                                </div>
-                                <div class="card-footer d-flex justify-content-between bg-light border">
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                            <div class="card product-item border-0 mb-4">
-                                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <img class="img-fluid w-100" src="images/product-2.jpg" alt="">
-                                </div>
-                                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                    <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                                    <div class="d-flex justify-content-center">
-                                        <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                    </div>
-                                </div>
-                                <div class="card-footer d-flex justify-content-between bg-light border">
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                            <div class="card product-item border-0 mb-4">
-                                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <img class="img-fluid w-100" src="images/product-2.jpg" alt="">
-                                </div>
-                                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                    <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                                    <div class="d-flex justify-content-center">
-                                        <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                    </div>
-                                </div>
-                                <div class="card-footer d-flex justify-content-between bg-light border">
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                            <div class="card product-item border-0 mb-4">
-                                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <img class="img-fluid w-100" src="images/product-2.jpg" alt="">
-                                </div>
-                                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                    <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                                    <div class="d-flex justify-content-center">
-                                        <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                    </div>
-                                </div>
-                                <div class="card-footer d-flex justify-content-between bg-light border">
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                            <div class="card product-item border-0 mb-4">
-                                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <img class="img-fluid w-100" src="images/product-2.jpg" alt="">
-                                </div>
-                                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                    <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                                    <div class="d-flex justify-content-center">
-                                        <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                    </div>
-                                </div>
-                                <div class="card-footer d-flex justify-content-between bg-light border">
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                            <div class="card product-item border-0 mb-4">
-                                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <img class="img-fluid w-100" src="images/product-2.jpg" alt="">
-                                </div>
-                                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                    <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                                    <div class="d-flex justify-content-center">
-                                        <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                    </div>
-                                </div>
-                                <div class="card-footer d-flex justify-content-between bg-light border">
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                            <div class="card product-item border-0 mb-4">
-                                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <img class="img-fluid w-100" src="images/product-2.jpg" alt="">
-                                </div>
-                                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                    <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                                    <div class="d-flex justify-content-center">
-                                        <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                    </div>
-                                </div>
-                                <div class="card-footer d-flex justify-content-between bg-light border">
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 pb-1">
+                        </c:forEach>
+                        
+<!--                        <div class="col-12 pb-1">
                             <nav aria-label="Page navigation">
                                 <ul class="pagination justify-content-center mb-3">
                                     <li class="page-item disabled">
@@ -446,14 +316,16 @@
                                     </li>
                                 </ul>
                             </nav>
+                        </div>-->
                         </div>
+                    
                     </div>
                 </div>
                 <!-- Shop Product End -->
             </div>
         </div>
         <!-- Shop End -->
-
+        
 
         <!-- Footer Start -->
         <div class="container-fluid bg-secondary text-dark mt-5 pt-5">
@@ -610,13 +482,10 @@
                 } else if ( classname == "category" ){
                     arr_category = arr_index;
                 }
-                
                 load();
             }
             
-             var arr_price = [1,0,0,0,0,0];
-            var arr_category = [1,0,0,0,0];
-            function load(){
+                function load(){
                 $.ajax({
                     url : "shop",
                     type : "post",
@@ -627,10 +496,59 @@
                          category : JSON.stringify(arr_category)
                     },
                     success : function (result){
+                        var content =   document.getElementById("content");
+                        content.innerHTML = "";
+                         content.innerHTML += "" + result + "";
                     }
                 });
             }
             
+            
+//            doan code sau dung de load more
+
+//         bien nay dung de kiem tra xem co dang get data = ajax ko, neu = 1: co -> pause lai
+            var is_busy = 0;
+            
+//         bien nay dung de kiem tra xem da het du lieu hay chua, neu = 1: het roi -> ko load nua
+            var is_end = 0;
+            $(document).ready(function(){
+                $(window).scroll(function(){
+                     $element = $('#content');
+                    if( is_end === 0 && $(window).scrollTop() + $(window).height() >= $element.height()) {
+                        
+                        if( is_busy === 0){
+                            
+                            var count_sanpham_exist = document.getElementsByClassName("sanpham").length;
+                            
+                            is_busy = 1;
+                            setTimeout(() => { 
+                                $.ajax({
+                                    url : "shopLoadMore",
+                                    type : "post",
+                                    traditional: true,
+                //                    dataType:"text",
+                                    data : {
+                                        price : JSON.stringify(arr_price),
+                                         category : JSON.stringify(arr_category),
+                                         count : count_sanpham_exist
+                                    },
+                                    success : function (result){
+                                        var content =   document.getElementById("content");
+                                        if(result === ""){
+                                            is_end = 1;
+                                            return false;
+                                        }
+                                         content.innerHTML +=  result ;
+                                    }
+                                });
+                                is_busy = 0;
+                            }, 3000);
+                        } else {
+                            return false;
+                        }
+                    }
+                });
+            });
         </script>
     </body>
 </html>

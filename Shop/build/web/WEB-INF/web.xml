@@ -176,6 +176,10 @@
         <servlet-name>shop</servlet-name>
         <servlet-class>controller.user.shop</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>shopLoadMore</servlet-name>
+        <servlet-class>controller.user.shopLoadMore</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/list</url-pattern>
@@ -351,6 +355,10 @@
     <servlet-mapping>
         <servlet-name>shop</servlet-name>
         <url-pattern>/shop</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>shopLoadMore</servlet-name>
+        <url-pattern>/shopLoadMore</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
