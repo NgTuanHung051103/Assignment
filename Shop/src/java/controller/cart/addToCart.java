@@ -12,7 +12,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
 import logic.cart.LGcartCookie;
+import model.Cart;
+import model.CartDetail;
 
 /**
  *
@@ -60,12 +63,18 @@ public class addToCart extends HttpServlet {
         cookie.setMaxAge(60 * 10);
         response.addCookie(cookie);   
         
-//        set session de van o lai trang detailProduct
-        HttpSession session = request.getSession();
-        session.setAttribute("MaSP", MaSP_str);
+        PrintWriter out = response.getWriter();
         
-        response.sendRedirect("detailProduct");
-//        request.getRequestDispatcher("detailProduct").forward(request, response);
+        //        Tao cart: list luu cac item da duoc add vao gio hang
+        Cart cart = new Cart(txt_cart);   
+        
+//        Lay list order co trong cart
+        ArrayList< CartDetail> listOrderDetail = cart.getCart();
+        
+//        lay so luong order co trong cart
+        int n = listOrderDetail != null ? listOrderDetail.size() : 0;
+        
+        out.println(n);
     }
 
     @Override

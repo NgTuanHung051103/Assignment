@@ -48,7 +48,7 @@ public class shop extends HttpServlet {
 
         request.setAttribute("listByFilter", list);
 
-        request.getRequestDispatcher("shop.jsp").forward(request, response);
+        request.getRequestDispatcher("view/user/homepage/shop.jsp").forward(request, response);
     }
 
     @Override

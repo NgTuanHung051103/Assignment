@@ -32,7 +32,6 @@
 
     </head>
     <body>
-        <span class="loader"></span>
         <!-- Topbar Start -->
         <div class="container-fluid">
             <div class="row bg-secondary py-2 px-xl-5">
@@ -131,8 +130,8 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <a href="index.html" class="nav-item nav-link">Home</a>
-                                <a href="shop.html" class="nav-item nav-link active">Shop</a>
+                                <a href="${pageContext.request.contextPath}/home" class="nav-item nav-link">Home</a>
+                                <a href="${pageContext.request.contextPath}/shop" class="nav-item nav-link active">Shop</a>
                                 <a href="detail.html" class="nav-item nav-link">Shop Detail</a>
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
