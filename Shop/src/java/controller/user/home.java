@@ -25,24 +25,11 @@ public class home extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     
-//        ----Khoi tao Cookie txt cart----
-//          Tao logic xu ly cart
+//      get number product in cart:
         LGcartCookie lgCart = new LGcartCookie();
-
-//          Them san pham moi vao cart         
-         String txt_cart = lgCart.get(request, response);
-         
-//        Tao cart: list luu cac item da duoc add vao gio hang
-        Cart cart = new Cart(txt_cart);   
         
-//        Lay list order co trong cart
-        ArrayList< CartDetail> listOrderDetail = cart.getCart();
-        
-//        lay so luong order co trong cart
-        int n = listOrderDetail != null ? listOrderDetail.size() : 0;
-        
-//        set soluong - list CartDetail
-        request.setAttribute("numberOfCart", n);    
+//        set soluong
+        request.setAttribute("numberOfCart", lgCart.getNumberProduct(request, response));    
         
         
 //      get list trandy 

@@ -89,7 +89,7 @@
                     </a>
                     <a href="" class="btn border">
                         <i class="fas fa-shopping-cart text-primary"></i>
-                        <span class="badge">0</span>
+                        <span id ="numberOfCart" class="badge">${requestScope.numberOfCart}</span>
                     </a>
                 </div>
             </div>
@@ -288,8 +288,15 @@
                                 </div>
                             </div>
                             <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="detailProduct?MaSP=${o.getMaSP()}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                                <a href="addToCart?MaSP=${o.getMaSP()}" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+<!--                                <a href="detailProduct?MaSP=${o.getMaSP()}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                                <a href="addToCart?MaSP=${o.getMaSP()}" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>-->
+                                 <button onclick="detailProduct(${o.getMaSP()})" class="btn btn-sm text-dark p-0">
+                                    <i class="fas fa-eye text-primary mr-1"></i>View Detail
+                                </button>
+
+                                <button onclick="addToCart(${o.getMaSP()})" class="btn btn-sm text-dark p-0">
+                                     <i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart
+                                </button>
                             </div>
                             </div>
                         </div>
@@ -548,6 +555,26 @@
                     }
                 });
             });
+            
+            
+               function addToCart(MaSP){
+                $.ajax({
+                    url: "addToCart",
+                    type: "post",
+                    traditional: true,
+                    data:{
+                        MaSP: MaSP
+                    },
+                    success: function (result){
+                        var numberOfCart = document.getElementById("numberOfCart");
+                        numberOfCart.innerHTML = "";
+                        numberOfCart.innerHTML = result;
+                    } 
+                });
+                
+            }
+            
+            
         </script>
     </body>
 </html>

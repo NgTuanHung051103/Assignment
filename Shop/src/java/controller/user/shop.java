@@ -14,7 +14,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.Arrays;
+import logic.cart.LGcartCookie;
 import logic.user.LGuserShop;
+import model.Cart;
+import model.CartDetail;
 import model.SanPham;
 /**
  *
@@ -47,6 +50,13 @@ public class shop extends HttpServlet {
         ArrayList<SanPham> list = SPdb.getListBySQL(sql);
 
         request.setAttribute("listByFilter", list);
+
+        
+//      get number product in cart:
+        LGcartCookie lgCart = new LGcartCookie();
+        
+//        set soluong
+        request.setAttribute("numberOfCart", lgCart.getNumberProduct(request, response));    
 
         request.getRequestDispatcher("view/user/homepage/shop.jsp").forward(request, response);
     }

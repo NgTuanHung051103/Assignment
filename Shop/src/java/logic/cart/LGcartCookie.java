@@ -8,6 +8,9 @@ import dal.UserDAO;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import model.Cart;
+import model.CartDetail;
 
 /**
  *
@@ -110,5 +113,24 @@ public class LGcartCookie {
         boolean result = db.update_cart_by_Tk(txt_cart, Tk);
         return result;
     }
-
+    
+    public int getNumberProduct(HttpServletRequest request, HttpServletResponse response){
+       
+        String txt_cart = get(request, response);
+        
+//        Tao cart: list luu cac item da duoc add vao gio hang
+        Cart cart = new Cart(txt_cart); 
+        
+//        Lay list order co trong cart
+        ArrayList< CartDetail> listOrderDetail = cart.getCart();
+        
+        //        lay so luong order co trong cart
+       return listOrderDetail != null ? listOrderDetail.size() : 0;
+        
+    }
+    
+    
+    
+    
+    
 }
