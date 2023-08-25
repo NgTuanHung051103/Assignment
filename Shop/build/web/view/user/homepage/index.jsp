@@ -18,6 +18,9 @@
 
         <!-- Customized Bootstrap Stylesheet -->
         <link href="${pageContext.request.contextPath}/css/template/style.css" rel="stylesheet">
+        
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="${pageContext.request.contextPath}/css/template/added.css" rel="stylesheet">
     </head>
     <body>
               <!-- Topbar-->
