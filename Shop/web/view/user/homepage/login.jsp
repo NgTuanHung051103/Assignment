@@ -1,83 +1,138 @@
 <%-- 
-    Document   : newlogin
-    Created on : Jul 16, 2023, 12:32:04 PM
-    Author     : ptkng
+    Document   : login
+    Created on : Jun 5, 2023, 3:05:39 PM
+    Author     : Admin
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
 
-        <!-- Css -->
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/user/homepage/newlogin.css">
-        <<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+        <!-- Options -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Title -->
+        <title>QC Select</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/user/homepage/login.css">
+
+        <!-- Font -->
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Raleway:wght@500&display=swap');
+        </style>
 
     </head>
     <body>
-        <div class ="row">
-            <div class="col-md-6 mx-auto p-0">
-                <div class="card">
-                    <div class="login-box">
-                        <span style ="display:flex; justify-content: center; font-size: 20px; color: red">${requestScope.messLogin}</span>
-                        <div class="login-snip">
-                            
-                            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label>
-                            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-                            <div class="login-space">
-                                <div class="login">
-                                    <form action="${pageContext.request.contextPath}/loginServlet" method="POST">
-                                        <div class="group">
-                                            <label for="user" class="label">Tên dang nhap</label>
-                                            <input id="user" name = "fullname_Login" type="text" class="input"  placeholder="VD: NgTuanHung">
-                                            <span class="form-message"></span>
 
-                                        </div>
-                                        <div class="group">
-                                            <label for="pass" class="label">Mật khẩu</label>
-                                            <input id="pass"  name="password_Login" type="password" class="input" data-type="password" placeholder="Nhập mật khẩu">
-                                            <span class="form-message"></span>
-                                        </div>
-                                        <div class="group">
-                                            <input type="submit" class="button" value="Đăng nhập">
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="sign-up-form">
-                                    <form action="${pageContext.request.contextPath}/signupServlet" method="POST">
-                                    <div class="group">
-                                        <label for="user" class="label">Tên đăng nhập</label>
-                                        <input id="user" name="fullname"type="text" class="input" placeholder="VD: NgTuanHung">
-                                        <span class="form-message"></span>
-                                    </div>
-                                    
-                                    <div class="group">
-                                        <label for="pass" class="label">Mật khẩu</label>
-                                        <input id="pass" name="password" type="password" class="input" data-type="password" placeholder="Nhập mật khẩu">
-                                    </div>
-                                    <div class="group">
-                                        <label for="pass" class="label">Nhập lại mật khẩu</label>
-                                        <input id="pass" type="password" name="password_confirmation" class="input" data-type="password" placeholder="Nhập lại mật khẩu" >
-                                    </div>
-                                    <div class="group">
-                                        <input type="submit" class="button" value="Đăng ký">
-                                    </div>
-                                    <div class="hr"></div>
-                                    <div class="foot">
-                                        <label for="tab-1">đã có tài khoản</label>
-                                    </div>
-                                    </form>
-                                </div>
-                            </div>
+        <main class="auth_temp">
+            <div id="auth_wrapper">
+                <a href="home">
+                    <h3><span>QC</span>Select</h3> 
+                </a>
+                <div class="form_container sign_in_form">
+                    <form action="${pageContext.request.contextPath}/loginServlet" method="POST">
+                        <h1>Sign In</h1>
+                        <div class="input_item">
+                            <label class="fa-solid fa-envelope"></label>
+                            <input type="text" placeholder="Username" name="fullname_Login" id="LoginUsername" value="" required=""/>
                         </div>
-                    </div>   
+                        <div class="input_item">
+                            <label class="fa-solid fa-lock"></label>
+                            <input type="password" placeholder="Password" name="password_Login" id="LoginPassword" value="" required=""/>
+                        </div>
+<!--                  <div class="group" style="margin-right: 75px">
+                            <input id="check check" type="checkbox" class="check" name="remember" style="accent-color: #E49393; ">
+                            <label for="check" style="font-size: 13px;"><span class="icon"></span> Keep me signed in</label>
+                        </div>-->
+                        <div id="errLogin" style="color:red ;font-size:12px; " >${requestScope.messLogin}</div>                        
+                        <button type="submit" onclick = "checkLogin()">Sign In</button>
+                        <!--<a href="#">Forgot your password?</a>-->
+<!--                        <div class="social_container" style="margin-top: 5px">
+                            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        </div>-->
+                    </form>
+                </div>
+                <div class="form_container sign_up_form">
+                    <form action="${pageContext.request.contextPath}/signupServlet" method="POST">
+                        <h1>Create Account</h1>
+                        <div class="input_item">
+                            <label for="username" class="fa-solid fa-user"></label>
+                            <input type="text" placeholder="Username" name="SignUpUsername" required=""/>
+                        </div>
+                        <div class="input_item">
+                            <label class="fa-solid fa-lock"></label>
+                            <input type="password" placeholder="Password" name="SignUpPassword" required=""/>
+                        </div>
+                        <div class="input_item">
+                            <label class="fa-solid fa-lock"></label>
+                            <input type="password" placeholder="Password" name="ReInputPassword" required=""/>
+                        </div>
+                        <div id="errSignUp" style="color:red ;font-size:12px" >${messSignUp}</div>
+                        <button type="submit">Sign Up</button>
+                    </form>
+                </div>
+                <div class="overlay_container">
+                    <div class="overlay">
+                        <div class="overlay_section section_right">
+                            <h1>Hello, Friend!</h1>
+                            <p>Enter your personal details and start journey with us</p>      
+                            <button class="btn_show" id="signUp">Sign Up</button>
+                        </div>
+                        <div class="overlay_section section_left">
+                            <h1>Welcome Back!</h1>
+                            <p>To keep connected with us please login with your personal info</p>
+                            <button class="btn_show" id="signIn">Sign In</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </main>
 
     </body>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const auth_wrapper = document.getElementById('auth_wrapper');
+        var errLogin = document.getElementById("errLogin");
+        var errSignUp = document.getElementById("errSignUp");
+        
+//       thuc hien khi da dang ky va tra ve mess thi hien thi phai dang o signup
+        if(errSignUp.innerHTML !== ""){
+             auth_wrapper.classList.add("overlay_right_active");
+        }
+        
+        signUpButton.addEventListener('click', () => {
+//            if (document.getElementById("err").value !== "") {
+////                document.getElementById("err").value = "";
+//                auth_wrapper.classList.remove("overlay_right_active");
+//            }
+            auth_wrapper.classList.add("overlay_right_active");
+            errLogin.style.display = "none";
+        });
+        signInButton.addEventListener('click', () => {
+            auth_wrapper.classList.remove("overlay_right_active");
+            errLogin.style.display = "block";
+        });
+        
+        
+        
+        
+//        function error(){
+//        $.ajax({
+//                url: "/GoodsKpopStore/register",
+//                type: "post",
+//                success: function(error2){
+//                var err2 = document.getElementById("err");
+//                        err2
+//                }
+//        }
+
+
+    </script>
+    <script src="https://kit.fontawesome.com/756da913d7.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </html>

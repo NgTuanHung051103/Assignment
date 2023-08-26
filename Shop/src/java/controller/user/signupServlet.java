@@ -29,9 +29,9 @@ public class signupServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String Tk = request.getParameter("fullname");
+        String Tk = request.getParameter("SignUpUsername");
         
-        String Mk = request.getParameter("password");
+        String Mk = request.getParameter("SignUpPassword");
         
         LGsignup signup = new LGsignup();
         
@@ -42,11 +42,11 @@ public class signupServlet extends HttpServlet {
 //          dang ky tai khoan            
             signup.create_Account(Tk, Mk);
            
-            request.setAttribute("messSignUp", "Ban Da Dang Ky thanh cong, vui long dang nhap");
+            request.setAttribute("messSignUp", "Bạn đã đăng ký thành công, vui lòng đăng nhập");
             request.getRequestDispatcher("/view/user/homepage/login.jsp").forward(request, response);
 
         }   else { // Neu da ton tai trong database:
-            request.setAttribute("messSignUp", "Da Ton Tai Ten dang nhap nay");
+            request.setAttribute("messSignUp", "Đã tồn tại tên đăng nhập");
             request.getRequestDispatcher("/view/user/homepage/login.jsp").forward(request, response);
             
         }

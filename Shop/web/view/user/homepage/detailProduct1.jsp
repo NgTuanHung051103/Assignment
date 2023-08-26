@@ -23,7 +23,7 @@
         
         <!--Page Content-->
         <c:set var = "SanPham" value="${requestScope.sp}"/>
-        <c:set var = "TSKT" value="${requestScope.tskt1}"/>
+        
         <div class =" container-fluid container-detailProduct">
             <div class="card">
                 <div class="card-body">

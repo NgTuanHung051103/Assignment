@@ -55,7 +55,12 @@
                             <div class="navbar-nav mr-auto py-0">
                                 <a href="${pageContext.request.contextPath}/home" class="nav-item nav-link active">Home</a>
                                 <a href="${pageContext.request.contextPath}/shop" class="nav-item nav-link">Shop</a>
-                                <!--<a href="detail.html" class="nav-item nav-link">Shop Detail</a>-->
+                               <c:set var = "MaSPdetail" value="${sessionScope.MaSPdetail}"/>
+                               
+                                <c:if test = "${MaSPdetail != null}">
+                                    <a href="${pageContext.request.contextPath}/detailProduct?MaSP=${MaSPdetail}" class="nav-item nav-link">Shop Detail</a>
+                                </c:if>
+                                    
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                                     <div class="dropdown-menu rounded-0 m-0">

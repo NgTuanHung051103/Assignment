@@ -169,6 +169,9 @@
                 
             }
             
+            function detailProduct(maSP) {
+                    window.location.href = "detailProduct?MaSP=" + maSP;
+            }
         </script>
         
 

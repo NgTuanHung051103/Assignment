@@ -36,6 +36,8 @@ public class detailProduct extends HttpServlet {
         
         int MaSP = Integer.parseInt(MaSP_str);
         
+        session.setAttribute("MaSPdetail", MaSP_str);
+        
         SanPhamDAO SPdb = new SanPhamDAO();
         ArrayList<SanPham> sp_list = SPdb.getSanPhamById(MaSP);
         
@@ -57,7 +59,7 @@ public class detailProduct extends HttpServlet {
 //          Lay thanh cong TSKT
                 model.TSKT_Quat tskt1 = tskt_list1.get(0);
                 request.setAttribute("tskt1", tskt1);
-                request.getRequestDispatcher("view/user/homepage/detailProduct1.jsp").forward(request, response);
+                request.getRequestDispatcher("view/user/homepage/detailProduct.jsp").forward(request, response);
                 break;
                 
             case 2: // Dieu Hoa
@@ -65,7 +67,7 @@ public class detailProduct extends HttpServlet {
 //          Lay thanh cong TSKT
                 model.TSKT_DieuHoa tskt2 = tskt_list2.get(0);
                 request.setAttribute("tskt2", tskt2);
-                request.getRequestDispatcher("view/user/homepage/detailProduct2.jsp").forward(request, response);
+                request.getRequestDispatcher("view/user/homepage/detailProduct.jsp").forward(request, response);
                 break;
                 
               case 3: // Tu lanh
@@ -73,7 +75,7 @@ public class detailProduct extends HttpServlet {
 //          Lay thanh cong TSKT
                 model.TSKT_TuLanh tskt3 = tskt_list3.get(0);
                 request.setAttribute("tskt3", tskt3);
-                request.getRequestDispatcher("view/user/homepage/detailProduct3.jsp").forward(request, response);
+                request.getRequestDispatcher("view/user/homepage/detailProduct.jsp").forward(request, response);
                 break;
                 
                case 4: // Tivi
@@ -81,7 +83,7 @@ public class detailProduct extends HttpServlet {
 //          Lay thanh cong TSKT
                 model.TSKT_Tivi tskt4 = tskt_list4.get(0);
                 request.setAttribute("tskt4", tskt4);
-                request.getRequestDispatcher("view/user/homepage/detailProduct4.jsp").forward(request, response);
+                request.getRequestDispatcher("view/user/homepage/detailProduct.jsp").forward(request, response);
                 break;  
                 
                     
