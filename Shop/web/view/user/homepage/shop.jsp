@@ -142,7 +142,7 @@
                                <c:set var = "MaSPdetail" value="${sessionScope.MaSPdetail}"/>
                                
                                 <c:if test = "${MaSPdetail != null}">
-                                    <a href="${pageContext.request.contextPath}/detailProduct?${MaSPdetail}" class="nav-item nav-link">Shop Detail</a>
+                                    <a href="${pageContext.request.contextPath}/detailProduct?MaSP=${MaSPdetail}" class="nav-item nav-link">Shop Detail</a>
                                 </c:if>
                                 
                                 
