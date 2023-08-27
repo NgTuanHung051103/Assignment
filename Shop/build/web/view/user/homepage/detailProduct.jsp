@@ -141,29 +141,24 @@
                     <jsp:include page="../../common/homepage/pageheader.jsp" ></jsp:include>  
             <!-- Page Header End -->
 
-            <c:set var = "TSKT" value="${requestScope.tskt1}"/>
-            
-            <%--<c:if test = "${TSKT == 1}">--%>
-                        <%--<jsp:include page="../../common/homepage/detailProduct1.jsp" ></jsp:include>--%>
-            <%--</c:if>--%>
-
      <!--Shop Detail Start--> 
+     <c:set var = "SanPham" value="${sessionScope.spDetail}"/>
     <div class="container-fluid py-5">
         <div class="row px-xl-5">
             <div class="col-lg-5 pb-5">
                 <div id="product-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner border">
                         <div class="carousel-item active">
-                            <img class="w-100 h-100" src="img/product-1.jpg" alt="Image">
+                            <img class="w-100 h-100" src="${SanPham.getImg()}" alt="Image">
                         </div>
                         <div class="carousel-item">
-                            <img class="w-100 h-100" src="img/product-2.jpg" alt="Image">
+                            <img class="w-100 h-100" src="${SanPham.getImg()}" alt="Image">
                         </div>
                         <div class="carousel-item">
-                            <img class="w-100 h-100" src="img/product-3.jpg" alt="Image">
+                            <img class="w-100 h-100" src="${SanPham.getImg()}" alt="Image">
                         </div>
                         <div class="carousel-item">
-                            <img class="w-100 h-100" src="img/product-4.jpg" alt="Image">
+                            <img class="w-100 h-100" src="${SanPham.getImg()}" alt="Image">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
@@ -291,38 +286,18 @@
                         <h4 class="mb-3">Additional Information</h4>
                         <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam. Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.</p>
                         <div class="row">
-                            <div class="col-md-6">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item px-0">
-                                        Sit erat duo lorem duo ea consetetur, et eirmod takimata.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Duo amet accusam eirmod nonumy stet et et stet eirmod.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
-                                    </li>
-                                  </ul> 
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item px-0">
-                                        Sit erat duo lorem duo ea consetetur, et eirmod takimata.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Duo amet accusam eirmod nonumy stet et et stet eirmod.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
-                                    </li>
-                                  </ul> 
-                            </div>
+                             <c:if test = "${sessionScope.categoryDetail == 1}">
+                                    <jsp:include page="detailProduct1.jsp" ></jsp:include>
+                             </c:if>
+                             <c:if test = "${sessionScope.categoryDetail == 2}">
+                                    <jsp:include page="detailProduct2.jsp" ></jsp:include>
+                             </c:if>
+                             <c:if test = "${sessionScope.categoryDetail == 3}">
+                                    <jsp:include page="detailProduct3.jsp" ></jsp:include>
+                             </c:if>
+                             <c:if test = "${sessionScope.categoryDetail == 4}">
+                                    <jsp:include page="detailProduct4.jsp" ></jsp:include>
+                             </c:if>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tab-pane-3">
@@ -492,9 +467,9 @@
 
         <script src="${pageContext.request.contextPath}/assets/owlcarousel/owl.carousel.min.js"></script>
 
-        <!-- Contact Javascript File -->
-        <!--        <script src="mail/jqBootstrapValidation.min.js"></script>
-                <script src="mail/contact.js"></script>-->
+         <!--Contact Javascript File--> 
+                <script src="${pageContext.request.contextPath}/js/template/jqBootstrapValidation.min.js"></script>
+                <script src="${pageContext.request.contextPath}/js/template/contact.js"></script>
 
         <!-- Template Javascript -->
         <script src="${pageContext.request.contextPath}/js/template/main.js"></script>

@@ -44,10 +44,12 @@ public class detailProduct extends HttpServlet {
 //        Lay thanh cong San Pham
         SanPham sp = sp_list.get(0);
         
+        session.setAttribute("spDetail", sp);
+                
 //        Lay ma nhom SP de phan chia tskt
         int NhomSP = sp.getNhomSP();
         
-        request.setAttribute("sp", sp);
+        session.setAttribute("categoryDetail", NhomSP);
         
 //        Lay tskt cua san pham theo nhomSP
         LGcateFilter logic = new LGcateFilter();
@@ -58,15 +60,16 @@ public class detailProduct extends HttpServlet {
                  ArrayList <model.TSKT_Quat> tskt_list1 = logic.getAll1(sp.getMaSP(), NhomSP);
 //          Lay thanh cong TSKT
                 model.TSKT_Quat tskt1 = tskt_list1.get(0);
-                request.setAttribute("tskt1", tskt1);
-                request.getRequestDispatcher("view/user/homepage/detailProduct.jsp").forward(request, response);
+                session.setAttribute("tsktDetail", tskt1);
+               
+               request.getRequestDispatcher("view/user/homepage/detailProduct.jsp").forward(request, response);
                 break;
                 
             case 2: // Dieu Hoa
                      ArrayList <model.TSKT_DieuHoa> tskt_list2 = logic.getAll2(sp.getMaSP(), NhomSP);
 //          Lay thanh cong TSKT
                 model.TSKT_DieuHoa tskt2 = tskt_list2.get(0);
-                request.setAttribute("tskt2", tskt2);
+                session.setAttribute("tsktDetail", tskt2);
                 request.getRequestDispatcher("view/user/homepage/detailProduct.jsp").forward(request, response);
                 break;
                 
@@ -74,7 +77,7 @@ public class detailProduct extends HttpServlet {
                 ArrayList <model.TSKT_TuLanh> tskt_list3 = logic.getAll3(sp.getMaSP(), NhomSP);
 //          Lay thanh cong TSKT
                 model.TSKT_TuLanh tskt3 = tskt_list3.get(0);
-                request.setAttribute("tskt3", tskt3);
+                session.setAttribute("tsktDetail", tskt3);
                 request.getRequestDispatcher("view/user/homepage/detailProduct.jsp").forward(request, response);
                 break;
                 
@@ -82,7 +85,7 @@ public class detailProduct extends HttpServlet {
                      ArrayList <model.TSKT_Tivi> tskt_list4 = logic.getAll4(sp.getMaSP(), NhomSP);
 //          Lay thanh cong TSKT
                 model.TSKT_Tivi tskt4 = tskt_list4.get(0);
-                request.setAttribute("tskt4", tskt4);
+                session.setAttribute("tsktDetail", tskt4);
                 request.getRequestDispatcher("view/user/homepage/detailProduct.jsp").forward(request, response);
                 break;  
                 
