@@ -31,7 +31,7 @@ public class updateCart extends HttpServlet {
          lgCart.set(request, response, txt_cart);
          
 //       Quay ve servlet cart de khoi tao lai trang cart.jsp
-        response.sendRedirect("cart");
+//        response.sendRedirect("cart");
         
     }
 

@@ -43,7 +43,6 @@ public class addToCart extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("MaSP", MaSP_str);
         
-        response.sendRedirect("home");
 //        request.getRequestDispatcher("detailProduct").forward(request, response);
     }
 

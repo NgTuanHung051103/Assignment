@@ -23,18 +23,17 @@ public class deleteCart extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String MaSP_str = request.getParameter("MaSP");
-
+        
         LGcartCookie lgCart = new LGcartCookie();
 
 //        Xoa san pham da thao tac
         String txt_cart = lgCart.delete(request, response, MaSP_str);
-
+        
 //        Set lai txt_cart len cookie
         lgCart.set(request, response, txt_cart);
         
 //       Quay ve servlet cart de khoi tao lai trang cart.jsp
-        response.sendRedirect("cart");
-
+//        response.sendRedirect("cart");
     }
 
     @Override

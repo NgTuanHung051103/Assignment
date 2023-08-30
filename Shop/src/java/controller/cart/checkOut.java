@@ -30,6 +30,8 @@ public class checkOut extends HttpServlet {
 //        Lay duoc txt_cart sau khi da save -> chuyen thanh order_txt ( van giu nguyen gia tri )
         String order_txt = request.getParameter("order_txt");
 
+        System.out.println(order_txt);
+        
 //        Tao cart: list luu cac item da duoc add vao gio hang (0rder)
         Cart order = new Cart(order_txt);
 

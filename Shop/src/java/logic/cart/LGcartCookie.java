@@ -91,7 +91,7 @@ public class LGcartCookie {
             String MaSP_str) {
 //          Lay txt_cart
         String txt_cart = get(request, response);
-
+        
 //          Tach thanh tung san pham
         String[] products = txt_cart.split("/");
 
@@ -103,8 +103,12 @@ public class LGcartCookie {
                 txt_cart += product + "/";
             }
         }
-        int pos_last = txt_cart.length();
-        return txt_cart.substring(0, pos_last - 1);
+        if ( !txt_cart.equalsIgnoreCase("")){
+             int pos_last = txt_cart.length();
+            return txt_cart.substring(0, pos_last - 1);
+        }
+        return "";
+       
 
     }
 

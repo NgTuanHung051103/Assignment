@@ -20,8 +20,6 @@
 
 <body style ="background-color: #F5F5F5">
 
-    <!-- Navbar-->
-    <jsp:include page="../../common/homepage/navbar.jsp" ></jsp:include> 
 
 
         <div class="container bootstrap snippet" style = "margin-top: 50px">

@@ -37,12 +37,13 @@ public class cart extends HttpServlet {
         ArrayList< CartDetail> listOrderDetail = cart.getCart();
 
 //        lay so luong order co trong cart
-        int n = listOrderDetail != null ? listOrderDetail.size() : 0;
+        int n = lgCart.getNumberProduct(request, response);
             
 //        set soluong - list CartDetail
         request.setAttribute("size", n);
         request.setAttribute("data", listOrderDetail);
         request.getRequestDispatcher("view/user/homepage/cart.jsp").forward(request, response);
+        
     }
 
     @Override

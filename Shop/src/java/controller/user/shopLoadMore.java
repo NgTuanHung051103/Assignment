@@ -72,8 +72,6 @@ public class shopLoadMore extends HttpServlet {
 //          Tao cau lenh sql
         sql = LGUS.createSQL(PRICE, CATEGORY, count);
         
-        System.out.println(sql);
-        
 //      get list by filter          
         SanPhamDAO SPdb = new SanPhamDAO();
 
@@ -82,7 +80,7 @@ public class shopLoadMore extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         for (SanPham s : list) {
-            out.println("<div class=\"sanpham col-lg-4 col-md-6 col-sm-12 pb-1\">\n"
+          out.println("<div class=\"sanpham col-lg-4 col-md-6 col-sm-12 pb-1\">\n"
                     + "                            <div class=\"card product-item border-0 mb-4\">\n"
                     + "                            <div class=\"card-header product-img position-relative overflow-hidden bg-transparent border p-0\">\n"
                     + "                                <img class=\"img-fluid w-100\" src=\"" + s.getImg() + "\" alt=\"\">\n"
@@ -94,8 +92,13 @@ public class shopLoadMore extends HttpServlet {
                     + "                                </div>\n"
                     + "                            </div>\n"
                     + "                            <div class=\"card-footer d-flex justify-content-between bg-light border\">\n"
-                    + "                                <a href=\"detailProduct?MaSP=" + s.getMaSP() + "\" class=\"btn btn-sm text-dark p-0\"><i class=\"fas fa-eye text-primary mr-1\"></i>View Detail</a>\n"
-                    + "                                <a href=\"addToCart?MaSP=" + s.getMaSP() + "\" class=\"btn btn-sm text-dark p-0\"><i class=\"fas fa-shopping-cart text-primary mr-1\"></i>Add To Cart</a>\n"
+                    + "                                   <button onclick=\"detailProduct("+s.getMaSP()+")\" class=\"btn btn-sm text-dark p-0\">\n"
+                    + "                                    <i class=\"fas fa-eye text-primary mr-1\"></i>View Detail\n"
+                    + "                                </button>\n"
+                    + "\n"
+                    + "                                <button onclick=\"addToCart("+s.getMaSP()+")\" class=\"btn btn-sm text-dark p-0\">\n"
+                    + "                                     <i class=\"fas fa-shopping-cart text-primary mr-1\"></i>Add To Cart\n"
+                    + "                                </button>"
                     + "                            </div>\n"
                     + "                        </div>\n"
                     + "                        </div>");

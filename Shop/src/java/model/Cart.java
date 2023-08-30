@@ -38,7 +38,7 @@ public class Cart {
                 }
             }
         } catch (NumberFormatException e) {
-
+            System.out.println("Loi o Cart.java : constructor()");
         }
     }
 
