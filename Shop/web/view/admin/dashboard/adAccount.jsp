@@ -31,7 +31,7 @@
         
         <!--Navbar-->
         <%--<jsp:include page="../../common/dashboard/navbar.jsp" ></jsp:include>--%>
-             <jsp:include page="../../common/homepage/navbar.jsp" ></jsp:include>  
+             <jsp:include page="../common/navbar.jsp" ></jsp:include>  
         
         <div id="wrapper">
 

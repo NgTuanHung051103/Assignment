@@ -37,7 +37,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Assignment/Assignment/Shop/web/view/user/homepage/checkOut.jsp</file>
-            <file>file:/D:/Assignment/Assignment/Shop/web/view/user/homepage/shop.jsp</file>
+            <file>file:/D:/Assignment/Assignment/Shop/src/java/controller/user/thanhtoan.java</file>
+            <file>file:/D:/Assignment/Assignment/Shop/web/view/user/homepage/dathangthanhcong.jsp</file>
         </group>
     </open-files>
 </project-private>

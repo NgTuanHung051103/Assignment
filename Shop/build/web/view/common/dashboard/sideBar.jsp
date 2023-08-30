@@ -12,25 +12,32 @@
         <title>JSP Page</title>
 
     </head>
-    <body>
+    <body >
         <ul class="sidebar navbar-nav">
             <li class="nav-item active">
+                <a class="nav-link" href="${pageContext.request.contextPath}/home">
+                    <i style = "color: white" class="fas fa-fw fa-tachometer-alt"></i>
+                    <span style = "color: white" >Home</span>
+                </a>
+            </li>
+            
+            <li class="nav-item active">
                 <a class="nav-link" href="transition?transition=1">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Product</span>
+                    <i style = "color: white" class="fas fa-fw fa-tachometer-alt"></i>
+                    <span style = "color: white" >Product</span>
                 </a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="transition?transition=2">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Account</span></a>
+                    <i style = "color: white" class="fas fa-fw fa-chart-area"></i>
+                    <span style = "color: white">Account</span></a>
             </li>
             
-            <li class="nav-item">
-                <a class="nav-link" href="transition?transition=8">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>View all orders</span></a>
+            <li class="nav-item" >
+                <a class="nav-link" href="transition?transition=8"  >
+                    <i  style = "color: white" class="fas fa-fw fa-chart-area"></i>
+                    <span  style = "color: white" >View all orders</span></a>
             </li>
             
             <li class="nav-item">
@@ -38,7 +45,7 @@
                     <span>Trang thai</span>
                 </button>
                 <div class="dropdown-menu" id="listtrangthai" style="display:none;">
-                        <a class="dropdown-item"  href="transition?transition=3">Chờ xác nhận</a>
+                        <a  class="dropdown-item"  href="transition?transition=3">Chờ xác nhận</a>
                         <a class="dropdown-item" href="transition?transition=4">Đang giao</a>
                         <a class="dropdown-item" href="transition?transition=5">Đã giao</a>
                         <a class="dropdown-item" href="transition?transition=6">Đã giao dịch</a>
