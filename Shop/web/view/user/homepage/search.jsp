@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <!--Icon-->
+       <link rel="icon" type="image/png" sizes="32x32" href="${pageContext.request.contextPath}/img/favicon-32x32.png">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
         <!-- Css -->
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common/navbar.css">
@@ -25,7 +26,7 @@
             <h2>
                 Search for: ${requestScope.key}
             </h2>
-
+            
         <!--Products-->
       <div class="container" style ="margin-top: 20px;">
             <!--hien thi noi dung san pham-->

@@ -79,29 +79,33 @@ public class shopLoadMore extends HttpServlet {
 
         PrintWriter out = response.getWriter();
 
-        for (SanPham s : list) {
-          out.println("<div class=\"sanpham col-lg-4 col-md-6 col-sm-12 pb-1\">\n"
-                    + "                            <div class=\"card product-item border-0 mb-4\">\n"
-                    + "                            <div class=\"card-header product-img position-relative overflow-hidden bg-transparent border p-0\">\n"
-                    + "                                <img class=\"img-fluid w-100\" src=\"" + s.getImg() + "\" alt=\"\">\n"
-                    + "                            </div>\n"
-                    + "                            <div class=\"card-body border-left border-right text-center p-0 pt-4 pb-3\">\n"
-                    + "                                <h6 class=\"text-truncate mb-3\">" + s.getTenSP() + "</h6>\n"
-                    + "                                <div class=\"d-flex justify-content-center\">\n"
-                    + "                                    <h6>" + s.getGiaThanh() + "VNÐ</h6><h6 class=\"text-muted ml-2\"><del>" + s.getGiaThanh() + "VNÐ</del></h6>\n"
-                    + "                                </div>\n"
-                    + "                            </div>\n"
-                    + "                            <div class=\"card-footer d-flex justify-content-between bg-light border\">\n"
-                    + "                                   <button onclick=\"detailProduct("+s.getMaSP()+")\" class=\"btn btn-sm text-dark p-0\">\n"
-                    + "                                    <i class=\"fas fa-eye text-primary mr-1\"></i>View Detail\n"
-                    + "                                </button>\n"
-                    + "\n"
-                    + "                                <button onclick=\"addToCart("+s.getMaSP()+")\" class=\"btn btn-sm text-dark p-0\">\n"
-                    + "                                     <i class=\"fas fa-shopping-cart text-primary mr-1\"></i>Add To Cart\n"
-                    + "                                </button>"
-                    + "                            </div>\n"
-                    + "                        </div>\n"
-                    + "                        </div>");
+       for (SanPham s : list) {
+            out.println("<div class=\"col-lg-3 col-md-6 col-sm-12 pb-1\">\n" +
+"                        <div class=\"card product-item border-0 mb-4\" style=\"height: 90%;\">\n" +
+"                            <div class=\"card-header product-img position-relative overflow-hidden bg-transparent border p-0\"\n" +
+"                                    style = \"height: 80%; display: flex; justify-content: center\">\n" +
+"                                <img style =\"object-fit: contain;\" class=\"img-fluid w-100\" src=\" "+s.getImg()+" \" alt=\"\">\n" +
+"                            </div>\n" +
+"                            <div class=\"card-body border-left border-right text-center p-0 pt-4 pb-3\">\n" +
+"                                <h6 class=\"text-truncate mb-3\">"+s.getTenSP()+"</h6>\n" +
+"                                <div class=\"d-flex justify-content-center\">\n" +
+"                                    <h6>"+s.getGiaThanh()+"</h6><h6 class=\"text-muted ml-2\"><del>"+s.getGiaThanh()+"VNÐ</del></h6>\n" +
+"                                </div>\n" +
+"                            </div>\n" +
+"                            <div class=\"card-footer d-flex justify-content-between bg-light border\">\n" +
+"                                <!--<a href=\"detailProduct?MaSP=${o.getMaSP()}\" class=\"btn btn-sm text-dark p-0\"><i class=\"fas fa-eye text-primary mr-1\"></i>View Detail</a>-->\n" +
+"                                <!--<a href=\"\"onclick =\"addToCart(${o.getMaSP()})\" class=\"btn btn-sm text-dark p-0\"><i class=\"fas fa-shopping-cart text-primary mr-1\"></i>Add To Cart</a>-->\n" +
+"                                <button onclick=\"detailProduct("+s.getMaSP()+")\" class=\"btn btn-sm text-dark p-0\">\n" +
+"                                    <i class=\"fas fa-eye text-primary mr-1\"></i>View Detail\n" +
+"                                </button>\n" +
+"\n" +
+"                                <button onclick=\"addToCart("+s.getMaSP()+")\" class=\"btn btn-sm text-dark p-0\">\n" +
+"                                     <i class=\"fas fa-shopping-cart text-primary mr-1\"></i>Add To Cart\n" +
+"                                </button>\n" +
+"                                \n" +
+"                            </div>\n" +
+"                        </div>\n" +
+"                    </div>");
         }
 
     }

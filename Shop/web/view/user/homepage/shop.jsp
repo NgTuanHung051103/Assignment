@@ -11,8 +11,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon">
-
+        <!--<link href="img/favicon.ico" rel="icon">-->
+        <link rel="icon" type="image/png" sizes="32x32" href="${pageContext.request.contextPath}/img/favicon-32x32.png">
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
@@ -337,10 +337,11 @@
                         </div>
                     </div>-->
                         <c:forEach items="${requestScope.listByFilter}" var="o">
-                        <div class="sanpham col-lg-4 col-md-6 col-sm-12 pb-1">
-                            <div class="card product-item border-0 mb-4">
-                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="${o.getImg()}" alt="">
+                      <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                        <div class="card product-item border-0 mb-4" style="height: 90%;">
+                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0"
+                                    style = "height: 80%; display: flex; justify-content: center">
+                                <img style ="object-fit: contain;" class="img-fluid w-100" src="${o.getImg()}" alt="">
                             </div>
                             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                 <h6 class="text-truncate mb-3">${o.getTenSP()}</h6>
@@ -349,7 +350,8 @@
                                 </div>
                             </div>
                             <div class="card-footer d-flex justify-content-between bg-light border">
-                                
+                                <!--<a href="detailProduct?MaSP=${o.getMaSP()}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>-->
+                                <!--<a href=""onclick ="addToCart(${o.getMaSP()})" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>-->
                                 <button onclick="detailProduct(${o.getMaSP()})" class="btn btn-sm text-dark p-0">
                                     <i class="fas fa-eye text-primary mr-1"></i>View Detail
                                 </button>
@@ -357,9 +359,10 @@
                                 <button onclick="addToCart(${o.getMaSP()})" class="btn btn-sm text-dark p-0">
                                      <i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart
                                 </button>
-                            </div>
+                                
                             </div>
                         </div>
+                    </div>
                         </c:forEach>
                         
 <!--                        <div class="col-12 pb-1">
@@ -457,7 +460,7 @@
                     </p>
                 </div>
                 <div class="col-md-6 px-xl-0 text-center text-md-right">
-                    <img class="img-fluid" src="img/payments.png" alt="">
+                    <img class="img-fluid" src="" alt="">
                 </div>
             </div>
         </div>

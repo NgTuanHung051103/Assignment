@@ -10,7 +10,7 @@
         <meta name="description" content="">
 
         <title>Admin - Dashboard</title>
-
+<link rel="icon" type="image/png" sizes="32x32" href="${pageContext.request.contextPath}/img/favicon-32x32.png">
         <!-- Custom fonts for this template-->
         <!--        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"

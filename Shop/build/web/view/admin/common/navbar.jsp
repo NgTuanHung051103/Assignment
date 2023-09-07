@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
+    
     <!-- Css -->
+    <link rel="icon" type="image/png" sizes="32x32" href="${pageContext.request.contextPath}/img/favicon-32x32.png">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common/navbar.css">
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/user/account/navbar.css">

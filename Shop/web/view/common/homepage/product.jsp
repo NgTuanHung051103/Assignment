@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<link rel="icon" type="image/png" sizes="32x32" href="${pageContext.request.contextPath}/img/favicon-32x32.png">
         <title>JSP Page</title>
     </head>
     <body>
@@ -122,9 +122,10 @@
             <div class="row px-xl-5 pb-3">
                 <c:forEach items="${requestScope.listTrandy}" var="o">
                     <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                        <div class="card product-item border-0 mb-4">
-                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="${o.getImg()}" alt="">
+                        <div class="card product-item border-0 mb-4" style="height: 90%;">
+                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0"
+                                    style = "height: 80%; display: flex; justify-content: center">
+                                <img style ="object-fit: contain;" class="img-fluid w-100" src="${o.getImg()}" alt="">
                             </div>
                             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                 <h6 class="text-truncate mb-3">${o.getTenSP()}</h6>

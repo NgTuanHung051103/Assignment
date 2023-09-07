@@ -18,6 +18,8 @@
         <title>QC Select</title>
 
         <!-- CSS -->
+        
+        <link rel="icon" type="image/png" sizes="32x32" href="${pageContext.request.contextPath}/img/favicon-32x32.png">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/user/homepage/login.css">
 
         <!-- Font -->
