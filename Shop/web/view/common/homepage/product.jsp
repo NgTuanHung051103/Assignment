@@ -48,37 +48,37 @@
         <div class="container-fluid pt-5">
             <div class="row px-xl-5 pb-3">
                 <div class="col-lg-3 col-md-6 pb-1">
-                    <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                    <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px; height: 100%">
                         <p class="text-right">15 Products</p>
-                        <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                            <img class="img-fluid" src="images/cat-1.jpg" alt="">
+                        <a style = "height: 76%; display: flex; justify-content: center;"href="" class="cat-img position-relative overflow-hidden mb-3">
+                            <img style ="object-fit: contain"  class="img-fluid" src="${pageContext.request.contextPath}/images/quat.jpg" alt="">
                         </a>
                         <h5 class="font-weight-semi-bold m-0">Quạt</h5>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 pb-1">
-                    <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                    <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;height: 100%">
                         <p class="text-right">15 Products</p>
-                        <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                            <img class="img-fluid" src="images/cat-1.jpg" alt="">
+                        <a  style = "height: 76%; display: flex; justify-content: center;" href="" class="cat-img position-relative overflow-hidden mb-3">
+                            <img style ="object-fit: contain"  class="img-fluid" src="${pageContext.request.contextPath}/images/maylanh.jpg" alt="">
                         </a>
                         <h5 class="font-weight-semi-bold m-0">Điều Hòa</h5>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 pb-1">
-                    <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                    <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;height: 100%">
                         <p class="text-right">15 Products</p>
-                        <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                            <img class="img-fluid" src="images/cat-1.jpg" alt="">
+                        <a style = "height: 76%; display: flex; justify-content: center;" href="" class="cat-img position-relative overflow-hidden mb-3">
+                            <img style ="object-fit: contain" class="img-fluid" src="${pageContext.request.contextPath}/images/tulanh.jpg" alt="">
                         </a>
                         <h5 class="font-weight-semi-bold m-0">Tủ Lạnh</h5>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 pb-1">
-                    <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                    <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;height: 100%">
                         <p class="text-right">15 Products</p>
-                        <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                            <img class="img-fluid" src="images/cat-1.jpg" alt="">
+                        <a  style = "height: 76%; display: flex; justify-content: center;" href="" class="cat-img position-relative overflow-hidden mb-3">
+                            <img style ="object-fit: contain"  class="img-fluid" src="${pageContext.request.contextPath}/images/tivi.jpg" alt="">
                         </a>
                         <h5 class="font-weight-semi-bold m-0">Tivi</h5>
                     </div>
@@ -88,7 +88,7 @@
         <!-- Categories End -->
 
         <!-- Offer Start -->
-        <div class="container-fluid offer pt-5">
+<!--        <div class="container-fluid offer pt-5">
             <div class="row px-xl-5">
                 <div class="col-md-6 pb-4">
                     <div class="position-relative bg-secondary text-center text-md-right text-white mb-2 py-5 px-5">
@@ -111,7 +111,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!-- Offer End -->
 
         <!-- Products Start -->
